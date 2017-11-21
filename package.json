@@ -14,6 +14,7 @@
   "author": "EMBL-EBI-SUBS",
   "license": "Apache-2.0",
   "dependencies": {
-    "ajv": "^6.0.0-beta.2"
+    "ajv": "^6.0.0-beta.2",
+    "ajv-keywords": "^2.1.1"
   }
 }
