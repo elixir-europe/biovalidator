@@ -103,26 +103,7 @@
           }
         }
       },
-      "required": ["material", "project"],
-      
-      "switch": [      
-        {
-          "if": { "properties": { "material": { "properties": { "value": "cell specimen" } } } },
-          "then": {
-            "required": ["cell_type", "purification_protocol"],
-            "sampleRelationships": {
-              "contains": {
-                "type": "object",
-                "properties": {
-                  "nature": {
-                    "const": "derived from"
-                  }
-                }
-              }
-            }
-          }
-        }
-      ]
+      "required": ["material", "project"]  
     }
   },
   "required": ["alias", "taxonId", "attributes"]

@@ -6,10 +6,13 @@ var inputSchema = fs.readFileSync('schemas/faang-schema.json');
 var jsonSchema = JSON.parse(inputSchema);
 var validate = ajv.compile(jsonSchema);
 
-var inputObject = fs.readFileSync('objects/faang-sample.json');
-var jsonObject = JSON.parse(inputObject);
+var inputAnimal = fs.readFileSync('objects/faang-animal-sample.json');
+var jsonAnimal = JSON.parse(inputAnimal);
+test(jsonAnimal);
 
-test(jsonObject);
+var inputCellSpecimen = fs.readFileSync('objects/faang-cellSpecimen-sample.json');
+var jsonCellSpecimen = JSON.parse(inputCellSpecimen);
+test(jsonCellSpecimen);
 
 function test(data) {
   var valid = validate(data);
