@@ -66,6 +66,7 @@
           "const": "FAANG"
         },
         "availability": {
+          "discription": "Either a link to a web page giving information on sample availability (who to contact and if the sample is available).",
           "type": "string",
           "format": "uri"
         },
@@ -96,7 +97,7 @@
               },
               "nature": {
                 "description": "Nature of the relationship between the samples.",
-                "const": "same as"
+                "enum": ["same as", "derived from"]
               }
             },
             "required": ["target", "nature"]
@@ -106,7 +107,13 @@
       "if": {
         "properties": {"material": {"properties": {"value": {"pattern": "^cell specimen$"}}}}
       },
-      "then": {"required": ["material", "project", "cell_type", "purification_protocol"]},
+      "then": {
+        "required": ["material", "project", "cell_type", "purification_protocol", "sampleRelationships"],
+        "properties": {"sampleRelationships": {"contains": {
+          "type": "object",
+          "properties": {"nature": {"pattern": "^derived from$"}}
+        }}}
+      },
       "else": {"required": ["material", "project"]}
     }
   },
