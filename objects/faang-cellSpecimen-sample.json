@@ -61,6 +61,8 @@
         "Role": "material supplier role ",
         "URL": "http://www.ans.msu.edu/"
       }
-    ]
+    ],
+    "cell_type": "https://www.ebi.ac.uk/ols/ontologies/cl/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FCL_0000000",
+    "purification_protocol": "http://bio-protocol.org/e1827"
   }
 }

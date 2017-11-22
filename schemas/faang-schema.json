@@ -103,7 +103,11 @@
           }
         }
       },
-      "required": ["material", "project"]  
+      "if": {
+        "properties": {"material": {"properties": {"value": {"pattern": "^cell specimen$"}}}}
+      },
+      "then": {"required": ["material", "project", "cell_type", "purification_protocol"]},
+      "else": {"required": ["material", "project"]}
     }
   },
   "required": ["alias", "taxonId", "attributes"]
