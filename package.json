@@ -2,7 +2,8 @@
   "name": "json-schema-validator",
   "version": "0.1.0",
   "description": "A nodejs JSON schema validator.",
-  "main": "app.js",
+  "main": "server.js",
+  "repository": "https://github.com/EMBL-EBI-SUBS/json-schema-validator.git",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,7 +15,9 @@
   "author": "EMBL-EBI-SUBS",
   "license": "Apache-2.0",
   "dependencies": {
-    "ajv": "^6.0.0-beta.2",
-    "ajv-keywords": "^2.1.1"
+    "ajv": "^6.0.0-rc.0",
+    "ajv-keywords": "^2.1.1",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
   }
 }
