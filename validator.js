@@ -12,6 +12,7 @@ function validate(inputSchema, submittable) {
   }
 }
 
+module.exports = {validate};
 
 /*
 // Example test
@@ -34,5 +35,3 @@ var validate = ajv.compile(schema);
 var inputExample = JSON.parse(fs.readFileSync('objects/example.json'));
 test(inputExample);
 */
-
-module.exports = {validate};

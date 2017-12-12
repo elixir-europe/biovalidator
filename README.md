@@ -37,7 +37,7 @@ npm install
 ### Executing
 At this date (29/11/2017) the project has a very basic structure, to run it all you need to do is run the following command from within the project directory:
 ```
-node app.js
+node server.js
 ```
 
 ### Development

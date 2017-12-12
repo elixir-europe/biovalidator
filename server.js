@@ -11,7 +11,6 @@ app.post('/validate', (req, res) => {
   var submittable = req.body.submittable;
   
   var results = validate(inputSchema, submittable);
-  console.log(results);
   
   res.status(200).send(results);
 });
