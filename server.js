@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-var {validate} = require('./validator')
+var {validate} = require('./validator');
 
 var app = express();
 app.use(bodyParser.json());
