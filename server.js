@@ -15,6 +15,16 @@ app.post('/validate', (req, res) => {
   res.status(200).send(results);
 });
 
+app.get('/validate', (req, res) => {
+  res.send({
+    message: "This is the USI JSON Schema Validator. Please POST to this endpoint the schema and object to validate structured as in bodyStructure.",
+    bodyStructure: {
+      schema: {},
+      submittable: {}
+    }
+  })
+});
+
 app.listen(3000, () => {
   console.log('Server is up on port 3000')
 });
