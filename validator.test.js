@@ -1,7 +1,7 @@
 const expect = require('expect');
 const fs = require('fs');
 
-const {runValidation} = require('./validator');
+const runValidation = require('./validator');
 
 it('Empty schema, it should validate', () => {
   let res = runValidation({}, {});
@@ -14,7 +14,7 @@ it('FAANG Schema, it should fail', () => {
   var inputSchema = fs.readFileSync('examples/schemas/faang-schema.json');
   var jsonSchema = JSON.parse(inputSchema);
   
-  let res = runValidation(inputSchema, {});
-  console.log(res.result);
+  let res = runValidation(jsonSchema, {});
   expect(res).toBeA('object');
+  expect(res.result).toBeA('string').toNotBe('Valid!');
 });

@@ -12,7 +12,7 @@ function runValidation(inputSchema, submittable) {
   }
 }
 
-module.exports = {runValidation};
+module.exports = runValidation;
 
 /*
 // Example test

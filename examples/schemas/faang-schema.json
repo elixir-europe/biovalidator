@@ -57,16 +57,6 @@
                 {"pattern": "\\S*?OBI_0001876$"},
                 {"pattern": "\\S*?CLO_0000031$"}
               ]
-            },
-            "if": {"value": {"pattern": "^organism$"}},
-            "then": {"ontologyTerms": {"pattern": "\\S*?OBI_0100026$"}},
-            "else": {
-              "if": {"value": {"pattern": "^specimen from organism"}},
-              "then": {"ontologyTerms": {"pattern": "\\S*?OBI_0001479$"}},
-              "else": {
-                "if": {"value": {"pattern": "^cell specimen"}},
-                "then": {"ontologyTerms": {"pattern": "\\S*?OBI_0001468$"}}
-              }
             }
           },
           "required": ["value", "ontologyTerms"]
