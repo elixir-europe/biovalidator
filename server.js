@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-var {validate} = require('./validator');
+var {runValidation} = require('./validator');
 
 var app = express();
 app.use(bodyParser.json());
@@ -10,7 +10,7 @@ app.post('/validate', (req, res) => {
   var inputSchema = req.body.schema;
   var submittable = req.body.submittable;
   
-  var results = validate(inputSchema, submittable);
+  var results = runValidation(inputSchema, submittable);
   
   res.status(200).send(results);
 });

@@ -2,7 +2,7 @@ var Ajv = require('ajv');
 var ajv = new Ajv({allErrors: true});
 //const fs = require('fs');
 
-function validate(inputSchema, submittable) {
+function runValidation(inputSchema, submittable) {
   var validate = ajv.compile(inputSchema);
   var valid = validate(submittable);
   if (valid) {
@@ -12,7 +12,7 @@ function validate(inputSchema, submittable) {
   }
 }
 
-module.exports = {validate};
+module.exports = {runValidation};
 
 /*
 // Example test
