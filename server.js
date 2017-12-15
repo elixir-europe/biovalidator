@@ -7,6 +7,7 @@ var app = express();
 app.use(bodyParser.json());
 
 app.post('/validate', (req, res) => {
+  console.log('Received validation request!');
   var inputSchema = req.body.schema;
   var submittable = req.body.submittable;
   

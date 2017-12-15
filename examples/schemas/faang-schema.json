@@ -57,6 +57,12 @@
                 {"pattern": "\\S*?OBI_0001876$"},
                 {"pattern": "\\S*?CLO_0000031$"}
               ]
+            },
+            "if": {
+              "value": {"pattern": "^organism$"}
+            },
+            "then": {
+               "ontologyTerms": {"pattern": "\\S*?OBI_0100026$"}
             }
           },
           "required": ["value", "ontologyTerms"]
