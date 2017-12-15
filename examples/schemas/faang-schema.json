@@ -23,7 +23,7 @@
       "type": "string"
     },
     "description": {
-      "description": "A sample description.",
+      "description": "A brief description of the sample including species name.",
       "type": "string"
     },
 
