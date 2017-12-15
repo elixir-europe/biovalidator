@@ -9,7 +9,7 @@
   "attributes": {
     "material": {
       "value": "cell specimen",
-      "ontologyTerms": "http://purl.obolibrary.org/obo/OBI_0100026"
+      "ontologyTerms": "http://purl.obolibrary.org/obo/OBI_0001468"
     },
     "project": "FAANG",
     "organism": [
