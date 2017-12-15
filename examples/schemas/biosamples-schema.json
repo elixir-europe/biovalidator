@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Sample",
+  "description": "A BioSamples sample.",
+
+  "type": "object",
+  "properties": {
+    "alias": {
+      "description": "A sample unique identifier in a submission.",
+      "type": "string"
+    },
+    "releaseDate": {
+      "description": "Date from which this sample is released publicly.",
+      "type": "string",
+      "format": "date"
+    },
+    "sampleRelationships": {
+      "description": "List of relationships between samples.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "description": "Sample accession to which the sample relationship refers to.",
+            "type": "string"
+          },
+          "nature": {
+            "description": "Sample accession to which the sample relationship refers to.",
+            "type": "string",
+            "enum": ["derived from", "child of", "same as", "recurated from"]
+          }
+        },
+        "required": ["target", "nature"]
+        }
+      }
+    },
+  "required": ["alias", "releaseDate"]
+}
