@@ -1,4 +1,5 @@
 # JSON Schema Validator
+[![Build Status](https://travis-ci.org/EMBL-EBI-SUBS/json-schema-validator.svg?branch=master)](https://travis-ci.org/EMBL-EBI-SUBS/json-schema-validator)
 
 This repository contains a prototype (at this point) of a validator using [JSON Schema](http://json-schema.org/) 
 draft-07 for the Unified Submission Interface (USI) project.
@@ -34,12 +35,17 @@ cd json-schema-validator
 npm install
 ```
 
+### Running the Tests
+```
+node test
+```
+
 ### Executing
 At this date (29/11/2017) the project has a very basic structure, to run it all you need to do is run the following command from within the project directory:
 ```
-node server.js
+node server
 ```
-
+The node server will run on port 3000.
 ### Development
 For developement purposes using [nodemon](https://nodemon.io/) is useful. It reloads the application everytime something changes on save time.
 
