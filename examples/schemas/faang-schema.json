@@ -48,21 +48,28 @@
             },
             "ontologyTerms": {
               "type": "string",
-              "format": "url",
-              "oneOf": [
-                {"pattern": "\\S*?OBI_0100026$"},
-                {"pattern": "\\S*?OBI_0001479$"},
-                {"pattern": "\\S*?OBI_0001468$"},
-                {"pattern": "\\S*?OBI_0302716$"},
-                {"pattern": "\\S*?OBI_0001876$"},
-                {"pattern": "\\S*?CLO_0000031$"}
-              ]
-            },
-            "if": {
-              "value": {"pattern": "^organism$"}
-            },
-            "then": {
-               "ontologyTerms": {"pattern": "\\S*?OBI_0100026$"}
+              "format": "url"
+            }
+          },
+          "if": {"properties": {"value": {"pattern": "^organism$"}}},
+          "then": {"properties": {"ontologyTerms": {"pattern": "\\S*?OBI_0100026$"}}},
+          "else": {
+            "if": {"properties": {"value": {"pattern": "^specimen from organism$"}}},
+            "then":{"properties": {"ontologyTerms": {"pattern": "\\S*?OBI_0001479$"}}},
+            "else": {
+              "if": {"properties": {"value": {"pattern": "^cell specimen$"}}},
+              "then": {"properties": {"ontologyTerms": {"pattern": "\\S*?OBI_0001468$"}}},
+              "else": {
+                "if": {"properties": {"value": {"pattern": "^pool of specimens"}}},
+                "then": {"properties": {"ontologyTerms": {"pattern": "\\S*?OBI_0302716$"}}},
+                "else": {
+                  "if": {"properties": {"value": {"pattern": "^cell culture"}}},
+                  "then": {"properties": {"ontologyTerms": {"pattern": "\\S*?OBI_0001876$"}}},
+                  "else": {
+                    "properties": {"ontologyTerms": {"pattern": "\\S*?CLO_0000031$"}}
+                  }
+                }
+              }
             }
           },
           "required": ["value", "ontologyTerms"]
