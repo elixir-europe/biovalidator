@@ -84,18 +84,32 @@
           "format": "uri"
         },
         "purification_protocol": {
-          "description": "Link to protocol describing how the cells were purified",
+          "description": "[Cell specimen] Link to protocol describing how the cells were purified",
           "type": "string",
           "format": "uri"
         },
         "cell_type": {
-          "description": "Provide a cell type from the CL ontology.",
+          "description": "[Cell specimen] Provide a cell type from the CL ontology.",
           "type": "string",
           "format": "uri"
         },
         "markers": {
-          "description": "Markers used to isolate and identify the cell type (e.g. for FACS sorted cells)",
+          "description": "[Cell specimen] Markers used to isolate and identify the cell type (e.g. for FACS sorted cells)",
           "type": "string"
+        },
+        "poolCreationDate": {
+          "description": "[Pool of specimens] Date at which the pool was created.",
+          "type": "string",
+          "format": "date"
+        },
+        "poolCreationProtocol": {
+          "description": "[Pool of specimens] A link to the protocol for pool of specimens creation.",
+          "type": "string",
+          "format": "uri"
+        },
+        "specimenVolume": {
+          "description": "[Pool of specimens] Pool specimen volume. Total sum from multiple specimens.",
+          "type": "integer"
         },
         "sampleRelationships": {
           "description": "List of relationships between samples.",
@@ -127,8 +141,32 @@
           "properties": {"nature": {"pattern": "^derived from$"}}
         }}}
       },
-      "else": {"required": ["material", "project"]}
+      "else": {
+        "if": {
+          "properties": {"material": {"properties": {"value": {"pattern": "^pool of specimens$"}}}}
+        },
+        "then": {
+          "required": ["material", "project", "poolCreationDate", "poolCreationProtocol", "sampleRelationships"],
+          "properties": {"sampleRelationships": {"contains": {
+            "type": "object",
+            "properties": {"nature": {"pattern": "^derived from$"}}
+          }}}
+        },
+        "else" :{
+          "required": ["material", "project"]
+        }
+      }
     }
   },
   "required": ["alias", "taxonId", "attributes"]
 }
+
+
+
+
+
+
+
+
+
+

@@ -66,3 +66,15 @@ it('BioSamples Schema, cell specimen sample it should pass', () => {
   expect(res).toBeA('object');
   expect(res.result).toBeA('string').toBe('Valid!');
 });
+
+it('FAANG Schema, pool of specimens sample it should pass', () => {
+  var inputSchema = fs.readFileSync('examples/schemas/faang-schema.json');
+  var jsonSchema = JSON.parse(inputSchema);
+  
+  var inputObj = fs.readFileSync('examples/objects/faang-poolOfSpecimens-sample.json');
+  var jsonObj = JSON.parse(inputObj);
+  
+  let res = runValidation(jsonSchema, jsonObj);
+  expect(res).toBeA('object');
+  expect(res.result).toBeA('string').toBe('Valid!');
+});
