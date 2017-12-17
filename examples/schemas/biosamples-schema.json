@@ -31,8 +31,35 @@
           }
         },
         "required": ["target", "nature"]
-        }
       }
     },
+    "attributes": {
+      "type": "object",
+      "properties": {},
+      "patternProperties": {
+        "^.*$": { 
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "properties": {
+              "value": {
+                "type": "string",
+                "minLength": 1
+              },
+              "units": {"type": "string"},
+              "terms": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              }
+            },
+            "required": ["value"]
+          }
+        }
+      }
+    }
+  },  
   "required": ["alias", "releaseDate"]
 }

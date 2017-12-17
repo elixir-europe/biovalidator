@@ -1,74 +1,26 @@
 {
-  "accession": "SAMEA4454592",
-  "alias": "SSC_UCD_P350",
-  "taxonId": 9823,
-  "taxon": "Sus scrofa",
-  "description": "Adult Male, 6 months of age",
-  "updateDate": "2016-10-25",
-  "releaseDate": "2016-06-06",
+  "accession": "SAMEA104495058",
+  "alias": "OAR_USU_Benz2616_MACAL",
+  "taxonId": 0,
+  "taxon": "",
+  "description": "",
+  "updateDate": "2017-10-05",
+  "releaseDate": "2017-09-20",
+  "description": "alveolar macrophages",
   "attributes": {
-    "material": {
+    "material": [{
       "value": "cell specimen",
-      "ontologyTerms": "http://purl.obolibrary.org/obo/OBI_0001468"
-    },
-    "project": "FAANG",
-    "organism": [
-      {
-        "text": "Sus scrofa",
-        "ontologyTerms": [
-          "http://purl.obolibrary.org/obo/NCBITaxon_9823"
-        ]
-      }
-    ],
-    "healthStatus": [
-      {
-        "text": "normal",
-        "ontologyTerms": [
-          "http://purl.obolibrary.org/obo/PATO_0000461"
-        ]
-      }
-    ],
-    "sex": [
-      {
-        "text": "male",
-        "ontologyTerms": [
-          "http://purl.obolibrary.org/obo/PATO_0000384"
-        ]
-      }
-    ],
-    "birthDate": [
-      {
-        "text": "2014-08-04",
-        "unit": "YYYY-MM-DD"
-      }
-    ],
-    "breed": [
-      {
-        "text": "Yorkshire",
-        "ontologyTerms": [
-          "http://purl.obolibrary.org/obo/LBO_0000338"
-        ]
-      }
-    ],
-    "contact": [
-      {
-        "Name": "Tasha Thompson"
-      }
-    ],
-    "organization": [
-      {
-        "Name": "Michigan State University, Department of Animal Science",
-        "Role": "material supplier role ",
-        "URL": "http://www.ans.msu.edu/"
-      }
-    ],
-    "cell_type": "https://www.ebi.ac.uk/ols/ontologies/cl/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FCL_0000000",
-    "purification_protocol": "http://bio-protocol.org/e1827",
-    "sampleRelationships": [
-      {
-        "target": "SAME123345",
-        "nature": "derived from"
-      }
-    ]
+      "terms":["http://purl.obolibrary.org/obo/OBI_0001468"]
+    }],
+    "cellType": [{
+      "value": "alveolar macrophage",
+      "terms": ["http://purl.obolibrary.org/obo/CL_0000583"]
+    }],
+    "project": [{
+      "value": "FAANG"
+    }],
+    "purificationProtocol": [{
+      "value": "ftp://ftp.faang.ebi.ac.uk/ftp/protocols/samples/USU_SOP_Ovine_Benz2616_Cell_Isolation_20160426.pdf"
+    }]
   }
 }

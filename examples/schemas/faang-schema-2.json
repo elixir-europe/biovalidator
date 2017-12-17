@@ -1,0 +1,135 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FAANG standard schema",
+  "description": "Schema based on rules found in https://www.ebi.ac.uk/vg/faang/rule_sets/FAANG%20Samples.",
+ 
+  "type": "object",
+  "properties": {
+    
+    "alias": {
+      "description": "A sample unique identifier in a submission.",
+      "type": "string"
+    },
+    "taxonId": {
+      "description": "The taxonomy id for the sample species.",
+      "type": "integer"
+    },
+    "taxon": {
+      "description": "The taxonomy name for the sample species.",
+      "type": "string"
+    },
+    "title": {
+      "description": "A sample title.",
+      "type": "string"
+    },
+    "releaseDate": {
+      "description": "Date from which this sample is released publicly.",
+      "type": "string",
+      "format": "date"
+    },
+    "description": {
+      "description": "A brief description of the sample including species name.",
+      "type": "string"
+    },
+    "sampleRelationships": {
+      "description": "List of relationships between samples.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "description": "Sample accession to which the sample relationship refers to.",
+            "type": "string"
+          },
+          "nature": {
+            "description": "Sample accession to which the sample relationship refers to.",
+            "type": "string",
+            "enum": ["derived from", "child of", "same as", "recurated from"]
+          }
+        },
+        "required": ["target", "nature"]
+      }
+    },
+    
+    "attributes": {
+      "description": "Attributes for describing a sample.",
+      "type": "object",
+      "properties": {
+        
+        "project": {
+          "description": "State that the project is 'FAANG'",
+          "items": {
+            "properties": {
+              "value": {
+                "const": "FAANG"
+              }
+            }
+          }
+        },
+        "material": {
+          "description": "The type of material being described.",
+          "items": {
+            "properties": {
+              "value": {
+                "enum": [
+                  "organism",
+                  "specimen from organism",
+                  "cell specimen",
+                  "pool of specimens",
+                  "cell culture",
+                  "cell line"
+                ]
+              }
+            },
+            "if": {"properties": {"value": {"pattern": "^organism$"}}},
+            "then": {"properties": {"terms": {"contains": {"pattern": "\\S*?OBI_0100026$"}}}},
+            "else": {
+              "if": {"properties": {"value": {"pattern": "^specimen from organism$"}}},
+              "then":{"properties": {"terms": {"contains": {"pattern": "\\S*?OBI_0001479$"}}}},
+              "else": {
+                "if": {"properties": {"value": {"pattern": "^cell specimen$"}}},
+                "then": {"properties": {"terms": {"contains": {"pattern": "\\S*?OBI_0001468$"}}}},
+                "else": {
+                  "if": {"properties": {"value": {"pattern": "^pool of specimens"}}},
+                  "then": {"properties": {"terms": {"contains": {"pattern": "\\S*?OBI_0302716$"}}}},
+                  "else": {
+                    "if": {"properties": {"value": {"pattern": "^cell culture"}}},
+                    "then": {"properties": {"terms": {"contains": {"pattern": "\\S*?OBI_0001876$"}}}},
+                    "else": {
+                      "properties": {"terms": {"contains": {"pattern": "\\S*?CLO_0000031$"}}}
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "patternProperties": {
+        "^.*$": { 
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "minLength": 1
+              },
+              "units": {"type": "string"},
+              "terms": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              }
+            },
+            "required": ["value"]
+          }
+        }
+      }
+    }
+    
+  }
+}
