@@ -10,6 +10,18 @@ it('Empty Schema, it should pass', () => {
   expect(res.result).toBeA('string').toBe('Valid!');
 });
 
+it('Attributes Schema, attributes it should pass', () => {
+  var inputSchema = fs.readFileSync('examples/schemas/attributes-schema.json');
+  var jsonSchema = JSON.parse(inputSchema);
+  
+  var inputObj = fs.readFileSync('examples/objects/attributes.json');
+  var jsonObj = JSON.parse(inputObj);
+  
+  let res = runValidation(jsonSchema, jsonObj);
+  expect(res).toBeA('object');
+  expect(res.result).toBeA('string').toBe('Valid!');
+});
+
 it('FAANG Schema, empty object it should fail', () => {
   var inputSchema = fs.readFileSync('examples/schemas/faang-schema.json');
   var jsonSchema = JSON.parse(inputSchema);

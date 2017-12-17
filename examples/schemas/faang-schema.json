@@ -160,13 +160,3 @@
   },
   "required": ["alias", "taxonId", "attributes"]
 }
-
-
-
-
-
-
-
-
-
-
