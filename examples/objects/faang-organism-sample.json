@@ -32,6 +32,9 @@
     }],
     "project": [{
       "value": "FAANG"
+    }],
+    "availability": [{
+      "value": "mailto:test@submitter.com"
     }]
   }
 }

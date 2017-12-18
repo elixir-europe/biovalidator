@@ -5,8 +5,17 @@
 
   "type": "object",
   "properties": {
+    
     "alias": {
       "description": "A sample unique identifier in a submission.",
+      "type": "string"
+    },
+    "taxonId": {
+      "description": "The taxonomy id for the sample species.",
+      "type": "integer"
+    },
+    "taxon": {
+      "description": "The taxonomy name for the sample species.",
       "type": "string"
     },
     "releaseDate": {
@@ -61,5 +70,5 @@
       }
     }
   },  
-  "required": ["alias", "releaseDate"]
+  "required": ["alias", "taxonId", "taxon", "releaseDate"]
 }

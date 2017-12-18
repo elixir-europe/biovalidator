@@ -39,12 +39,13 @@
         "properties": {
           "target": {
             "description": "Sample accession to which the sample relationship refers to.",
-            "type": "string"
+            "type": "string",
+            "pattern": "^SAM[END][AG]?[0-9]+"
           },
           "nature": {
-            "description": "Sample accession to which the sample relationship refers to.",
+            "description": "Nature of the relationship between the samples.",
             "type": "string",
-            "enum": ["derived from", "child of", "same as", "recurated from"]
+            "enum": ["derived from", "same as"]
           }
         },
         "required": ["target", "nature"]
@@ -100,6 +101,19 @@
                     }
                   }
                 }
+              }
+            }
+          }
+        },
+        "availability": {
+          "discription": "Either a link to a web page giving information on sample availability (who to contact and if the sample is available).",
+          "items": {
+            "properties": {
+              "value": {
+                "anyOf": [
+                  {"format": "uri"},
+                  {"pattern": "^mailto:.*$"}
+                ]
               }
             }
           }
