@@ -45,7 +45,7 @@
           "nature": {
             "description": "Nature of the relationship between the samples.",
             "type": "string",
-            "enum": ["derived from", "same as"]
+            "enum": ["derived from", "same as", "child of"]
           }
         },
         "required": ["target", "nature"]
@@ -59,6 +59,7 @@
         
         "project": {
           "description": "State that the project is 'FAANG'",
+          "maxItems": 1,
           "items": {
             "properties": {
               "value": {
@@ -69,6 +70,7 @@
         },
         "material": {
           "description": "The type of material being described.",
+          "maxItems": 1,
           "items": {
             "properties": {
               "value": {
@@ -107,6 +109,7 @@
         },
         "availability": {
           "discription": "Either a link to a web page giving information on sample availability (who to contact and if the sample is available).",
+          "maxItems": 1,
           "items": {
             "properties": {
               "value": {
@@ -114,6 +117,120 @@
                   {"format": "uri"},
                   {"pattern": "^mailto:.*$"}
                 ]
+              }
+            }
+          }
+        },
+        "sex":{
+          "description": "Animal sex, described using any child term of PATO_0000047",
+          "maxItems": 1
+        },
+        "birthDate": {
+          "description": "Birth date, in the format YYYY-MM-DD, or YYYY-MM where only the month is known. For embryo samples record 'not applicable'.",
+          "maxItems": 1,
+          "items": {
+            "properties": {
+              "units": {
+                "enum": ["YYYY-MM-DD", "YYYY-MM", "YYYY"]
+              }
+            }
+          }
+        },
+        "breed": {
+          "description": "Animal breed, described using the FAANG breed description guidelines (http://bit.ly/FAANGbreed).",
+          "maxItems": 1
+        },
+        "healthStatus": {
+          "description": "Healthy animals should have the term normal, otherwise use the as many disease terms as necessary from EFO."
+        },
+        "birthLocation": {
+          "description": "Name of the birth location",
+          "maxItems": 1
+        },
+        "birthLocationLongitude": {
+          "description": "Longitude of the birth location in decimal degrees.",
+          "maxItems": 1,
+          "items": {
+            "properties": {
+              "units": {
+                "enum": ["decimal degrees"]
+              }
+            }
+          }
+        },
+        "birthLocationLatitude": {
+          "description": "Latitude of the birth location in decimal degrees.",
+          "maxItems": 1,
+          "items": {
+            "properties": {
+              "units": {
+                "enum": ["decimal degrees"]
+              }
+            }
+          }
+        },
+        "birthWeight": {
+          "description": "Birth weight, in kilograms or grams.",
+          "maxItems": 1,
+          "items": {
+            "properties": {
+              "units": {
+                "enum": ["kilograms", "grams"]
+              }
+            }
+          }
+        },
+        "placentalWeight": {
+          "description": "Placental weight, in kilograms or grams.",
+          "maxItems": 1,
+          "items": {
+            "properties": {
+              "units": {
+                "enum": ["kilograms", "grams"]
+              }
+            }
+          }
+        },
+        "pregnancyLength": {
+          "description": "Pregnancy length of time, in days, weeks or months.",
+          "maxItems": 1,
+          "items": {
+            "properties": {
+              "units": {
+                "enum": ["day", "week", "month", "days", "weeks", "months"]
+              }
+            }
+          }
+        },
+        "deliveryTiming": {
+          "description": "Was pregancy full-term. early or delayed.",
+          "maxItems": 1,
+          "items": {
+            "properties": {
+              "value": {
+                "enum": ["early parturition", "full-term parturition", "delayed parturition"]
+              }
+            }
+          }
+        },
+        "deliveryEase": {
+          "description": "Did the delivery require assistance.",
+          "maxItems": 1,
+          "items": {
+            "properties": {
+              "value": {
+                "enum": ["normal autonomous delivery", "c-section", "veterinarian assisted"]
+              }
+            }
+          }
+        },
+        "pedigree": {
+          "description": "A link to pedigree information for the animal",
+          "maxItems": 1,
+          "items": {
+            "properties": {
+              "value": {
+                "format": "uri"
               }
             }
           }
@@ -145,5 +262,9 @@
       }
     }
     
-  }
+  },
+  "if": {"properties": {"attributes": {"properties": {"material": {"properties": {"value": {"pattern": "^organism$"}}}}}}},
+  "then": {"properties": {"attributes": {"required": ["sex", "breed"]}}},
+  "else": {},
+  "required": ["alias", "taxonId", "taxon"]
 }

@@ -20,7 +20,8 @@
       "terms": ["http://purl.obolibrary.org/obo/PATO_0000383"]
     }],
     "birthDate": [{
-      "value": "2009"
+      "value": "2009",
+      "units": "YYYY"
     }],
     "breed": [{
       "value": "Spanish Churra",
