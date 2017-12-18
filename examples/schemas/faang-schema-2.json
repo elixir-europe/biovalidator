@@ -34,6 +34,7 @@
     "sampleRelationships": {
       "description": "List of relationships between samples.",
       "type": "array",
+      "minItems": 1,
       "items": {
         "type": "object",
         "properties": {
@@ -56,7 +57,6 @@
       "description": "Attributes for describing a sample.",
       "type": "object",
       "properties": {
-        
         "project": {
           "description": "State that the project is 'FAANG'",
           "maxItems": 1,
@@ -122,7 +122,7 @@
           }
         },
         "sex":{
-          "description": "Animal sex, described using any child term of PATO_0000047",
+          "description": "Animal sex, described using any child term of PATO_0000047.",
           "maxItems": 1
         },
         "birthDate": {
@@ -234,8 +234,129 @@
               }
             }
           }
+        },
+        "specimenCollectionDate": {
+          "description": "Date at which the specimen was collected.",
+          "maxItems": 1,
+          "items": {
+            "properties": {
+              "units": {
+                "enum": ["YYYY-MM-DD", "YYYY-MM", "YYYY"]
+              }
+            }
+          }
+        },
+        "animalAgeAtCollection": {
+          "description": "Animal age at the point of collection. An estimate is acceptable where the age is not precisely known.",
+          "maxItems": 1,
+          "items": {
+            "properties": {
+              "units": {
+                "enum": ["hour", "day", "week", "month", "year", "hours", "days", "weeks", "months", "years"]
+              }
+            }
+          }
+        },
+        "developmentalStage": {
+          "description": "Developmental stage, any child term of EFO_0000399.",
+          "maxItems": 1
+        },
+        "healthStatusAtCollection": {
+          "description": "Animal disease / health status at point of collection. Healthy animals should have the term normal, otherwise use the as many disease terms as necessary from EFO."
+        },
+        "organismPart": {
+          "description": "Ontology for part of organism specimen from, UBERON is preferred to BTO.",
+          "maxItems": 1
+        },
+        "specimenCollectionProtocol": {
+          "description": "A link to the protocol for specimen collection.",
+          "maxItems": 1,
+          "items": {
+            "properties": {
+              "value": {
+                "format": "uri"
+              }
+            }
+          }
+        },
+        "fastedStatus": {
+          "description": "Fed, fasted or unknown. Criteria for this status must be in your protocol.",
+          "maxItems": 1,
+          "items": {
+            "properties": {
+              "value": {
+                "enum": ["fed", "fasted", "unknown"]
+              }
+            }
+          }
+        },
+        "numberOfPieces": {
+          "description": "Number of specimen piecies used.",
+          "maxItems": 1,
+          "items": {
+            "properties": {
+              "units": {
+                "enum": ["count"]
+              }
+            }
+          }
+        },
+        "specimenVolume": {
+          "description": "Specimen volume. Total sum if using multiple specimen pieces.",
+          "maxItems": 1,
+          "items": {
+            "properties": {
+              "units": {
+                "enum": ["square centimeters", "liters", "milliliters"]
+              }
+            }
+          }
+        },
+        "specimenSize": {
+          "description": "Specimen size. Total sum if using multiple specimen pieces.",
+          "maxItems": 1,
+          "items": {
+            "properties": {
+              "units": {
+                "enum": ["meters", "centimeters", "millimeters", "square meters", "square centimeters", "square millimeters"]
+              }
+            }
+          }
+        },
+        "specimenWeight": {
+          "description": "Specimen weight. Total sum if using multiple specimen pieces.",
+          "maxItems": 1,
+          "items": {
+            "properties": {
+              "units": {
+                "enum": ["kilograms", "grams"]
+              }
+            }
+          }
+        },
+        "specimenPictureUrl": {
+          "description": "A link a picture of the specimen, multiple links allowed",
+          "items": {
+            "properties": {
+              "value": {
+                "format": "url"
+              }
+            }
+          }
+        },
+        "gestationalAgeAtSampleCollection": {
+          "description": "If the animal was pregnant when the specimen was taken, state how long had been pregnant for",
+          "maxItems": 1,
+          "items": {
+            "properties": {
+              "units": {
+                "enum": ["day", "week", "days", "weeks"]
+              }
+            }
+          }
         }
       },
+      "required": ["material", "project"],
       "patternProperties": {
         "^.*$": { 
           "type": "array",
@@ -263,8 +384,15 @@
     }
     
   },
-  "if": {"properties": {"attributes": {"properties": {"material": {"properties": {"value": {"pattern": "^organism$"}}}}}}},
+  "if": {"properties": {"attributes": {"properties": {"material": {"items": {"properties": {"value": {"pattern": "^organism$"}}}}}}}},
   "then": {"properties": {"attributes": {"required": ["sex", "breed"]}}},
-  "else": {},
-  "required": ["alias", "taxonId", "taxon"]
+  "else": {
+    "if": {"properties": {"attributes": {"properties": {"material": {"items": {"properties": {"value": {"pattern": "^specimen from organism$"}}}}}}}},
+    "then": {
+      "properties": {"attributes": {"required": ["specimenCollectionDate", "animalAgeAtCollection", "developmentalStage", "organismPart", "specimenCollectionProtocol"]}},
+      "required": ["sampleRelationships"]
+    },
+    "else": {"properties": {"attributes": {"required": []}}}
+  },
+  "required": ["alias", "taxonId", "taxon", "attributes"]
 }
