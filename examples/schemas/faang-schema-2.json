@@ -390,7 +390,8 @@
     "if": {"properties": {"attributes": {"properties": {"material": {"items": {"properties": {"value": {"pattern": "^specimen from organism$"}}}}}}}},
     "then": {
       "properties": {"attributes": {"required": ["specimenCollectionDate", "animalAgeAtCollection", "developmentalStage", "organismPart", "specimenCollectionProtocol"]}},
-      "required": ["sampleRelationships"]
+      "required": ["sampleRelationships"],
+      "properties": {"sampleRelationships": {"contains": {"properties": {"nature": {"pattern": "^derived from$"}}}}}
     },
     "else": {"properties": {"attributes": {"required": []}}}
   },

@@ -42,8 +42,18 @@
       "value": "50"
     }]
   },
-  "sampleRelationships": [{
-    "target": "SAMN04252560",
-    "nature": "same as"
-  }]
+  "sampleRelationships": [
+    {
+      "target": "SAMN04252560",
+      "nature": "same as"
+    }, {
+      "target": "SAMN123456",
+      "nature": "derived from"
+    }
+  ]
 }
+
+
+
+
+
