@@ -93,3 +93,15 @@ it('FAANG Schema - \'cell culture\' sample', () => {
   expect(res).toBeA('object');
   expect(res.result).toBeA('string').toBe('Valid!');
 });
+
+it('FAANG Schema - \'cell line\' sample', () => {
+  var inputSchema = fs.readFileSync('examples/schemas/faang-schema.json');
+  var jsonSchema = JSON.parse(inputSchema);
+  
+  var inputObj = fs.readFileSync('examples/objects/faang-cellLine-sample.json');
+  var jsonObj = JSON.parse(inputObj);
+  
+  let res = runValidation(jsonSchema, jsonObj);
+  expect(res).toBeA('object');
+  expect(res.result).toBeA('string').toBe('Valid!');
+});

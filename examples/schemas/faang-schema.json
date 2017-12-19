@@ -406,7 +406,53 @@
           "maxItems": 1
         },
         "numberOfPassages": {
-          "description": "",
+          "description": "Number of times the cell line has been re-plated and allowed to grow back to confluency or to some maximum density if using suspension cultures",
+          "maxItems": 1
+        },
+        "cellLine": {
+          "description": "Name of the cell line",
+          "maxItems": 1
+        },
+        "biomaterialProvider": {
+          "description": "Name of company or lab that supplied the cell line",
+          "maxItems": 1
+        },
+        "catalogueNumber": {
+          "description": "Identifier for the cell line in the suppliers catalogue. E.g. 'ACC 701' for IPEC-J2 from DSMZ.",
+          "maxItems": 1
+        },
+        "dateEstablished": {
+          "description": "Date the line was established/re-established",
+          "maxItems": 1,
+          "items": {
+            "properties": {
+              "units": {
+                "enum": ["YYYY-MM-DD", "YYYY-MM", "YYYY"]
+              }
+            }
+          }
+        },
+        "publication": {
+          "description": "Publication Digitial Object Identifier (DOI) e.g. 'doi://10.1139/o09-005'. Publication where the cell line has been fully described and should include details such as doubling time and adhesion preference. You can use pubmed to find your DOI https://www.ncbi.nlm.nih.gov/pubmed",
+          "maxItems": 1
+        },
+        "cultureProtocol": {
+          "description": "Link to protocol describing the maintenance of the culture",
+          "maxItems": 1,
+          "items": {
+            "properties": {
+              "value": {
+                "format": "url"
+              }
+            }
+          }
+        },
+        "disease": {
+          "description": "Disease child term of either PATO_0000461 or EFO_0000408",
+          "maxItems": 1
+        },
+        "karyotype": {
+          "description": "Karyotype of the cell line",
           "maxItems": 1
         }
       },
@@ -461,7 +507,12 @@
           "then": {
             "properties": {"attributes": {"required": ["cellType", "cultureType", "cellCultureProtocol", "cultureConditions", "numberOfPassages"]}}
           },
-          "else": {}
+          "else": {
+            "if": {"properties": {"attributes": {"properties": {"material": {"items": {"properties": {"value": {"pattern": "^cell line$"}}}}}}}},
+            "then": {
+              "properties": {"attributes": {"required": ["sex", "cellLine", "biomaterialProvider"]}}
+            }
+          }
         }
       }
     }
