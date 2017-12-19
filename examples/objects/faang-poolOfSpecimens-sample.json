@@ -1,74 +1,31 @@
 {
-  "accession": "SAMEA4454592",
-  "alias": "SSC_UCD_P350",
-  "taxonId": 9823,
+  "alias": "SSC_UIUC_TARGETED_CONTROL",
+  "accession": "SAMEA3303533",
+  "releaseDate": "2017-05-22",
+  "updateDate": "2017-05-23",
+  "description": "Produced from a pool of reads originating from adult fat, heart, kidney, liver, lung, lymph node, muscle, spleen.",
   "taxon": "Sus scrofa",
-  "description": "Adult Male, 6 months of age",
-  "updateDate": "2016-10-25",
-  "releaseDate": "2016-06-06",
+  "taxonId": 9823,
+  
   "attributes": {
-    "material": {
+    "material": [{
       "value": "pool of specimens",
-      "ontologyTerms": "http://purl.obolibrary.org/obo/OBI_0302716"
-    },
-    "project": "FAANG",
-    "organism": [
-      {
-        "text": "Sus scrofa",
-        "ontologyTerms": [
-          "http://purl.obolibrary.org/obo/NCBITaxon_9823"
-        ]
-      }
-    ],
-    "healthStatus": [
-      {
-        "text": "normal",
-        "ontologyTerms": [
-          "http://purl.obolibrary.org/obo/PATO_0000461"
-        ]
-      }
-    ],
-    "sex": [
-      {
-        "text": "male",
-        "ontologyTerms": [
-          "http://purl.obolibrary.org/obo/PATO_0000384"
-        ]
-      }
-    ],
-    "birthDate": [
-      {
-        "text": "2014-08-04",
-        "unit": "YYYY-MM-DD"
-      }
-    ],
-    "breed": [
-      {
-        "text": "Yorkshire",
-        "ontologyTerms": [
-          "http://purl.obolibrary.org/obo/LBO_0000338"
-        ]
-      }
-    ],
-    "contact": [
-      {
-        "Name": "Tasha Thompson"
-      }
-    ],
-    "organization": [
-      {
-        "Name": "Michigan State University, Department of Animal Science",
-        "Role": "material supplier role ",
-        "URL": "http://www.ans.msu.edu/"
-      }
-    ],
-    "sampleRelationships": [
-      {
-        "target": "SAME123345",
-        "nature": "derived from"
-      }
-    ],
-    "poolCreationDate": "2016-10-10",
-    "poolCreationProtocol": "http://bio-protocol.org/e1827"
-  }
+      "terms": ["http://purl.obolibrary.org/obo/OBI_0302716"]
+    }],
+    "project": [{
+      "value": "FAANG"
+    }],
+    "poolCreationDate": [{
+      "value": "2015-01-01"
+    }],
+    "poolCreationProtocol": [{
+      "value": "ftp://ftp.faang.ebi.ac.uk/ftp/protocols/samples/UIUC_SOP_Targeted_Control_Pool_Creation_Protocol_20170517.pdf"
+    }]
+  },
+  "sampleRelationships": [
+    {
+      "target": "SAMN123456",
+      "nature": "derived from"
+    }
+  ]
 }

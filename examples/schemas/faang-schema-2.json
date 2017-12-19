@@ -302,7 +302,7 @@
           }
         },
         "specimenVolume": {
-          "description": "Specimen volume. Total sum if using multiple specimen pieces.",
+          "description": "(Pool) Specimen volume. Total sum if using multiple specimen pieces.",
           "maxItems": 1,
           "items": {
             "properties": {
@@ -313,7 +313,7 @@
           }
         },
         "specimenSize": {
-          "description": "Specimen size. Total sum if using multiple specimen pieces.",
+          "description": "(Pool) Specimen size. Total sum if using multiple specimen pieces.",
           "maxItems": 1,
           "items": {
             "properties": {
@@ -324,7 +324,7 @@
           }
         },
         "specimenWeight": {
-          "description": "Specimen weight. Total sum if using multiple specimen pieces.",
+          "description": "(Pool) Specimen weight. Total sum if using multiple specimen pieces.",
           "maxItems": 1,
           "items": {
             "properties": {
@@ -335,7 +335,7 @@
           }
         },
         "specimenPictureUrl": {
-          "description": "A link a picture of the specimen, multiple links allowed",
+          "description": "A link a picture of the specimen, multiple links allowed.",
           "items": {
             "properties": {
               "value": {
@@ -351,6 +351,28 @@
             "properties": {
               "units": {
                 "enum": ["day", "week", "days", "weeks"]
+              }
+            }
+          }
+        },
+        "poolCreationDate": {
+          "description": "Date at which the pool was created.",
+          "maxItems": 1,
+          "items": {
+            "properties": {
+              "units": {
+                "enum": ["YYYY-MM-DD", "YYYY-MM", "YYYY"]
+              }
+            }
+          }
+        },
+        "poolCreationProtocol": {
+          "description": "A link to the protocol for pool of specimens creation.",
+          "maxItems": 1,
+          "items": {
+            "properties": {
+              "value": {
+                "format": "url"
               }
             }
           }
@@ -389,11 +411,15 @@
   "else": {
     "if": {"properties": {"attributes": {"properties": {"material": {"items": {"properties": {"value": {"pattern": "^specimen from organism$"}}}}}}}},
     "then": {
-      "properties": {"attributes": {"required": ["specimenCollectionDate", "animalAgeAtCollection", "developmentalStage", "organismPart", "specimenCollectionProtocol"]}},
-      "required": ["sampleRelationships"],
-      "properties": {"sampleRelationships": {"contains": {"properties": {"nature": {"pattern": "^derived from$"}}}}}
+      "properties": {"attributes": {"required": ["specimenCollectionDate", "animalAgeAtCollection", "developmentalStage", "organismPart", "specimenCollectionProtocol"]}}
     },
-    "else": {"properties": {"attributes": {"required": []}}}
+    "else": {
+      "if": {"properties": {"attributes": {"properties": {"material": {"items": {"properties": {"value": {"pattern": "^pool of specimens$"}}}}}}}},
+      "then": {
+        "properties": {"attributes": {"required": ["poolCreationDate", "poolCreationProtocol"]}}
+      },
+      "else": {}
+    }
   },
   "required": ["alias", "taxonId", "taxon", "attributes"]
 }

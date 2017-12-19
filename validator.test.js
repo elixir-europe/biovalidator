@@ -58,12 +58,11 @@ it('FAANG Schema v2, FAANG \'specimen\' sample', () => {
   expect(res.result).toBeA('string').toBe('Valid!');
 });
 
-/*
-it('BioSamples Schema, cell specimen sample it should pass', () => {
-  var inputSchema = fs.readFileSync('examples/schemas/biosamples-schema.json');
+it('FAANG Schema v2, \'pool of specimens\' sample', () => {
+  var inputSchema = fs.readFileSync('examples/schemas/faang-schema-2.json');
   var jsonSchema = JSON.parse(inputSchema);
   
-  var inputObj = fs.readFileSync('examples/objects/faang-cellSpecimen-sample.json');
+  var inputObj = fs.readFileSync('examples/objects/faang-poolOfSpecimens-sample.json');
   var jsonObj = JSON.parse(inputObj);
   
   let res = runValidation(jsonSchema, jsonObj);
@@ -71,23 +70,12 @@ it('BioSamples Schema, cell specimen sample it should pass', () => {
   expect(res.result).toBeA('string').toBe('Valid!');
 });
 
+/*
 it('FAANG Schema, cell specimen sample it should pass', () => {
   var inputSchema = fs.readFileSync('examples/schemas/faang-schema.json');
   var jsonSchema = JSON.parse(inputSchema);
   
   var inputObj = fs.readFileSync('examples/objects/faang-cellSpecimen-sample.json');
-  var jsonObj = JSON.parse(inputObj);
-  
-  let res = runValidation(jsonSchema, jsonObj);
-  expect(res).toBeA('object');
-  expect(res.result).toBeA('string').toBe('Valid!');
-});
-
-it('FAANG Schema, pool of specimens sample it should pass', () => {
-  var inputSchema = fs.readFileSync('examples/schemas/faang-schema.json');
-  var jsonSchema = JSON.parse(inputSchema);
-  
-  var inputObj = fs.readFileSync('examples/objects/faang-poolOfSpecimens-sample.json');
   var jsonObj = JSON.parse(inputObj);
   
   let res = runValidation(jsonSchema, jsonObj);
