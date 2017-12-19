@@ -376,7 +376,22 @@
               }
             }
           }
-        }
+        },
+        "markers": {
+          "description": "Markers used to isolate and identify the cell type (e.g. for FACS sorted cells).",
+          "maxItems": 1
+        },
+        "cellType": {
+          "description": "Provide a cell type from the CL ontology."
+        },
+        "purificationProtocol": {
+          "description": "Link to protocol describing how the cells were purified.",
+          "maxItems": 1,
+          "items": {
+            "value": {
+              "format": "uri"
+            }
+          }        }
       },
       "required": ["material", "project"],
       "patternProperties": {
@@ -418,7 +433,13 @@
       "then": {
         "properties": {"attributes": {"required": ["poolCreationDate", "poolCreationProtocol"]}}
       },
-      "else": {}
+      "else": {
+        "if": {"properties": {"attributes": {"properties": {"material": {"items": {"properties": {"value": {"pattern": "^cell specimen$"}}}}}}}},
+        "then": {
+          "properties": {"attributes": {"required": ["cellType", "purificationProtocol"]}}
+        },
+        "else": {}
+      }
     }
   },
   "required": ["alias", "taxonId", "taxon", "attributes"]

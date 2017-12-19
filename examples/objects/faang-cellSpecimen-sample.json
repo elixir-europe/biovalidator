@@ -1,26 +1,26 @@
 {
-  "accession": "SAMEA104495058",
-  "alias": "OAR_USU_Benz2616_MACAL",
-  "taxonId": 0,
-  "taxon": "",
-  "description": "",
-  "updateDate": "2017-10-05",
-  "releaseDate": "2017-09-20",
-  "description": "alveolar macrophages",
+  "alias": "CHR_RI_CAPYG3_BMC",
+  "accession": "SAMEA104616073",
+  "releaseDate": "2017-10-22",
+  "updateDate": "2017-10-23",
+  "taxon": "Capra hircus",
+  "taxonId": 9925,
+  "description": "bone marrow cells from a juvenile male goat crossbreed, CAPYG3.",
+  
   "attributes": {
-    "material": [{
+    "material":  [{
       "value": "cell specimen",
-      "terms":["http://purl.obolibrary.org/obo/OBI_0001468"]
-    }],
-    "cellType": [{
-      "value": "alveolar macrophage",
-      "terms": ["http://purl.obolibrary.org/obo/CL_0000583"]
+      "terms": ["http://purl.obolibrary.org/obo/OBI_0001468"]
     }],
     "project": [{
       "value": "FAANG"
     }],
+    "cellType": [{
+      "value": "bone marrow cell",
+      "terms": ["http://purl.obolibrary.org/obo/CL_0002092"]
+    }],
     "purificationProtocol": [{
-      "value": "ftp://ftp.faang.ebi.ac.uk/ftp/protocols/samples/USU_SOP_Ovine_Benz2616_Cell_Isolation_20160426.pdf"
+      "value": "http://ftp.faang.ebi.ac.uk/ftp/protocols/samples/ ROSLIN_SOP_Isolation_of_Macrophages_from_Lungs_Blood_and_Bone_Marrow_of_Large_Animals_20160516.pdf"
     }]
   }
 }
