@@ -8,7 +8,7 @@
   "description": "bone marrow cells from a juvenile male goat crossbreed, CAPYG3.",
   
   "attributes": {
-    "material":  [{
+    "material": [{
       "value": "cell specimen",
       "terms": ["http://purl.obolibrary.org/obo/OBI_0001468"]
     }],
