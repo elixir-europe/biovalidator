@@ -85,22 +85,26 @@
               }
             },
             "required": ["terms"],
-            "if": {"properties": {"value": {"pattern": "^organism$"}}},
-            "then": {"properties": {"terms": {"contains": {"pattern": "\\S*?OBI_0100026$"}}}},
-            "else": {
-              "if": {"properties": {"value": {"pattern": "^specimen from organism$"}}},
-              "then":{"properties": {"terms": {"contains": {"pattern": "\\S*?OBI_0001479$"}}}},
+            "if": {"required": ["value"]},
+            "then": {
+              "if": {"properties": {"value": {"const": "organism"}}},
+              "then": {"properties": {"terms": {"contains": {"pattern": "\\S*?OBI_0100026$"}}}},
               "else": {
-                "if": {"properties": {"value": {"pattern": "^cell specimen$"}}},
-                "then": {"properties": {"terms": {"contains": {"pattern": "\\S*?OBI_0001468$"}}}},
+                "if": {"properties": {"value": {"const": "specimen from organism"}}},
+                "then":{"properties": {"terms": {"contains": {"pattern": "\\S*?OBI_0001479$"}}}},
                 "else": {
-                  "if": {"properties": {"value": {"pattern": "^pool of specimens$"}}},
-                  "then": {"properties": {"terms": {"contains": {"pattern": "\\S*?OBI_0302716$"}}}},
+                  "if": {"properties": {"value": {"const": "cell specimen"}}},
+                  "then": {"properties": {"terms": {"contains": {"pattern": "\\S*?OBI_0001468$"}}}},
                   "else": {
-                    "if": {"properties": {"value": {"pattern": "^cell culture$"}}},
-                    "then": {"properties": {"terms": {"contains": {"pattern": "\\S*?OBI_0001876$"}}}},
+                    "if": {"properties": {"value": {"const": "pool of specimens"}}},
+                    "then": {"properties": {"terms": {"contains": {"pattern": "\\S*?OBI_0302716$"}}}},
                     "else": {
-                      "properties": {"terms": {"contains": {"pattern": "\\S*?CLO_0000031$"}}}
+                      "if": {"properties": {"value": {"const": "cell culture"}}},
+                      "then": {"properties": {"terms": {"contains": {"pattern": "\\S*?OBI_0001876$"}}}},
+                      "else": {
+                        "if": {"properties": {"value": {"const": "cell line"}}},
+                        "then": {"properties": {"terms": {"contains": {"pattern": "\\S*?CLO_0000031$"}}}}
+                      }
                     }
                   }
                 }
@@ -483,39 +487,42 @@
         }
       }
     }
-    
   },
-  "if": {"properties": {"attributes": {"properties": {"material": {"items": {"properties": {"value": {"pattern": "^organism$"}}}}}}}},
-  "then": {"properties": {"attributes": {"required": ["sex", "breed"]}}},
-  "else": {
-    "if": {"properties": {"attributes": {"properties": {"material": {"items": {"properties": {"value": {"pattern": "^specimen from organism$"}}}}}}}},
-    "then": {
-      "properties": {"attributes": {"required": ["specimenCollectionDate", "animalAgeAtCollection", "developmentalStage", "organismPart", "specimenCollectionProtocol"]}}
-    },
+  "required": ["alias", "taxonId", "taxon", "attributes"],
+  
+  "if": {"properties": {"attributes": {"required": ["material"]}}},
+  "then": {  
+    "if": {"properties": {"attributes": {"properties": {"material": {"items": {"properties": {"value": {"const": "organism"}}}}}}}},
+    "then": {"properties": {"attributes": {"required": ["sex", "breed"]}}},
     "else": {
-      "if": {"properties": {"attributes": {"properties": {"material": {"items": {"properties": {"value": {"pattern": "^pool of specimens$"}}}}}}}},
+      "if": {"properties": {"attributes": {"properties": {"material": {"items": {"properties": {"value": {"const": "specimen from organism"}}}}}}}},
       "then": {
-        "properties": {"attributes": {"required": ["poolCreationDate", "poolCreationProtocol"]}}
+        "properties": {"attributes": {"required": ["specimenCollectionDate", "animalAgeAtCollection", "developmentalStage", "organismPart", "specimenCollectionProtocol"]}}
       },
       "else": {
-        "if": {"properties": {"attributes": {"properties": {"material": {"items": {"properties": {"value": {"pattern": "^cell specimen$"}}}}}}}},
+        "if": {"properties": {"attributes": {"properties": {"material": {"items": {"properties": {"value": {"const": "pool of specimens"}}}}}}}},
         "then": {
-          "properties": {"attributes": {"required": ["cellType", "purificationProtocol"]}}
+          "properties": {"attributes": {"required": ["poolCreationDate", "poolCreationProtocol"]}}
         },
         "else": {
-          "if": {"properties": {"attributes": {"properties": {"material": {"items": {"properties": {"value": {"pattern": "^cell culture$"}}}}}}}},
+          "if": {"properties": {"attributes": {"properties": {"material": {"items": {"properties": {"value": {"const": "cell specimen"}}}}}}}},
           "then": {
-            "properties": {"attributes": {"required": ["cellType", "cultureType", "cellCultureProtocol", "cultureConditions", "numberOfPassages"]}}
+            "properties": {"attributes": {"required": ["cellType", "purificationProtocol"]}}
           },
           "else": {
-            "if": {"properties": {"attributes": {"properties": {"material": {"items": {"properties": {"value": {"pattern": "^cell line$"}}}}}}}},
+            "if": {"properties": {"attributes": {"properties": {"material": {"items": {"properties": {"value": {"const": "cell culture"}}}}}}}},
             "then": {
-              "properties": {"attributes": {"required": ["sex", "cellLine", "biomaterialProvider"]}}
+              "properties": {"attributes": {"required": ["cellType", "cultureType", "cellCultureProtocol", "cultureConditions", "numberOfPassages"]}}
+            },
+            "else": {
+              "if": {"properties": {"attributes": {"properties": {"material": {"items": {"properties": {"value": {"const": "cell line"}}}}}}}},
+              "then": {
+                "properties": {"attributes": {"required": ["sex", "cellLine", "biomaterialProvider"]}}
+              }
             }
           }
         }
       }
     }
-  },
-  "required": ["alias", "taxonId", "taxon", "attributes"]
+  }
 }
