@@ -23,10 +23,10 @@ it(' -> Attributes Schema (attributes object)', () => {
 });
 
 it(' -> Is isChildTermOf Schema', () => {
-  var inputSchema = fs.readFileSync('examples/schemas/ischildterm-schema.json');
+  var inputSchema = fs.readFileSync('./examples/schemas/ischildterm-schema.json');
   var jsonSchema = JSON.parse(inputSchema);
 
-  var inputObj = fs.readFileSync('examples/objects/isChildTerm.json');
+  var inputObj = fs.readFileSync('./examples/objects/isChildTerm.json');
   var jsonObj = JSON.parse(inputObj);
 
   let res = runValidation(jsonSchema, jsonObj);

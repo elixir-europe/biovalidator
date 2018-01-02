@@ -9,8 +9,8 @@ module.exports = function defFunc(ajv) {
   };
 
   function checkIsChildTermOf(schema, data) {
-    console.log('parentTerm: ' + schema.parentTerm); // string - uri
-    console.log('terms: ' + data); // [string - uri]
+    //console.log('parentTerm: ' + schema.parentTerm); // string - uri
+    //console.log('terms: ' + data); // [string - uri]
     // TODO - ontology term lookup
     return true;
   }

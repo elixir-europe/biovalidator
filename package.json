@@ -2,7 +2,7 @@
   "name": "json-schema-validator",
   "version": "0.1.0",
   "description": "A nodejs JSON schema validator.",
-  "main": "server.js",
+  "main": "src/server.js",
   "repository": "https://github.com/EMBL-EBI-SUBS/json-schema-validator.git",
   "scripts": {
     "test": "mocha **/*.test.js",
