@@ -10,9 +10,14 @@
       "type": "object",
       "properties": {
         "sex": {
-          "type": "string",
-          "format": "uri",
-          "isChildTerm": {"parentTerm": "http://purl.obolibrary.org/obo/PATO_0000047"}
+          "type": "array",
+          "items": {
+            "properties": {
+              "terms": {
+                "isChildTermOf": {"parentTerm": "http://purl.obolibrary.org/obo/PATO_0000047"}
+              }
+            }
+          }
         }
       },
       "patternProperties": {

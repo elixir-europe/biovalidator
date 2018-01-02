@@ -3,18 +3,30 @@ const fs = require('fs');
 
 const runValidation = require('./validator');
 
-it('Empty Schema - empty object', () => {
+it(' -> Empty Schema (empty object)', () => {
   let res = runValidation({}, {});
 
   expect(res).toBeA('object');
   expect(res.result).toBeA('string').toBe('Valid!');
 });
 
-it('Attributes Schema - attributes object', () => {
+it(' -> Attributes Schema (attributes object)', () => {
   var inputSchema = fs.readFileSync('examples/schemas/attributes-schema.json');
   var jsonSchema = JSON.parse(inputSchema);
 
   var inputObj = fs.readFileSync('examples/objects/attributes.json');
+  var jsonObj = JSON.parse(inputObj);
+
+  let res = runValidation(jsonSchema, jsonObj);
+  expect(res).toBeA('object');
+  expect(res.result).toBeA('string').toBe('Valid!');
+});
+
+it(' -> Is isChildTermOf Schema', () => {
+  var inputSchema = fs.readFileSync('examples/schemas/ischildterm-schema.json');
+  var jsonSchema = JSON.parse(inputSchema);
+
+  var inputObj = fs.readFileSync('examples/objects/isChildTerm.json');
   var jsonObj = JSON.parse(inputObj);
 
   let res = runValidation(jsonSchema, jsonObj);
