@@ -3,7 +3,7 @@ var ajv = new Ajv({allErrors: true});
 
 ajv.addKeyword('isChildTerm', {
   async: true,
-  type: 'integer',
+  type: 'string',
   validate: checkIsChildTerm
 });
 
@@ -13,7 +13,7 @@ function checkIsChildTerm(schema, data) {
   return true;
 }
 
-function runValidation(inputSchema, submittable) {
+function runCustomValidation(inputSchema, submittable) {
   var validate = ajv.compile(inputSchema);
   var valid = validate(submittable);
   if (valid) {
@@ -22,3 +22,5 @@ function runValidation(inputSchema, submittable) {
     return { result: 'Invalid: ' + ajv.errorsText(validate.errors)};
   }
 }
+
+module.exports = runCustomValidation;
