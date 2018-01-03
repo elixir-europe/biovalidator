@@ -14,7 +14,10 @@
           "items": {
             "properties": {
               "terms": {
-                "isChildTermOf": {"parentTerm": "http://purl.obolibrary.org/obo/PATO_0000047"}
+                "isChildTermOf": {
+                  "parentTerm": "http://purl.obolibrary.org/obo/PATO_0000047",
+                  "ontology": "pato"
+                }
               }
             }
           }

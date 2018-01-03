@@ -21,19 +21,7 @@ it(' -> Attributes Schema (attributes object)', () => {
   expect(res).toBeA('object');
   expect(res.result).toBeA('string').toBe('Valid!');
 });
-/*
-it(' -> isChildTermOf Schema', () => {
-  var inputSchema = fs.readFileSync('./examples/schemas/ischildterm-schema.json');
-  var jsonSchema = JSON.parse(inputSchema);
 
-  var inputObj = fs.readFileSync('./examples/objects/isChildTerm.json');
-  var jsonObj = JSON.parse(inputObj);
-
-  let res = runValidation(jsonSchema, jsonObj);
-  expect(res).toBeA('object');
-  expect(res.result).toBeA('string').toBe('Valid!');
-});
-*/
 it('BioSamples Schema - FAANG \'organism\' sample', () => {
   var inputSchema = fs.readFileSync('examples/schemas/biosamples-schema.json');
   var jsonSchema = JSON.parse(inputSchema);

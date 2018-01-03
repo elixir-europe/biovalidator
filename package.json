@@ -19,7 +19,8 @@
     "ajv": "^6.0.0-rc.1",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
-    "nodemon": "^1.14.1"
+    "nodemon": "^1.14.1",
+    "request": "^2.83.0"
   },
   "devDependencies": {
     "expect": "^1.20.2",
