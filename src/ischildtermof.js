@@ -15,16 +15,12 @@ module.exports = function defFunc(ajv) {
     return new Promise( function(resolve, reject) {
       const parentTerm = schema.parentTerm;
       const ontology = schema.ontology;
-      const termsArray = data;
       const olsSearchUrl = "https://www.ebi.ac.uk/ols/api/search?q=";
 
-      if (findChildTerms.errors === null) {
-        findChildTerms.errors = [];
-      }
-
+      let errors = [];
       let errorCount = 0;
-      for (var i = 0; i < termsArray.length; i++) {
-        const termUri = encodeURIComponent(termsArray[i]);
+      for (var i = 0; i < data.length; i++) {
+        const termUri = encodeURIComponent(data[i]);
         const url = olsSearchUrl + termUri
         + "&exact=true&groupField=true&allChildrenOf=" + encodeURIComponent(parentTerm)
         + "&ontology=" + ontology + "&queryFields=iri";
@@ -34,24 +30,24 @@ module.exports = function defFunc(ajv) {
           if(jsonBody.response.numFound === 1) {
             resolve(true);
           } else if(jsonBody.response.numFound === 0) {
-            findChildTerms.errors.push({
+            errors.push({
               keyword: 'isChildTermOf',
               message: 'is not child term of ' + parentTerm,
               params: {keyword: 'isChildTermOf'}
             });
             errorCount++;
             if (errorCount === termsArray.length) {
-              reject(new Ajv.ValidationError(findChildTerms.errors));
+              reject(new Ajv.ValidationError(errors));
             }
           } else {
-            findChildTerms.errors.push({
+            errors.push({
               keyword: 'isChildTermOf',
               message: 'Something went wrong while validating term, try again.',
               params: {keyword: 'isChildTermOf'}
             });
             errorCount++;
             if (errorCount === termsArray.length) {
-              reject(new Ajv.ValidationError(findChildTerms.errors));
+              reject(new Ajv.ValidationError(errors));
             }
           }
         });
