@@ -17,13 +17,6 @@ module.exports = function defFunc(ajv) {
       const ontology = schema.ontology;
       const olsSearchUrl = "https://www.ebi.ac.uk/ols/api/search?q=";
 
-
-      /*if (vErrors === null) vErrors = [err];
-      else vErrors.push(err);
-      throw new ValidationError(vErrors);*/
-
-
-
       let errors = [];
       let errorCount = 0;
       for (var i = 0; i < data.length; i++) {

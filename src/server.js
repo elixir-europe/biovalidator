@@ -13,6 +13,7 @@ app.post('/validate', (req, res) => {
 
   runValidation(inputSchema, submittable).then((output) => {
     res.status(200).send(output);
+    // TODO - handle malformed schema
   });
 
 });
