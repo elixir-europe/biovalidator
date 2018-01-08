@@ -4,10 +4,11 @@ const fs = require('fs');
 const runValidation = require('./validator');
 
 it(' -> Empty Schema (empty object)', () => {
-  let res = runValidation({}, {});
-
-  expect(res).toBeA('object');
-  expect(res.result).toBeA('string').toBe('Valid!');
+  runValidation({}, {}).then((output) => {
+    expect(output).toBeA('object');
+    expect(output.result).toBeA('string').toBe('Valid!');
+    //console.log("result: " + output.result);
+  });
 });
 
 it(' -> Attributes Schema (attributes object)', () => {
@@ -17,9 +18,11 @@ it(' -> Attributes Schema (attributes object)', () => {
   var inputObj = fs.readFileSync('examples/objects/attributes.json');
   var jsonObj = JSON.parse(inputObj);
 
-  let res = runValidation(jsonSchema, jsonObj);
-  expect(res).toBeA('object');
-  expect(res.result).toBeA('string').toBe('Valid!');
+  runValidation(jsonSchema, jsonObj).then((output) => {
+    expect(output).toBeA('object');
+    expect(output.result).toBeA('string').toBe('Valid!');
+    //console.log("result: " + output.result);
+  });
 });
 
 it('BioSamples Schema - FAANG \'organism\' sample', () => {
@@ -29,9 +32,11 @@ it('BioSamples Schema - FAANG \'organism\' sample', () => {
   var inputObj = fs.readFileSync('examples/objects/faang-organism-sample.json');
   var jsonObj = JSON.parse(inputObj);
 
-  let res = runValidation(jsonSchema, jsonObj);
-  expect(res).toBeA('object');
-  expect(res.result).toBeA('string').toBe('Valid!');
+  runValidation(jsonSchema, jsonObj).then((output) => {
+    expect(output).toBeA('object');
+    expect(output.result).toBeA('string').toBe('Valid!');
+    //console.log("result: " + output.result);
+  });
 });
 
 it('FAANG Schema - \'organism\' sample', () => {
@@ -41,9 +46,11 @@ it('FAANG Schema - \'organism\' sample', () => {
   var inputObj = fs.readFileSync('examples/objects/faang-organism-sample.json');
   var jsonObj = JSON.parse(inputObj);
 
-  let res = runValidation(jsonSchema, jsonObj);
-  expect(res).toBeA('object');
-  expect(res.result).toBeA('string').toBe('Valid!');
+  runValidation(jsonSchema, jsonObj).then((output) => {
+    expect(output).toBeA('object');
+    expect(output.result).toBeA('string').toBe('Valid!');
+    //console.log("result: " + output.result);
+  });
 });
 
 it('FAANG Schema - \'specimen\' sample', () => {
@@ -53,9 +60,11 @@ it('FAANG Schema - \'specimen\' sample', () => {
   var inputObj = fs.readFileSync('examples/objects/faang-specimen-sample.json');
   var jsonObj = JSON.parse(inputObj);
 
-  let res = runValidation(jsonSchema, jsonObj);
-  expect(res).toBeA('object');
-  expect(res.result).toBeA('string').toBe('Valid!');
+  runValidation(jsonSchema, jsonObj).then((output) => {
+    expect(output).toBeA('object');
+    expect(output.result).toBeA('string').toBe('Valid!');
+    //console.log("result: " + output.result);
+  });
 });
 
 it('FAANG Schema - \'pool of specimens\' sample', () => {
@@ -65,9 +74,11 @@ it('FAANG Schema - \'pool of specimens\' sample', () => {
   var inputObj = fs.readFileSync('examples/objects/faang-poolOfSpecimens-sample.json');
   var jsonObj = JSON.parse(inputObj);
 
-  let res = runValidation(jsonSchema, jsonObj);
-  expect(res).toBeA('object');
-  expect(res.result).toBeA('string').toBe('Valid!');
+  runValidation(jsonSchema, jsonObj).then((output) => {
+    expect(output).toBeA('object');
+    expect(output.result).toBeA('string').toBe('Valid!');
+    //console.log("result: " + output.result);
+  });
 });
 
 it('FAANG Schema - \'cell specimen\' sample', () => {
@@ -77,9 +88,11 @@ it('FAANG Schema - \'cell specimen\' sample', () => {
   var inputObj = fs.readFileSync('examples/objects/faang-cellSpecimen-sample.json');
   var jsonObj = JSON.parse(inputObj);
 
-  let res = runValidation(jsonSchema, jsonObj);
-  expect(res).toBeA('object');
-  expect(res.result).toBeA('string').toBe('Valid!');
+  runValidation(jsonSchema, jsonObj).then((output) => {
+    expect(output).toBeA('object');
+    expect(output.result).toBeA('string').toBe('Valid!');
+    //console.log("result: " + output.result);
+  });
 });
 
 it('FAANG Schema - \'cell culture\' sample', () => {
@@ -89,9 +102,11 @@ it('FAANG Schema - \'cell culture\' sample', () => {
   var inputObj = fs.readFileSync('examples/objects/faang-cellCulture-sample.json');
   var jsonObj = JSON.parse(inputObj);
 
-  let res = runValidation(jsonSchema, jsonObj);
-  expect(res).toBeA('object');
-  expect(res.result).toBeA('string').toBe('Valid!');
+  runValidation(jsonSchema, jsonObj).then((output) => {
+    expect(output).toBeA('object');
+    expect(output.result).toBeA('string').toBe('Valid!');
+    //console.log("result: " + output.result);
+  });
 });
 
 it('FAANG Schema - \'cell line\' sample', () => {
@@ -101,7 +116,9 @@ it('FAANG Schema - \'cell line\' sample', () => {
   var inputObj = fs.readFileSync('examples/objects/faang-cellLine-sample.json');
   var jsonObj = JSON.parse(inputObj);
 
-  let res = runValidation(jsonSchema, jsonObj);
-  expect(res).toBeA('object');
-  expect(res.result).toBeA('string').toBe('Valid!');
+  runValidation(jsonSchema, jsonObj).then((output) => {
+    expect(output).toBeA('object');
+    expect(output.result).toBeA('string').toBe('Valid!');
+    //console.log("result: " + output.result);
+  });
 });

@@ -10,7 +10,9 @@ it(' -> isChildTermOf Schema', function() {
   var inputObj = fs.readFileSync('examples/objects/isChildTerm.json');
   var jsonObj = JSON.parse(inputObj);
 
-  let res = runValidation(jsonSchema, jsonObj);
-  expect(res).toBeA('object');
-  expect(res.result).toBeA('string').toBe('Valid!');
+  runValidation(jsonSchema, jsonObj).then((output) => {
+    expect(output).toBeA('object');
+    expect(output.result).toBeA('string').toBe('Valid!');
+    //console.log("result: " + output.result);
+  });
 });

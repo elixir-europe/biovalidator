@@ -10,10 +10,11 @@ app.post('/validate', (req, res) => {
   console.log('Received validation request!');
   var inputSchema = req.body.schema;
   var submittable = req.body.submittable;
-  
-  var results = runValidation(inputSchema, submittable);
-  
-  res.status(200).send(results);
+
+  runValidation(inputSchema, submittable).then((output) => {
+    res.status(200).send(output);
+  });
+
 });
 
 app.get('/validate', (req, res) => {
