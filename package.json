@@ -5,7 +5,7 @@
   "main": "src/server.js",
   "repository": "https://github.com/EMBL-EBI-SUBS/json-schema-validator.git",
   "scripts": {
-    "test": "mocha **/*.test.js",
+    "test": "mocha src/*.test.js",
     "test-watch": "nodemon --exec \"npm test\""
   },
   "keywords": [
@@ -16,7 +16,7 @@
   "author": "EMBL-EBI-SUBS",
   "license": "Apache-2.0",
   "dependencies": {
-    "ajv": "^6.0.0-rc.1",
+    "ajv": "^6.0.0",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "nodemon": "^1.14.1",
