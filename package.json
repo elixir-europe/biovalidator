@@ -5,8 +5,9 @@
   "main": "src/server.js",
   "repository": "https://github.com/EMBL-EBI-SUBS/json-schema-validator.git",
   "scripts": {
-    "test": "mocha src/validator.test.js",
-    "test-watch": "nodemon --exec \"npm test\""
+    "test": "mocha **/*.test.js",
+    "test-watch": "nodemon --exec \"npm test\"",
+    "travis-test": "mocha src/validator.test.js"
   },
   "keywords": [
     "nodejs",
