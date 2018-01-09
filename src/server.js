@@ -1,20 +1,32 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-var runValidation = require('./validator');
+const runValidation = require('./validator');
 
-var app = express();
+const app = express();
 app.use(bodyParser.json());
+
+app.use(function(err, req, res, next) {
+  if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
+    res.status(400).send({"error": "Malformed JSON please check your request body."});
+  }
+});
 
 app.post('/validate', (req, res) => {
   console.log('Received validation request!');
+
   var inputSchema = req.body.schema;
   var submittable = req.body.submittable;
 
-  runValidation(inputSchema, submittable).then((output) => {
-    res.status(200).send(output);
-    // TODO - handle malformed schema
-  });
+  if (inputSchema && submittable) {
+    runValidation(inputSchema, submittable).then((output) => {
+      res.status(200).send(output);
+    });
+  } else {
+    res.status(400).send(
+      {"error": "Both schema and submittable are required to execute validation."}
+    );
+  }
 
 });
 
