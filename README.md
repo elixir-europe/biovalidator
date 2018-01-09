@@ -122,6 +122,7 @@ Sending a POST request with the following body
 }
 ```
 will result in this response:
+
 HTTP status code `200`
 ```json
 {
@@ -129,6 +130,7 @@ HTTP status code `200`
 }
 ```
 An invalid validation response will look like:
+
 HTTP status code `200`
 ```json
 {
@@ -138,6 +140,7 @@ HTTP status code `200`
 
 ### Errors
 Sending malformed JSON or a body with either the schema or the submittable missing will result in an error. Errors have the following structure:
+
 HTTP status code `400`
 ```json
 {
@@ -147,12 +150,12 @@ HTTP status code `400`
 ## Custom keywords
 The AJV library supports the implementation of custom json schema keywords to address validation scenarios that json schema is not capable of addressing.
 
-###`isChildTermOf`
+### isChildTermOf
 This custom keyword to *evaluates if an ontology term is child of other*. This keyword is applied to an array of strings (url) and **passes validation if at least one of the terms in the array is child of the term defined in the schema**.
 The keyword requires the **parent term** and the **ontology id**, both of which should exist in [OLS - Ontology Lookup Service](https://www.ebi.ac.uk/ols).
 This keyword works by doing an asynchronous call to OLS API that will respond with the required information to know if a given term is child of another. Being an async validation step, whenever used is a schema it should have the flag: `"$async": true`
 #### Usage
-**Schema:**
+Schema:
 ```json
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
@@ -166,7 +169,7 @@ This keyword works by doing an asynchronous call to OLS API that will respond wi
     }
 }
 ```
-**JSON object:**
+JSON object:
 ```json
 {
   "attributes": {
