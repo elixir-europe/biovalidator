@@ -26,7 +26,7 @@
                 },
                 "isChildTermOf": {
                   "parentTerm": "http://purl.obolibrary.org/obo/PATO_0000047",
-                  "ontology": "pato"
+                  "ontologyId": "pato"
                 }
               }
             }

@@ -14,7 +14,7 @@ module.exports = function defFunc(ajv) {
   function findChildTerms(schema, data) {
     return new Promise( function(resolve, reject) {
       const parentTerm = schema.parentTerm;
-      const ontology = schema.ontology;
+      const ontologyId = schema.ontologyId;
       const olsSearchUrl = "https://www.ebi.ac.uk/ols/api/search?q=";
 
       let errors = [];
@@ -23,8 +23,7 @@ module.exports = function defFunc(ajv) {
         const termUri = encodeURIComponent(data[i]);
         const url = olsSearchUrl + termUri
         + "&exact=true&groupField=true&allChildrenOf=" + encodeURIComponent(parentTerm)
-        + "&ontology=" + ontology + "&queryFields=iri";
-        //console.log('url', url);
+        + "&ontology=" + ontologyId + "&queryFields=iri";
 
         //console.log('Evaluating isChildTermOf', url);
         request(url, function(error, response, body) {
