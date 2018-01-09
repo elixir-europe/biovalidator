@@ -2,10 +2,11 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "FAANG Schema",
   "description": "Schema based on rules found in https://www.ebi.ac.uk/vg/faang/rule_sets/FAANG%20Samples.",
- 
+  "$async": true,
+
   "type": "object",
   "properties": {
-    
+
     "alias": {
       "description": "A sample unique identifier in a submission.",
       "type": "string"
@@ -52,7 +53,7 @@
         "required": ["target", "nature"]
       }
     },
-    
+
     "attributes": {
       "description": "Attributes for describing a sample.",
       "type": "object",
@@ -113,7 +114,7 @@
           }
         },
         "availability": {
-          "discription": "Either a link to a web page giving information on sample availability (who to contact and if the sample is available).",
+          "description": "Either a link to a web page giving information on sample availability (who to contact and if the sample is available).",
           "maxItems": 1,
           "items": {
             "properties": {
@@ -128,7 +129,17 @@
         },
         "sex":{
           "description": "Animal sex, described using any child term of PATO_0000047.",
-          "maxItems": 1
+          "maxItems": 1,
+          "items": {
+            "properties": {
+              "terms": {
+                "isChildTermOf": {
+                  "parentTerm": "http://purl.obolibrary.org/obo/PATO_0000047",
+                  "ontology": "pato"
+                }
+              }
+            }
+          }
         },
         "birthDate": {
           "description": "Birth date, in the format YYYY-MM-DD, or YYYY-MM where only the month is known. For embryo samples record 'not applicable'.",
@@ -462,7 +473,7 @@
       },
       "required": ["material", "project"],
       "patternProperties": {
-        "^.*$": { 
+        "^.*$": {
           "type": "array",
           "minItems": 1,
           "items": {
@@ -489,9 +500,9 @@
     }
   },
   "required": ["alias", "taxonId", "taxon", "attributes"],
-  
+
   "if": {"properties": {"attributes": {"required": ["material"]}}},
-  "then": {  
+  "then": {
     "if": {"properties": {"attributes": {"properties": {"material": {"items": {"properties": {"value": {"const": "organism"}}}}}}}},
     "then": {"properties": {"attributes": {"required": ["sex", "breed"]}}},
     "else": {

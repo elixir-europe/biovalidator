@@ -1,5 +1,4 @@
 {
-  "$async": true,
   "attributes": {
     "age": [{
       "value": "3",
