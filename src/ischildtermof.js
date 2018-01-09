@@ -26,6 +26,7 @@ module.exports = function defFunc(ajv) {
         + "&ontology=" + ontology + "&queryFields=iri";
         //console.log('url', url);
 
+        //console.log('Evaluating isChildTermOf', url);
         request(url, function(error, response, body) {
           let jsonBody = JSON.parse(body);
           if(jsonBody.response.numFound === 1) {
