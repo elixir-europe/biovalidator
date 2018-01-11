@@ -43,5 +43,5 @@ app.get('/validate', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Started server on port ${port}`);
+  console.log(` -- Started server on port ${port} --`);
 });
