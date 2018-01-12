@@ -18,15 +18,15 @@ app.post('/validate', (req, res) => {
   console.log('Received validation request!');
 
   var inputSchema = req.body.schema;
-  var submittable = req.body.submittable;
+  var inputObject = req.body.object;
 
-  if (inputSchema && submittable) {
-    runValidation(inputSchema, submittable).then((output) => {
+  if (inputSchema && inputObject) {
+    runValidation(inputSchema, inputObject).then((output) => {
       res.status(200).send(output);
     });
   } else {
     res.status(400).send(
-      {"error": "Both schema and submittable are required to execute validation."}
+      {"error": "Both schema and object are required to execute validation."}
     );
   }
 
@@ -37,7 +37,7 @@ app.get('/validate', (req, res) => {
     message: "This is the USI JSON Schema Validator. Please POST to this endpoint the schema and object to validate structured as in bodyStructure. For more information and examples on how to use the validator see https://github.com/EMBL-EBI-SUBS/json-schema-validator.",
     bodyStructure: {
       schema: {},
-      submittable: {}
+      object: {}
     }
   })
 });
