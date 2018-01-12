@@ -34,7 +34,7 @@ app.post('/validate', (req, res) => {
 
 app.get('/validate', (req, res) => {
   res.send({
-    message: "This is the USI JSON Schema Validator. Please POST to this endpoint the schema and object to validate structured as in bodyStructure. For more information and examples on how to use the validator see https://github.com/EMBL-EBI-SUBS/json-schema-validator.",
+    message: "This is the USI JSON Schema Validator. Please POST to this endpoint the schema and object to validate structured as in bodyStructure. For more information and examples on how to use the validator see https://github.com/EMBL-EBI-SUBS/json-schema-validator",
     bodyStructure: {
       schema: {},
       object: {}
