@@ -4,6 +4,8 @@
 This repository contains a [JSON Schema](http://json-schema.org/) validator for the Unified Submission Interface (USI) project. This validator runs as a standalone node server that receives validation requests and gives back it's results.
 The validation is done using the [AJV](https://github.com/epoberezkin/ajv) library version 6.0.0 that fully supports the JSON Schema **draft-07**.
 
+Deployed for tests purposes on heroku: https://usi-json-schema-validator.herokuapp.com/validate
+
 :arrow_right: [Getting Started](README.md#getting-started)
 
 :arrow_right: [Validator API](README.md#validator-api)
