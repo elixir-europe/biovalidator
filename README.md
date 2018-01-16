@@ -112,7 +112,7 @@ Sending a POST request with the following body
       }
     }
   },
-  "submittable": {
+  "object": {
     "attributes": {
       "age": [{
         "value": "3",
