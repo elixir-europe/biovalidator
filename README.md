@@ -1,7 +1,7 @@
 # JSON Schema Validator
 [![Build Status](https://travis-ci.org/EMBL-EBI-SUBS/json-schema-validator.svg?branch=master)](https://travis-ci.org/EMBL-EBI-SUBS/json-schema-validator)
 
-This repository contains a [JSON Schema](http://json-schema.org/) validator for the Unified Submission Interface (USI) project. This validator runs as a standalone node server that receives validation requests and gives back it's results.
+This repository contains a [JSON Schema](http://json-schema.org/) validator for the EMBL-EBI Submissions Project. This validator runs as a standalone node server that receives validation requests and gives back it's results.
 The validation is done using the [AJV](https://github.com/epoberezkin/ajv) library version 6.0.0 that fully supports the JSON Schema **draft-07**.
 
 Deployed for tests purposes on heroku: https://usi-json-schema-validator.herokuapp.com/validate
@@ -66,11 +66,10 @@ The endpoint will expect the body to have the following structure:
 ```json
 {
   "schema": {},
-  "submittable": {}
+  "object": {}
 }
 ```
 Where the schema should be a valid json schema object to validate the submittable against.
-
 
 **Example:**
 Sending a POST request with the following body
@@ -161,7 +160,7 @@ HTTP status code `400`
 The AJV library supports the implementation of custom json schema keywords to address validation scenarios that json schema is not capable of addressing.
 
 ### isChildTermOf
-This custom keyword to *evaluates if an ontology term is child of other*. This keyword is applied to an array of strings (url) and **passes validation if at least one of the terms in the array is child of the term defined in the schema**.
+This custom keyword *evaluates if an ontology term is child of other*. This keyword is applied to an array of strings (url) and **passes validation if at least one of the terms in the array is child of the term defined in the schema**.
 The keyword requires the **parent term** and the **ontology id**, both of which should exist in [OLS - Ontology Lookup Service](https://www.ebi.ac.uk/ols).
 This keyword works by doing an asynchronous call to OLS API that will respond with the required information to know if a given term is child of another. Being an async validation step, whenever used is a schema it should have the flag: `"$async": true`
 #### Usage
