@@ -1,7 +1,7 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+const express = require("express");
+const bodyParser = require("body-parser");
 
-const runValidation = require('./validator');
+const runValidation = require("./validator");
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -14,7 +14,7 @@ app.use(function(err, req, res, next) {
   }
 });
 
-app.post('/validate', (req, res) => {
+app.post("/validate", (req, res) => {
   console.log('Received validation request!');
 
   var inputSchema = req.body.schema;
@@ -39,7 +39,7 @@ app.get('/validate', (req, res) => {
       schema: {},
       object: {}
     }
-  })
+  });
 });
 
 app.listen(port, () => {

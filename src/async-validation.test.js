@@ -3,7 +3,7 @@ const fs = require('fs');
 
 const runValidation = require('./validator');
 
-it(' -> isChildTermOf Schema', function() {
+it(" -> isChildTermOf Schema", function() {
   var inputSchema = fs.readFileSync('examples/schemas/ischildterm-schema.json');
   var jsonSchema = JSON.parse(inputSchema);
 
