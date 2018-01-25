@@ -1,7 +1,7 @@
 'use strict';
 
-var Ajv = require('ajv');
-var request = require('request');
+var Ajv = require("ajv");
+var request = require("request");
 
 module.exports = function defFunc(ajv) {
 
@@ -28,9 +28,9 @@ module.exports = function defFunc(ajv) {
               resolve(true);
             } else if(jsonBody.response.numFound === 0) {
               errors.push({
-                keyword: 'isChildTermOf',
-                message: 'is not child term of ' + parentTerm,
-                params: {keyword: 'isChildTermOf'}
+                keyword: "isChildTermOf",
+                message: "is not child term of " + parentTerm,
+                params: {keyword: "isChildTermOf"}
               });
               errorCount++;
               if (errorCount === data.length) {
@@ -38,9 +38,9 @@ module.exports = function defFunc(ajv) {
               }
             } else {
               errors.push({
-                keyword: 'isChildTermOf',
-                message: 'Something went wrong while validating term, try again.',
-                params: {keyword: 'isChildTermOf'}
+                keyword: "isChildTermOf",
+                message: "Something went wrong while validating term, try again.",
+                params: {keyword: "isChildTermOf"}
               });
               errorCount++;
               if (errorCount === data.length) {
@@ -52,8 +52,8 @@ module.exports = function defFunc(ajv) {
       } else {
         errors.push({
           keyword: "isChildTermOf",
-          message: 'Missing required variable in schema isChildTermOf, required properties are: parentTerm and ontologyId.',
-          params: {keyword: 'isChildTermOf'}
+          message: "Missing required variable in schema isChildTermOf, required properties are: parentTerm and ontologyId.",
+          params: {keyword: "isChildTermOf"}
         });
         reject(new Ajv.ValidationError(errors));
       }
@@ -63,11 +63,11 @@ module.exports = function defFunc(ajv) {
 
   defFunc.definition = {
     async: true,
-    type: 'array',
+    type: "array",
     validate: findChildTerms,
     errors: true
   };
 
-  ajv.addKeyword('isChildTermOf', defFunc.definition);
+  ajv.addKeyword("isChildTermOf", defFunc.definition);
   return ajv;
 };

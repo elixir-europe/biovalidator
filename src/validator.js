@@ -17,7 +17,9 @@ function runValidation(inputSchema, inputObject) {
         }
       }
     ).catch((err, errors) => {
-      if (!(err instanceof Ajv.ValidationError)) throw err;
+      if (!(err instanceof Ajv.ValidationError)) {
+        throw err;
+      }
       console.log(ajv.errorsText(err.errors));
       resolve({ result: "Invalid: " + ajv.errorsText(err.errors)});
     });
