@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var Ajv = require("ajv");
 var request = require("request");

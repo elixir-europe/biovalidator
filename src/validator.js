@@ -1,5 +1,5 @@
 var Ajv = require("ajv");
-var DefFunc = require('./ischildtermof');
+var DefFunc = require("./ischildtermof");
 
 var ajv = new Ajv({allErrors: true});
 var defFunc = new DefFunc(ajv);

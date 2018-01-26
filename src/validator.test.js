@@ -3,7 +3,7 @@ const fs = require("fs");
 
 const runValidation = require("./validator");
 
-it(' -> Empty Schema (empty object)', () => {
+it(" -> Empty Schema (empty object)", () => {
   runValidation({}, {}).then((output) => {
     expect(output).toBeA("object");
     expect(output.result).toBeA("string").toBe("Valid!");
