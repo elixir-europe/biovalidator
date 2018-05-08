@@ -1,18 +1,15 @@
-const expect = require("expect");
 const fs = require("fs");
-
 const runValidation = require("./validator");
 
-it(" -> isChildTermOf Schema", function() {
-  var inputSchema = fs.readFileSync("examples/schemas/ischildterm-schema.json");
-  var jsonSchema = JSON.parse(inputSchema);
+test(" -> isChildTermOf Schema", () => {
+  let inputSchema = fs.readFileSync("examples/schemas/ischildterm-schema.json");
+  let jsonSchema = JSON.parse(inputSchema);
 
-  var inputObj = fs.readFileSync("examples/objects/isChildTerm.json");
-  var jsonObj = JSON.parse(inputObj);
+  let inputObj = fs.readFileSync("examples/objects/isChildTerm.json");
+  let jsonObj = JSON.parse(inputObj);
 
-  runValidation(jsonSchema, jsonObj).then((output) => {
-    expect(output).toBeA("object");
-    expect(output.result).toBeA("string").toBe("Valid!");
-    //console.log("result: " + output.result);
+  return runValidation(jsonSchema, jsonObj).then(data => {
+    expect(data).toBeDefined();
+    expect(data[0]).toBeUndefined();
   });
 });
