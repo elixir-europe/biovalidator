@@ -11,7 +11,9 @@ function runValidation(inputSchema, inputObject) {
     Promise.resolve(validate(inputObject))
     .then((data) => {
         if (validate.errors) {
-          console.log(ajv.errorsText(validate.errors));
+          // For debug reasons
+          console.log(validate.errors);
+          
           resolve(convertToValidationErrors(validate.errors));
         } else {
           resolve([]);
@@ -32,7 +34,9 @@ module.exports = runValidation;
 function convertToValidationErrors(ajvErrorObjects) {
   let errors = [];
   ajvErrorObjects.forEach( errorObject => {
-    errors.push(new ValidationError([errorObject.message], errorObject.dataPath, errorObject.params.missingProperty))
+    errors.push(
+      new ValidationError([errorObject.message], errorObject.dataPath, errorObject.params.missingProperty)
+    )
   });
   return errors;
 }

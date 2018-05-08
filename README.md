@@ -56,7 +56,7 @@ node src/server
 ```
 The node server will run on port **3000** and will expose one endpoint: **/validate**.
 ### Development
-For development purposes using [nodemon](https://nodemon.io/) is useful. It reloads the application everytime something changes on save time.
+For development purposes using [nodemon](https://nodemon.io/) is useful. It reloads the application everytime something has changed on save time.
 ```
 nodemon src/server
 ```
@@ -75,7 +75,7 @@ The endpoint will expect the body to have the following structure:
 Where the schema should be a valid json schema object to validate the submittable against.
 
 **Example:**
-Sending a POST request with the following body
+Sending a POST request with the following body:
 ```json
 {
   "schema": {
@@ -133,7 +133,7 @@ Sending a POST request with the following body
   }
 }
 ```
-will result in this response:
+will produce a response like:
 
 HTTP status code `200`
 ```json
@@ -145,14 +145,17 @@ HTTP status code `200`
 ```json
 [
   {
-    // TODO
-    //"result": "Invalid: data.attributes['age'][0] should have required property 'value'"
+    "errors": [
+        "should have required property 'value'"
+    ],
+    "dataPath": ".attributes['age'][0].value"
   }
 ]
 ```
+Where *errors* is an array of error messages for a given input identified by its path on *dataPath*. There may be one or more error objects within the response array. An empty array represents a valid validation result.
 
-### Errors
-Sending malformed JSON or a body with either the schema or the submittable missing will result in an error. Errors have the following structure:
+### API Errors
+Sending malformed JSON or a body with either the schema or the submittable missing will result in an API error (the request will not reach the validation). API errors have the following structure:
 
 HTTP status code `400`
 ```json
