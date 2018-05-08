@@ -57,6 +57,9 @@ node src/server
 The node server will run on port **3000** and will expose one endpoint: **/validate**.
 ### Development
 For development purposes using [nodemon](https://nodemon.io/) is useful. It reloads the application everytime something changes on save time.
+```
+nodemon src/server
+```
 
 ## Validator API
 The validator exposes one single endpoint that will accept POST requests. When running on you local machine it will look like: **http://localhost:3000/validate**.
@@ -134,17 +137,18 @@ will result in this response:
 
 HTTP status code `200`
 ```json
-{
-  "result": "Valid!"
-}
+[]
 ```
 An invalid validation response will look like:
 
 HTTP status code `200`
 ```json
-{
-  "result": "Invalid: data.attributes['age'][0] should have required property 'value'"
-}
+[
+  {
+    // TODO
+    //"result": "Invalid: data.attributes['age'][0] should have required property 'value'"
+  }
+]
 ```
 
 ### Errors

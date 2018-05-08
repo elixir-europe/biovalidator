@@ -1,5 +1,6 @@
 var Ajv = require("ajv");
 var DefFunc = require("./ischildtermof");
+const ValidationError = require("./validation-error");
 
 var ajv = new Ajv({allErrors: true});
 var defFunc = new DefFunc(ajv);
@@ -11,9 +12,9 @@ function runValidation(inputSchema, inputObject) {
     .then((data) => {
         if (validate.errors) {
           console.log(ajv.errorsText(validate.errors));
-          resolve({ result: "Invalid: " + ajv.errorsText(validate.errors)});
+          resolve(convertToValidationErrors(validate.errors));
         } else {
-          resolve({ result: "Valid!"});
+          resolve([]);
         }
       }
     ).catch((err, errors) => {
@@ -21,9 +22,17 @@ function runValidation(inputSchema, inputObject) {
         throw err;
       }
       console.log(ajv.errorsText(err.errors));
-      resolve({ result: "Invalid: " + ajv.errorsText(err.errors)});
+      resolve(err.errors);
     });
   });
 }
 
 module.exports = runValidation;
+
+function convertToValidationErrors(ajvErrorObjects) {
+  let errors = [];
+  ajvErrorObjects.forEach( errorObject => {
+    errors.push(new ValidationError([errorObject.message], errorObject.dataPath, errorObject.params.missingProperty))
+  });
+  return errors;
+}
