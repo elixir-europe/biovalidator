@@ -6,13 +6,18 @@ let ajv = new Ajv({allErrors: true});
 let defFunc = new DefFunc(ajv);
 
 function convertToValidationErrors(ajvErrorObjects) {
-  let errors = [];
+  let localErrors = [];
   ajvErrorObjects.forEach( (errorObject) => {
-    errors.push(
-      new ValidationError([errorObject.message], errorObject.dataPath, errorObject.params.missingProperty)
-    );
+    let tempValError = new ValidationError([errorObject.message], errorObject.dataPath, errorObject.params.missingProperty);
+    let index = localErrors.findIndex(valError => (valError.dataPath === tempValError.dataPath));
+
+    if(index !== -1) {
+      localErrors[index].errors.push(tempValError.errors[0]);
+    } else {
+      localErrors.push(tempValError);
+    }
   });
-  return errors;
+  return localErrors;
 }
 
 function runValidation(inputSchema, inputObject) {

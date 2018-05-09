@@ -4,7 +4,7 @@ const runValidation = require("./validator");
 test(" -> Empty Schema (empty object)", () => {
   return runValidation({}, {}).then( (data) => {
     expect(data).toBeDefined();
-    expect(data[0]).toBeUndefined();
+    expect(data.length).toBe(0);
   });
 });
 
@@ -17,7 +17,7 @@ test(" -> Attributes Schema (attributes object)", () => {
 
   return runValidation(jsonSchema, jsonObj).then( (data) => {
     expect(data).toBeDefined();
-    expect(data[0]).toBeUndefined();
+    expect(data.length).toBe(0);
   });
 });
 
@@ -30,7 +30,7 @@ test("BioSamples Schema - FAANG \'organism\' sample", () => {
 
   return runValidation(jsonSchema, jsonObj).then( (data) => {
     expect(data).toBeDefined();
-    expect(data[0]).toBeUndefined();
+    expect(data.length).toBe(0);
   });
 });
 
@@ -43,7 +43,7 @@ test("FAANG Schema - FAANG \'organism\' sample", () => {
 
   return runValidation(jsonSchema, jsonObj).then( (data) => {
     expect(data).toBeDefined();
-    expect(data[0]).toBeUndefined();
+    expect(data.length).toBe(0);
   });
 });
 
@@ -56,7 +56,7 @@ test("FAANG Schema - \'specimen\' sample", () => {
 
   return runValidation(jsonSchema, jsonObj).then( (data) => {
     expect(data).toBeDefined();
-    expect(data[0]).toBeUndefined();
+    expect(data.length).toBe(0);
   });
 });
 
@@ -69,7 +69,7 @@ test("FAANG Schema - \'pool of specimens\' sample", () => {
 
   return runValidation(jsonSchema, jsonObj).then( (data) => {
     expect(data).toBeDefined();
-    expect(data[0]).toBeUndefined();
+    expect(data.length).toBe(0);
   });
 });
 
@@ -82,7 +82,7 @@ test("FAANG Schema - \'cell specimen\' sample", () => {
 
   return runValidation(jsonSchema, jsonObj).then( (data) => {
     expect(data).toBeDefined();
-    expect(data[0]).toBeUndefined();
+    expect(data.length).toBe(0);
   });
 });
 
@@ -95,7 +95,7 @@ test("FAANG Schema - \'cell culture\' sample", () => {
 
   return runValidation(jsonSchema, jsonObj).then( (data) => {
     expect(data).toBeDefined();
-    expect(data[0]).toBeUndefined();
+    expect(data.length).toBe(0);
   });
 });
 
@@ -108,6 +108,20 @@ test("FAANG Schema - \'cell line\' sample", () => {
 
   return runValidation(jsonSchema, jsonObj).then( (data) => {
     expect(data).toBeDefined();
-    expect(data[0]).toBeUndefined();
+    expect(data.length).toBe(0);
+  });
+});
+
+test("Test error output", () => {
+  let inputSchema = fs.readFileSync("test/schemas/test-output-schema.json");
+  let jsonSchema = JSON.parse(inputSchema);
+
+  let inputObj = fs.readFileSync("test/objects/test-attributes.json");
+  let jsonObj = JSON.parse(inputObj);
+
+  return runValidation(jsonSchema, jsonObj).then( (data) => {
+    expect(data).toBeDefined();
+    expect(data.length).toBe(1);
+    expect(data[0].errors.length).toBe(2);
   });
 });

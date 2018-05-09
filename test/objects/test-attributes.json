@@ -1,0 +1,12 @@
+{
+    "attributes":{
+       "breed":[
+            {
+                "value":"test-value",
+                "terms":[{
+                    "url":""
+                }]
+            }
+       ]
+    }
+ }
