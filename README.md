@@ -150,6 +150,13 @@ HTTP status code `200`
         "should have required property 'value'"
     ],
     "dataPath": ".attributes['age'][0].value"
+  },
+  {
+    "errors": [
+        "should NOT be shorter than 1 characters",
+        "should match format \"uri\""
+    ],
+    "dataPath": ".attributes['breed'][0].terms[0].url"
   }
 ]
 ```
