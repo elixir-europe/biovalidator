@@ -3,7 +3,7 @@ class ValidationError {
         this.errors = errors;
         if(input) {
             if(dataPath) {
-                this.dataPath = dataPath + '.' + input;
+                this.dataPath = dataPath + "." + input;
             } else {
                 this.dataPath = input;
             }
@@ -14,6 +14,6 @@ class ValidationError {
         }
     }
 
-};
+}
 
 module.exports = ValidationError;

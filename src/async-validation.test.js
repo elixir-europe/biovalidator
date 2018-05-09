@@ -8,7 +8,7 @@ test(" -> isChildTermOf Schema", () => {
   let inputObj = fs.readFileSync("examples/objects/isChildTerm.json");
   let jsonObj = JSON.parse(inputObj);
 
-  return runValidation(jsonSchema, jsonObj).then(data => {
+  return runValidation(jsonSchema, jsonObj).then( (data) => {
     expect(data).toBeDefined();
     expect(data[0]).toBeUndefined();
   });
