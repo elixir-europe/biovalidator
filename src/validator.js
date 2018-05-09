@@ -1,9 +1,19 @@
-var Ajv = require("ajv");
-var DefFunc = require("./ischildtermof");
+let Ajv = require("ajv");
+let DefFunc = require("./ischildtermof");
 const ValidationError = require("./validation-error");
 
-var ajv = new Ajv({allErrors: true});
-var defFunc = new DefFunc(ajv);
+let ajv = new Ajv({allErrors: true});
+let defFunc = new DefFunc(ajv);
+
+function convertToValidationErrors(ajvErrorObjects) {
+  let errors = [];
+  ajvErrorObjects.forEach( (errorObject) => {
+    errors.push(
+      new ValidationError([errorObject.message], errorObject.dataPath, errorObject.params.missingProperty)
+    );
+  });
+  return errors;
+}
 
 function runValidation(inputSchema, inputObject) {
   return new Promise((resolve, reject) => {
@@ -30,13 +40,3 @@ function runValidation(inputSchema, inputObject) {
 }
 
 module.exports = runValidation;
-
-function convertToValidationErrors(ajvErrorObjects) {
-  let errors = [];
-  ajvErrorObjects.forEach( errorObject => {
-    errors.push(
-      new ValidationError([errorObject.message], errorObject.dataPath, errorObject.params.missingProperty)
-    )
-  });
-  return errors;
-}
