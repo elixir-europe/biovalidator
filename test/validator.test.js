@@ -8,7 +8,7 @@ test(" -> Empty Schema (empty object)", () => {
   });
 });
 
-test(" -> Attributes Schema (attributes object)", () => {
+test(" -> Attributes Schema", () => {
   let inputSchema = fs.readFileSync("examples/schemas/attributes-schema.json");
   let jsonSchema = JSON.parse(inputSchema);
 
@@ -17,7 +17,9 @@ test(" -> Attributes Schema (attributes object)", () => {
 
   return runValidation(jsonSchema, jsonObj).then( (data) => {
     expect(data).toBeDefined();
-    expect(data.length).toBe(0);
+    expect(data.length).toBe(1);
+    expect(data[0].errors.length).toBe(1);
+    expect(data[0].errors).toContain('should match format "uri"');
   });
 });
 
@@ -34,16 +36,15 @@ test("BioSamples Schema - FAANG \'organism\' sample", () => {
   });
 });
 
-test("Test error output", () => {
-  let inputSchema = fs.readFileSync("test/schemas/test-output-schema.json");
+test("Study Schema", () => {
+  let inputSchema = fs.readFileSync("examples/schemas/submittables/study-schema.json");
   let jsonSchema = JSON.parse(inputSchema);
 
-  let inputObj = fs.readFileSync("test/objects/test-attributes.json");
+  let inputObj = fs.readFileSync("examples/objects/study.json");
   let jsonObj = JSON.parse(inputObj);
 
   return runValidation(jsonSchema, jsonObj).then( (data) => {
     expect(data).toBeDefined();
-    expect(data.length).toBe(1);
-    expect(data[0].errors.length).toBe(2);
+    expect(data.length).toBe(2);
   });
 });
