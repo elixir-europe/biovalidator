@@ -1,6 +1,6 @@
 let Ajv = require("ajv");
 let DefFunc = require("./ischildtermof");
-const ValidationError = require("./validation-error");
+const ValidationError = require("./data/validation-error");
 
 let ajv = new Ajv({allErrors: true});
 let defFunc = new DefFunc(ajv);
