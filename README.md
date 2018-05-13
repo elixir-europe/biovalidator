@@ -56,6 +56,16 @@ node test
 node src/server
 ```
 The node server will run on port **3000** and will expose one endpoint: **/validate**.
+
+### Executing with Docker
+1. Build docker image:
+```
+docker build -t subs/json-schema-validator .
+```
+2. Run docker image:
+```
+docker run -p 3000:3000 -d subs/json-schema-validator
+```
 ### Development
 For development purposes using [nodemon](https://nodemon.io/) is useful. It reloads the application everytime something has changed on save time.
 ```
