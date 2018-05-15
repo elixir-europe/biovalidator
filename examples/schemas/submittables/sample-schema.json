@@ -12,11 +12,13 @@
         },
         "title": {
             "description": "Title of the sample.",
-            "type": "string"
+            "type": "string",
+            "minLength": 1
         },
         "description": {
             "description": "More extensive free-form description.",
-            "type": "string"
+            "type": "string",
+            "minLength": 1
         },
         "attributes": {
             "description": "Attributes for describing a sample.",
@@ -51,9 +53,9 @@
             "items": {
                 "type": "object",
                 "properties": {
-                    "alias": {"type": "string"},
-                    "accession": {"type": "string"},
-                    "team": {"type": "string"},
+                    "alias": { "type": "string", "minLength": 1 },
+                    "accession": { "type": "string", "minLength": 1 },
+                    "team": { "type": "string", "minLength": 1 },
                     "nature": {
                         "type": "string",
                         "enum": [ "derived from", "child of", "same as", "recurated from" ]
@@ -69,7 +71,7 @@
             "type": "object",
             "properties": {
                 "taxonId": { "type": "integer" },
-                "taxonName": { "type": "string" }
+                "taxonName": { "type": "string", "minLength": 1 }
             },
             "required": ["taxonId"]
         },
