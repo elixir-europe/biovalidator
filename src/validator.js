@@ -8,7 +8,7 @@ let defFunc = new DefFunc(ajv);
 function convertToValidationErrors(ajvErrorObjects) {
   let localErrors = [];
   ajvErrorObjects.forEach( (errorObject) => {
-    let tempValError = new ValidationError([errorObject.message], errorObject.dataPath, errorObject.params.missingProperty);
+    let tempValError = new ValidationError(errorObject);
     let index = localErrors.findIndex(valError => (valError.dataPath === tempValError.dataPath));
 
     if(index !== -1) {

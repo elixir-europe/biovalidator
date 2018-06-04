@@ -1,19 +1,17 @@
 class ValidationError {
-    constructor(errors, dataPath, input) {
-        this.errors = errors;
-        if(input) {
-            if(dataPath) {
-                this.dataPath = dataPath + "." + input;
-            } else {
-                this.dataPath = input;
-            }
-        } else {
-            if(dataPath) {
-                this.dataPath = dataPath;
-            }
-        }
+  constructor(errorObject) {
+    if(errorObject.params.missingProperty) {
+      this.dataPath = errorObject.dataPath + "." + errorObject.params.missingProperty;
+    } else {
+      this.dataPath = errorObject.dataPath;
     }
 
+    if(errorObject.params.allowedValues) { // enum case
+      this.errors = [errorObject.message + ": " + JSON.stringify(errorObject.params.allowedValues)];
+    } else {
+      this.errors = [errorObject.message];
+    }
+  }
 }
 
 module.exports = ValidationError;
