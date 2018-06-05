@@ -1,4 +1,5 @@
 let Ajv = require("ajv");
+const logger = require('./winston');
 let DefFunc = require("./ischildtermof");
 const ValidationError = require("./data/validation-error");
 
@@ -21,24 +22,23 @@ function convertToValidationErrors(ajvErrorObjects) {
 }
 
 function runValidation(inputSchema, inputObject) {
+  logger.log("silly", "Running validation...");
   return new Promise((resolve, reject) => {
     var validate = ajv.compile(inputSchema);
     Promise.resolve(validate(inputObject))
     .then((data) => {
         if (validate.errors) {
-          // For debug reasons
-          console.log(validate.errors);
-          
+          logger.log("debug", ajv.errorsText(validate.errors, {dataVar: inputObject.alias}));
           resolve(convertToValidationErrors(validate.errors));
         } else {
           resolve([]);
         }
       }
     ).catch((err, errors) => {
+      logger.log("error", ajv.errorsText(err.errors));
       if (!(err instanceof Ajv.ValidationError)) {
         throw err;
       }
-      console.log(ajv.errorsText(err.errors));
       resolve(err.errors);
     });
   });

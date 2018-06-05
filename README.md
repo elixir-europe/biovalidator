@@ -3,7 +3,7 @@
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 
 This repository contains a [JSON Schema](http://json-schema.org/) validator for the EMBL-EBI Submissions Project. This validator runs as a standalone node server that receives validation requests and gives back it's results.
-The validation is done using the [AJV](https://github.com/epoberezkin/ajv) library version 6.0.0 that fully supports the JSON Schema **draft-07**.
+The validation is done using the [AJV](https://github.com/epoberezkin/ajv) library version ^6.0.0 that fully supports the JSON Schema **draft-07**.
 
 Deployed for tests purposes on heroku: https://usi-json-schema-validator.herokuapp.com/validate
 
