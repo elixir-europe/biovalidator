@@ -1,10 +1,11 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const logger = require('./winston');
+const logger = require("./winston");
 const runValidation = require("./validator");
+const AppError = require("./model/application-error")
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3020;
 
 app.use(bodyParser.json());
 
@@ -16,11 +17,13 @@ app.use(function(req, res, next) {
 
 app.use(function(err, req, res, next) {
   if (err instanceof SyntaxError && err.status === 400 && "body" in err) {
-    logger.log("info", "Received malformed JSON.");
-    res.status(400).send({"error": "Received malformed JSON, please check your request body."});
+    let appError = new AppError("Received malformed JSON.");
+    logger.log("info", appError.error);
+    res.status(400).send(appError);
   } else {
-    logger.log("error", err.message);
-    res.status(err.status).send({"error": "Ups, something went wrong"});
+    let appError = new AppError(err.message);
+    logger.log("error", appError.error);
+    res.status(err.status).send(appError);
   }
 });
 
@@ -36,12 +39,10 @@ app.post("/validate", (req, res) => {
       res.status(200).send(output);
     });
   } else {
-    logger.log("info", "Something is missing: schema and/or object .");
-    res.status(400).send(
-      {"error": "Something is missing, both schema and object are required to execute validation."}
-    );
+    let appError = new AppError("Something is missing, both schema and object are required to execute validation.");
+    logger.log("info", appError.error);
+    res.status(400).send(appError);
   }
-
 });
 
 app.get("/validate", (req, res) => {

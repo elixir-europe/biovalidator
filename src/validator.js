@@ -1,7 +1,7 @@
 let Ajv = require("ajv");
 const logger = require('./winston');
-let DefFunc = require("./ischildtermof");
-const ValidationError = require("./data/validation-error");
+let DefFunc = require("./custom/ischildtermof");
+const ValidationError = require("./model/validation-error");
 
 let ajv = new Ajv({allErrors: true});
 let defFunc = new DefFunc(ajv);

@@ -2,7 +2,7 @@
 
 var Ajv = require("ajv");
 var request = require("request");
-const logger = require('./winston');
+const logger = require('../winston');
 
 module.exports = function defFunc(ajv) {
 
