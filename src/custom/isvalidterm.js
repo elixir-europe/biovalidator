@@ -1,17 +1,17 @@
 var Ajv = require("ajv");
 var request = require("request");
 const logger = require('../winston');
+const CustomAjvError = require("../model/custom-ajv-error");
 
-module.exports = function defFunc(ajv) {
+module.exports = function isValidTerm(ajv) {
 
   function findTerm(schema, data) {
-    return new Promise((resolve, reject) =>{
-      const olsSearchUrl = "https://www.ebi.ac.uk/ols/api/search?q=";
-      let errors = [];
+    return new Promise((resolve, reject) => {
+      if(schema) {
+        const olsSearchUrl = "https://www.ebi.ac.uk/ols/api/search?q=";
+        let errors = [];
 
-      let errorCount = 0;
-      for(let i = 0; i < data.length; i++) {
-        const termUri = data[i];
+        const termUri = data;
         const encodedTermUri = encodeURIComponent(termUri);
         const url = olsSearchUrl + encodedTermUri + "&exact=true&groupField=true&queryFields=iri";
 
@@ -19,22 +19,39 @@ module.exports = function defFunc(ajv) {
         request(url, (error, Response, body) => {
           let jsonBody = JSON.parse(body);
 
-          // TODO
-
+          if(jsonBody.response.numFound === 1) {
+            logger.log("debug", "Found 1 match!")
+            resolve(true);
+          } else if (jsonBody.response.numFound === 0) {
+            logger.log("debug", "Could not find term in OLS.")
+            errors.push(
+              new CustomAjvError(
+                "isValidTerm", `provided term does not exist in OLS: [${termUri}]`, 
+                {keyword: "isValidTerm"})
+              );
+            reject(new Ajv.ValidationError(errors));
+          } else {
+            errors.push(
+              new CustomAjvError(
+                "isValidTerm", "Something went wrong while validating term, try again.", 
+                {keyword: "isValidTerm"})
+              );
+            reject(new Ajv.ValidationError(errors));
+          }
         });
+      } else {
+        resolve(true);
       }
     });
-    
-    
   }
-
-  defFunc.definition = {
+  
+  isValidTerm.definition = {
     async: true,
-    type: "array",
+    type: "string",
     validate: findTerm,
     errors: true
   };
 
-  ajv.addKeyword("isValidTerm", defFunc.definition);
+  ajv.addKeyword("isValidTerm", isValidTerm.definition);
   return ajv;
 };

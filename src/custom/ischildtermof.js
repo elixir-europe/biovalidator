@@ -5,7 +5,7 @@ var request = require("request");
 const logger = require("../winston");
 const CustomAjvError = require("../model/custom-ajv-error");
 
-module.exports = function defFunc(ajv) {
+module.exports = function isChildTermOf(ajv) {
 
   function findChildTerms(schema, data) {
     return new Promise( function(resolve, reject) {
@@ -31,7 +31,7 @@ module.exports = function defFunc(ajv) {
             } else if(jsonBody.response.numFound === 0) {
               errors.push(new CustomAjvError("isChildTermOf", "is not child term of " + parentTerm, {keyword: "isChildTermOf"}));
               errorCount++;
-              if (errorCount === data.length) {
+              if (i === data.length) {
                 reject(new Ajv.ValidationError(errors));
               }
             } else {
@@ -41,7 +41,7 @@ module.exports = function defFunc(ajv) {
                   {keyword: "isChildTermOf"})
                 );
               errorCount++;
-              if (errorCount === data.length) {
+              if (i === data.length) {
                 reject(new Ajv.ValidationError(errors));
               }
             }
@@ -60,13 +60,13 @@ module.exports = function defFunc(ajv) {
     });
   }
 
-  defFunc.definition = {
+  isChildTermOf.definition = {
     async: true,
     type: "array",
     validate: findChildTerms,
     errors: true
   };
 
-  ajv.addKeyword("isChildTermOf", defFunc.definition);
+  ajv.addKeyword("isChildTermOf", isChildTermOf.definition);
   return ajv;
 };
