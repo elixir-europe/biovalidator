@@ -2,9 +2,10 @@
 
 var Ajv = require("ajv");
 var request = require("request");
-const logger = require('./winston');
+const logger = require("../winston");
+const CustomAjvError = require("../model/custom-ajv-error");
 
-module.exports = function defFunc(ajv) {
+module.exports = function isChildTermOf(ajv) {
 
   function findChildTerms(schema, data) {
     return new Promise( function(resolve, reject) {
@@ -22,53 +23,50 @@ module.exports = function defFunc(ajv) {
           + "&exact=true&groupField=true&allChildrenOf=" + encodeURIComponent(parentTerm)
           + "&ontology=" + ontologyId + "&queryFields=iri";
 
-          logger.log("debug", "Evaluating isChildTermOf: " + url);
+          logger.log("debug", `Evaluating isChildTermOf, query url: [${url}]`);
           request(url, function(error, response, body) {
             let jsonBody = JSON.parse(body);
             if(jsonBody.response.numFound === 1) {
               resolve(true);
             } else if(jsonBody.response.numFound === 0) {
-              errors.push({
-                keyword: "isChildTermOf",
-                message: "is not child term of " + parentTerm,
-                params: {keyword: "isChildTermOf"}
-              });
+              errors.push(new CustomAjvError("isChildTermOf", "is not child term of " + parentTerm, {keyword: "isChildTermOf"}));
               errorCount++;
-              if (errorCount === data.length) {
+              if (i === data.length) {
                 reject(new Ajv.ValidationError(errors));
               }
             } else {
-              errors.push({
-                keyword: "isChildTermOf",
-                message: "Something went wrong while validating term, try again.",
-                params: {keyword: "isChildTermOf"}
-              });
+              errors.push(
+                new CustomAjvError(
+                  "isChildTermOf", "Something went wrong while validating term, try again.", 
+                  {keyword: "isChildTermOf"})
+                );
               errorCount++;
-              if (errorCount === data.length) {
+              if (i === data.length) {
                 reject(new Ajv.ValidationError(errors));
               }
             }
           });
         }
       } else {
-        errors.push({
-          keyword: "isChildTermOf",
-          message: "Missing required variable in schema isChildTermOf, required properties are: parentTerm and ontologyId.",
-          params: {keyword: "isChildTermOf"}
-        });
+        errors.push(
+          new CustomAjvError(
+            "isChildTermOf",
+            "Missing required variable in schema isChildTermOf, required properties are: parentTerm and ontologyId.",
+            {keyword: "isChildTermOf"})
+          );
         reject(new Ajv.ValidationError(errors));
       }
 
     });
   }
 
-  defFunc.definition = {
+  isChildTermOf.definition = {
     async: true,
     type: "array",
     validate: findChildTerms,
     errors: true
   };
 
-  ajv.addKeyword("isChildTermOf", defFunc.definition);
+  ajv.addKeyword("isChildTermOf", isChildTermOf.definition);
   return ajv;
 };

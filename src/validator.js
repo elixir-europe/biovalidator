@@ -1,10 +1,12 @@
 let Ajv = require("ajv");
 const logger = require('./winston');
-let DefFunc = require("./ischildtermof");
-const ValidationError = require("./data/validation-error");
+let IsChildTermOf = require("./custom/ischildtermof");
+let IsValidTerm = require("./custom/isvalidterm");
+const ValidationError = require("./model/validation-error");
 
 let ajv = new Ajv({allErrors: true});
-let defFunc = new DefFunc(ajv);
+let isChildTermOf = new IsChildTermOf(ajv);
+let isValidTerm = new IsValidTerm(ajv);
 
 function convertToValidationErrors(ajvErrorObjects) {
   let localErrors = [];
