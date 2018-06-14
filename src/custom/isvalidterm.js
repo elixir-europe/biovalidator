@@ -1,6 +1,6 @@
 var Ajv = require("ajv");
 var request = require("request");
-const logger = require('../winston');
+const logger = require("../winston");
 const CustomAjvError = require("../model/custom-ajv-error");
 
 module.exports = function isValidTerm(ajv) {
@@ -20,10 +20,10 @@ module.exports = function isValidTerm(ajv) {
           let jsonBody = JSON.parse(body);
 
           if(jsonBody.response.numFound === 1) {
-            logger.log("debug", "Found 1 match!")
+            logger.log("debug", "Found 1 match!");
             resolve(true);
           } else if (jsonBody.response.numFound === 0) {
-            logger.log("debug", "Could not find term in OLS.")
+            logger.log("debug", "Could not find term in OLS.");
             errors.push(
               new CustomAjvError(
                 "isValidTerm", `provided term does not exist in OLS: [${termUri}]`, 

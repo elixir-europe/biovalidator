@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const logger = require("./winston");
 const runValidation = require("./validator");
-const AppError = require("./model/application-error")
+const AppError = require("./model/application-error");
 
 const app = express();
 const port = process.env.PORT || 3020;

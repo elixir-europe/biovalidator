@@ -6,7 +6,7 @@ const ValidationError = require("./model/validation-error");
 
 let ajv = new Ajv({allErrors: true});
 let isChildTermOf = new IsChildTermOf(ajv);
-let isValidTerm = new IsValidTerm(ajv)
+let isValidTerm = new IsValidTerm(ajv);
 
 function convertToValidationErrors(ajvErrorObjects) {
   let localErrors = [];
