@@ -10,14 +10,14 @@
   "attributes": {
     "material": [{
       "value": "cell specimen",
-      "terms": ["http://purl.obolibrary.org/obo/OBI_0001468"]
+      "terms": [{"url": "http://purl.obolibrary.org/obo/OBI_0001468"}]
     }],
     "project": [{
       "value": "FAANG"
     }],
     "cellType": [{
       "value": "bone marrow cell",
-      "terms": ["http://purl.obolibrary.org/obo/CL_0002092"]
+      "terms": [{"url": "http://purl.obolibrary.org/obo/CL_0002092"}]
     }],
     "purificationProtocol": [{
       "value": "http://ftp.faang.ebi.ac.uk/ftp/protocols/samples/ ROSLIN_SOP_Isolation_of_Macrophages_from_Lungs_Blood_and_Bone_Marrow_of_Large_Animals_20160516.pdf"

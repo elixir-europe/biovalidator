@@ -51,16 +51,16 @@
           "minItems": 1,
           "items": {
             "properties": {
-              "value": {
-                "type": "string",
-                "minLength": 1
-              },
-              "units": {"type": "string"},
+              "value": { "type": "string", "minLength": 1 },
+              "units": { "type": "string" },
               "terms": {
                 "type": "array",
                 "items": {
-                  "type": "string",
-                  "format": "uri"
+                  "type": "object",
+                  "properties": {
+                    "url": {"type": "string", "format": "uri" }                    
+                  },
+                  "required": ["url"]
                 }
               }
             },

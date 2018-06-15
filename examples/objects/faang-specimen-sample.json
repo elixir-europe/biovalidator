@@ -9,7 +9,7 @@
   "attributes": {
     "material": [{
       "value": "specimen from organism",
-      "terms": ["http://purl.obolibrary.org/obo/OBI_0001479"]
+      "terms": [{"url": "http://purl.obolibrary.org/obo/OBI_0001479"}]
     }],
     "project": [{
       "value": "FAANG"
@@ -19,18 +19,18 @@
     }],
     "developmentalStage": [{
       "value": "adult",
-      "terms": ["http://www.ebi.ac.uk/efo/EFO_0001272"]
+      "terms": [{"url": "http://www.ebi.ac.uk/efo/EFO_0001272"}]
     }],
     "fastedStatus": [{
       "value": "fed"
     }],
     "healthStatusAtCollection": [{
       "value": "normal",
-      "terms":["http://purl.obolibrary.org/obo/PATO_0000461"]
+      "terms":[{"url": "http://purl.obolibrary.org/obo/PATO_0000461"}]
     }],
     "organismPart": [{
       "value": "milk",
-      "terms":["http://purl.obolibrary.org/obo/UBERON_0001913"]
+      "terms":[{"url": "http://purl.obolibrary.org/obo/UBERON_0001913"}]
     }],
     "specimenCollectionDate": [{
       "value": "2013-01-17"

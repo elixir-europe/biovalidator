@@ -10,7 +10,8 @@ test(" -> isChildTermOf Schema", () => {
 
   return runValidation(jsonSchema, jsonObj).then( (data) => {
     expect(data).toBeDefined();
-    expect(data[0]).toBeUndefined();
+    expect(data[0]).toBeDefined();
+    expect(data[0].dataPath).toBe(".attributes['age'][0].terms[0].url");
   });
 });
 

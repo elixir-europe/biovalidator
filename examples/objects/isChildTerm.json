@@ -4,13 +4,13 @@
       "value": "3",
       "units": "days",
       "terms":[
-        "http://purl.obolibrary.org/obo/UO_0000033"
+        {"url":"http://purl.obolibrary.org/obo/UO_0000033"}
       ]
     }],
     "sex": [{
       "value": "female",
       "terms":[
-        "http://purl.obolibrary.org/obo/PATO_0000383"
+        {"url":"http://purl.obolibrary.org/obo/PATO_0000383"}
       ]
     }]
   }

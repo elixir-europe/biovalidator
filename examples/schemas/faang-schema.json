@@ -133,9 +133,15 @@
           "items": {
             "properties": {
               "terms": {
-                "isChildTermOf": {
-                  "parentTerm": "http://purl.obolibrary.org/obo/PATO_0000047",
-                  "ontologyId": "pato"
+                "items": {
+                  "properties": {
+                    "url": {
+                      "isChildTermOf": {
+                        "parentTerm": "http://purl.obolibrary.org/obo/PATO_0000047",
+                        "ontologyId": "pato"
+                      }
+                    }                    
+                  }
                 }
               }
             }
@@ -488,8 +494,11 @@
                 "type": "array",
                 "minItems": 1,
                 "items": {
-                  "type": "string",
-                  "format": "uri"
+                  "type": "object",
+                  "properties": {
+                    "url": { "type": "string", "format": "uri" }                    
+                  },
+                  "required": ["url"]
                 }
               }
             },

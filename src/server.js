@@ -37,6 +37,8 @@ app.post("/validate", (req, res) => {
     runValidation(inputSchema, inputObject).then((output) => {
       logger.log("silly", "Sent validation results.");
       res.status(200).send(output);
+    }).catch((error) => {
+      res.status(500).send(error);
     });
   } else {
     let appError = new AppError("Something is missing, both schema and object are required to execute validation.");

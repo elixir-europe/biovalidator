@@ -3,6 +3,7 @@ const logger = require('./winston');
 let IsChildTermOf = require("./custom/ischildtermof");
 let IsValidTerm = require("./custom/isvalidterm");
 const ValidationError = require("./model/validation-error");
+const AppError = require("./model/application-error");
 
 let ajv = new Ajv({allErrors: true});
 let isChildTermOf = new IsChildTermOf(ajv);
@@ -39,10 +40,11 @@ function runValidation(inputSchema, inputObject) {
     ).catch((err, errors) => {
       if (!(err instanceof Ajv.ValidationError)) {
         logger.log("error", "An error ocurred while running the validation.");
-        throw err;
+        reject(new AppError("An error ocurred while running the validation."));
+      } else {
+        logger.log("debug", ajv.errorsText(err.errors, {dataVar: inputObject.alias}));
+        resolve(convertToValidationErrors(err.errors));
       }
-      logger.log("debug", ajv.errorsText(err.errors, {dataVar: inputObject.alias}));
-      resolve(convertToValidationErrors(err.errors));
     });
   });
 }

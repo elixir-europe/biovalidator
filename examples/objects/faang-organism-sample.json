@@ -9,15 +9,15 @@
   "attributes": {
     "material": [{
       "value": "organism",
-      "terms": ["http://purl.obolibrary.org/obo/OBI_0100026"]
+      "terms": [{"url": "http://purl.obolibrary.org/obo/OBI_0100026"}]
     }],
     "organism": [{
       "value": "Ovis aries",
-      "terms": ["http://purl.obolibrary.org/obo/NCBITaxon_9940"]
+      "terms": [{"url": "http://purl.obolibrary.org/obo/NCBITaxon_9940"}]
     }],
     "sex": [{
       "value": "female",
-      "terms": ["http://purl.obolibrary.org/obo/PATO_0000383"]
+      "terms": [{"url": "http://purl.obolibrary.org/obo/PATO_0000383"}]
     }],
     "birthDate": [{
       "value": "2009",
@@ -25,11 +25,11 @@
     }],
     "breed": [{
       "value": "Spanish Churra",
-      "terms": ["http://purl.obolibrary.org/obo/LBO_0000704"]
+      "terms": [{"url": "http://purl.obolibrary.org/obo/LBO_0000704"}]
     }],
     "healthStatus": [{
       "value": "normal",
-      "terms":["http://purl.obolibrary.org/obo/PATO_0000461"]
+      "terms":[{"url": "http://purl.obolibrary.org/obo/PATO_0000461"}]
     }],
     "project": [{
       "value": "FAANG"
