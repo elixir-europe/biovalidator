@@ -1,6 +1,6 @@
 {
   "name": "json-schema-validator",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "A nodejs JSON schema validator.",
   "main": "src/server.js",
   "repository": "https://github.com/EMBL-EBI-SUBS/json-schema-validator.git",
@@ -31,6 +31,6 @@
   },
   "devDependencies": {
     "jest": "^22.4.3",
-    "nodemon": "^1.17.4"
+    "nodemon": "^1.17.5"
   }
 }

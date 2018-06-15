@@ -37,11 +37,12 @@ function runValidation(inputSchema, inputObject) {
         }
       }
     ).catch((err, errors) => {
-      logger.log("error", ajv.errorsText(err.errors));
       if (!(err instanceof Ajv.ValidationError)) {
+        logger.log("error", "An error ocurred while running the validation.");
         throw err;
       }
-      resolve(err.errors);
+      logger.log("debug", ajv.errorsText(err.errors, {dataVar: inputObject.alias}));
+      resolve(convertToValidationErrors(err.errors));
     });
   });
 }
