@@ -1,14 +1,14 @@
 const fs = require("fs");
 const runValidation = require("../src/validator");
 
-test(" -> Empty Schema (empty object)", () => {
+test("Empty Schema (empty object)", () => {
   return runValidation({}, {}).then( (data) => {
     expect(data).toBeDefined();
     expect(data.length).toBe(0);
   });
 });
 
-test(" -> Attributes Schema", () => {
+test("Attributes Schema", () => {
   let inputSchema = fs.readFileSync("examples/schemas/attributes-schema.json");
   let jsonSchema = JSON.parse(inputSchema);
 

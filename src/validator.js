@@ -1,14 +1,18 @@
 let Ajv = require("ajv");
-let DefFunc = require("./ischildtermof");
-const ValidationError = require("./data/validation-error");
+const logger = require("./winston");
+let IsChildTermOf = require("./custom/ischildtermof");
+let IsValidTerm = require("./custom/isvalidterm");
+const ValidationError = require("./model/validation-error");
+const AppError = require("./model/application-error");
 
 let ajv = new Ajv({allErrors: true});
-let defFunc = new DefFunc(ajv);
+let isChildTermOf = new IsChildTermOf(ajv);
+let isValidTerm = new IsValidTerm(ajv);
 
 function convertToValidationErrors(ajvErrorObjects) {
   let localErrors = [];
   ajvErrorObjects.forEach( (errorObject) => {
-    let tempValError = new ValidationError([errorObject.message], errorObject.dataPath, errorObject.params.missingProperty);
+    let tempValError = new ValidationError(errorObject);
     let index = localErrors.findIndex(valError => (valError.dataPath === tempValError.dataPath));
 
     if(index !== -1) {
@@ -21,14 +25,13 @@ function convertToValidationErrors(ajvErrorObjects) {
 }
 
 function runValidation(inputSchema, inputObject) {
+  logger.log("silly", "Running validation...");
   return new Promise((resolve, reject) => {
     var validate = ajv.compile(inputSchema);
     Promise.resolve(validate(inputObject))
     .then((data) => {
         if (validate.errors) {
-          // For debug reasons
-          console.log(validate.errors);
-          
+          logger.log("debug", ajv.errorsText(validate.errors, {dataVar: inputObject.alias}));
           resolve(convertToValidationErrors(validate.errors));
         } else {
           resolve([]);
@@ -36,10 +39,12 @@ function runValidation(inputSchema, inputObject) {
       }
     ).catch((err, errors) => {
       if (!(err instanceof Ajv.ValidationError)) {
-        throw err;
+        logger.log("error", "An error ocurred while running the validation.");
+        reject(new AppError("An error ocurred while running the validation."));
+      } else {
+        logger.log("debug", ajv.errorsText(err.errors, {dataVar: inputObject.alias}));
+        resolve(convertToValidationErrors(err.errors));
       }
-      console.log(ajv.errorsText(err.errors));
-      resolve(err.errors);
     });
   });
 }

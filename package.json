@@ -1,6 +1,6 @@
 {
   "name": "json-schema-validator",
-  "version": "1.2.1",
+  "version": "1.5.0",
   "description": "A nodejs JSON schema validator.",
   "main": "src/server.js",
   "repository": "https://github.com/EMBL-EBI-SUBS/json-schema-validator.git",
@@ -11,7 +11,7 @@
     "travis-test": "jest test/validator.test.js"
   },
   "engines": {
-    "node": "9.7.1"
+    "node": "8.11.1"
   },
   "keywords": [
     "nodejs",
@@ -25,10 +25,12 @@
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "request": "^2.83.0",
-    "update": "^0.7.4"
+    "update": "^0.7.4",
+    "winston": "^3.0.0-rc6",
+    "winston-daily-rotate-file": "^3.2.1"
   },
   "devDependencies": {
     "jest": "^22.4.3",
-    "nodemon": "^1.17.4"
+    "nodemon": "^1.17.5"
   }
 }

@@ -10,7 +10,7 @@
   "attributes": {
     "material": [{
       "value": "pool of specimens",
-      "terms": ["http://purl.obolibrary.org/obo/OBI_0302716"]
+      "terms": [{"url": "http://purl.obolibrary.org/obo/OBI_0302716"}]
     }],
     "project": [{
       "value": "FAANG"

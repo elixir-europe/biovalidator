@@ -13,11 +13,11 @@
     }],
     "material": [{
       "value": "cell culture",
-      "terms": ["http://purl.obolibrary.org/obo/OBI_0001876", "http://purl.obolibrary.org/obo/BTO_0000214"]
+      "terms": [{"url": "http://purl.obolibrary.org/obo/OBI_0001876"}, {"url": "http://purl.obolibrary.org/obo/BTO_0000214"}]
     }],
     "cellType": [{
       "value": "epitheloid cell of small intestine",
-      "terms": ["http://purl.obolibrary.org/obo/CL_0002254"]
+      "terms": [{"url": "http://purl.obolibrary.org/obo/CL_0002254"}]
     }],
     "cellCultureProtocol": [{
       "value": "http://www.ncbi.nlm.nih.gov/pubmed/16215741"
@@ -27,7 +27,7 @@
     }],
     "cultureType": [{
       "value": "cell culture",
-      "terms": ["http://purl.obolibrary.org/obo/BTO_0000214"]
+      "terms": [{"url": "http://purl.obolibrary.org/obo/BTO_0000214"}]
     }],
     "cultureConditions": [{
       "value": "cells were cultured conventionally with 10% fetal calf serum (FBS) and 1% penicillin /streptomycin (both PAA, Colb, Germany) in Dulbecco's Modified Eagle Medium (DMEM) Sigma, Steinheim , Germany"

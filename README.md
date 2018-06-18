@@ -3,17 +3,18 @@
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 
 This repository contains a [JSON Schema](http://json-schema.org/) validator for the EMBL-EBI Submissions Project. This validator runs as a standalone node server that receives validation requests and gives back it's results.
-The validation is done using the [AJV](https://github.com/epoberezkin/ajv) library version 6.0.0 that fully supports the JSON Schema **draft-07**.
+The validation is done using the [AJV](https://github.com/epoberezkin/ajv) library version ^6.0.0 that fully supports the JSON Schema **draft-07**.
 
-Deployed for tests purposes on heroku: https://usi-json-schema-validator.herokuapp.com/validate
+Deployed for tests purposes on heroku: https://subs-json-schema-validator.herokuapp.com/validate
 
-:arrow_right: [Getting Started](README.md#getting-started)
+## Contents
+- [Getting Started](README.md#getting-started)
 
-:arrow_right: [Validator API](README.md#validator-api)
+- [Validation API](README.md#validation-api)
 
-:arrow_right: [Custom keywords](README.md#custom-keywords)
+- [Custom keywords](README.md#custom-keywords)
 
-:arrow_right: [License](README.md#license)
+- [License](README.md#license)
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -25,7 +26,7 @@ npm is distributed with Node.js which means that when you download Node.js, you 
 ### Installing
 
 #### Node.js / npm
-- Get Node.js: https://nodejs.org/en/
+- Get Node.js: https://nodejs.org/en/ (v8.11.1 LTS)
 
 - If you use [Homebrew](https://brew.sh/) you can install node by doing:
 ```
@@ -55,82 +56,68 @@ node test
 ```
 node src/server
 ```
-The node server will run on port **3000** and will expose one endpoint: **/validate**.
+The node server will run on port **3020** and will expose one endpoint: **/validate**.
+
+### Executing with Docker
+1. Build docker image:
+```
+docker build -t subs/json-schema-validator .
+```
+2. Run docker image:
+```
+docker run -p 3020:3020 -d subs/json-schema-validator
+```
 ### Development
 For development purposes using [nodemon](https://nodemon.io/) is useful. It reloads the application everytime something has changed on save time.
 ```
 nodemon src/server
 ```
 
-## Validator API
-The validator exposes one single endpoint that will accept POST requests. When running on you local machine it will look like: **http://localhost:3000/validate**.
+## Validation API
+This validator exposes one single endpoint that will accept POST requests. When running on you local machine it will look like: **http://localhost:3020/validate**.
 
 ### Usage
 The endpoint will expect the body to have the following structure:
-```json
+```js
 {
   "schema": {},
   "object": {}
 }
 ```
-Where the schema should be a valid json schema object to validate the submittable against.
+Where the schema should be a valid json schema to validate the object against.
 
 **Example:**
 Sending a POST request with the following body:
-```json
+```js
 {
   "schema": {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "Attributes",
-    "description": "USI submittable attributes schema.",
-
+    "$schema": "http://json-schema.org/draft-07/schema#"
+    
     "type": "object",
     "properties": {
-      "attributes": {
-        "type": "object",
-        "properties": {},
-        "patternProperties": {
-          "^.*$": {
-            "type": "array",
-            "minItems": 1,
-            "items": {
-              "properties": {
-                "value": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "units": {"type": "string"},
-                "terms": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "format": "uri"
-                  }
-                }
-              },
-              "required": ["value"]
-            }
-          }
-        }
+      "alias": {
+        "description": "A sample unique identifier in a submission.",
+        "type": "string"
+      },
+      "taxonId": {
+        "description": "The taxonomy id for the sample species.",
+        "type": "integer"
+      },
+      "taxon": {
+        "description": "The taxonomy name for the sample species.",
+        "type": "string"
+      },
+      "releaseDate": {
+        "description": "Date from which this sample is released publicly.",
+        "type": "string",
+        "format": "date"
       }
-    }
+    },  
+    "required": ["alias", "taxonId" ]
   },
   "object": {
-    "attributes": {
-      "age": [{
-        "value": "3",
-        "units": "days",
-        "terms":[
-          "http://purl.obolibrary.org/obo/UO_0000033"
-        ]
-      }],
-      "sex": [{
-        "value": "female",
-        "terms":[
-          "http://purl.obolibrary.org/obo/PATO_0000383"
-        ]
-      }]
-    }
+    "alias": "MA456",
+    "taxonId": 9606
   }
 }
 ```
@@ -140,7 +127,7 @@ HTTP status code `200`
 ```json
 []
 ```
-An invalid validation response will look like:
+An example of a validation response with errors:
 
 HTTP status code `200`
 ```json
@@ -172,36 +159,67 @@ HTTP status code `400`
 }
 ```
 ## Custom keywords
-The AJV library supports the implementation of custom json schema keywords to address validation scenarios that json schema is not capable of addressing.
+The AJV library supports the implementation of custom json schema keywords to address validation scenarios that go beyond what json schema can handle.
+This validator has two custom keywords implemented, `isChildTermOf` and `isValidTerm`.
 
 ### isChildTermOf
-This custom keyword *evaluates if an ontology term is child of other*. This keyword is applied to an array of strings (url) and **passes validation if at least one of the terms in the array is child of the term defined in the schema**.
+This custom keyword *evaluates if an ontology term is child of other*. This keyword is applied to a string (url) and **passes validation if the term is a child of the term defined in the schema**.
 The keyword requires the **parent term** and the **ontology id**, both of which should exist in [OLS - Ontology Lookup Service](https://www.ebi.ac.uk/ols).
-This keyword works by doing an asynchronous call to OLS API that will respond with the required information to know if a given term is child of another. Being an async validation step, whenever used is a schema it should have the flag: `"$async": true`
+
+This keyword works by doing an asynchronous call to the [OLS API](https://www.ebi.ac.uk/ols/api/) that will respond with the required information to know if a given term is child of another. 
+Being an async validation step, whenever used is a schema, the schema must have the flag: `"$async": true` in it's object root.
+
 #### Usage
 Schema:
-```json
+```js
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$async": true,
+  "properties": {
+    "term": { 
+      "type": "string", 
+      "format": "uri",
+      "isChildTermOf": {
+        "parentTerm": "http://purl.obolibrary.org/obo/PATO_0000047",
+        "ontologyId": "pato"
+      } 
+    }
+  }
+}
+```
+JSON object:
+```js
+{
+  "term": "http://purl.obolibrary.org/obo/PATO_0000383"
+}
+```
+
+### isValidTerm
+This custom keyword *evaluates if a given ontology term url exists in OLS* ([Ontology Lookup Service](https://www.ebi.ac.uk/ols)). It is applied to a string (url) and **passes validation if the term exists in OLS**. It can be aplied to any string defined in the schema.
+
+This keyword works by doing an asynchronous call to the [OLS API](https://www.ebi.ac.uk/ols/api/) that will respond with the required information to determine if the term exists in OLS or not. 
+Being an async validation step, whenever used is a schema, the schema must have the flag: `"$async": true` in it's object root.
+
+#### Usage
+Schema:
+```js
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$async": true,
 
-  (...)
-
-    "isChildTermOf": {
-      "parentTerm": "http://purl.obolibrary.org/obo/PATO_0000047",
-      "ontologyId": "pato"
-    }
+  "properties": {
+    "url": { 
+      "type": "string", 
+      "format": "uri",
+      "isValidTerm": true 
+    } 
+  }
 }
 ```
 JSON object:
-```json
+```js
 {
-  "attributes": {
-    "sex": [{
-      "value": "female",
-      "terms":["http://purl.obolibrary.org/obo/PATO_0000383"]
-    }]
-  }
+  "url": "http://purl.obolibrary.org/obo/PATO_0000383"
 }
 ```
 

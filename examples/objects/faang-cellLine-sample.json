@@ -13,21 +13,21 @@
     }],
     "material": [{
       "value": "cell line",
-      "terms": ["http://purl.obolibrary.org/obo/CLO_0000031", "http://www.ebi.ac.uk/efo/EFO_0000322"]
+      "terms": [{"url": "http://purl.obolibrary.org/obo/CLO_0000031"}, {"url": "http://www.ebi.ac.uk/efo/EFO_0000322"}]
     }],
     "biomaterialProvider": [{
       "value": "ATCC"
     }],
     "sex": [{
       "value": "female genotypic sex",
-      "terms": ["http://purl.obolibrary.org/obo/PATO_0020002"]
+      "terms": [{"url": "http://purl.obolibrary.org/obo/PATO_0020002"}]
     }],
     "cellLine": [{
       "value": "3D4/2"
     }],
     "cellType": [{
       "value": "alveolar macrophage",
-      "terms": ["http://purl.obolibrary.org/obo/CL_0000235", "http://purl.obolibrary.org/obo/CL_0000583"]
+      "terms": [{"url": "http://purl.obolibrary.org/obo/CL_0000235"}, {"url": "http://purl.obolibrary.org/obo/CL_0000583"}]
     }],
     "publication": [{
       "value": "doi://10.1016/S0166-0934(02)00085-X"
@@ -37,7 +37,7 @@
     }],
     "breed": [{
       "value": "Landrace",
-      "terms": ["http://purl.obolibrary.org/obo/LBO_0000692"]
+      "terms": [{"url": "http://purl.obolibrary.org/obo/LBO_0000692"}]
     }],
     "dateEstablished": [{
       "value": "2013-08",
