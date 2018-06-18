@@ -1,5 +1,5 @@
 let Ajv = require("ajv");
-const logger = require('./winston');
+const logger = require("./winston");
 let IsChildTermOf = require("./custom/ischildtermof");
 let IsValidTerm = require("./custom/isvalidterm");
 const ValidationError = require("./model/validation-error");
