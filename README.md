@@ -49,7 +49,7 @@ npm install
 
 ### Running the Tests
 ```
-node test
+npm test
 ```
 
 ### Executing
@@ -91,7 +91,7 @@ Sending a POST request with the following body:
 ```js
 {
   "schema": {
-    "$schema": "http://json-schema.org/draft-07/schema#"
+    "$schema": "http://json-schema.org/draft-07/schema#",
     
     "type": "object",
     "properties": {
