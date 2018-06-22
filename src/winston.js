@@ -2,8 +2,10 @@ const { createLogger, format, transports } = require("winston");
 const { printf, combine, timestamp } = format;
 require("winston-daily-rotate-file");
 
+const argv = require('yargs').argv;
+
 // define the custom settings for each transport (console, file)
-const logPath = process.argv[2];
+const logPath = argv.logPath;
 
 const options = {
   console: {

@@ -60,9 +60,9 @@ The node server will run on port **3020** and will expose one endpoint: **/valid
 
 #### Startup arguments
 
-If provided with a log path output the application will write the logs to a file on the specified directory with a 24h rotation. To provide the log path add this as the first thing after the startup statement:
+If provided with a log path argument, the application will write the logs to a file on the specified directory with a 24h rotation. To provide the log path add a `logPath` property after the startup statement:
 ```
-node src/server /log/output/path
+node src/server --logPath=/log/directory/path
 ```
 
 ### Executing with Docker

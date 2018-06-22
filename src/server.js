@@ -4,6 +4,8 @@ const logger = require("./winston");
 const runValidation = require("./validator");
 const AppError = require("./model/application-error");
 
+const argv = require('yargs').argv;
+
 const app = express();
 const port = process.env.PORT || 3020;
 
@@ -61,5 +63,5 @@ app.get("/validate", (req, res) => {
 
 app.listen(port, () => {
   logger.log("info", ` -- Started server on port ${port} --`);
-  if(process.argv[2]) { logger.log("info", ` --> Log output: ${process.argv[2]}`); }
+  if(process.argv[2]) { logger.log("info", ` --> Log output: ${argv.logPath}`); }
 });
