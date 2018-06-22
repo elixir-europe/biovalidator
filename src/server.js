@@ -4,7 +4,7 @@ const logger = require("./winston");
 const runValidation = require("./validator");
 const AppError = require("./model/application-error");
 
-const argv = require('yargs').argv;
+const argv = require("yargs").argv;
 
 const app = express();
 const port = process.env.PORT || 3020;
