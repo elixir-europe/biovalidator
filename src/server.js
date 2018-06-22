@@ -63,5 +63,5 @@ app.get("/validate", (req, res) => {
 
 app.listen(port, () => {
   logger.log("info", ` -- Started server on port ${port} --`);
-  if(process.argv[2]) { logger.log("info", ` --> Log output: ${argv.logPath}`); }
+  if(argv.logPath) { logger.log("info", ` --> Log output: ${argv.logPath}`); }
 });
