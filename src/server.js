@@ -5,6 +5,7 @@ const runValidation = require("./validator");
 const AppError = require("./model/application-error");
 
 const argv = require("yargs").argv;
+const npid = require("npid");
 
 const app = express();
 const port = process.env.PORT || 3020;
@@ -64,4 +65,26 @@ app.get("/validate", (req, res) => {
 app.listen(port, () => {
   logger.log("info", ` -- Started server on port ${port} --`);
   if(argv.logPath) { logger.log("info", ` --> Log output: ${argv.logPath}`); }
+});
+
+// -- For monitoring purposes --//
+const pidPath = argv.pidPath || "./server.pid";
+try {
+  let pid = npid.create(pidPath);
+  pid.removeOnExit();
+} catch(err) {
+  logger.log("error", err);
+  process.exit(1);
+}
+
+// Handles crt + c event
+process.on('SIGINT', () => {
+  npid.remove(pidPath);
+  process.exit();
+});
+
+// Handles kill -USR1 pid event
+process.on("SIGUSR1", () => {
+  npid.remove(pidPath);
+  process.exit();
 });
