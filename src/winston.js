@@ -3,10 +3,9 @@ const { printf, combine, timestamp } = format;
 require("winston-daily-rotate-file");
 
 const argv = require("yargs").argv;
-
-// define the custom settings for each transport (console, file)
 const logPath = argv.logPath;
 
+// define the custom settings for each transport (console, file)
 const options = {
   console: {
     level: "debug",
