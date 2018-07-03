@@ -78,7 +78,7 @@ try {
 }
 
 // Handles crt + c event
-process.on('SIGINT', () => {
+process.on("SIGINT", () => {
   npid.remove(pidPath);
   process.exit();
 });
