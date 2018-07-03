@@ -58,6 +58,24 @@ node src/server
 ```
 The node server will run on port **3020** and will expose one endpoint: **/validate**.
 
+#### Startup arguments
+
+- logPath
+
+If provided with a log path argument, the application will write the logs to a file on the specified directory with a 24h rotation. To provide the log path add a `logPath` property after the startup statement:
+```
+node src/server --logPath=/log/directory/path
+```
+
+- pidPath
+
+If provided with a pid file path argument, the application will write the pid into the specified file. If no pid file argument is provided, the application will still create a pid file on the default path: `./server.pid`.
+To provide the pid file path add a `pidPath` property after the startup statement:
+```
+node src/server --pidPath=/pid/file/path/server.pid
+```
+Note: This is the **file path** and not just the directory it will be written to.
+
 ### Executing with Docker
 1. Build docker image:
 ```
