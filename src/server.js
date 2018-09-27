@@ -35,12 +35,14 @@ app.post("/validate", (req, res) => {
 
   var inputSchema = req.body.schema;
   var inputObject = req.body.object;
-
+  
   if (inputSchema && inputObject) {
     runValidation(inputSchema, inputObject).then((output) => {
       logger.log("silly", "Sent validation results.");
       res.status(200).send(output);
     }).catch((error) => {
+      console.error(error);
+      logger.log("error",error);
       res.status(500).send(error);
     });
   } else {
