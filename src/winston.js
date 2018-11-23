@@ -13,7 +13,7 @@ const options = {
     colorize: true
   },
   rotate: {
-    level: "debug",
+    level: "warn",
     filename: "json-schema-validator-%DATE%.log",
     datePattern: "YYYYMMDD",
     zippedArchive: true, // gzip archived log files
