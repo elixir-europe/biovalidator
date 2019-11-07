@@ -1,0 +1,76 @@
+{
+  "name" : "ERS2419807",
+  "accession" : "SAMEA4599099",
+  "taxonId" : 9606,
+  "attributes" : {
+    "ENA checklist" : [ {
+      "text" : "ERC000016"
+    } ],
+    "INSDC center alias" : [ {
+      "text" : "SAHMRI"
+    } ],
+    "INSDC center name" : [ {
+      "text" : "SAHMRI"
+    } ],
+    "INSDC first public" : [ {
+      "text" : "2018-06-22T17:01:54Z"
+    } ],
+    "INSDC last update" : [ {
+      "text" : "2018-04-23T00:20:19Z"
+    } ],
+    "INSDC status" : [ {
+      "text" : "public"
+    } ],
+    "SRA accession" : [ {
+      "text" : "ERS2419807"
+    } ],
+    "alias" : [ {
+      "text" : "107"
+    } ],
+    "collection date" : [ {
+      "text" : "2015"
+    } ],
+    "environment (biome)" : [ {
+      "text" : "Sputum"
+    } ],
+    "environment (feature)" : [ {
+      "text" : "Sputum"
+    } ],
+    "environment (material)" : [ {
+      "text" : "Sputum"
+    } ],
+    "geographic location (country and/or sea)" : [ {
+      "text" : "Australia"
+    } ],
+    "geographic location (latitude)" : [ {
+      "text" : "151.78 E",
+      "units" : "DD"
+    } ],
+    "geographic location (longitude)" : [ {
+      "text" : "32.92 S",
+      "units" : "DD"
+    } ],
+    "human oral environmental package" : [ {
+      "text" : "human-oral"
+    } ],
+    "investigation type" : [ {
+      "text" : "metagenome"
+    } ],
+    "organism" : [ {
+      "text" : "Homo sapiens",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_9606" ]
+    } ],
+    "project name" : [ {
+      "text" : "AMAZES"
+    } ],
+    "sequencing method" : [ {
+      "text" : "Illumina Miseq"
+    } ],
+    "synonym" : [ {
+      "text" : "107"
+    } ],
+    "title" : [ {
+      "text" : "AMAZES sputum 16s"
+    } ]
+  }
+}

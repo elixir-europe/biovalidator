@@ -1,0 +1,75 @@
+{
+  "name" : "ERS1907920",
+  "accession" : "SAMEA104282942",
+  "taxonId" : 4058,
+  "attributes" : {
+    "ENA checklist" : [ {
+      "text" : "ERC000037"
+    } ],
+    "INSDC center alias" : [ {
+      "text" : "Universite-Francois-Rabelais"
+    } ],
+    "INSDC center name" : [ {
+      "text" : "Universite-Francois-Rabelais"
+    } ],
+    "INSDC first public" : [ {
+      "text" : "2017-12-31T17:02:39Z"
+    } ],
+    "INSDC last update" : [ {
+      "text" : "2017-09-05T12:27:58Z"
+    } ],
+    "INSDC status" : [ {
+      "text" : "public"
+    } ],
+    "SRA accession" : [ {
+      "text" : "ERS1907920"
+    } ],
+    "alias" : [ {
+      "text" : "Root_AS1"
+    } ],
+    "geographic location (country and/or sea)" : [ {
+      "text" : "France"
+    } ],
+    "geographic location (latitude)" : [ {
+      "text" : "47.3928",
+      "units" : "DD"
+    } ],
+    "geographic location (longitude)" : [ {
+      "text" : "0.683611",
+      "units" : "DD"
+    } ],
+    "growth facility" : [ {
+      "text" : "glasshouse"
+    } ],
+    "isolation and growth condition" : [ {
+      "text" : "10.1038/srep40453"
+    } ],
+    "organism" : [ {
+      "text" : "Catharanthus roseus",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_4058" ]
+    } ],
+    "organism common name" : [ {
+      "text" : "Madgascar Periwinkle"
+    } ],
+    "plant developmental stage" : [ {
+      "text" : "hydroponic grown roots"
+    } ],
+    "plant growth medium" : [ {
+      "text" : "water",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/CHEBI_15377" ]
+    } ],
+    "plant structure" : [ {
+      "text" : "adventitious root apex"
+    } ],
+    "rooting conditions" : [ {
+      "text" : "water",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/CHEBI_15377" ]
+    } ],
+    "synonym" : [ {
+      "text" : "Root_AS1"
+    } ],
+    "title" : [ {
+      "text" : "RNA-seq analysis of C. roseus adventitious roots"
+    } ]
+  }
+}

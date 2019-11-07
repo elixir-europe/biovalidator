@@ -1,0 +1,226 @@
+{
+   "required" : [
+      "attributes"
+   ],
+   "description" : "Minimum information about parasite samples. A checklist for reporting metadata of parasite samples associated with molecular data. This standard was developed by the COMPARE platform and can be used for submission of sample metadata derived from protozoan parasites (e.g. Cryptosporidium) and also multicellular eukaryotic parasites (e.g. Platyhelminthes and Nematoda).",
+   "author" : "ENA",
+   "type" : "object",
+   "title" : "ENA parasite sample checklist",
+   "definitions" : {
+      "attribute" : {
+         "minItems" : 1,
+         "items" : {
+            "properties" : {
+               "units" : {
+                  "minLength" : 1,
+                  "type" : "string"
+               },
+               "terms" : {
+                  "$ref" : "#/definitions/terms"
+               },
+               "value" : {
+                  "minLength" : 1,
+                  "type" : "string"
+               }
+            },
+            "required" : [
+               "value"
+            ]
+         },
+         "type" : "array"
+      },
+      "terms" : {
+         "type" : "array",
+         "items" : {
+            "properties" : {
+               "url" : {
+                  "format" : "uri",
+                  "type" : "string"
+               }
+            },
+            "required" : [
+               "url"
+            ],
+            "type" : "object"
+         }
+      },
+      "properties" : {
+         "attributes" : {
+            "required" : [],
+            "properties" : {},
+            "description" : "Attributes for describing a sample.",
+            "patternProperties" : {
+               "^.*$" : {
+                  "$ref" : "#/definitions/attribute"
+               }
+            },
+            "type" : "object"
+         }
+      }
+   },
+   "properties" : {
+      "attributes" : {
+         "required" : [
+            "dev_stage",
+            "geographic location (country and/or sea)",
+            "collector name",
+            "collecting institution",
+            "isolate"
+         ],
+         "properties" : {
+            "host subject id" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "a unique identifier by which each subject can be referred to, de-identified, e.g. #131"
+            },
+            "geographic location (region and locality)" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "The geographical origin of the sample as defined by the specific region name followed by the locality name."
+            },
+            "geographic location (longitude)" : {
+               "maxItems" : 1,
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system"
+            },
+            "genotype" : {
+               "description" : "name or code for genotype of organism",
+               "maxItems" : 1,
+               "items" : {}
+            },
+            "subject exposure duration" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "Duration of the exposure of the subject to an infected human or animal. If multiple exposures are applicable, please state their duration in the same order in which you reported the exposure in the field 'subject exposure'. Example: 1 day; 0.33 days"
+            },
+            "geographic location (latitude)" : {
+               "description" : "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "maxItems" : 1
+            },
+            "travel-relation" : {
+               "description" : "Designates the relation of the main diagnosis to the patient's travel.",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "host common name" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "common name of the host, e.g. human"
+            },
+            "geographic location (country and/or sea)" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "The geographical origin of the sample as defined by the country or sea. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html)."
+            },
+            "host scientific name" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "Scientific name of the natural (as opposed to laboratory) host to the organism from which sample was obtained."
+            },
+            "known pathogenicity" : {
+               "description" : "To what is the entity pathogenic, for instance plant, fungi, bacteria",
+               "items" : {}
+            },
+            "host age" : {
+               "description" : "age of host at the time of sampling; relevant scale depends on species and study, e.g. could be seconds for amoebae or centuries for trees",
+               "maxItems" : 1,
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "dev_stage" : {
+               "description" : "if the sample was obtained from an organism in a specific developmental stage, it is specified with this qualifier",
+               "maxItems" : 1,
+               "items" : {}
+            },
+            "host health state" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "Health status of the host at the time of sample collection."
+            },
+            "strain" : {
+               "description" : "Name of the strain from which the sample was obtained.",
+               "maxItems" : 1,
+               "items" : {}
+            },
+            "subject exposure" : {
+               "description" : "Exposure of the subject to infected human or animals, such as poultry, wild bird or swine. If multiple exposures are applicable, please state them separated by semicolon. Example: poultry; wild bird",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "host sex" : {
+               "description" : "Gender or sex of the host.",
+               "maxItems" : 1,
+               "items" : {}
+            },
+            "collecting institution" : {
+               "description" : "Name of the institution to which the person collecting the specimen belongs. Format: Institute Name, Institute Address",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "isolate" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "individual isolate from which the sample was obtained"
+            },
+            "clinical setting" : {
+               "description" : "The timing of the clinic visit in relation to travel.",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "isolation source host-associated" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "Name of host tissue or organ sampled for analysis. Example: tracheal tissue"
+            },
+            "host disease outcome" : {
+               "description" : "Disease outcome in the host.",
+               "maxItems" : 1,
+               "items" : {}
+            },
+            "diagnostic method" : {
+               "description" : "The method or procedure (imaging, genetic or other) performed to determine or confirm the presence of disease in an individual. Examples: microscopy, immunofluorescence, PCR, rapid tests, etc.",
+               "items" : {}
+            },
+            "country of travel" : {
+               "items" : {},
+               "description" : "The name of the country of patient's travel."
+            },
+            "sample storage conditions" : {
+               "items" : {},
+               "description" : "Conditions at which sample was stored, usually storage temperature, duration and location"
+            },
+            "isolation source non-host-associated" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "Describes the physical, environmental and/or local geographical source of the biological sample from which the sample was derived. Example: soil"
+            },
+            "collector name" : {
+               "description" : "Name of the person who collected the specimen. Example: John Smith",
+               "maxItems" : 1,
+               "items" : {}
+            },
+            "collection date" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "The date of sampling, either as an instance (single point in time) or interval. In case no exact time is available, the date/time can be right truncated i.e. all of these are valid ISO8601 compliant times: 2008-01-23T19:23:10+00:00; 2008-01-23T19:23:10; 2008-01-23; 2008-01; 2008."
+            }
+         }
+      }
+   },
+   "version" : "1.0.0",
+   "$schema" : "http://json-schema.org/draft-07/schema#",
+   "$async" : true,
+   "$id" : "ERC000039"
+}

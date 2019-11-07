@@ -1,0 +1,116 @@
+{
+   "$async" : true,
+   "required" : [
+      "attributes"
+   ],
+   "author" : "ENA",
+   "type" : "object",
+   "description" : "A checklist for reporting metadata of food-borne pathogen samples for the COMPARE-ECDC-EFSA reporting system.",
+   "$id" : "ERC000045",
+   "properties" : {
+      "attributes" : {
+         "required" : [
+            "collection_date",
+            "isolation_source",
+            "isolate"
+         ],
+         "properties" : {
+            "collected_by" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "name of persons or institute who collected the specimen"
+            },
+            "serotype" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "serological variety of a species characterized by its antigenic properties"
+            },
+            "collection_date" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "date that the specimen was collected"
+            },
+            "isolate" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "individual isolate from which the sample was obtained"
+            },
+            "receipt date" : {
+               "description" : "Date on which the sample was received. Format:YYYY-MM-DD. Please provide the highest precision possible. If the sample was received by the institution and not collected, the 'receipt date' must be provided instead. Either the 'collection date' or 'receipt date' must be provided. If available, provide both dates.",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "geographic location (country and/or sea)" : {
+               "description" : "The geographical origin of the sample as defined by the country or sea. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html).",
+               "maxItems" : 1,
+               "items" : {}
+            },
+            "geographic location (region and locality)" : {
+               "description" : "The geographical origin of the sample as defined by the specific region name followed by the locality name.",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "isolation_source" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "describes the physical, environmental and/or local geographical source of the biological sample from which the sample was derived"
+            }
+         }
+      }
+   },
+   "definitions" : {
+      "terms" : {
+         "type" : "array",
+         "items" : {
+            "properties" : {
+               "url" : {
+                  "format" : "uri",
+                  "type" : "string"
+               }
+            },
+            "type" : "object",
+            "required" : [
+               "url"
+            ]
+         }
+      },
+      "properties" : {
+         "attributes" : {
+            "description" : "Attributes for describing a sample.",
+            "properties" : {},
+            "required" : [],
+            "patternProperties" : {
+               "^.*$" : {
+                  "$ref" : "#/definitions/attribute"
+               }
+            },
+            "type" : "object"
+         }
+      },
+      "attribute" : {
+         "items" : {
+            "properties" : {
+               "terms" : {
+                  "$ref" : "#/definitions/terms"
+               },
+               "value" : {
+                  "minLength" : 1,
+                  "type" : "string"
+               },
+               "units" : {
+                  "type" : "string",
+                  "minLength" : 1
+               }
+            },
+            "required" : [
+               "value"
+            ]
+         },
+         "minItems" : 1,
+         "type" : "array"
+      }
+   },
+   "version" : "1.0.0",
+   "title" : "COMPARE-ECDC-EFSA pilot food-associated reporting standard",
+   "$schema" : "http://json-schema.org/draft-07/schema#"
+}

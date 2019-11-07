@@ -1,0 +1,57 @@
+{
+  "name" : "ERS1158303",
+  "accession" : "SAMEA3987193",
+  "taxonId" : 4577,
+  "attributes" : {
+    "ENA checklist" : [ {
+      "text" : "ERC000035"
+    } ],
+    "INSDC center name" : [ {
+      "text" : "ENA"
+    } ],
+    "INSDC first public" : [ {
+      "text" : "2016-05-17T14:59:01Z"
+    } ],
+    "INSDC last update" : [ {
+      "text" : "2016-05-13T14:33:37Z"
+    } ],
+    "INSDC status" : [ {
+      "text" : "public"
+    } ],
+    "SRA accession" : [ {
+      "text" : "ERS1158303"
+    } ],
+    "age" : [ {
+      "text" : "14 day"
+    } ],
+    "alias" : [ {
+      "text" : "SRR031088_SAMN00005991"
+    } ],
+    "dev stage" : [ {
+      "text" : "seedling",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/PO_0007131" ]
+    } ],
+    "experimental factor 1" : [ {
+      "text" : "genotype"
+    } ],
+    "genotype" : [ {
+      "text" : "Mo17 x B73 F1 hybrid"
+    } ],
+    "organism" : [ {
+      "text" : "Zea mays",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_4577" ]
+    } ],
+    "organism part" : [ {
+      "text" : "aerial part (EFO_0001901)"
+    } ],
+    "recurated from" : [ {
+      "text" : "SAMN00005991"
+    } ],
+    "synonym" : [ {
+      "text" : "SRR031088_SAMN00005991"
+    } ],
+    "title" : [ {
+      "text" : "ENA Crop Plant sample enhanced annotation"
+    } ]
+  }
+}

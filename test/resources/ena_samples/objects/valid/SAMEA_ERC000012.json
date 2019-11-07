@@ -1,0 +1,73 @@
+{
+    "accession": "ERS3215260",
+    "alias": "GBR-15-3-16S",
+    "title": "Great Barrier Reef Aerosol",
+    "taxonId": "198431",
+    "taxon": "uncultured prokaryote",
+    "description": "Bioaerosol collected from RV-Investigator over Great Barrier Reef Sept-Oct 2016",
+    "attributes": {
+        "air environmental package": [
+            {
+                "value": "air"
+            }
+        ],
+        "collection date": [
+            {
+                "value": "2016-10-17"
+            }
+        ],
+        "environment (biome)": [
+            {
+                "value": "air"
+            }
+        ],
+        "environment (feature)": [
+            {
+                "value": "Great Barrier Reef"
+            }
+        ],
+        "environment (material)": [
+            {
+                "value": "air"
+            }
+        ],
+        "geographic location (altitude)": [
+            {
+                "value": "0",
+                "units": "m"
+            }
+        ],
+        "geographic location (country and/or sea)": [
+            {
+                "value": "Pacific Ocean"
+            }
+        ],
+        "geographic location (latitude)": [
+            {
+                "value": "150.00286",
+                "units": "DD"
+            }
+        ],
+        "geographic location (longitude)": [
+            {
+                "value": "-20.90186",
+                "units": "DD"
+            }
+        ],
+        "investigation type": [
+            {
+                "value": "mimarks-survey"
+            }
+        ],
+        "project name": [
+            {
+                "value": "Great Barrier Reef Aerosol"
+            }
+        ],
+        "sequencing method": [
+            {
+                "value": "Illumina MiSeq"
+            }
+        ]
+    }
+}

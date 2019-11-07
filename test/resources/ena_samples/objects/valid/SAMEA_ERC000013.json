@@ -1,0 +1,67 @@
+{
+    "accession": "ERS1338646",
+    "alias": "BBSRC_51",
+    "title": "AEC06-CM1",
+    "taxonId": "9031",
+    "taxon": "Gallus gallus",
+    "description": "Ceacum microbiome",
+    "attributes": {
+        "collection date": [
+            {
+                "value": "2015-12-05"
+            }
+        ],
+        "environment (biome)": [
+            {
+                "value": "chicken gut"
+            }
+        ],
+        "environment (feature)": [
+            {
+                "value": "anaerobic"
+            }
+        ],
+        "environment (material)": [
+            {
+                "value": "cecal content"
+            }
+        ],
+        "host-associated environmental package": [
+            {
+                "value": "host-associated"
+            }
+        ],
+        "geographic location (country and/or sea)": [
+            {
+                "value": "India"
+            }
+        ],
+        "geographic location (latitude)": [
+            {
+                "value": "22.23369N",
+                "units": "DD"
+            }
+        ],
+        "geographic location (longitude)": [
+            {
+                "value": "73.07790E",
+                "units": "DD"
+            }
+        ],
+        "investigation type": [
+            {
+                "value": "metagenome"
+            }
+        ],
+        "project name": [
+            {
+                "value": "DBT-BBSRC"
+            }
+        ],
+        "sequencing method": [
+            {
+                "value": "Illumina Miseq"
+            }
+        ]
+    }
+}

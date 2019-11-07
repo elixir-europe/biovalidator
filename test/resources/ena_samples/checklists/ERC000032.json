@@ -1,0 +1,333 @@
+{
+   "$schema" : "http://json-schema.org/draft-07/schema#",
+   "definitions" : {
+      "attribute" : {
+         "items" : {
+            "required" : [
+               "value"
+            ],
+            "properties" : {
+               "value" : {
+                  "minLength" : 1,
+                  "type" : "string"
+               },
+               "units" : {
+                  "type" : "string",
+                  "minLength" : 1
+               },
+               "terms" : {
+                  "$ref" : "#/definitions/terms"
+               }
+            }
+         },
+         "type" : "array",
+         "minItems" : 1
+      },
+      "properties" : {
+         "attributes" : {
+            "properties" : {},
+            "patternProperties" : {
+               "^.*$" : {
+                  "$ref" : "#/definitions/attribute"
+               }
+            },
+            "description" : "Attributes for describing a sample.",
+            "required" : [],
+            "type" : "object"
+         }
+      },
+      "terms" : {
+         "items" : {
+            "type" : "object",
+            "required" : [
+               "url"
+            ],
+            "properties" : {
+               "url" : {
+                  "format" : "uri",
+                  "type" : "string"
+               }
+            }
+         },
+         "type" : "array"
+      }
+   },
+   "author" : "ENA",
+   "description" : "Minimum information about an Influenza virus sample. A checklist for reporting metadata of Influenza virus samples associated with genomic data. This minimum metadata standard supports submission of avian, human and mammalian surveillance data as well as serology and viruse isolate information (where available). The ENA Influenza sample checklist is based on standards in use at the Influenza Research Database.",
+   "properties" : {
+      "attributes" : {
+         "required" : [
+            "geographic location (country and/or sea)",
+            "host common name",
+            "host subject id",
+            "host health state",
+            "host sex",
+            "host scientific name",
+            "influenza test method",
+            "influenza test result",
+            "other pathogens tested",
+            "other pathogens test result",
+            "collector name",
+            "collecting institution"
+         ],
+         "properties" : {
+            "collection date" : {
+               "description" : "The date of sampling, either as an instance (single point in time) or interval. In case no exact time is available, the date/time can be right truncated i.e. all of these are valid ISO8601 compliant times: 2008-01-23T19:23:10+00:00; 2008-01-23T19:23:10; 2008-01-23; 2008-01; 2008.",
+               "items" : {}
+            },
+            "influenza vaccination type" : {
+               "items" : {},
+               "description" : "Influenza vaccinations that have been administered to the subject over the last year. Example: 2009 H1N1 Flumist"
+            },
+            "virus identifier" : {
+               "items" : {},
+               "description" : "Unique laboratory identifier assigned to the virus by the investigator. Strain name is not sufficient since it might not be unique due to various passsages of the same virus. Format: up to 50 alphanumeric characters"
+            },
+            "isolation source non-host-associated" : {
+               "description" : "Describes the physical, environmental and/or local geographical source of the biological sample from which the sample was derived. Example: soil",
+               "items" : {}
+            },
+            "number of inoculated individuals" : {
+               "description" : "Number of host individuals inoculated for the experiment.",
+               "items" : {}
+            },
+            "influenza virus type" : {
+               "items" : {},
+               "description" : "One of the three influenza virus classification types."
+            },
+            "collecting institution" : {
+               "description" : "Name of the institution to which the person collecting the specimen belongs. Format: Institute Name, Institute Address",
+               "items" : {}
+            },
+            "strain" : {
+               "description" : "Name of the strain from which the sample was obtained.",
+               "items" : {}
+            },
+            "serotype (required for a seropositive sample)" : {
+               "items" : {},
+               "description" : "Serological variety of a species characterised by its antigenic properties. For Influenza, HA subtype should be the letter H followed by a number between 1-16 unless novel subtype is identified and the NA subtype should be the letter N followed by a number between 1-9 unless novel subtype is identified. If only one of the subtypes have been tested then use the format H5Nx or HxN1. Example: H1N1"
+            },
+            "host age" : {
+               "description" : "age of host at the time of sampling; relevant scale depends on species and study, e.g. could be seconds for amoebae or centuries for trees",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "definition for seropositive sample" : {
+               "description" : "The cut off value used by an investigatior in determining that a sample was seropositive.",
+               "items" : {}
+            },
+            "vaccine manufacturer" : {
+               "items" : {},
+               "description" : "Manufacturer of the vaccine."
+            },
+            "inoculation stock availability" : {
+               "description" : "Is the virus stock used for the inoculation available?",
+               "items" : {}
+            },
+            "influenza test result" : {
+               "description" : "Classification of a sample as flu positive or negative based on the test performed and reported. If multiple tests were performed, please state the results in the same order in which you reported the tests in the field 'influenza test method'. Format: P(ositive)/N(egative). Example: P; P",
+               "items" : {}
+            },
+            "host scientific name" : {
+               "description" : "Scientific name of the natural (as opposed to laboratory) host to the organism from which sample was obtained.",
+               "items" : {}
+            },
+            "collector name" : {
+               "items" : {},
+               "description" : "Name of the person who collected the specimen. Example: John Smith"
+            },
+            "antiviral treatment initiation" : {
+               "description" : "Initiation of antiviral treatment after onset of clinical symptoms in days. Example: 2.5",
+               "items" : {}
+            },
+            "antiviral treatment duration" : {
+               "description" : "Duration of antiviral treatment after onset of clinical symptoms in days.Example: 5",
+               "items" : {}
+            },
+            "gravidity" : {
+               "description" : "Whether or not the subject is gravid. If so, report date due or date post-conception and specify which of these two dates is being reported.",
+               "items" : {}
+            },
+            "host description" : {
+               "description" : "Other descriptive information relating to the host.",
+               "items" : {}
+            },
+            "illness onset date" : {
+               "items" : {},
+               "description" : "Date the subject showed an onset of symptoms. Format: YYYY-MM-DD. Example: 2011-10-20"
+            },
+            "host subject id" : {
+               "description" : "a unique identifier by which each subject can be referred to, de-identified, e.g. #131",
+               "items" : {}
+            },
+            "subject exposure duration" : {
+               "items" : {},
+               "description" : "Duration of the exposure of the subject to an infected human or animal. If multiple exposures are applicable, please state their duration in the same order in which you reported the exposure in the field 'subject exposure'. Example: 1 day; 0.33 days"
+            },
+            "WHO/OIE/FAO clade (required for HPAI H5N1 viruses)" : {
+               "items" : {},
+               "description" : "WHO/OIE/FAO clade should be included for highly pathogenic H5N1 viruses. Example: 2.2"
+            },
+            "illness symptoms" : {
+               "description" : "The symptoms that have been reported in relation to the illness, such as cough, diarrhea, fever, headache, malaise, myalgia, nausea, runny_nose, shortness_of_breath, sore_throat. If multiple exposures are applicable, please state them separated by semicolon.",
+               "items" : {}
+            },
+            "subject exposure" : {
+               "items" : {},
+               "description" : "Exposure of the subject to infected human or animals, such as poultry, wild bird or swine. If multiple exposures are applicable, please state them separated by semicolon. Example: poultry; wild bird"
+            },
+            "influenza test method" : {
+               "description" : "Method by which the current assessment of a sample as flu positive/negative is made. If multiple test were performed, please state them separated by semicolon. Example: RT-PCR; antigen ELISA",
+               "items" : {}
+            },
+            "source of vaccination information" : {
+               "description" : "Designation of information related to vaccination history as self reported or documented.",
+               "items" : {}
+            },
+            "meaning of cut off value" : {
+               "items" : {},
+               "description" : "Description helping to explain what the cut off value means."
+            },
+            "antiviral treatment dosage" : {
+               "description" : "Dosage of the treatment taken by the subject. Example: 0.05 mg",
+               "items" : {}
+            },
+            "host sex" : {
+               "items" : {},
+               "description" : "Gender or sex of the host."
+            },
+            "geographic location (longitude)" : {
+               "description" : "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "influenza strain unique number" : {
+               "description" : "Unique number of the strain which is reported as a part of the influenza strain name, such as A/chicken/Fujian/411/2002(HxN1). Format: integer number, Example: 411",
+               "items" : {}
+            },
+            "influenza-like illness at the time of sample collection" : {
+               "items" : {},
+               "description" : "Is the subject at the time of sample collection considered to have influenza like illness?"
+            },
+            "other pathogens tested" : {
+               "items" : {},
+               "description" : "Classification of pathogenic organisms other than influenza virus tested in the current assessment of a sample. If multiple tests were performed, please state them separated by semicolon. If no other pathogens test was performed, please state 'none'. Example: Newcastle"
+            },
+            "geographic location (region and locality)" : {
+               "items" : {},
+               "description" : "The geographical origin of the sample as defined by the specific region name followed by the locality name."
+            },
+            "receipt date" : {
+               "description" : "Date on which the sample was received. Format:YYYY-MM-DD. Please provide the highest precision possible. If the sample was received by the institution and not collected, the 'receipt date' must be provided instead. Either the 'collection date' or 'receipt date' must be provided. If available, provide both dates.",
+               "items" : {}
+            },
+            "antiviral treatment" : {
+               "items" : {},
+               "description" : "Antiviral treatment used for this subject, such as Zanamavir Oseltamivir, Amantadine. Example: Rimantadine"
+            },
+            "influenza vaccination date" : {
+               "items" : {},
+               "description" : "Date that the influenza vaccination was administered to the subject over the past year. Format: YYYY-MM-DD. Example: 2007-05-12"
+            },
+            "host behaviour" : {
+               "description" : "Natural behaviour of the host.",
+               "items" : {}
+            },
+            "host disease outcome" : {
+               "items" : {},
+               "description" : "Disease outcome in the host."
+            },
+            "host health state" : {
+               "description" : "Health status of the host at the time of sample collection.",
+               "items" : {}
+            },
+            "geographic location (latitude)" : {
+               "description" : "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "geographic location (country and/or sea)" : {
+               "items" : {},
+               "description" : "The geographical origin of the sample as defined by the country or sea. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html)."
+            },
+            "vaccine dosage" : {
+               "description" : "Dosage of the vaccine taken by the subject. Example: 0.05 mL",
+               "items" : {}
+            },
+            "inoculation route" : {
+               "items" : {},
+               "description" : "Brief description of the protocol inoculation route."
+            },
+            "illness duration" : {
+               "items" : {},
+               "description" : "The number of days the illness lasted. Example: 4"
+            },
+            "inoculation dose" : {
+               "description" : "Dose used for the inoculoation experiment.",
+               "items" : {}
+            },
+            "personal protective equipment" : {
+               "items" : {},
+               "description" : "Use of personal protective equipment, such as gloves, gowns, during any type of exposure. Example: mask"
+            },
+            "other pathogens test result" : {
+               "items" : {},
+               "description" : "Classification of a sample as positive or negative based on the test performed and reported. If tests for multiple pathogenic organisms were performed, please state the results in the same order in which you reported the tests in the field 'other pathogens tested'. Format: P(ositive)/N(egative)/not applicable. Example: N"
+            },
+            "vaccine lot number" : {
+               "description" : "Lot number of the vaccine.",
+               "items" : {}
+            },
+            "type exposure" : {
+               "items" : {},
+               "description" : "Setting within which the subject is exposed to animals, such as farm, slaughterhouse, food preparation. If multiple exposures are applicable, please state their type in the same order in which you reported the exposure in the field 'subject exposure'. Example: backyard flock; confined animal feeding operation"
+            },
+            "sample capture status" : {
+               "items" : {},
+               "description" : "Reason for the sample collection."
+            },
+            "lineage:swl (required for H1N1 viruses)" : {
+               "description" : "Does the H1N1 influenza virus originate from a swine-like outbreak (as opposed to a seasonal flu)?",
+               "items" : {}
+            },
+            "host habitat" : {
+               "description" : "Natural habitat of the avian or mammalian host.",
+               "items" : {}
+            },
+            "isolation source host-associated" : {
+               "description" : "Name of host tissue or organ sampled for analysis. Example: tracheal tissue",
+               "items" : {}
+            },
+            "host common name" : {
+               "items" : {},
+               "description" : "common name of the host, e.g. human"
+            },
+            "sample storage conditions" : {
+               "description" : "Conditions at which sample was stored, usually storage temperature, duration and location",
+               "items" : {}
+            },
+            "hospitalisation" : {
+               "items" : {},
+               "description" : "Was the subject confined to a hospital as a result of virus infection or problems occurring secondary to virus infection?"
+            }
+         }
+      }
+   },
+   "title" : "ENA Influenza virus reporting standard checklist",
+   "required" : [
+      "attributes"
+   ],
+   "$async" : true,
+   "version" : "1.0.0",
+   "$id" : "ERC000032",
+   "type" : "object"
+}

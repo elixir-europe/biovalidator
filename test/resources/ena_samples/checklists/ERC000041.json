@@ -1,0 +1,206 @@
+{
+   "type" : "object",
+   "description" : "Minimum information to standardise metadata related to samples used in GMI PT (Global Microbial Identifier Proficiency Test). A checklist for reporting metadata of GMI PT samples associated with molecular data. This minimum metadata standard was developed by the COMPARE platform and can be used for submission of sample metadata derived from Campylobacter coli, Campylobacter jejuni, Listeria monocytogenes, Klebsiella pneumoniae, Salmonella enterica, Escherichia coli and Staphylococcus aureus.",
+   "properties" : {
+      "attributes" : {
+         "required" : [
+            "isolate"
+         ],
+         "properties" : {
+            "library construction method" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "Library construction method used for clone libraries"
+            },
+            "read quality filter" : {
+               "items" : {},
+               "description" : "Programme used to filter reads quality before conducting the analysis"
+            },
+            "sub_species" : {
+               "description" : "name of sub-species of organism from which sample was obtained",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "sample storage temperature" : {
+               "maxItems" : 1,
+               "description" : "temperature at which sample was stored, e.g. -80",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "geographic location (region and locality)" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "The geographical origin of the sample as defined by the specific region name followed by the locality name."
+            },
+            "sample transportation temperature" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "transportation temperature from sample site to storage",
+               "maxItems" : 1
+            },
+            "DNA concentration" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "DNA concentration used for sequencing in ng/�l",
+               "maxItems" : 1
+            },
+            "sample transportation time" : {
+               "description" : "transportation time from sample site to storage",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "sample storage location" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "location at which sample was stored, usually name of a specific freezer/room"
+            },
+            "links to additional analysis" : {
+               "items" : {},
+               "description" : "link to additional analysis results performed on the sample"
+            },
+            "collection_date" : {
+               "maxItems" : 1,
+               "description" : "date that the specimen was collected",
+               "items" : {}
+            },
+            "isolate" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "individual isolate from which the sample was obtained"
+            },
+            "sample storage duration" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "duration for which sample was stored",
+               "maxItems" : 1
+            },
+            "geographic location (country and/or sea)" : {
+               "maxItems" : 1,
+               "description" : "The geographical origin of the sample as defined by the country or sea. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html).",
+               "items" : {}
+            },
+            "nucleic acid extraction" : {
+               "description" : "Link to a literature reference, electronic resource or a standard operating procedure (SOP)",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "Further Details" : {
+               "items" : {},
+               "description" : "Reference details related to a sample in form of an URI."
+            },
+            "protocol" : {
+               "description" : "The laboratory method used to reveal the presence of the sample sequenced in the experiment.",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "sample transportation date" : {
+               "maxItems" : 1,
+               "description" : "transportation/shipping date of the sample. Format:YYYY-MM-DD",
+               "items" : {}
+            },
+            "amount or size of sample collected" : {
+               "description" : "Amount or size of sample (volume, mass or area) that was collected",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "maxItems" : 1
+            },
+            "receipt date" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "Date on which the sample was received. Format:YYYY-MM-DD. Please provide the highest precision possible. If the sample was received by the institution and not collected, the 'receipt date' must be provided instead. Either the 'collection date' or 'receipt date' must be provided. If available, provide both dates."
+            },
+            "isolation_source" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "describes the physical, environmental and/or local geographical source of the biological sample from which the sample was derived"
+            },
+            "instrument for DNA concentration measurement" : {
+               "description" : "Name/type of instrument used to measure the DNA concentration (ng/�l) prior to library preparation",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "sampling time point" : {
+               "items" : {},
+               "description" : "",
+               "maxItems" : 1
+            }
+         }
+      }
+   },
+   "title" : "ENA Global Microbial Identifier Proficiency Test (GMI PT) checklist",
+   "definitions" : {
+      "terms" : {
+         "items" : {
+            "properties" : {
+               "url" : {
+                  "format" : "uri",
+                  "type" : "string"
+               }
+            },
+            "type" : "object",
+            "required" : [
+               "url"
+            ]
+         },
+         "type" : "array"
+      },
+      "attribute" : {
+         "items" : {
+            "properties" : {
+               "value" : {
+                  "type" : "string",
+                  "minLength" : 1
+               },
+               "units" : {
+                  "minLength" : 1,
+                  "type" : "string"
+               },
+               "terms" : {
+                  "$ref" : "#/definitions/terms"
+               }
+            },
+            "required" : [
+               "value"
+            ]
+         },
+         "type" : "array",
+         "minItems" : 1
+      },
+      "properties" : {
+         "attributes" : {
+            "patternProperties" : {
+               "^.*$" : {
+                  "$ref" : "#/definitions/attribute"
+               }
+            },
+            "properties" : {},
+            "description" : "Attributes for describing a sample.",
+            "type" : "object",
+            "required" : []
+         }
+      }
+   },
+   "required" : [
+      "attributes"
+   ],
+   "$async" : true,
+   "$schema" : "http://json-schema.org/draft-07/schema#",
+   "author" : "ENA",
+   "version" : "1.0.0",
+   "$id" : "ERC000041"
+}

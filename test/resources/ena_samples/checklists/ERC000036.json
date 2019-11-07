@@ -1,0 +1,215 @@
+{
+   "definitions" : {
+      "properties" : {
+         "attributes" : {
+            "description" : "Attributes for describing a sample.",
+            "properties" : {},
+            "patternProperties" : {
+               "^.*$" : {
+                  "$ref" : "#/definitions/attribute"
+               }
+            },
+            "type" : "object",
+            "required" : []
+         }
+      },
+      "terms" : {
+         "items" : {
+            "properties" : {
+               "url" : {
+                  "format" : "uri",
+                  "type" : "string"
+               }
+            },
+            "type" : "object",
+            "required" : [
+               "url"
+            ]
+         },
+         "type" : "array"
+      },
+      "attribute" : {
+         "items" : {
+            "properties" : {
+               "terms" : {
+                  "$ref" : "#/definitions/terms"
+               },
+               "value" : {
+                  "type" : "string",
+                  "minLength" : 1
+               },
+               "units" : {
+                  "type" : "string",
+                  "minLength" : 1
+               }
+            },
+            "required" : [
+               "value"
+            ]
+         },
+         "type" : "array",
+         "minItems" : 1
+      }
+   },
+   "$async" : true,
+   "title" : "ENA sewage checklist",
+   "$schema" : "http://json-schema.org/draft-07/schema#",
+   "properties" : {
+      "attributes" : {
+         "required" : [
+            "investigation type",
+            "collection date",
+            "geographic location (country and/or sea)",
+            "sewage type"
+         ],
+         "properties" : {
+            "investigation type" : {
+               "description" : "Nucleic Acid Sequence Report is the root element of all MIxS compliant reports as standardised by Genomic Standards Consortium",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "geographic location (region and locality)" : {
+               "items" : {},
+               "description" : "The geographical origin of the sample as defined by the specific region name followed by the locality name.",
+               "maxItems" : 1
+            },
+            "size of the catchment area" : {
+               "maxItems" : 1,
+               "description" : "Refers to the size of the area that is drained by the sampled sewage system in square km.",
+               "items" : {}
+            },
+            "sampling time point" : {
+               "items" : {},
+               "description" : "",
+               "maxItems" : 1
+            },
+            "temperature" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "temperature of the sample at time of sampling",
+               "maxItems" : 1
+            },
+            "sample storage location" : {
+               "items" : {},
+               "description" : "location at which sample was stored, usually name of a specific freezer/room",
+               "maxItems" : 1
+            },
+            "collection date" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "The date of sampling, either as an instance (single point in time) or interval. In case no exact time is available, the date/time can be right truncated i.e. all of these are valid ISO8601 compliant times: 2008-01-23T19:23:10+00:00; 2008-01-23T19:23:10; 2008-01-23; 2008-01; 2008."
+            },
+            "sewage type" : {
+               "description" : "Type of sewage based on origin: wastewater treatment plant (municipal or industrial), open sewer line, river, stream, stagnant pool, or other.",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "geographic location (latitude)" : {
+               "description" : "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "maxItems" : 1
+            },
+            "sample transportation temperature" : {
+               "maxItems" : 1,
+               "description" : "transportation temperature from sample site to storage",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "nucleic acid amplification" : {
+               "items" : {},
+               "description" : "Link to a literature reference, electronic resource or a standard operating procedure (SOP)"
+            },
+            "amount or size of sample collected" : {
+               "description" : "Amount or size of sample (volume, mass or area) that was collected",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "maxItems" : 1
+            },
+            "sample storage temperature" : {
+               "maxItems" : 1,
+               "description" : "temperature at which sample was stored, e.g. -80",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "sample storage duration" : {
+               "maxItems" : 1,
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "duration for which sample was stored"
+            },
+            "population size of the catchment area" : {
+               "description" : "Refers to the number of people living in the area covered by the sewage system.",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "sample transportation date" : {
+               "items" : {},
+               "description" : "transportation/shipping date of the sample. Format:YYYY-MM-DD"
+            },
+            "name of the sampling site" : {
+               "maxItems" : 1,
+               "description" : "Refers to the name of the site/station where data/sample collection is performed.",
+               "items" : {}
+            },
+            "geographic location (country and/or sea)" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "The geographical origin of the sample as defined by the country or sea. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html)."
+            },
+            "geographic location (longitude)" : {
+               "description" : "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "maxItems" : 1
+            },
+            "sample transportation time" : {
+               "description" : "transportation time from sample site to storage",
+               "items" : {}
+            },
+            "nucleic acid extraction" : {
+               "items" : {},
+               "description" : "Link to a literature reference, electronic resource or a standard operating procedure (SOP)"
+            },
+            "area of sampling site" : {
+               "description" : "Please indicate if there are specific facilities in the area covered by the sewage sample. For example: farming, slaughterhouse(s), industry, hospital(s) or any other facility.",
+               "items" : {}
+            },
+            "receipt date" : {
+               "items" : {},
+               "description" : "Date on which the sample was received. Format:YYYY-MM-DD. Please provide the highest precision possible. If the sample was received by the institution and not collected, the 'receipt date' must be provided instead. Either the 'collection date' or 'receipt date' must be provided. If available, provide both dates.",
+               "maxItems" : 1
+            }
+         }
+      }
+   },
+   "$id" : "ERC000036",
+   "required" : [
+      "attributes"
+   ],
+   "author" : "ENA",
+   "version" : "1.0.0",
+   "description" : "Minimum information about sewage samples. A checklist for reporting of sewage surveillance samples associated with sequence data from metagenomic sequencing projects. This minimum metadata standard was developed by the COMPARE platform.",
+   "type" : "object"
+}

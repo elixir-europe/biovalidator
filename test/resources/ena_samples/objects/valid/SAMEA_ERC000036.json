@@ -1,0 +1,70 @@
+{
+  "name" : "ERS2632077",
+  "accession" : "SAMEA4812175",
+  "taxonId" : 155900,
+  "attributes" : {
+    "ENA checklist" : [ {
+      "text" : "ERC000036"
+    } ],
+    "INSDC center alias" : [ {
+      "text" : "NYU"
+    } ],
+    "INSDC center name" : [ {
+      "text" : "NYU"
+    } ],
+    "INSDC first public" : [ {
+      "text" : "2019-07-27T04:04:15Z"
+    } ],
+    "INSDC last update" : [ {
+      "text" : "2018-08-01T19:33:04Z"
+    } ],
+    "INSDC status" : [ {
+      "text" : "public"
+    } ],
+    "SRA accession" : [ {
+      "text" : "ERS2632077"
+    } ],
+    "alias" : [ {
+      "text" : "10"
+    } ],
+    "collection date" : [ {
+      "text" : "2014-11-19"
+    } ],
+    "description" : [ {
+      "text" : "DEP_sewage"
+    } ],
+    "geographic location (country and/or sea)" : [ {
+      "text" : "USA"
+    } ],
+    "geographic location (latitude)" : [ {
+      "text" : "40.736284",
+      "units" : "DD"
+    } ],
+    "geographic location (longitude)" : [ {
+      "text" : "-73.96796",
+      "units" : "DD"
+    } ],
+    "geographic location (region and locality)" : [ {
+      "text" : "New York City"
+    } ],
+    "investigation type" : [ {
+      "text" : "metagenome"
+    } ],
+    "name of the sampling site" : [ {
+      "text" : "Bronx"
+    } ],
+    "organism" : [ {
+      "text" : "uncultured organism",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_155900" ]
+    } ],
+    "sewage type" : [ {
+      "text" : "raw municipal"
+    } ],
+    "synonym" : [ {
+      "text" : "10"
+    } ],
+    "title" : [ {
+      "text" : "S026"
+    } ]
+  }
+}

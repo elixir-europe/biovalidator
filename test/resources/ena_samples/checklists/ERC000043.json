@@ -1,0 +1,202 @@
+{
+   "$schema" : "http://json-schema.org/draft-07/schema#",
+   "description" : "Marine microalgae contextual information. The checklist has been developed in collaboration with EMBRIC Project partners and is suitable for reporting metadata related to environmental samples and those in culture collections.",
+   "required" : [
+      "attributes"
+   ],
+   "properties" : {
+      "attributes" : {
+         "properties" : {
+            "Temperature" : {
+               "description" : "Temperature of water at the time of taking the sample. Format: ##.####, SDN:P02:75:TEMP, SDN:P06:46:UPAA for °C. Example: 17.7122.",
+               "maxItems" : 1,
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "sample collection device or method" : {
+               "items" : {},
+               "description" : "The method or deviced employed for collecting the sample"
+            },
+            "geographic location (country and/or sea)" : {
+               "maxItems" : 1,
+               "description" : "The geographical origin of the sample as defined by the country or sea. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html).",
+               "items" : {}
+            },
+            "collection date" : {
+               "items" : {},
+               "description" : "The date of sampling, either as an instance (single point in time) or interval. In case no exact time is available, the date/time can be right truncated i.e. all of these are valid ISO8601 compliant times: 2008-01-23T19:23:10+00:00; 2008-01-23T19:23:10; 2008-01-23; 2008-01; 2008."
+            },
+            "Salinity" : {
+               "description" : "Salinity of water at the time of taking the sample. Format: ##.#, SDN:P02::PSAL, SDN:P06::UGKG for PSU. Example: 39.1 psu.",
+               "maxItems" : 1,
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "isolation and growth condition" : {
+               "items" : {},
+               "description" : "Publication reference in the form of pubmed ID (pmid), digital object identifier (doi) or url for isolation and growth condition specifications of the organism/material. Mandatory for MIGS and MIMARKS Specimen."
+            },
+            "sample storage temperature" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "maxItems" : 1,
+               "description" : "temperature at which sample was stored, e.g. -80"
+            },
+            "pH" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "pH measurement"
+            },
+            "sample storage duration" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "maxItems" : 1,
+               "description" : "duration for which sample was stored"
+            },
+            "sample storage conditions" : {
+               "description" : "Conditions at which sample was stored, usually storage temperature, duration and location",
+               "items" : {}
+            },
+            "light intensity" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "measurement of light intensity",
+               "maxItems" : 1
+            },
+            "geographic location (longitude)" : {
+               "description" : "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system",
+               "maxItems" : 1,
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "geographic location (latitude)" : {
+               "description" : "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system",
+               "maxItems" : 1,
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "growth condition" : {
+               "items" : {},
+               "description" : "A role that a material entity can play which enables particular conditions used to grow organisms or parts of the organism. This includes isolated environments such as cultures and open environments such as field studies."
+            },
+            "amount or size of sample collected" : {
+               "maxItems" : 1,
+               "description" : "Amount or size of sample (volume, mass or area) that was collected",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "Depth" : {
+               "maxItems" : 1,
+               "description" : "The distance below the surface of the water at which a measurement was made or a sample was collected. Format: ####.##, Positive below the sea surface. SDN:P06:46:ULAA for m. Example: 14.71",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "culture_collection" : {
+               "items" : {},
+               "description" : "institution code and identifier for the culture from which the sample was obtained, with optional collection code."
+            },
+            "collected_by" : {
+               "description" : "name of persons or institute who collected the specimen",
+               "items" : {}
+            },
+            "strain" : {
+               "items" : {},
+               "description" : "Name of the strain from which the sample was obtained.",
+               "maxItems" : 1
+            },
+            "Further Details" : {
+               "description" : "Reference details related to a sample in form of an URI.",
+               "items" : {}
+            }
+         },
+         "required" : [
+            "strain"
+         ]
+      }
+   },
+   "title" : "ENA Marine Microalgae Checklist",
+   "$async" : true,
+   "definitions" : {
+      "attribute" : {
+         "type" : "array",
+         "minItems" : 1,
+         "items" : {
+            "required" : [
+               "value"
+            ],
+            "properties" : {
+               "value" : {
+                  "minLength" : 1,
+                  "type" : "string"
+               },
+               "terms" : {
+                  "$ref" : "#/definitions/terms"
+               },
+               "units" : {
+                  "type" : "string",
+                  "minLength" : 1
+               }
+            }
+         }
+      },
+      "properties" : {
+         "attributes" : {
+            "description" : "Attributes for describing a sample.",
+            "properties" : {},
+            "type" : "object",
+            "required" : [],
+            "patternProperties" : {
+               "^.*$" : {
+                  "$ref" : "#/definitions/attribute"
+               }
+            }
+         }
+      },
+      "terms" : {
+         "type" : "array",
+         "items" : {
+            "type" : "object",
+            "properties" : {
+               "url" : {
+                  "format" : "uri",
+                  "type" : "string"
+               }
+            },
+            "required" : [
+               "url"
+            ]
+         }
+      }
+   },
+   "$id" : "ERC000043",
+   "type" : "object",
+   "author" : "ENA",
+   "version" : "1.0.0"
+}

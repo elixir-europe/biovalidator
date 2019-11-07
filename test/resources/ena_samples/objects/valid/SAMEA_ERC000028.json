@@ -1,0 +1,62 @@
+{
+  "name" : "ERS364003",
+  "accession" : "SAMEA2242082",
+  "taxonId" : 1280,
+  "attributes" : {
+    "ENA checklist" : [ {
+      "text" : "ERC000028"
+    } ],
+    "INSDC center alias" : [ {
+      "text" : "BUGS"
+    } ],
+    "INSDC center name" : [ {
+      "text" : "St George's, University of London"
+    } ],
+    "INSDC first public" : [ {
+      "text" : "2014-10-02T17:03:59Z"
+    } ],
+    "INSDC last update" : [ {
+      "text" : "2016-10-21T09:44:51Z"
+    } ],
+    "INSDC status" : [ {
+      "text" : "public"
+    } ],
+    "SRA accession" : [ {
+      "text" : "ERS364003"
+    } ],
+    "alias" : [ {
+      "text" : "AP2751"
+    } ],
+    "collection date" : [ {
+      "text" : "2012-09-12"
+    } ],
+    "geographic location (country and/or sea)" : [ {
+      "text" : "UK"
+    } ],
+    "host health state" : [ {
+      "text" : "Culture"
+    } ],
+    "host scientific name" : [ {
+      "text" : "Culture"
+    } ],
+    "isolation_source" : [ {
+      "text" : "Culture"
+    } ],
+    "isolate": [ {
+      "text" : "ISO1234"
+    } ],
+    "organism" : [ {
+      "text" : "Staphylococcus aureus",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_1280" ]
+    } ],
+    "strain" : [ {
+      "text" : "AP2751"
+    } ],
+    "synonym" : [ {
+      "text" : "AP2751"
+    } ],
+    "title" : [ {
+      "text" : "AP2751"
+    } ]
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "name" : "ERS2395513",
+  "accession" : "SAMEA1115825",
+  "taxonId" : 9606,
+  "attributes" : {
+    "ENA checklist" : [ {
+      "text" : "ERC000015"
+    } ],
+    "INSDC center alias" : [ {
+      "text" : "Bioinformatics Lab, Innovation Center"
+    } ],
+    "INSDC center name" : [ {
+      "text" : "Bioinformatics Lab, Innovation Center"
+    } ],
+    "INSDC first public" : [ {
+      "text" : "2018-04-12T17:03:01Z"
+    } ],
+    "INSDC last update" : [ {
+      "text" : "2018-04-12T07:15:17Z"
+    } ],
+    "INSDC status" : [ {
+      "text" : "public"
+    } ],
+    "SRA accession" : [ {
+      "text" : "ERS2395513"
+    } ],
+    "alias" : [ {
+      "text" : "4036"
+    } ],
+    "collection date" : [ {
+      "text" : "2016-03-05"
+    } ],
+    "description" : [ {
+      "text" : "LogMPIE is an observational, multi-center, cross geography and age-group study. The primary objective of the study was to report the microbiome baseline across India. The study reported data from over 1000 subjects. Additionally, for individual subjects, factors such as BMI, lifestyle, dietary habits and gender were recorded.The study was conducted by Tata Chemicals Limited."
+    } ],
+    "environment (biome)" : [ {
+      "text" : "Bacterial microbiome"
+    } ],
+    "environment (feature)" : [ {
+      "text" : "Metagenome"
+    } ],
+    "environment (material)" : [ {
+      "text" : "faecal matter"
+    } ],
+    "geographic location (country and/or sea)" : [ {
+      "text" : "India"
+    } ],
+    "geographic location (latitude)" : [ {
+      "text" : "17.38714",
+      "units" : "DD"
+    } ],
+    "geographic location (longitude)" : [ {
+      "text" : "78.491684",
+      "units" : "DD"
+    } ],
+    "geographic location (region and locality)" : [ {
+      "text" : "Ajmer"
+    } ],
+    "host body mass index" : [ {
+      "text" : "18.1955",
+      "units" : "kg/m2"
+    } ],
+    "human gut environmental package" : [ {
+      "text" : "human-gut"
+    } ],
+    "investigation type" : [ {
+      "text" : "metagenome"
+    } ],
+    "organism" : [ {
+      "text" : "Homo sapiens",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_9606" ]
+    } ],
+    "project name" : [ {
+      "text" : "gut metagenome"
+    } ],
+    "sequencing method" : [ {
+      "text" : "Ion torrent"
+    } ],
+    "synonym" : [ {
+      "text" : "4036"
+    } ],
+    "title" : [ {
+      "text" : "LogMPIE: Landscape Of Gut Microbiome - Pan India Exploration study"
+    } ]
+  }
+}
