@@ -1,0 +1,234 @@
+{
+   "title" : "ENA virus pathogen reporting standard checklist",
+   "required" : [
+      "attributes"
+   ],
+   "type" : "object",
+   "definitions" : {
+      "attribute" : {
+         "type" : "array",
+         "minItems" : 1,
+         "items" : {
+            "properties" : {
+               "value" : {
+                  "minLength" : 1,
+                  "type" : "string"
+               },
+               "terms" : {
+                  "$ref" : "#/definitions/terms"
+               },
+               "units" : {
+                  "minLength" : 1,
+                  "type" : "string"
+               }
+            },
+            "required" : [
+               "value"
+            ]
+         }
+      },
+      "terms" : {
+         "items" : {
+            "required" : [
+               "url"
+            ],
+            "properties" : {
+               "url" : {
+                  "type" : "string",
+                  "format" : "uri"
+               }
+            },
+            "type" : "object"
+         },
+         "type" : "array"
+      },
+      "properties" : {
+         "attributes" : {
+            "type" : "object",
+            "properties" : {},
+            "required" : [],
+            "patternProperties" : {
+               "^.*$" : {
+                  "$ref" : "#/definitions/attribute"
+               }
+            },
+            "description" : "Attributes for describing a sample."
+         }
+      }
+   },
+   "author" : "ENA",
+   "description" : "Minimum information about a virus pathogen. A checklist for reporting metadata of virus pathogen samples associated with genomic data. This minimum metadata standard was developed by the COMPARE platform for submission of virus surveillance and outbreak data (such as Ebola) as well as virus isolate information.",
+   "version" : "1.0.0",
+   "$async" : true,
+   "properties" : {
+      "attributes" : {
+         "required" : [
+            "geographic location (country and/or sea)",
+            "host common name",
+            "host subject id",
+            "host health state",
+            "host sex",
+            "host scientific name",
+            "collector name",
+            "collecting institution",
+            "isolate"
+         ],
+         "properties" : {
+            "strain" : {
+               "description" : "Name of the strain from which the sample was obtained.",
+               "items" : {}
+            },
+            "definition for seropositive sample" : {
+               "description" : "The cut off value used by an investigatior in determining that a sample was seropositive.",
+               "items" : {}
+            },
+            "subject exposure" : {
+               "items" : {},
+               "description" : "Exposure of the subject to infected human or animals, such as poultry, wild bird or swine. If multiple exposures are applicable, please state them separated by semicolon. Example: poultry; wild bird"
+            },
+            "host subject id" : {
+               "items" : {},
+               "description" : "a unique identifier by which each subject can be referred to, de-identified, e.g. #131"
+            },
+            "host description" : {
+               "items" : {},
+               "description" : "Other descriptive information relating to the host."
+            },
+            "host age" : {
+               "description" : "age of host at the time of sampling; relevant scale depends on species and study, e.g. could be seconds for amoebae or centuries for trees",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "geographic location (longitude)" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system"
+            },
+            "type exposure" : {
+               "description" : "Setting within which the subject is exposed to animals, such as farm, slaughterhouse, food preparation. If multiple exposures are applicable, please state their type in the same order in which you reported the exposure in the field 'subject exposure'. Example: backyard flock; confined animal feeding operation",
+               "items" : {}
+            },
+            "subject exposure duration" : {
+               "description" : "Duration of the exposure of the subject to an infected human or animal. If multiple exposures are applicable, please state their duration in the same order in which you reported the exposure in the field 'subject exposure'. Example: 1 day; 0.33 days",
+               "items" : {}
+            },
+            "illness symptoms" : {
+               "items" : {},
+               "description" : "The symptoms that have been reported in relation to the illness, such as cough, diarrhea, fever, headache, malaise, myalgia, nausea, runny_nose, shortness_of_breath, sore_throat. If multiple exposures are applicable, please state them separated by semicolon."
+            },
+            "sample storage conditions" : {
+               "description" : "Conditions at which sample was stored, usually storage temperature, duration and location",
+               "items" : {}
+            },
+            "virus identifier" : {
+               "items" : {},
+               "description" : "Unique laboratory identifier assigned to the virus by the investigator. Strain name is not sufficient since it might not be unique due to various passsages of the same virus. Format: up to 50 alphanumeric characters"
+            },
+            "hospitalisation" : {
+               "items" : {},
+               "description" : "Was the subject confined to a hospital as a result of virus infection or problems occurring secondary to virus infection?"
+            },
+            "host habitat" : {
+               "description" : "Natural habitat of the avian or mammalian host.",
+               "items" : {}
+            },
+            "personal protective equipment" : {
+               "description" : "Use of personal protective equipment, such as gloves, gowns, during any type of exposure. Example: mask",
+               "items" : {}
+            },
+            "host health state" : {
+               "description" : "Health status of the host at the time of sample collection.",
+               "items" : {}
+            },
+            "isolation source host-associated" : {
+               "description" : "Name of host tissue or organ sampled for analysis. Example: tracheal tissue",
+               "items" : {}
+            },
+            "host disease outcome" : {
+               "items" : {},
+               "description" : "Disease outcome in the host."
+            },
+            "host scientific name" : {
+               "items" : {},
+               "description" : "Scientific name of the natural (as opposed to laboratory) host to the organism from which sample was obtained."
+            },
+            "host sex" : {
+               "items" : {},
+               "description" : "Gender or sex of the host."
+            },
+            "receipt date" : {
+               "description" : "Date on which the sample was received. Format:YYYY-MM-DD. Please provide the highest precision possible. If the sample was received by the institution and not collected, the 'receipt date' must be provided instead. Either the 'collection date' or 'receipt date' must be provided. If available, provide both dates.",
+               "items" : {}
+            },
+            "geographic location (latitude)" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system"
+            },
+            "isolate" : {
+               "description" : "individual isolate from which the sample was obtained",
+               "items" : {}
+            },
+            "collector name" : {
+               "items" : {},
+               "description" : "Name of the person who collected the specimen. Example: John Smith"
+            },
+            "isolation source non-host-associated" : {
+               "items" : {},
+               "description" : "Describes the physical, environmental and/or local geographical source of the biological sample from which the sample was derived. Example: soil"
+            },
+            "serotype (required for a seropositive sample)" : {
+               "items" : {},
+               "description" : "Serological variety of a species characterised by its antigenic properties. For Influenza, HA subtype should be the letter H followed by a number between 1-16 unless novel subtype is identified and the NA subtype should be the letter N followed by a number between 1-9 unless novel subtype is identified. If only one of the subtypes have been tested then use the format H5Nx or HxN1. Example: H1N1"
+            },
+            "collecting institution" : {
+               "items" : {},
+               "description" : "Name of the institution to which the person collecting the specimen belongs. Format: Institute Name, Institute Address"
+            },
+            "host behaviour" : {
+               "items" : {},
+               "description" : "Natural behaviour of the host."
+            },
+            "illness duration" : {
+               "description" : "The number of days the illness lasted. Example: 4",
+               "items" : {}
+            },
+            "geographic location (region and locality)" : {
+               "description" : "The geographical origin of the sample as defined by the specific region name followed by the locality name.",
+               "items" : {}
+            },
+            "gravidity" : {
+               "description" : "Whether or not the subject is gravid. If so, report date due or date post-conception and specify which of these two dates is being reported.",
+               "items" : {}
+            },
+            "geographic location (country and/or sea)" : {
+               "items" : {},
+               "description" : "The geographical origin of the sample as defined by the country or sea. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html)."
+            },
+            "host common name" : {
+               "items" : {},
+               "description" : "common name of the host, e.g. human"
+            },
+            "collection date" : {
+               "items" : {},
+               "description" : "The date of sampling, either as an instance (single point in time) or interval. In case no exact time is available, the date/time can be right truncated i.e. all of these are valid ISO8601 compliant times: 2008-01-23T19:23:10+00:00; 2008-01-23T19:23:10; 2008-01-23; 2008-01; 2008."
+            },
+            "sample capture status" : {
+               "items" : {},
+               "description" : "Reason for the sample collection."
+            }
+         }
+      }
+   },
+   "$schema" : "http://json-schema.org/draft-07/schema#",
+   "$id" : "ERC000033"
+}

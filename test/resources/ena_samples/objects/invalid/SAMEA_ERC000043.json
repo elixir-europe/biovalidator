@@ -1,0 +1,41 @@
+{
+  "name" : "ERS3631860",
+  "accession" : "SAMEA5843313",
+  "taxonId" : 2850,
+  "attributes" : {
+    "ENA checklist" : [ {
+      "text" : "ERC000043"
+    } ],
+    "INSDC center alias" : [ {
+      "text" : "UNIVERSITY OF KONSTANZ"
+    } ],
+    "INSDC center name" : [ {
+      "text" : "UNIVERSITY OF KONSTANZ"
+    } ],
+    "INSDC first public" : [ {
+      "text" : "2019-08-02T17:03:41Z"
+    } ],
+    "INSDC last update" : [ {
+      "text" : "2019-08-02T11:58:40Z"
+    } ],
+    "INSDC status" : [ {
+      "text" : "public"
+    } ],
+    "SRA accession" : [ {
+      "text" : "ERS3631860"
+    } ],
+    "alias" : [ {
+      "text" : "x1KO_1a"
+    } ],
+    "organism" : [ {
+      "text" : "Phaeodactylum tricornutum",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_2850" ]
+    } ],
+    "synonym" : [ {
+      "text" : "x1KO_1a"
+    } ],
+    "title" : [ {
+      "text" : "TALEN Lhcx1 knockout on P. tricornutum 4"
+    } ]
+  }
+}

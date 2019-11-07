@@ -1,0 +1,917 @@
+{
+   "$id" : "ERC000027",
+   "type" : "object",
+   "description" : "Minimum information about a Micro B3 sample. A checklist for reporting metadata of marine microbial samples associated with genomics data. NOTE: Non-genomics data, i.e. oceanographic environmental data and morphology-based biodiversity data, should be submitted to the appropriate National Oceanographic Data Centre according to established reporting practices maintained by oceanographic community experts. Major National Oceanographic Data Centres from countries bordering the North-East Atlantic, and its adjacent seas: the Mediterranean, the Black Sea, the Baltic, the North Sea and the Arctic are listed at http://www.seadatanet.org/Overview/Partners. For the Ocean Sampling Day campaign, non-genomics data shall be reported to the PANGAEA (http://www.pangaea.de/submit/).",
+   "$schema" : "http://json-schema.org/draft-07/schema#",
+   "version" : "1.0.0",
+   "$async" : true,
+   "required" : [
+      "attributes"
+   ],
+   "author" : "ENA",
+   "properties" : {
+      "attributes" : {
+         "required" : [
+            "Event Date/Time",
+            "Latitude Start",
+            "Longitude Start",
+            "Depth",
+            "Protocol Label",
+            "project name",
+            "environmental package",
+            "environment (biome)",
+            "environment (feature)",
+            "environment (material)",
+            "Sampling Campaign",
+            "Sampling Site",
+            "Sampling Platform",
+            "Marine Region",
+            "Temperature",
+            "Salinity"
+         ],
+         "properties" : {
+            "sequence quality check" : {
+               "items" : {},
+               "description" : "Indicate if the sequence has been called by automatic systems (none) or undergone a manual editing procedure (e.g. by inspecting the raw data or chromatograms). Applied only for sequences that are not submitted to SRA or DRA"
+            },
+            "dissolved carbon dioxide" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "concentration of dissolved carbon dioxide"
+            },
+            "environment (biome)" : {
+               "description" : "Biomes are defined based on factors such as plant structures, leaf types, plant spacing, and other factors like climate. Biome should be treated as the descriptor of the broad ecological context of a sample. Examples include: desert, taiga, deciduous woodland, or coral reef. EnvO (v 2013-06-14) terms can be found via the link: www.environmentontology.org/Browse-EnvO",
+               "items" : {}
+            },
+            "library reads sequenced" : {
+               "description" : "Total number of clones sequenced from the library",
+               "items" : {}
+            },
+            "target gene" : {
+               "description" : "Targeted gene or locus name for marker gene studies",
+               "items" : {}
+            },
+            "Latitude Start" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "Latitude of the location where the sampling event started, e.g. each CTD cast, net tow, or bucket collection is a distinct event. Format: ##.####, Decimal degrees; North= +, South= -; Use WGS 84 for GPS data. Example: -24.6666."
+            },
+            "petroleum hydrocarbon" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "concentration of petroleum hydrocarbon"
+            },
+            "phaeopigments" : {
+               "description" : "concentration of phaeopigments; can include multiple phaeopigments",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "total nitrogen" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "total nitrogen content of the sample"
+            },
+            "mean peak friction velocity" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "measurement of mean peak friction velocity"
+            },
+            "ammonium" : {
+               "description" : "concentration of ammonium",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "dissolved inorganic carbon" : {
+               "description" : "dissolved inorganic carbon concentration",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "organic matter" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "concentration of organic matter"
+            },
+            "annotation source" : {
+               "description" : "For cases where annotation was provided by a community jamboree or model organism database rather than by a specific submitter",
+               "items" : {}
+            },
+            "total dissolved nitrogen" : {
+               "description" : "total dissolved nitrogen concentration, reported as nitrogen, measured by: total dissolved nitrogen = NH4 + NO3NO2 + dissolved organic nitrogen",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "encoded traits" : {
+               "items" : {},
+               "description" : "Should include key traits like antibiotic resistance or xenobiotic degradation phenotypes for plasmids, converting genes for phage"
+            },
+            "relevant electronic resources" : {
+               "items" : {},
+               "description" : "-"
+            },
+            "nitrate" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "concentration of nitrate"
+            },
+            "organic carbon" : {
+               "description" : "concentration of organic carbon",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "photon flux" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "measurement of photon flux"
+            },
+            "isolation and growth condition" : {
+               "description" : "Publication reference in the form of pubmed ID (pmid), digital object identifier (doi) or url for isolation and growth condition specifications of the organism/material. Mandatory for MIGS and MIMARKS Specimen.",
+               "items" : {}
+            },
+            "density" : {
+               "description" : "density of sample",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "number of replicons" : {
+               "items" : {},
+               "description" : "Reports the number of replicons in a nuclear genome of eukaryotes, in the genome of a bacterium or archaea or the number of segments in a segmented virus. Always applied to the haploid chromosome count of a eukaryote. Mandatory for MIGS of eukaryotes, bacteria, archaea and segmented virus."
+            },
+            "mean friction velocity" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "measurement of mean friction velocity"
+            },
+            "sample storage location" : {
+               "description" : "location at which sample was stored, usually name of a specific freezer/room",
+               "items" : {}
+            },
+            "dissolved organic carbon" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "concentration of dissolved organic carbon"
+            },
+            "nitrite" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "concentration of nitrite"
+            },
+            "perturbation" : {
+               "items" : {},
+               "description" : "type of perturbation, e.g. chemical administration, physical disturbance, etc., coupled with time that perturbation occurred; can include multiple perturbation types"
+            },
+            "Longitude Start" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "Longitude of the location where the sampling event started, e.g. each CTD cast, net tow, or bucket collection is a distinct event. Format: ###.####, Decimal degrees; East= +, West= -; Use WGS 84 for GPS data. Example: -096.1012."
+            },
+            "reference for biomaterial" : {
+               "description" : "Primary publication if isolated before genome publication; otherwise, primary genome report. Mandatory for MIGS of bacteria and archaea.",
+               "items" : {}
+            },
+            "Longitude End" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "Longitude of the location where the sampling event ended, e.g. each CTD cast, net tow, or bucket collection is a distinct event. Format: ###.####, Decimal degrees; East= +, West= -; Use WGS 84 for GPS data. Example: -096.1171."
+            },
+            "library screening strategy" : {
+               "description" : "Specific enrichment or screening methods applied before and/or after creating clone libraries in order to select a specific group of sequences",
+               "items" : {}
+            },
+            "particulate organic carbon" : {
+               "description" : "concentration of particulate organic carbon",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "amount or size of sample collected" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "Amount or size of sample (volume, mass or area) that was collected"
+            },
+            "environment (feature)" : {
+               "description" : "Environmental feature level includes geographic environmental features. Compared to biome, feature is a descriptor of the more local environment. Examples include: harbor, cliff, or lake. EnvO (v 2013-06-14) terms can be found via the link: www.environmentontology.org/Browse-EnvO",
+               "items" : {}
+            },
+            "carbon/nitrogen ratio" : {
+               "items" : {},
+               "description" : "ratio of amount or concentrations of carbon to nitrogen"
+            },
+            "relevant standard operating procedures" : {
+               "description" : "Standard operating procedures used in assembly and/or annotation of genomes, metagenomes or environmental sequences",
+               "items" : {}
+            },
+            "sample storage duration" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "duration for which sample was stored"
+            },
+            "biomass" : {
+               "description" : "amount of biomass; should include the name for the part of biomass measured, e.g. microbial, total. can include multiple measurements",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "particulate organic nitrogen" : {
+               "description" : "concentration of particulate organic nitrogen",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "primary production" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "measurement of primary production"
+            },
+            "sample material processing" : {
+               "description" : "Any processing applied to the sample during or after retrieving the sample from environment. This field accepts OBI, for a browser of OBI (v 2013-10-25) terms please see http://purl.bioontology.org/ontology/OBI",
+               "items" : {}
+            },
+            "n-alkanes" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "concentration of n-alkanes; can include multiple n-alkanes"
+            },
+            "alkyl diethers" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "concentration of alkyl diethers"
+            },
+            "total phosphorus" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "total phosphorus concentration, calculated by: total phosphorus = total dissolved phosphorus + particulate phosphorus. Can also be measured without filtering, reported as phosphorus"
+            },
+            "health or disease status of specific host" : {
+               "items" : {},
+               "description" : "Health or disease status of specific host at time of collection. This field accepts PATO (v 2013-10-28) terms, for a browser please see http://purl.bioontology.org/ontology/PATO"
+            },
+            "alkalinity" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "alkalinity, the ability of a solution to neutralize acids to the equivalence point of carbonate or bicarbonate"
+            },
+            "tidal stage" : {
+               "items" : {},
+               "description" : "stage of tide"
+            },
+            "experimental factor" : {
+               "items" : {},
+               "description" : "Experimental factors are essentially the variable aspects of an experiment design which can be used to describe an experiment, or set of experiments, in an increasingly detailed manner. This field accepts ontology terms from Experimental Factor Ontology (EFO) and/or Ontology for Biomedical Investigations (OBI). For a browser of EFO (v 2.43) terms, please see http://purl.bioontology.org/ontology/EFO; for a browser of OBI (v 2013-10-25) terms please see http://purl.bioontology.org/ontology/OBI"
+            },
+            "silicate" : {
+               "description" : "concentration of silicate",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "miscellaneous parameter" : {
+               "description" : "Any other measurement performed or parameter collected, that is not listed here",
+               "items" : {}
+            },
+            "Event Date/Time" : {
+               "description" : "Date and time in UTC when the sampling event started and ended, e.g. each CTD cast, net tow, or bucket collection is a distinct event. Format: yyyy-mm-ddThh:mm:ssZ. Example: 2013-06-21T14:05:00Z/2013-06-21T14:46:00Z.",
+               "items" : {}
+            },
+            "dissolved organic nitrogen" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "dissolved organic nitrogen concentration measured as; total dissolved nitrogen - NH4 - NO3 - NO2"
+            },
+            "sulfide" : {
+               "description" : "concentration of sulfide",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "source material identifiers" : {
+               "items" : {},
+               "description" : "A unique identifier assigned to a material sample (as defined by http://rs.tdwg.org/dwc/terms/materialSampleID, and as opposed to a particular digital record of a material sample) used for extracting nucleic acids, and subsequent sequencing. The identifier can refer either to the original material collected or to any derived sub-samples. The INSDC qualifiers /specimen_voucher, /bio_material, or /culture_collection may or may not share the same value as the source_mat_id field. For instance, the /specimen_voucher qualifier and source_mat_id may both contain 'UAM:Herps:14' , referring to both the specimen voucher and sampled tissue with the same identifier. However, the /culture_collection qualifier may refer to a value from an initial culture (e.g. ATCC:11775) while source_mat_id would refer to an identifier from some derived culture from which the nucleic acids were extracted (e.g. xatc123 or ark:/2154/R2)."
+            },
+            "nucleic acid extraction" : {
+               "description" : "Link to a literature reference, electronic resource or a standard operating procedure (SOP)",
+               "items" : {}
+            },
+            "dissolved inorganic nitrogen" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "concentration of dissolved inorganic nitrogen"
+            },
+            "Depth" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "The distance below the surface of the water at which a measurement was made or a sample was collected. Format: ####.##, Positive below the sea surface. SDN:P06:46:ULAA for m. Example: 14.71"
+            },
+            "nucleic acid amplification" : {
+               "description" : "Link to a literature reference, electronic resource or a standard operating procedure (SOP)",
+               "items" : {}
+            },
+            "pcr primers" : {
+               "description" : "PCR primers that were used to amplify the sequence of the targeted gene, locus or subfragment. This field should contain all the primers used for a single PCR reaction if multiple forward or reverse primers are present in a single PCR reaction. The primer sequence should be reported in uppercase letters",
+               "items" : {}
+            },
+            "known pathogenicity" : {
+               "items" : {},
+               "description" : "To what is the entity pathogenic, for instance plant, fungi, bacteria"
+            },
+            "subspecific genetic lineage" : {
+               "description" : "This should provide further information about the genetic distinctness of this lineage by recording additional information i.e biovar, serovar, serotype, biovar, or any relevant genetic typing schemes like Group I plasmid. It can also contain alternative taxonomic information",
+               "items" : {}
+            },
+            "organic nitrogen" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "concentration of organic nitrogen"
+            },
+            "turbidity" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "turbidity measurement"
+            },
+            "library vector" : {
+               "items" : {},
+               "description" : "Cloning vector type(s) used in construction of libraries"
+            },
+            "multiplex identifiers" : {
+               "items" : {},
+               "description" : "Molecular barcodes, called Multiplex Identifiers (MIDs), that are used to specifically tag unique samples in a sequencing run. Sequence should be reported in uppercase letters"
+            },
+            "adapters" : {
+               "description" : "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
+               "items" : {}
+            },
+            "Sampling Site" : {
+               "items" : {},
+               "description" : "Refers to the site/station where data/sample collection is performed. Term list: OSD Site Registry or SDN:C17, http://tinyurl.com/oxux985 Example: Poseidon-E1-M3A Time Series Station."
+            },
+            "glucosidase activity" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "measurement of glucosidase activity"
+            },
+            "calcium" : {
+               "description" : "concentration of calcium",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "bacterial carbon production" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "measurement of bacterial carbon production"
+            },
+            "sample storage temperature" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "temperature at which sample was stored, e.g. -80"
+            },
+            "phospholipid fatty acid" : {
+               "description" : "concentration of phospholipid fatty acids; can include multiple values",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "water current" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "measurement of magnitude and direction of flow within a fluid"
+            },
+            "Temperature" : {
+               "description" : "Temperature of water at the time of taking the sample. Format: ##.####, SDN:P02:75:TEMP, SDN:P06:46:UPAA for °C. Example: 17.7122.",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "chlorophyll" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "concentration of chlorophyll"
+            },
+            "bacterial production" : {
+               "description" : "bacterial production in the water column measured by isotope uptake",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "environmental package" : {
+               "description" : "MIGS/MIMS/MIMARKS extension for reporting of measurements and observations obtained from one or more of the environments where the sample was obtained. All environmental packages listed here are further defined in separate subtables. By giving the name of the environmental package, a selection of fields can be made from the subtables and can be reported",
+               "items" : {}
+            },
+            "bacterial respiration" : {
+               "description" : "measurement of bacterial respiration in the water column",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "sample collection device or method" : {
+               "description" : "The method or deviced employed for collecting the sample",
+               "items" : {}
+            },
+            "magnesium" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "concentration of magnesium"
+            },
+            "atmospheric data" : {
+               "items" : {},
+               "description" : "measurement of atmospheric data; can include multiple data"
+            },
+            "target subfragment" : {
+               "items" : {},
+               "description" : "Name of subfragment of a gene or locus. Important to e.g. identify special regions on marker genes like V6 on 16S rRNA"
+            },
+            "extrachromosomal elements" : {
+               "items" : {},
+               "description" : "Do plasmids exist of significant phenotypic consequence (e.g. ones that determine virulence or antibiotic resistance). Megaplasmids? Other plasmids (borrelia has 15+ plasmids)."
+            },
+            "observed biotic relationship" : {
+               "items" : {},
+               "description" : "Is it free-living or in a host and if the latter what type of relationship is observed"
+            },
+            "propagation" : {
+               "items" : {},
+               "description" : "This field is specific to different taxa. For plants: sexual/asexual, for phages: lytic/lysogenic, for plasmids: incompatibility group (Note: there is the strong opinion to name phage propagation obligately lytic or temperate, therefore we also give this choice. Mandatory for MIGS of eukaryotes, plasmids and viruses."
+            },
+            "phosphate" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "concentration of phosphate"
+            },
+            "chemical administration" : {
+               "items" : {},
+               "description" : "list of chemical compounds administered to the host or site where sampling occurred, and when (e.g. antibiotics, N fertilizer, air filter); can include multiple compounds. For Chemical Entities of Biological Interest ontology (CHEBI) (v111), please see http://purl.bioontology.org/ontology/CHEBI"
+            },
+            "sulfate" : {
+               "description" : "concentration of sulfate",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "downward PAR" : {
+               "description" : "visible waveband radiance and irradiance measurements in the water column",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "sample volume or weight for DNA extraction" : {
+               "description" : "Volume (mL) or weight (g) of sample processed for DNA extraction",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "total inorganic nitrogen" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "total inorganic nitrogen content"
+            },
+            "aminopeptidase activity" : {
+               "description" : "measurement of aminopeptidase activity",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "bishomohopanol" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "concentration of bishomohopanol"
+            },
+            "light intensity" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "measurement of light intensity"
+            },
+            "chloride" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "concentration of chloride"
+            },
+            "bromide" : {
+               "description" : "concentration of bromide",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "Marine Region" : {
+               "description" : "The geographical origin of the sample as defined by the marine region name chosen from the Marine Regions vocabulary at http://www.marineregions.org/. Example: Aegean Sea.",
+               "items" : {}
+            },
+            "organism count" : {
+               "items" : {},
+               "description" : "total count of any organism per gram or volume of sample, should include name of organism followed by count; can include multiple organism counts"
+            },
+            "chimera check" : {
+               "items" : {},
+               "description" : "A chimeric sequence, or chimera for short, is a sequence comprised of two or more phylogenetically distinct parent sequences. Chimeras are usually PCR artifacts thought to occur when a prematurely terminated amplicon reanneals to a foreign DNA strand and is copied to completion in the following PCR cycles. The point at which the chimeric sequence changes from one parent to the next is called the breakpoint or conversion point"
+            },
+            "library construction method" : {
+               "items" : {},
+               "description" : "Library construction method used for clone libraries"
+            },
+            "soluble reactive phosphorus" : {
+               "description" : "concentration of soluble reactive phosphorus",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "Sampling Platform" : {
+               "items" : {},
+               "description" : "Refers to the unique stage from which the sampling device has been deployed. Includes Platform category from SDN:L06, http://seadatanet.maris2.nl/v_bodc_vocab_v2/search.asp?lib=L06, and Platform name. Example: Research Vessel Tara."
+            },
+            "suspended particulate matter" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "concentration of suspended particulate matter"
+            },
+            "environment (material)" : {
+               "items" : {},
+               "description" : "The environmental material level refers to the material that was displaced by the sample, or material in which a sample was embedded, prior to the sampling event. Environmental material terms are generally mass nouns. Examples include: air, soil, or water. EnvO (v 2013-06-14) terms can be found via the link: www.environmentontology.org/Browse-EnvO"
+            },
+            "sodium" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "sodium concentration"
+            },
+            "Protocol Label" : {
+               "description" : "Identifies the protocol used to produce the sample, e.g. filtration and preservation. Example: BACT_NUC_W0.22-1.6.",
+               "items" : {}
+            },
+            "finishing strategy" : {
+               "description" : "Was the genome project intended to produce a complete or draft genome, Coverage, the fold coverage of the sequencing expressed as 2x, 3x, 18x etc, and how many contigs were produced for the genome. Mandatory for MIGS of eukaryote, bacteria and archaea.",
+               "items" : {}
+            },
+            "pH" : {
+               "description" : "pH measurement",
+               "items" : {}
+            },
+            "Salinity" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "Salinity of water at the time of taking the sample. Format: ##.#, SDN:P02::PSAL, SDN:P06::UGKG for PSU. Example: 39.1 psu."
+            },
+            "Sampling Campaign" : {
+               "description" : "Refers to a finite or indefinite activity aiming at collecting data/samples, e.g. a cruise, a time series, a mesocosm experiment. Example: TARA_20110401Z.",
+               "items" : {}
+            },
+            "pcr conditions" : {
+               "description" : "Description of reaction conditions and components for PCR in the form of 'initial denaturation:94degC_1.5min; annealing=...'",
+               "items" : {}
+            },
+            "diether lipids" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "concentration of diether lipids; can include multiple types of diether lipids"
+            },
+            "conductivity" : {
+               "description" : "electrical conductivity of water",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "dissolved oxygen" : {
+               "description" : "concentration of dissolved oxygen",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "dissolved hydrogen" : {
+               "description" : "concentration of dissolved hydrogen",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "total depth of water column" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "measurement of total depth of water column"
+            },
+            "ploidy" : {
+               "description" : "The ploidy level of the genome (e.g. allopolyploid, haploid, diploid, triploid, tetraploid). It has implications for the downstream study of duplicated gene and regions of the genomes (and perhaps for difficulties in assembly). For terms, please select terms listed under class ploidy (PATO:001374) of Phenotypic Quality Ontology (PATO), and for a browser of PATO (v 2013-10-28) please refer to http://purl.bioontology.org/ontology/PATO. Mandatory for MIGS of eukaryotes.",
+               "items" : {}
+            },
+            "nitrogen" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "concentration of nitrogen (total)"
+            },
+            "pressure" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "pressure to which the sample is subject, in atmospheres"
+            },
+            "fluorescence" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "raw (volts) or converted (mg Chla/m^3) fluorescence of the water"
+            },
+            "dissolved inorganic phosphorus" : {
+               "description" : "concentration of dissolved inorganic phosphorus",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "estimated size" : {
+               "description" : "The estimated size of the genome (in bp) prior to sequencing. Of particular importance in the sequencing of (eukaryotic) genome which could remain in draft form for a long or unspecified period. Mandatory for MIGS of eukaryotes.",
+               "items" : {}
+            },
+            "relationship to oxygen" : {
+               "description" : "Is this organism an aerobe, anaerobe? Please note that aerobic and anaerobic are valid descriptors for microbial environments",
+               "items" : {}
+            },
+            "specific host" : {
+               "items" : {},
+               "description" : "If there is a host involved, please provide its taxid (or environmental if not actually isolated from the dead or alive host - i.e. pathogen could be isolated from a swipe of a bench etc) and report whether it is a laboratory or natural host). From this we can calculate any number of groupings of hosts (e.g. animal vs plant, all fish hosts, etc)"
+            },
+            "potassium" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "concentration of potassium"
+            },
+            "project name" : {
+               "items" : {},
+               "description" : "Name of the project within which the sequencing was organized"
+            },
+            "library size" : {
+               "description" : "Total number of clones in the library prepared for the project",
+               "items" : {}
+            },
+            "oxygenation status of sample" : {
+               "description" : "oxygenation status of sample",
+               "items" : {}
+            },
+            "total particulate carbon" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "total particulate carbon content"
+            },
+            "Latitude End" : {
+               "description" : "Latitude of the location where the sampling event ended, e.g. each CTD cast, net tow, or bucket collection is a distinct event. Format: ##.####, Decimal degrees; North= +, South= -; Use WGS 84 for GPS data. Example: -24.6643.",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "redox potential" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "redox potential, measured relative to a hydrogen cell, indicating oxidation or reduction potential"
+            },
+            "trophic level" : {
+               "items" : {},
+               "description" : "Trophic levels are the feeding position in a food chain. Microbes can be a range of producers (e.g. chemolithotroph)"
+            }
+         }
+      }
+   },
+   "definitions" : {
+      "attribute" : {
+         "minItems" : 1,
+         "type" : "array",
+         "items" : {
+            "properties" : {
+               "terms" : {
+                  "$ref" : "#/definitions/terms"
+               },
+               "value" : {
+                  "type" : "string",
+                  "minLength" : 1
+               },
+               "units" : {
+                  "minLength" : 1,
+                  "type" : "string"
+               }
+            },
+            "required" : [
+               "value"
+            ]
+         }
+      },
+      "properties" : {
+         "attributes" : {
+            "patternProperties" : {
+               "^.*$" : {
+                  "$ref" : "#/definitions/attribute"
+               }
+            },
+            "properties" : {},
+            "description" : "Attributes for describing a sample.",
+            "required" : [],
+            "type" : "object"
+         }
+      },
+      "terms" : {
+         "items" : {
+            "properties" : {
+               "url" : {
+                  "format" : "uri",
+                  "type" : "string"
+               }
+            },
+            "type" : "object",
+            "required" : [
+               "url"
+            ]
+         },
+         "type" : "array"
+      }
+   },
+   "title" : "ENA Micro B3"
+}

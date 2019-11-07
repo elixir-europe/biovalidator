@@ -1,0 +1,71 @@
+{
+  "name" : "ERS1362324",
+  "accession" : "SAMEA4463145",
+  "taxonId" : 485,
+  "attributes" : {
+    "ENA checklist" : [ {
+      "text" : "ERC000029"
+    } ],
+    "INSDC center name" : [ {
+      "text" : "GH St Louis-Lariboisiere"
+    } ],
+    "INSDC first public" : [ {
+      "text" : "2016-09-23T17:01:33Z"
+    } ],
+    "INSDC last update" : [ {
+      "text" : "2016-09-23T12:02:52Z"
+    } ],
+    "INSDC status" : [ {
+      "text" : "public"
+    } ],
+    "SRA accession" : [ {
+      "text" : "ERS1362324"
+    } ],
+    "alias" : [ {
+      "text" : "F89"
+    } ],
+    "collected_by" : [ {
+      "text" : "RENAGO network"
+    } ],
+    "collection date" : [ {
+      "text" : "2010"
+    } ],
+    "environmental_sample" : [ {
+      "text" : "No"
+    } ],
+    "geographic location (country and/or sea)" : [ {
+      "text" : "France"
+    } ],
+    "geographic location (latitude)" : [ {
+      "text" : "48.8321152",
+      "units" : "DD"
+    } ],
+    "geographic location (longitude)" : [ {
+      "text" : "2.3388169",
+      "units" : "DD"
+    } ],
+    "host health state" : [ {
+      "text" : "diseased"
+    } ],
+    "host scientific name" : [ {
+      "text" : "homo sapiens",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_9606" ]
+    } ],
+    "Is the sequenced pathogen host associated?" : [ {
+      "text" : "Yes"
+    } ],
+    "isolate" : [ {
+      "text" : "mankind"
+    } ],
+    "organism" : [ {
+      "text" : "Neisseria gonorrhoeae",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_485" ]
+    } ],
+    "synonym" : [ {
+      "text" : "F89"
+    } ],
+    "title" : [ {
+      "text" : "Neisseria gonorrhoeae"
+    } ]
+  }
+}

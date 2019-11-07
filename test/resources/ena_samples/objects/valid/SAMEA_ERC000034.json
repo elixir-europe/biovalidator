@@ -1,0 +1,65 @@
+{
+  "name" : "ERS2901185",
+  "accession" : "SAMEA5089840",
+  "taxonId" : 10090,
+  "attributes" : {
+    "ENA checklist" : [ {
+      "text" : "ERC000034"
+    } ],
+    "INSDC center alias" : [ {
+      "text" : "OSLO UNIVERSITY HOSPITAL"
+    } ],
+    "INSDC center name" : [ {
+      "text" : "OSLO UNIVERSITY HOSPITAL"
+    } ],
+    "INSDC first public" : [ {
+      "text" : "2019-01-14T17:02:24Z"
+    } ],
+    "INSDC last update" : [ {
+      "text" : "2018-11-15T10:18:16Z"
+    } ],
+    "INSDC status" : [ {
+      "text" : "public"
+    } ],
+    "SRA accession" : [ {
+      "text" : "ERS2901185"
+    } ],
+    "alias" : [ {
+      "text" : "2"
+    } ],
+    "date of birth" : [ {
+      "text" : "2014-01-15"
+    } ],
+    "date of death" : [ {
+      "text" : "2014-05-30"
+    } ],
+    "diagnosis" : [ {
+      "text" : "Mammary tumor"
+    } ],
+    "organism" : [ {
+      "text" : "Mus musculus",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_10090" ]
+    } ],
+    "sex" : [ {
+      "text" : "Female",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/PATO_0000383" ]
+    } ],
+    "strain" : [ {
+      "text" : "FVB/NJ",
+      "ontologyTerms" : [ "http://www.ebi.ac.uk/efo/EFO_0007728" ]
+    } ],
+    "synonym" : [ {
+      "text" : "2"
+    } ],
+    "tissue_type" : [ {
+      "text" : "Liver",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/UBERON_0002107" ]
+    } ],
+    "title" : [ {
+      "text" : "S123_14_8"
+    } ],
+    "treatment agent" : [ {
+      "text" : "7,12-dimethylbenzanthracene & medroxyprogesterone acetate"
+    } ]
+  }
+}

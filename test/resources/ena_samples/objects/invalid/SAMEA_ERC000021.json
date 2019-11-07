@@ -1,0 +1,81 @@
+{
+  "name" : "ERS1355627",
+  "accession" : "SAMEA4444178",
+  "taxonId" : 1269027,
+  "attributes" : {
+    "ENA checklist" : [ {
+      "text" : "ERC000021"
+    } ],
+    "INSDC center name" : [ {
+      "text" : "UNIVERSITY OF ESSEX"
+    } ],
+    "INSDC first public" : [ {
+      "text" : "2017-09-30T17:02:11Z"
+    } ],
+    "INSDC last update" : [ {
+      "text" : "2016-10-21T09:35:45Z"
+    } ],
+    "INSDC status" : [ {
+      "text" : "public"
+    } ],
+    "SRA accession" : [ {
+      "text" : "ERS1355627"
+    } ],
+    "alias" : [ {
+      "text" : "2-MID76"
+    } ],
+    "collection date" : [ {
+      "text" : "2012-12-03"
+    } ],
+    "geographic location (depth)" : [ {
+      "text" : "0-0.002",
+      "units" : "m"
+    } ],
+    "description" : [ {
+      "text" : "Mud flat sediment"
+    } ],
+    "environment (biome)" : [ {
+      "text" : "mud flat"
+    } ],
+    "environment (feature)" : [ {
+      "text" : "mud flat"
+    } ],
+    "environment (material)" : [ {
+      "text" : "sediment"
+    } ],
+    "geographic location (country and/or sea)" : [ {
+      "text" : "United Kingdom"
+    } ],
+    "geographic location (elevation)" : [ {
+      "text" : "0",
+      "units" : "m"
+    } ],
+    "geographic location (latitude)" : [ {
+      "text" : "51.833333",
+      "units" : "DD"
+    } ],
+    "geographic location (longitude)" : [ {
+      "text" : "0.983333",
+      "units" : "DD"
+    } ],
+    "investigation type" : [ {
+      "text" : "mimarks-survey"
+    } ],
+    "organism" : [ {
+      "text" : "tidal flat metagenome",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_1269027" ]
+    } ],
+    "sediment environmental package" : [ {
+      "text" : "sediment"
+    } ],
+    "sequencing method" : [ {
+      "text" : "pyrosequencing"
+    } ],
+    "synonym" : [ {
+      "text" : "2-MID76"
+    } ],
+    "title" : [ {
+      "text" : "mud flat 16S rRNA amplicon"
+    } ]
+  }
+}

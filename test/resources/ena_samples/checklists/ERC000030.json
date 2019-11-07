@@ -1,0 +1,249 @@
+{
+   "type" : "object",
+   "$async" : true,
+   "version" : "1.0.0",
+   "title" : "ENA Tara Oceans",
+   "$id" : "ERC000030",
+   "description" : "Minimum information about a Tara Oceans sample. A checklist for reporting metadata of oceanic plankton samples associated with genomics data from the Tara Oceans Expedition.",
+   "properties" : {
+      "attributes" : {
+         "properties" : {
+            "Event Date/Time End" : {
+               "items" : {},
+               "description" : "Date and time in UTC when the sampling event ended, e.g. each CTD cast, net tow, or bucket collection is a distinct event. Format: yyyy-mm-ddThh:mm:ssZ. Example: 2011-04-16T15:38:00Z."
+            },
+            "Size Fraction Upper Threshold" : {
+               "items" : {},
+               "description" : "SAMPLE_PROTOCOL_Size-Fraction_Upper-Threshold_(µm) indicates the upper size threshold. Materials larger than the size threshold are excluded from the sample.Example: 1.6 µm"
+            },
+            "Sampling Station" : {
+               "items" : {},
+               "description" : "Refers to the site/station where data/sample collection is performed. Example: TARA_100."
+            },
+            "Marine Region" : {
+               "items" : {},
+               "description" : "The geographical origin of the sample as defined by the marine region name chosen from the Marine Regions vocabulary at http://www.marineregions.org/. Example: Aegean Sea."
+            },
+            "Latitude End" : {
+               "description" : "Latitude of the location where the sampling event ended, e.g. each CTD cast, net tow, or bucket collection is a distinct event. Format: ##.####, Decimal degrees; North= +, South= -; Use WGS 84 for GPS data. Example: -24.6643.",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "Last Update Date" : {
+               "description" : "Date of the last update of this sample in the SAMPLES REGISTRY. Example: 2014-03-01Z.",
+               "items" : {}
+            },
+            "Citation" : {
+               "items" : {},
+               "description" : "Citation of the Sample Registry (HTML version) at the PANGAEA. Example: doi.pangaea.de/10.1594/PANGAEA.76752."
+            },
+            "Sampling Campaign" : {
+               "description" : "Refers to a finite or indefinite activity aiming at collecting data/samples, e.g. a cruise, a time series, a mesocosm experiment. Example: TARA_20110401Z.",
+               "items" : {}
+            },
+            "environmental package" : {
+               "items" : {},
+               "description" : "MIGS/MIMS/MIMARKS extension for reporting of measurements and observations obtained from one or more of the environments where the sample was obtained. All environmental packages listed here are further defined in separate subtables. By giving the name of the environmental package, a selection of fields can be made from the subtables and can be reported"
+            },
+            "Sample Collection Device" : {
+               "description" : "The sampling device(s) used for the Event. Example: CTD(sbe9C)/Rosette with Niskin bottles.",
+               "items" : {}
+            },
+            "environment (material)" : {
+               "description" : "The environmental material level refers to the material that was displaced by the sample, or material in which a sample was embedded, prior to the sampling event. Environmental material terms are generally mass nouns. Examples include: air, soil, or water. EnvO (v 2013-06-14) terms can be found via the link: www.environmentontology.org/Browse-EnvO",
+               "items" : {}
+            },
+            "Protocol Label" : {
+               "description" : "Identifies the protocol used to produce the sample, e.g. filtration and preservation. Example: BACT_NUC_W0.22-1.6.",
+               "items" : {}
+            },
+            "Nitrate Sensor" : {
+               "description" : "Nitrate concentration parameters in the water column measured in volts and converted to micromoles per litres. Format: ##.####, SDN:P02:75:NTRA, SDN:P06:46:UPOX for µmol/L. Example: 0.2259.",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "Oxygen Sensor" : {
+               "description" : "Oxygen concentration parameters in the water column measured in volts and converted to micromoles per kilogrammes. Format: ###.####, SDN:P02:75:DOXY, SDN:P06:46:KGUM for µmol/kg. Example: 217.7895.",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "Depth" : {
+               "description" : "The distance below the surface of the water at which a measurement was made or a sample was collected. Format: ####.##, Positive below the sea surface. SDN:P06:46:ULAA for m. Example: 14.71",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "Sample Status" : {
+               "items" : {},
+               "description" : "Refers to the completness of sample metadata validation. Example: preliminary but can be used to provide data discovery services."
+            },
+            "Size Fraction Lower Threshold" : {
+               "items" : {},
+               "description" : "SAMPLE_PROTOCOL_Size-Fraction_Lower-Threshold_(µm) indicates the lower size threshold. Materials smaller than the size threshold are excluded from the sample. Example: 0.22 µm"
+            },
+            "Sampling Platform" : {
+               "items" : {},
+               "description" : "Refers to the unique stage from which the sampling device has been deployed. Includes Platform category from SDN:L06, http://seadatanet.maris2.nl/v_bodc_vocab_v2/search.asp?lib=L06, and Platform name. Example: Research Vessel Tara."
+            },
+            "Chlorophyll Sensor" : {
+               "description" : "Fluorescence of the water measured in volts and converted to milligrammes of chlorophyll per cubic metre. Format: ##.####, SDN:P02:75:CPWC, SDN:P06:46:UMMC for mg Chl/m3. Example: 0.066.",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "Latitude Start" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "Latitude of the location where the sampling event started, e.g. each CTD cast, net tow, or bucket collection is a distinct event. Format: ##.####, Decimal degrees; North= +, South= -; Use WGS 84 for GPS data. Example: -24.6666."
+            },
+            "environment (biome)" : {
+               "description" : "Biomes are defined based on factors such as plant structures, leaf types, plant spacing, and other factors like climate. Biome should be treated as the descriptor of the broad ecological context of a sample. Examples include: desert, taiga, deciduous woodland, or coral reef. EnvO (v 2013-06-14) terms can be found via the link: www.environmentontology.org/Browse-EnvO",
+               "items" : {}
+            },
+            "Longitude End" : {
+               "description" : "Longitude of the location where the sampling event ended, e.g. each CTD cast, net tow, or bucket collection is a distinct event. Format: ###.####, Decimal degrees; East= +, West= -; Use WGS 84 for GPS data. Example: -096.1171.",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "Salinity Sensor" : {
+               "description" : "Salinity of water at the time of taking the sample. Format: ##.####, SDN:P02:75:PSAL, SDN:P06:46:UGKG for PSU. Example: 39.2268.",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "environment (feature)" : {
+               "items" : {},
+               "description" : "Environmental feature level includes geographic environmental features. Compared to biome, feature is a descriptor of the more local environment. Examples include: harbor, cliff, or lake. EnvO (v 2013-06-14) terms can be found via the link: www.environmentontology.org/Browse-EnvO"
+            },
+            "Further Details" : {
+               "description" : "Reference details related to a sample in form of an URI.",
+               "items" : {}
+            },
+            "Longitude Start" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "Longitude of the location where the sampling event started, e.g. each CTD cast, net tow, or bucket collection is a distinct event. Format: ###.####, Decimal degrees; East= +, West= -; Use WGS 84 for GPS data. Example: -096.1012."
+            },
+            "project name" : {
+               "description" : "Name of the project within which the sequencing was organized",
+               "items" : {}
+            },
+            "Temperature" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "Temperature of water at the time of taking the sample. Format: ##.####, SDN:P02:75:TEMP, SDN:P06:46:UPAA for °C. Example: 17.7122."
+            },
+            "Event Label" : {
+               "description" : "An Event corresponds to the deployment of a sampling device. It is bound in space and time. The Event Label is a unique identifier composed of the project prefix \"TARA\", sampling date/time \"yyyymmddThh:mm:ssZ\", station number \"000\" and a short label to indicate the sampling device used, e.g. \"EVENT_CAST\", \"EVENT_NET\", \"EVENT_PUMP\". Example: TARA_20110416T1508Z_100_EVENT_CAST.",
+               "items" : {}
+            },
+            "Event Date/Time Start" : {
+               "items" : {},
+               "description" : "Date and time in UTC when the sampling event started, e.g. each CTD cast, net tow, or bucket collection is a distinct event. Format: yyyy-mm-ddThh:mm:ssZ. Example: 2011-04-16T15:05:30Z."
+            }
+         },
+         "required" : [
+            "Event Date/Time Start",
+            "Latitude Start",
+            "Longitude Start",
+            "Depth",
+            "Protocol Label",
+            "project name",
+            "environmental package",
+            "environment (biome)",
+            "environment (feature)",
+            "environment (material)",
+            "Sampling Campaign",
+            "Sampling Station",
+            "Sampling Platform",
+            "Marine Region",
+            "Salinity Sensor",
+            "Temperature"
+         ]
+      }
+   },
+   "required" : [
+      "attributes"
+   ],
+   "author" : "ENA",
+   "$schema" : "http://json-schema.org/draft-07/schema#",
+   "definitions" : {
+      "terms" : {
+         "items" : {
+            "type" : "object",
+            "required" : [
+               "url"
+            ],
+            "properties" : {
+               "url" : {
+                  "type" : "string",
+                  "format" : "uri"
+               }
+            }
+         },
+         "type" : "array"
+      },
+      "properties" : {
+         "attributes" : {
+            "properties" : {},
+            "required" : [],
+            "description" : "Attributes for describing a sample.",
+            "type" : "object",
+            "patternProperties" : {
+               "^.*$" : {
+                  "$ref" : "#/definitions/attribute"
+               }
+            }
+         }
+      },
+      "attribute" : {
+         "items" : {
+            "required" : [
+               "value"
+            ],
+            "properties" : {
+               "units" : {
+                  "minLength" : 1,
+                  "type" : "string"
+               },
+               "value" : {
+                  "minLength" : 1,
+                  "type" : "string"
+               },
+               "terms" : {
+                  "$ref" : "#/definitions/terms"
+               }
+            }
+         },
+         "type" : "array",
+         "minItems" : 1
+      }
+   }
+}

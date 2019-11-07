@@ -1,0 +1,548 @@
+{
+   "$schema" : "http://json-schema.org/draft-07/schema#",
+   "$id" : "ERC000023",
+   "properties" : {
+      "attributes" : {
+         "required" : [
+            "project name",
+            "sequencing method",
+            "investigation type",
+            "collection date",
+            "geographic location (country and/or sea)",
+            "geographic location (latitude)",
+            "geographic location (longitude)",
+            "wastewater/sludge environmental package",
+            "environment (biome)",
+            "environment (feature)",
+            "environment (material)"
+         ],
+         "properties" : {
+            "total phosphate" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "total amount or concentration of phosphate"
+            },
+            "sample volume or weight for DNA extraction" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "Volume (mL) or weight (g) of sample processed for DNA extraction"
+            },
+            "tertiary treatment" : {
+               "description" : "the process providing a final treatment stage to raise the effluent quality before it is discharged to the receiving environment",
+               "items" : {}
+            },
+            "soluble inorganic material" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "concentration of substances such as ammonia, road-salt, sea-salt, cyanide, hydrogen sulfide, thiocyanates, thiosulfates, etc."
+            },
+            "estimated size" : {
+               "description" : "The estimated size of the genome (in bp) prior to sequencing. Of particular importance in the sequencing of (eukaryotic) genome which could remain in draft form for a long or unspecified period. Mandatory for MIGS of eukaryotes.",
+               "items" : {}
+            },
+            "inorganic particles" : {
+               "description" : "concentration of particles such as sand, grit, metal particles, ceramics, etc.; can include multiple particles",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "total nitrogen" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "total nitrogen content of the sample"
+            },
+            "library reads sequenced" : {
+               "description" : "Total number of clones sequenced from the library",
+               "items" : {}
+            },
+            "wastewater/sludge environmental package" : {
+               "items" : {},
+               "description" : "MIGS/MIMS/MIMARKS extension for reporting of measurements and observations obtained from one or more of the environments where the sample was obtained. All environmental packages listed here are further defined in separate subtables. By giving the name of the environmental package, a selection of fields can be made from the subtables and can be reported"
+            },
+            "investigation type" : {
+               "items" : {},
+               "description" : "Nucleic Acid Sequence Report is the root element of all MIxS compliant reports as standardised by Genomic Standards Consortium"
+            },
+            "relevant electronic resources" : {
+               "items" : {},
+               "description" : "-"
+            },
+            "industrial effluent percent" : {
+               "description" : "percentage of industrial effluents received by wastewater treatment plant",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "amount or size of sample collected" : {
+               "description" : "Amount or size of sample (volume, mass or area) that was collected",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "pH" : {
+               "items" : {},
+               "description" : "pH measurement"
+            },
+            "sludge retention time" : {
+               "description" : "the time activated sludge remains in reactor",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "ploidy" : {
+               "description" : "The ploidy level of the genome (e.g. allopolyploid, haploid, diploid, triploid, tetraploid). It has implications for the downstream study of duplicated gene and regions of the genomes (and perhaps for difficulties in assembly). For terms, please select terms listed under class ploidy (PATO:001374) of Phenotypic Quality Ontology (PATO), and for a browser of PATO (v 2013-10-28) please refer to http://purl.bioontology.org/ontology/PATO. Mandatory for MIGS of eukaryotes.",
+               "items" : {}
+            },
+            "known pathogenicity" : {
+               "description" : "To what is the entity pathogenic, for instance plant, fungi, bacteria",
+               "items" : {}
+            },
+            "soluble organic material" : {
+               "description" : "concentration of substances such as urea, fruit sugars, soluble proteins, drugs, pharmaceuticals, etc.",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "experimental factor" : {
+               "items" : {},
+               "description" : "Experimental factors are essentially the variable aspects of an experiment design which can be used to describe an experiment, or set of experiments, in an increasingly detailed manner. This field accepts ontology terms from Experimental Factor Ontology (EFO) and/or Ontology for Biomedical Investigations (OBI). For a browser of EFO (v 2.43) terms, please see http://purl.bioontology.org/ontology/EFO; for a browser of OBI (v 2013-10-25) terms please see http://purl.bioontology.org/ontology/OBI"
+            },
+            "suspended solids" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "concentration of substances including a wide variety of material, such as silt, decaying plant and animal matter, etc,; can include multiple substances"
+            },
+            "environment (material)" : {
+               "items" : {},
+               "description" : "The environmental material level refers to the material that was displaced by the sample, or material in which a sample was embedded, prior to the sampling event. Environmental material terms are generally mass nouns. Examples include: air, soil, or water. EnvO (v 2013-06-14) terms can be found via the link: www.environmentontology.org/Browse-EnvO"
+            },
+            "reactor type" : {
+               "description" : "anaerobic digesters can be designed and engineered to operate using a number of different process configurations, as batch or continuous, mesophilic, high solid or low solid, and single stage or multistage",
+               "items" : {}
+            },
+            "emulsions" : {
+               "description" : "amount or concentration of substances such as paints, adhesives, mayonnaise, hair colorants, emulsified oils, etc.; can include multiple emulsion types",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "biochemical oxygen demand" : {
+               "description" : "a measure of the relative oxygen-depletion effect of a waste contaminant",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "sequencing method" : {
+               "items" : {},
+               "description" : "Sequencing method used; e.g. Sanger, pyrosequencing, ABI-solid"
+            },
+            "collection date" : {
+               "items" : {},
+               "description" : "The date of sampling, either as an instance (single point in time) or interval. In case no exact time is available, the date/time can be right truncated i.e. all of these are valid ISO8601 compliant times: 2008-01-23T19:23:10+00:00; 2008-01-23T19:23:10; 2008-01-23; 2008-01; 2008."
+            },
+            "sample storage location" : {
+               "items" : {},
+               "description" : "location at which sample was stored, usually name of a specific freezer/room"
+            },
+            "sodium" : {
+               "description" : "sodium concentration",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "geographic location (region and locality)" : {
+               "description" : "The geographical origin of the sample as defined by the specific region name followed by the locality name.",
+               "items" : {}
+            },
+            "nucleic acid amplification" : {
+               "items" : {},
+               "description" : "Link to a literature reference, electronic resource or a standard operating procedure (SOP)"
+            },
+            "target gene" : {
+               "description" : "Targeted gene or locus name for marker gene studies",
+               "items" : {}
+            },
+            "miscellaneous parameter" : {
+               "items" : {},
+               "description" : "Any other measurement performed or parameter collected, that is not listed here"
+            },
+            "gaseous substances" : {
+               "description" : "amount or concentration of substances such as hydrogen sulfide, carbon dioxide, methane, etc.; can include multiple substances",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "health or disease status of specific host" : {
+               "items" : {},
+               "description" : "Health or disease status of specific host at time of collection. This field accepts PATO (v 2013-10-28) terms, for a browser please see http://purl.bioontology.org/ontology/PATO"
+            },
+            "sample storage duration" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "duration for which sample was stored"
+            },
+            "isolation and growth condition" : {
+               "description" : "Publication reference in the form of pubmed ID (pmid), digital object identifier (doi) or url for isolation and growth condition specifications of the organism/material. Mandatory for MIGS and MIMARKS Specimen.",
+               "items" : {}
+            },
+            "source material identifiers" : {
+               "description" : "A unique identifier assigned to a material sample (as defined by http://rs.tdwg.org/dwc/terms/materialSampleID, and as opposed to a particular digital record of a material sample) used for extracting nucleic acids, and subsequent sequencing. The identifier can refer either to the original material collected or to any derived sub-samples. The INSDC qualifiers /specimen_voucher, /bio_material, or /culture_collection may or may not share the same value as the source_mat_id field. For instance, the /specimen_voucher qualifier and source_mat_id may both contain 'UAM:Herps:14' , referring to both the specimen voucher and sampled tissue with the same identifier. However, the /culture_collection qualifier may refer to a value from an initial culture (e.g. ATCC:11775) while source_mat_id would refer to an identifier from some derived culture from which the nucleic acids were extracted (e.g. xatc123 or ark:/2154/R2).",
+               "items" : {}
+            },
+            "library screening strategy" : {
+               "items" : {},
+               "description" : "Specific enrichment or screening methods applied before and/or after creating clone libraries in order to select a specific group of sequences"
+            },
+            "library vector" : {
+               "description" : "Cloning vector type(s) used in construction of libraries",
+               "items" : {}
+            },
+            "nucleic acid extraction" : {
+               "description" : "Link to a literature reference, electronic resource or a standard operating procedure (SOP)",
+               "items" : {}
+            },
+            "subspecific genetic lineage" : {
+               "description" : "This should provide further information about the genetic distinctness of this lineage by recording additional information i.e biovar, serovar, serotype, biovar, or any relevant genetic typing schemes like Group I plasmid. It can also contain alternative taxonomic information",
+               "items" : {}
+            },
+            "chemical administration" : {
+               "items" : {},
+               "description" : "list of chemical compounds administered to the host or site where sampling occurred, and when (e.g. antibiotics, N fertilizer, air filter); can include multiple compounds. For Chemical Entities of Biological Interest ontology (CHEBI) (v111), please see http://purl.bioontology.org/ontology/CHEBI"
+            },
+            "annotation source" : {
+               "description" : "For cases where annotation was provided by a community jamboree or model organism database rather than by a specific submitter",
+               "items" : {}
+            },
+            "sample collection device or method" : {
+               "description" : "The method or deviced employed for collecting the sample",
+               "items" : {}
+            },
+            "specific host" : {
+               "description" : "If there is a host involved, please provide its taxid (or environmental if not actually isolated from the dead or alive host - i.e. pathogen could be isolated from a swipe of a bench etc) and report whether it is a laboratory or natural host). From this we can calculate any number of groupings of hosts (e.g. animal vs plant, all fish hosts, etc)",
+               "items" : {}
+            },
+            "relationship to oxygen" : {
+               "description" : "Is this organism an aerobe, anaerobe? Please note that aerobic and anaerobic are valid descriptors for microbial environments",
+               "items" : {}
+            },
+            "library construction method" : {
+               "description" : "Library construction method used for clone libraries",
+               "items" : {}
+            },
+            "wastewater type" : {
+               "items" : {},
+               "description" : "the origin of wastewater such as human waste, rainfall, storm drains, etc."
+            },
+            "sewage type" : {
+               "items" : {},
+               "description" : "Type of sewage based on origin: wastewater treatment plant (municipal or industrial), open sewer line, river, stream, stagnant pool, or other."
+            },
+            "extrachromosomal elements" : {
+               "description" : "Do plasmids exist of significant phenotypic consequence (e.g. ones that determine virulence or antibiotic resistance). Megaplasmids? Other plasmids (borrelia has 15+ plasmids).",
+               "items" : {}
+            },
+            "target subfragment" : {
+               "description" : "Name of subfragment of a gene or locus. Important to e.g. identify special regions on marker genes like V6 on 16S rRNA",
+               "items" : {}
+            },
+            "secondary treatment" : {
+               "items" : {},
+               "description" : "the process for substantially degrading the biological content of the sewage"
+            },
+            "sample salinity" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "salinity of sample, i.e. measure of total salt concentration"
+            },
+            "reference for biomaterial" : {
+               "description" : "Primary publication if isolated before genome publication; otherwise, primary genome report. Mandatory for MIGS of bacteria and archaea.",
+               "items" : {}
+            },
+            "chimera check" : {
+               "items" : {},
+               "description" : "A chimeric sequence, or chimera for short, is a sequence comprised of two or more phylogenetically distinct parent sequences. Chimeras are usually PCR artifacts thought to occur when a prematurely terminated amplicon reanneals to a foreign DNA strand and is copied to completion in the following PCR cycles. The point at which the chimeric sequence changes from one parent to the next is called the breakpoint or conversion point"
+            },
+            "environment (biome)" : {
+               "description" : "Biomes are defined based on factors such as plant structures, leaf types, plant spacing, and other factors like climate. Biome should be treated as the descriptor of the broad ecological context of a sample. Examples include: desert, taiga, deciduous woodland, or coral reef. EnvO (v 2013-06-14) terms can be found via the link: www.environmentontology.org/Browse-EnvO",
+               "items" : {}
+            },
+            "observed biotic relationship" : {
+               "description" : "Is it free-living or in a host and if the latter what type of relationship is observed",
+               "items" : {}
+            },
+            "primary treatment" : {
+               "items" : {},
+               "description" : "the process to produce both a generally homogeneous liquid capable of being treated biologically and a sludge that can be separately treated or processed"
+            },
+            "temperature" : {
+               "description" : "temperature of the sample at time of sampling",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "encoded traits" : {
+               "items" : {},
+               "description" : "Should include key traits like antibiotic resistance or xenobiotic degradation phenotypes for plasmids, converting genes for phage"
+            },
+            "number of replicons" : {
+               "description" : "Reports the number of replicons in a nuclear genome of eukaryotes, in the genome of a bacterium or archaea or the number of segments in a segmented virus. Always applied to the haploid chromosome count of a eukaryote. Mandatory for MIGS of eukaryotes, bacteria, archaea and segmented virus.",
+               "items" : {}
+            },
+            "efficiency percent" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "percentage of volatile solids removed from the anaerobic digestor"
+            },
+            "geographic location (depth)" : {
+               "description" : "Depth is defined as the vertical distance below surface, e.g. for sediment or soil samples depth is measured from sediment or soil surface, respectivly. Depth can be reported as an interval for subsurface samples.",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "geographic location (latitude)" : {
+               "description" : "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "perturbation" : {
+               "items" : {},
+               "description" : "type of perturbation, e.g. chemical administration, physical disturbance, etc., coupled with time that perturbation occurred; can include multiple perturbation types"
+            },
+            "geographic location (longitude)" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system"
+            },
+            "organism count" : {
+               "description" : "total count of any organism per gram or volume of sample, should include name of organism followed by count; can include multiple organism counts",
+               "items" : {}
+            },
+            "pcr primers" : {
+               "items" : {},
+               "description" : "PCR primers that were used to amplify the sequence of the targeted gene, locus or subfragment. This field should contain all the primers used for a single PCR reaction if multiple forward or reverse primers are present in a single PCR reaction. The primer sequence should be reported in uppercase letters"
+            },
+            "alkalinity" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "alkalinity, the ability of a solution to neutralize acids to the equivalence point of carbonate or bicarbonate"
+            },
+            "oxygenation status of sample" : {
+               "description" : "oxygenation status of sample",
+               "items" : {}
+            },
+            "project name" : {
+               "items" : {},
+               "description" : "Name of the project within which the sequencing was organized"
+            },
+            "sample storage temperature" : {
+               "description" : "temperature at which sample was stored, e.g. -80",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "organic particles" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "concentration of particles such as faeces, hairs, food, vomit, paper fibers, plant material, humus, etc."
+            },
+            "finishing strategy" : {
+               "description" : "Was the genome project intended to produce a complete or draft genome, Coverage, the fold coverage of the sequencing expressed as 2x, 3x, 18x etc, and how many contigs were produced for the genome. Mandatory for MIGS of eukaryote, bacteria and archaea.",
+               "items" : {}
+            },
+            "adapters" : {
+               "items" : {},
+               "description" : "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters"
+            },
+            "relevant standard operating procedures" : {
+               "items" : {},
+               "description" : "Standard operating procedures used in assembly and/or annotation of genomes, metagenomes or environmental sequences"
+            },
+            "phosphate" : {
+               "description" : "concentration of phosphate",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "propagation" : {
+               "description" : "This field is specific to different taxa. For plants: sexual/asexual, for phages: lytic/lysogenic, for plasmids: incompatibility group (Note: there is the strong opinion to name phage propagation obligately lytic or temperate, therefore we also give this choice. Mandatory for MIGS of eukaryotes, plasmids and viruses.",
+               "items" : {}
+            },
+            "trophic level" : {
+               "description" : "Trophic levels are the feeding position in a food chain. Microbes can be a range of producers (e.g. chemolithotroph)",
+               "items" : {}
+            },
+            "environment (feature)" : {
+               "description" : "Environmental feature level includes geographic environmental features. Compared to biome, feature is a descriptor of the more local environment. Examples include: harbor, cliff, or lake. EnvO (v 2013-06-14) terms can be found via the link: www.environmentontology.org/Browse-EnvO",
+               "items" : {}
+            },
+            "pcr conditions" : {
+               "description" : "Description of reaction conditions and components for PCR in the form of 'initial denaturation:94degC_1.5min; annealing=...'",
+               "items" : {}
+            },
+            "multiplex identifiers" : {
+               "items" : {},
+               "description" : "Molecular barcodes, called Multiplex Identifiers (MIDs), that are used to specifically tag unique samples in a sequencing run. Sequence should be reported in uppercase letters"
+            },
+            "geographic location (country and/or sea)" : {
+               "description" : "The geographical origin of the sample as defined by the country or sea. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html).",
+               "items" : {}
+            },
+            "chemical oxygen demand" : {
+               "description" : "a measure of the relative oxygen-depletion effect of a waste contaminant",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "sequence quality check" : {
+               "items" : {},
+               "description" : "Indicate if the sequence has been called by automatic systems (none) or undergone a manual editing procedure (e.g. by inspecting the raw data or chromatograms). Applied only for sequences that are not submitted to SRA or DRA"
+            },
+            "library size" : {
+               "items" : {},
+               "description" : "Total number of clones in the library prepared for the project"
+            },
+            "pre-treatment" : {
+               "description" : "the process of pre-treatment removes materials that can be easily collected from the raw wastewater",
+               "items" : {}
+            },
+            "nitrate" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "concentration of nitrate"
+            },
+            "sample material processing" : {
+               "items" : {},
+               "description" : "Any processing applied to the sample during or after retrieving the sample from environment. This field accepts OBI, for a browser of OBI (v 2013-10-25) terms please see http://purl.bioontology.org/ontology/OBI"
+            }
+         }
+      }
+   },
+   "$async" : true,
+   "author" : "ENA",
+   "description" : "Genomic Standards Consortium package extension for reporting of measurements and observations obtained from the environment where the sample was obtained. By choosing the environmental package, a selection of fields can be made from a relevant subsets of the GSC terms.",
+   "required" : [
+      "attributes"
+   ],
+   "definitions" : {
+      "properties" : {
+         "attributes" : {
+            "type" : "object",
+            "properties" : {},
+            "patternProperties" : {
+               "^.*$" : {
+                  "$ref" : "#/definitions/attribute"
+               }
+            },
+            "description" : "Attributes for describing a sample.",
+            "required" : []
+         }
+      },
+      "attribute" : {
+         "type" : "array",
+         "items" : {
+            "properties" : {
+               "units" : {
+                  "type" : "string",
+                  "minLength" : 1
+               },
+               "value" : {
+                  "type" : "string",
+                  "minLength" : 1
+               },
+               "terms" : {
+                  "$ref" : "#/definitions/terms"
+               }
+            },
+            "required" : [
+               "value"
+            ]
+         },
+         "minItems" : 1
+      },
+      "terms" : {
+         "items" : {
+            "required" : [
+               "url"
+            ],
+            "properties" : {
+               "url" : {
+                  "type" : "string",
+                  "format" : "uri"
+               }
+            },
+            "type" : "object"
+         },
+         "type" : "array"
+      }
+   },
+   "version" : "1.0.0",
+   "type" : "object",
+   "title" : "GSC MIxS wastewater sludge"
+}

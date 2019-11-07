@@ -1,0 +1,582 @@
+{
+   "description" : "Genomic Standards Consortium package extension for reporting of measurements and observations obtained from the environment where the sample was obtained. By choosing the environmental package, a selection of fields can be made from a relevant subsets of the GSC terms.",
+   "definitions" : {
+      "terms" : {
+         "type" : "array",
+         "items" : {
+            "required" : [
+               "url"
+            ],
+            "properties" : {
+               "url" : {
+                  "type" : "string",
+                  "format" : "uri"
+               }
+            },
+            "type" : "object"
+         }
+      },
+      "properties" : {
+         "attributes" : {
+            "description" : "Attributes for describing a sample.",
+            "properties" : {},
+            "type" : "object",
+            "patternProperties" : {
+               "^.*$" : {
+                  "$ref" : "#/definitions/attribute"
+               }
+            },
+            "required" : []
+         }
+      },
+      "attribute" : {
+         "items" : {
+            "required" : [
+               "value"
+            ],
+            "properties" : {
+               "value" : {
+                  "type" : "string",
+                  "minLength" : 1
+               },
+               "units" : {
+                  "minLength" : 1,
+                  "type" : "string"
+               },
+               "terms" : {
+                  "$ref" : "#/definitions/terms"
+               }
+            }
+         },
+         "type" : "array",
+         "minItems" : 1
+      }
+   },
+   "$async" : true,
+   "type" : "object",
+   "version" : "1.0.0",
+   "$id" : "ERC000022",
+   "author" : "ENA",
+   "properties" : {
+      "attributes" : {
+         "required" : [
+            "project name",
+            "sequencing method",
+            "investigation type",
+            "collection date",
+            "geographic location (country and/or sea)",
+            "geographic location (latitude)",
+            "geographic location (longitude)",
+            "soil environmental package",
+            "geographic location (depth)",
+            "environment (biome)",
+            "environment (feature)",
+            "environment (material)",
+            "geographic location (elevation)"
+         ],
+         "properties" : {
+            "mean annual and seasonal precipitation" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "mean annual and seasonal precipitation (mm)"
+            },
+            "history/tillage" : {
+               "items" : {},
+               "description" : "note method(s) used for tilling"
+            },
+            "nucleic acid extraction" : {
+               "description" : "Link to a literature reference, electronic resource or a standard operating procedure (SOP)",
+               "items" : {}
+            },
+            "finishing strategy" : {
+               "description" : "Was the genome project intended to produce a complete or draft genome, Coverage, the fold coverage of the sequencing expressed as 2x, 3x, 18x etc, and how many contigs were produced for the genome. Mandatory for MIGS of eukaryote, bacteria and archaea.",
+               "items" : {}
+            },
+            "total organic C method" : {
+               "description" : "reference or method used in determining total organic C",
+               "items" : {}
+            },
+            "current land use" : {
+               "description" : "present state of sample site",
+               "items" : {}
+            },
+            "ploidy" : {
+               "description" : "The ploidy level of the genome (e.g. allopolyploid, haploid, diploid, triploid, tetraploid). It has implications for the downstream study of duplicated gene and regions of the genomes (and perhaps for difficulties in assembly). For terms, please select terms listed under class ploidy (PATO:001374) of Phenotypic Quality Ontology (PATO), and for a browser of PATO (v 2013-10-28) please refer to http://purl.bioontology.org/ontology/PATO. Mandatory for MIGS of eukaryotes.",
+               "items" : {}
+            },
+            "mean annual and seasonal temperature" : {
+               "description" : "mean annual and seasonal temperature (ºC)",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "chimera check" : {
+               "items" : {},
+               "description" : "A chimeric sequence, or chimera for short, is a sequence comprised of two or more phylogenetically distinct parent sequences. Chimeras are usually PCR artifacts thought to occur when a prematurely terminated amplicon reanneals to a foreign DNA strand and is copied to completion in the following PCR cycles. The point at which the chimeric sequence changes from one parent to the next is called the breakpoint or conversion point"
+            },
+            "history/previous land use" : {
+               "items" : {},
+               "description" : "previous land use and dates"
+            },
+            "geographic location (altitude)" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "The altitude of the sample is the vertical distance between Earth's surface above Sea Level and the sampled position in the air."
+            },
+            "texture method" : {
+               "description" : "reference or method used in determining soil texture",
+               "items" : {}
+            },
+            "sample collection device or method" : {
+               "description" : "The method or deviced employed for collecting the sample",
+               "items" : {}
+            },
+            "links to additional analysis" : {
+               "description" : "link to additional analysis results performed on the sample",
+               "items" : {}
+            },
+            "sequencing method" : {
+               "description" : "Sequencing method used; e.g. Sanger, pyrosequencing, ABI-solid",
+               "items" : {}
+            },
+            "sample material processing" : {
+               "items" : {},
+               "description" : "Any processing applied to the sample during or after retrieving the sample from environment. This field accepts OBI, for a browser of OBI (v 2013-10-25) terms please see http://purl.bioontology.org/ontology/OBI"
+            },
+            "history/flooding" : {
+               "description" : "historical and/or physical evidence of flooding",
+               "items" : {}
+            },
+            "relevant standard operating procedures" : {
+               "description" : "Standard operating procedures used in assembly and/or annotation of genomes, metagenomes or environmental sequences",
+               "items" : {}
+            },
+            "sample volume or weight for DNA extraction" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "Volume (mL) or weight (g) of sample processed for DNA extraction"
+            },
+            "environment (biome)" : {
+               "description" : "Biomes are defined based on factors such as plant structures, leaf types, plant spacing, and other factors like climate. Biome should be treated as the descriptor of the broad ecological context of a sample. Examples include: desert, taiga, deciduous woodland, or coral reef. EnvO (v 2013-06-14) terms can be found via the link: www.environmentontology.org/Browse-EnvO",
+               "items" : {}
+            },
+            "sample weight for DNA extraction" : {
+               "description" : "weight (g) of soil processed",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "multiplex identifiers" : {
+               "description" : "Molecular barcodes, called Multiplex Identifiers (MIDs), that are used to specifically tag unique samples in a sequencing run. Sequence should be reported in uppercase letters",
+               "items" : {}
+            },
+            "library reads sequenced" : {
+               "items" : {},
+               "description" : "Total number of clones sequenced from the library"
+            },
+            "water content" : {
+               "description" : "water content measurement",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "composite design/sieving (if any)" : {
+               "description" : "collection design of pooled samples and/or sieve size and amount of sample sieved",
+               "items" : {}
+            },
+            "nucleic acid amplification" : {
+               "description" : "Link to a literature reference, electronic resource or a standard operating procedure (SOP)",
+               "items" : {}
+            },
+            "encoded traits" : {
+               "description" : "Should include key traits like antibiotic resistance or xenobiotic degradation phenotypes for plasmids, converting genes for phage",
+               "items" : {}
+            },
+            "project name" : {
+               "description" : "Name of the project within which the sequencing was organized",
+               "items" : {}
+            },
+            "health or disease status of specific host" : {
+               "description" : "Health or disease status of specific host at time of collection. This field accepts PATO (v 2013-10-28) terms, for a browser please see http://purl.bioontology.org/ontology/PATO",
+               "items" : {}
+            },
+            "environment (feature)" : {
+               "items" : {},
+               "description" : "Environmental feature level includes geographic environmental features. Compared to biome, feature is a descriptor of the more local environment. Examples include: harbor, cliff, or lake. EnvO (v 2013-06-14) terms can be found via the link: www.environmentontology.org/Browse-EnvO"
+            },
+            "history/extreme events" : {
+               "description" : "unusual physical events that may have affected microbial populations",
+               "items" : {}
+            },
+            "reference for biomaterial" : {
+               "description" : "Primary publication if isolated before genome publication; otherwise, primary genome report. Mandatory for MIGS of bacteria and archaea.",
+               "items" : {}
+            },
+            "extreme_unusual_properties/Al saturation" : {
+               "description" : "aluminum saturation (esp. for tropical soils)",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "collection date" : {
+               "items" : {},
+               "description" : "The date of sampling, either as an instance (single point in time) or interval. In case no exact time is available, the date/time can be right truncated i.e. all of these are valid ISO8601 compliant times: 2008-01-23T19:23:10+00:00; 2008-01-23T19:23:10; 2008-01-23; 2008-01; 2008."
+            },
+            "relevant electronic resources" : {
+               "items" : {},
+               "description" : "-"
+            },
+            "microbial biomass method" : {
+               "description" : "reference or method used in determining microbial biomass",
+               "items" : {}
+            },
+            "soil type method" : {
+               "items" : {},
+               "description" : "reference or method used in determining soil series name or other lower-level classification"
+            },
+            "extrachromosomal elements" : {
+               "description" : "Do plasmids exist of significant phenotypic consequence (e.g. ones that determine virulence or antibiotic resistance). Megaplasmids? Other plasmids (borrelia has 15+ plasmids).",
+               "items" : {}
+            },
+            "geographic location (latitude)" : {
+               "description" : "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "extreme_unusual_properties/salinity" : {
+               "description" : "measured salinity",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "total organic carbon" : {
+               "description" : "Definition for soil: total organic C content of the soil units of g C/kg soil. Definition otherwise: total organic carbon content",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "investigation type" : {
+               "items" : {},
+               "description" : "Nucleic Acid Sequence Report is the root element of all MIxS compliant reports as standardised by Genomic Standards Consortium"
+            },
+            "extreme_unusual_properties/salinity method" : {
+               "description" : "reference or method used in determining salinity",
+               "items" : {}
+            },
+            "known pathogenicity" : {
+               "items" : {},
+               "description" : "To what is the entity pathogenic, for instance plant, fungi, bacteria"
+            },
+            "geographic location (region and locality)" : {
+               "description" : "The geographical origin of the sample as defined by the specific region name followed by the locality name.",
+               "items" : {}
+            },
+            "slope gradient" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "commonly called slope. The angle between ground surface and a horizontal line (in percent). This is the direction that overland water would flow. This measure is usually taken with a hand level meter or clinometer."
+            },
+            "miscellaneous parameter" : {
+               "items" : {},
+               "description" : "Any other measurement performed or parameter collected, that is not listed here"
+            },
+            "perturbation" : {
+               "description" : "type of perturbation, e.g. chemical administration, physical disturbance, etc., coupled with time that perturbation occurred; can include multiple perturbation types",
+               "items" : {}
+            },
+            "number of replicons" : {
+               "items" : {},
+               "description" : "Reports the number of replicons in a nuclear genome of eukaryotes, in the genome of a bacterium or archaea or the number of segments in a segmented virus. Always applied to the haploid chromosome count of a eukaryote. Mandatory for MIGS of eukaryotes, bacteria, archaea and segmented virus."
+            },
+            "experimental factor" : {
+               "description" : "Experimental factors are essentially the variable aspects of an experiment design which can be used to describe an experiment, or set of experiments, in an increasingly detailed manner. This field accepts ontology terms from Experimental Factor Ontology (EFO) and/or Ontology for Biomedical Investigations (OBI). For a browser of EFO (v 2.43) terms, please see http://purl.bioontology.org/ontology/EFO; for a browser of OBI (v 2013-10-25) terms please see http://purl.bioontology.org/ontology/OBI",
+               "items" : {}
+            },
+            "total nitrogen" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "total nitrogen content of the sample"
+            },
+            "link to climate information" : {
+               "items" : {},
+               "description" : "link to climate resource"
+            },
+            "library screening strategy" : {
+               "items" : {},
+               "description" : "Specific enrichment or screening methods applied before and/or after creating clone libraries in order to select a specific group of sequences"
+            },
+            "geographic location (depth)" : {
+               "description" : "Depth is defined as the vertical distance below surface, e.g. for sediment or soil samples depth is measured from sediment or soil surface, respectivly. Depth can be reported as an interval for subsurface samples.",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "current vegetation" : {
+               "description" : "vegetation classification from one or more standard classification systems, or agricultural crop",
+               "items" : {}
+            },
+            "relationship to oxygen" : {
+               "description" : "Is this organism an aerobe, anaerobe? Please note that aerobic and anaerobic are valid descriptors for microbial environments",
+               "items" : {}
+            },
+            "extreme_unusual_properties/heavy metals" : {
+               "items" : {},
+               "description" : "heavy metals present and concentrations of any drug used by subject and the frequency of usage; can include multiple heavy metals and concentrations"
+            },
+            "horizon" : {
+               "description" : "specific layer in the land area which measures parallel to the soil surface and possesses physical characteristics which differ from the layers above and beneath",
+               "items" : {}
+            },
+            "pcr primers" : {
+               "items" : {},
+               "description" : "PCR primers that were used to amplify the sequence of the targeted gene, locus or subfragment. This field should contain all the primers used for a single PCR reaction if multiple forward or reverse primers are present in a single PCR reaction. The primer sequence should be reported in uppercase letters"
+            },
+            "pH method" : {
+               "items" : {},
+               "description" : "reference or method used in determining pH"
+            },
+            "slope aspect" : {
+               "description" : "the direction a slope faces. While looking down a slope use a compass to record the direction you are facing (direction or degrees); e.g., NW or 315°. This measure provides an indication of sun and wind exposure that will influence soil temperature and evapotranspiration.",
+               "items" : {}
+            },
+            "amount or size of sample collected" : {
+               "description" : "Amount or size of sample (volume, mass or area) that was collected",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "estimated size" : {
+               "items" : {},
+               "description" : "The estimated size of the genome (in bp) prior to sequencing. Of particular importance in the sequencing of (eukaryotic) genome which could remain in draft form for a long or unspecified period. Mandatory for MIGS of eukaryotes."
+            },
+            "subspecific genetic lineage" : {
+               "items" : {},
+               "description" : "This should provide further information about the genetic distinctness of this lineage by recording additional information i.e biovar, serovar, serotype, biovar, or any relevant genetic typing schemes like Group I plasmid. It can also contain alternative taxonomic information"
+            },
+            "storage conditions (fresh/frozen/other)" : {
+               "description" : "explain how and for how long the soil sample was stored before DNA extraction.",
+               "items" : {}
+            },
+            "target subfragment" : {
+               "items" : {},
+               "description" : "Name of subfragment of a gene or locus. Important to e.g. identify special regions on marker genes like V6 on 16S rRNA"
+            },
+            "soil environmental package" : {
+               "items" : {},
+               "description" : "MIGS/MIMS/MIMARKS extension for reporting of measurements and observations obtained from one or more of the environments where the sample was obtained. All environmental packages listed here are further defined in separate subtables. By giving the name of the environmental package, a selection of fields can be made from the subtables and can be reported"
+            },
+            "library size" : {
+               "items" : {},
+               "description" : "Total number of clones in the library prepared for the project"
+            },
+            "annotation source" : {
+               "description" : "For cases where annotation was provided by a community jamboree or model organism database rather than by a specific submitter",
+               "items" : {}
+            },
+            "library construction method" : {
+               "items" : {},
+               "description" : "Library construction method used for clone libraries"
+            },
+            "history/fire" : {
+               "description" : "historical and/or physical evidence of fire",
+               "items" : {}
+            },
+            "current vegetation method" : {
+               "description" : "reference or method used in vegetation classification",
+               "items" : {}
+            },
+            "environment (material)" : {
+               "description" : "The environmental material level refers to the material that was displaced by the sample, or material in which a sample was embedded, prior to the sampling event. Environmental material terms are generally mass nouns. Examples include: air, soil, or water. EnvO (v 2013-06-14) terms can be found via the link: www.environmentontology.org/Browse-EnvO",
+               "items" : {}
+            },
+            "soil_taxonomic/local classification method" : {
+               "description" : "reference or method used in determining the local soil classification",
+               "items" : {}
+            },
+            "link to classification information" : {
+               "description" : "link to digitized soil maps or other soil classification information",
+               "items" : {}
+            },
+            "extreme_unusual_properties/heavy metals method" : {
+               "description" : "reference or method used in determining heavy metals",
+               "items" : {}
+            },
+            "geographic location (longitude)" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system"
+            },
+            "pooling of DNA extracts (if done)" : {
+               "description" : "were multiple DNA extractions mixed? how many?",
+               "items" : {}
+            },
+            "profile position" : {
+               "items" : {},
+               "description" : "cross-sectional position in the hillslope where sample was collected.sample area position in relation to surrounding areas"
+            },
+            "water content method" : {
+               "description" : "reference or method used in determining the water content of soil",
+               "items" : {}
+            },
+            "history/agrochemical additions" : {
+               "items" : {},
+               "description" : "addition of fertilizers, pesticides, etc. - amount and time of applications"
+            },
+            "trophic level" : {
+               "items" : {},
+               "description" : "Trophic levels are the feeding position in a food chain. Microbes can be a range of producers (e.g. chemolithotroph)"
+            },
+            "target gene" : {
+               "description" : "Targeted gene or locus name for marker gene studies",
+               "items" : {}
+            },
+            "pcr conditions" : {
+               "items" : {},
+               "description" : "Description of reaction conditions and components for PCR in the form of 'initial denaturation:94degC_1.5min; annealing=...'"
+            },
+            "isolation and growth condition" : {
+               "description" : "Publication reference in the form of pubmed ID (pmid), digital object identifier (doi) or url for isolation and growth condition specifications of the organism/material. Mandatory for MIGS and MIMARKS Specimen.",
+               "items" : {}
+            },
+            "pH" : {
+               "items" : {},
+               "description" : "pH measurement"
+            },
+            "propagation" : {
+               "description" : "This field is specific to different taxa. For plants: sexual/asexual, for phages: lytic/lysogenic, for plasmids: incompatibility group (Note: there is the strong opinion to name phage propagation obligately lytic or temperate, therefore we also give this choice. Mandatory for MIGS of eukaryotes, plasmids and viruses.",
+               "items" : {}
+            },
+            "observed biotic relationship" : {
+               "items" : {},
+               "description" : "Is it free-living or in a host and if the latter what type of relationship is observed"
+            },
+            "sequence quality check" : {
+               "items" : {},
+               "description" : "Indicate if the sequence has been called by automatic systems (none) or undergone a manual editing procedure (e.g. by inspecting the raw data or chromatograms). Applied only for sequences that are not submitted to SRA or DRA"
+            },
+            "geographic location (elevation)" : {
+               "description" : "The elevation of the sampling site as measured by the vertical distance from mean sea level.",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "soil_taxonomic/local classification" : {
+               "description" : "soil classification based on local soil classification system",
+               "items" : {}
+            },
+            "source material identifiers" : {
+               "description" : "A unique identifier assigned to a material sample (as defined by http://rs.tdwg.org/dwc/terms/materialSampleID, and as opposed to a particular digital record of a material sample) used for extracting nucleic acids, and subsequent sequencing. The identifier can refer either to the original material collected or to any derived sub-samples. The INSDC qualifiers /specimen_voucher, /bio_material, or /culture_collection may or may not share the same value as the source_mat_id field. For instance, the /specimen_voucher qualifier and source_mat_id may both contain 'UAM:Herps:14' , referring to both the specimen voucher and sampled tissue with the same identifier. However, the /culture_collection qualifier may refer to a value from an initial culture (e.g. ATCC:11775) while source_mat_id would refer to an identifier from some derived culture from which the nucleic acids were extracted (e.g. xatc123 or ark:/2154/R2).",
+               "items" : {}
+            },
+            "history/crop rotation" : {
+               "items" : {},
+               "description" : "whether or not crop is rotated, and if yes, rotation schedule"
+            },
+            "geographic location (country and/or sea)" : {
+               "items" : {},
+               "description" : "The geographical origin of the sample as defined by the country or sea. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html)."
+            },
+            "microbial biomass" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "the part of the organic matter in the soil that constitutes living microorganisms smaller than 5-10 µm. IF you keep this, you would need to have correction factors used for conversion to the final units, which should be mg C (or N)/kg soil)."
+            },
+            "library vector" : {
+               "description" : "Cloning vector type(s) used in construction of libraries",
+               "items" : {}
+            },
+            "soil type" : {
+               "description" : "soil series name or other lower-level classification",
+               "items" : {}
+            },
+            "drainage classification" : {
+               "description" : "drainage classification from a standard system such as the USDA system",
+               "items" : {}
+            },
+            "horizon method" : {
+               "description" : "reference or method used in determining the horizon",
+               "items" : {}
+            },
+            "adapters" : {
+               "items" : {},
+               "description" : "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters"
+            },
+            "history/previous land use method" : {
+               "items" : {},
+               "description" : "reference or method used in determining previous land use and dates"
+            },
+            "extreme_unusual_properties/Al saturation method" : {
+               "description" : "reference or method used in determining Al saturation",
+               "items" : {}
+            },
+            "soil_taxonomic/FAO classification" : {
+               "description" : "soil classification from the FAO World Reference Database for Soil Resources",
+               "items" : {}
+            },
+            "total nitrogen method" : {
+               "items" : {},
+               "description" : "reference or method used in determining the total nitrogen"
+            },
+            "texture" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "the relative proportion of different grain sizes of mineral particles in a soil, as described using a standard system; express as % sand (50 um to 2 mm), silt (2 um to 50 um), and clay (<2 um) with textural name (e.g., silty clay loam) optional."
+            },
+            "specific host" : {
+               "items" : {},
+               "description" : "If there is a host involved, please provide its taxid (or environmental if not actually isolated from the dead or alive host - i.e. pathogen could be isolated from a swipe of a bench etc) and report whether it is a laboratory or natural host). From this we can calculate any number of groupings of hosts (e.g. animal vs plant, all fish hosts, etc)"
+            }
+         }
+      }
+   },
+   "$schema" : "http://json-schema.org/draft-07/schema#",
+   "title" : "GSC MIxS soil",
+   "required" : [
+      "attributes"
+   ]
+}

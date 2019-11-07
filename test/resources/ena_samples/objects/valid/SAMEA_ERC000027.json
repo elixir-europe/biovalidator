@@ -1,0 +1,142 @@
+{
+  "name" : "ERS2429976",
+  "accession" : "SAMEA4609282",
+  "taxonId" : 408172,
+  "attributes" : {
+    "DNA extraction method" : [ {
+      "text" : "PowerWater DNA isolation kit"
+    } ],
+    "ENA checklist" : [ {
+      "text" : "ERC000027"
+    } ],
+    "INSDC center alias" : [ {
+      "text" : "HELLENIC CENTRE FOR MARINE RESEARCH"
+    } ],
+    "INSDC center name" : [ {
+      "text" : "HELLENIC CENTRE FOR MARINE RESEARCH"
+    } ],
+    "INSDC first public" : [ {
+      "text" : "2019-06-24T04:04:00Z"
+    } ],
+    "INSDC last update" : [ {
+      "text" : "2018-04-25T08:57:32Z"
+    } ],
+    "INSDC status" : [ {
+      "text" : "public"
+    } ],
+    "Latitude End" : [ {
+      "text" : "40.83483333",
+      "units" : "DD"
+    } ],
+    "Longitude End" : [ {
+      "text" : "25.7445",
+      "units" : "DD"
+    } ],
+    "SRA accession" : [ {
+      "text" : "ERS2429976"
+    } ],
+    "alias" : [ {
+      "text" : "HX_f_31_18"
+    } ],
+    "amount or size of sample collected" : [ {
+      "text" : "2",
+      "units" : "L"
+    } ],
+    "Depth" : [ {
+      "text" : "2",
+      "units" : "m"
+    } ],
+    "description" : [ {
+      "text" : "coastal Aegean Sea (Eastern Mediterranean); plankton; eukaryotic and prokaryotic communities composition; amplicons; illumina MiSeq"
+    } ],
+    "environment (biome)" : [ {
+      "text" : "temperate mediterannean sea biome"
+    } ],
+    "environment (feature)" : [ {
+      "text" : "marine pelagic feature"
+    } ],
+    "environment (material)" : [ {
+      "text" : "planktonic material"
+    } ],
+    "environmental package" : [ {
+      "text" : "water",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/CHEBI_15377" ]
+    } ],
+    "Event Date/Time" : [ {
+      "text" : "2014-07-04T13:00:00Z"
+    } ],
+    "fraction_microns" : [ {
+      "text" : "0.2"
+    } ],
+    "Latitude Start" : [ {
+      "text" : "40.83483333",
+      "units" : "DD"
+    } ],
+    "Longitude Start" : [ {
+      "text" : "25.7445",
+      "units" : "DD"
+    } ],
+    "Marine Region" : [ {
+      "text" : "Aegean Sea (eastern Mediterranean)"
+    } ],
+    "organism" : [ {
+      "text" : "marine metagenome",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_408172" ]
+    } ],
+    "primer_f" : [ {
+      "text" : "5'CCCTGCCHTTTGTACACAC"
+    } ],
+    "primer_f_reference" : [ {
+      "text" : "Amaral-Zettler LA, McCliment EA, Ducklow HW, Huse SM. (2009). A Method for Studying Protistan Diversity Using Massively Parallel Sequencing of V9 Hypervariable Regions of Small-Subunit Ribosomal RNA Genes. PLoS One 4: e6372."
+    } ],
+    "primer_r" : [ {
+      "text" : "5'CCTTCYGCAGGTTCACCTAC"
+    } ],
+    "primer_r_reference" : [ {
+      "text" : "Amaral-Zettler LA, McCliment EA, Ducklow HW, Huse SM. (2009). A Method for Studying Protistan Diversity Using Massively Parallel Sequencing of V9 Hypervariable Regions of Small-Subunit Ribosomal RNA Genes. PLoS One 4: e6372."
+    } ],
+    "project name" : [ {
+      "text" : "HX_field"
+    } ],
+    "Protocol Label" : [ {
+      "text" : "filtration and preservation"
+    } ],
+    "Salinity" : [ {
+      "text" : "34.6656",
+      "units" : "practical salinity unit"
+    } ],
+    "sample collection device or method" : [ {
+      "text" : "filtration using peristaltic pump"
+    } ],
+    "sample storage duration" : [ {
+      "text" : "20",
+      "units" : "month"
+    } ],
+    "sample storage temperature" : [ {
+      "text" : "-80",
+      "units" : "°C"
+    } ],
+    "Sampling Campaign" : [ {
+      "text" : "cruise"
+    } ],
+    "Sampling Platform" : [ {
+      "text" : "Research Vessel HCMR"
+    } ],
+    "Sampling Site" : [ {
+      "text" : "HX_f_ALE3"
+    } ],
+    "synonym" : [ {
+      "text" : "HX_f_31_18"
+    } ],
+    "target gene" : [ {
+      "text" : "18S"
+    } ],
+    "Temperature" : [ {
+      "text" : "22.13",
+      "units" : "ºC"
+    } ],
+    "title" : [ {
+      "text" : "HX_f_31_18_ALE_3_sw"
+    } ]
+  }
+}

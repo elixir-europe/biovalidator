@@ -1,0 +1,59 @@
+{
+  "name" : "ERS3014146",
+  "accession" : "SAMEA5206674",
+  "taxonId" : 59201,
+  "attributes" : {
+    "ENA checklist" : [ {
+      "text" : "ERC000045"
+    } ],
+    "INSDC center alias" : [ {
+      "text" : "ANSES"
+    } ],
+    "INSDC center name" : [ {
+      "text" : "ANSES"
+    } ],
+    "INSDC first public" : [ {
+      "text" : "2019-01-08T17:03:44Z"
+    } ],
+    "INSDC last update" : [ {
+      "text" : "2019-01-08T09:06:27Z"
+    } ],
+    "INSDC status" : [ {
+      "text" : "public"
+    } ],
+    "SRA accession" : [ {
+      "text" : "ERS3014146"
+    } ],
+    "alias" : [ {
+      "text" : "2011_11878"
+    } ],
+    "description" : [ {
+      "text" : "human - faeces"
+    } ],
+    "geographic location (country and/or sea" : [ {
+      "text" : "46.071721, 2.038834"
+    } ],
+    "isolate" : [ {
+      "text" : "2011_11878"
+    } ],
+    "isolation_source" : [ {
+      "text" : "23 - Creuse"
+    } ],
+    "organism" : [ {
+      "text" : "Salmonella enterica subsp. enterica",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_59201" ]
+    } ],
+    "receipt date" : [ {
+      "text" : "2011"
+    } ],
+    "serotype" : [ {
+      "text" : "S. 4,12:i:- (Inconsistent variant"
+    } ],
+    "synonym" : [ {
+      "text" : "2011_11878"
+    } ],
+    "title" : [ {
+      "text" : "2011_11878"
+    } ]
+  }
+}
