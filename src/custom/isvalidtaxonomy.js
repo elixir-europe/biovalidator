@@ -29,7 +29,7 @@ module.exports = function isValidTaxonomy(ajv) {
             if (jsonBody) {
               let numFound = jsonBody.length;
 
-              if (numFound === 1) {
+              if (numFound === 1 && jsonBody[0]["taxId"] && jsonBody[0]["submittable"] == "true") {
                 logger.log("debug", "Found 1 match!");
                 resolve(true);
               } else if (numFound === 0) {
