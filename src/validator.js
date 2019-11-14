@@ -2,12 +2,14 @@ let Ajv = require("ajv");
 const logger = require("./winston");
 let IsChildTermOf = require("./custom/ischildtermof");
 let IsValidTerm = require("./custom/isvalidterm");
+let IsValidTaxonomy = require("./custom/isvalidtaxonomy");
 const ValidationError = require("./model/validation-error");
 const AppError = require("./model/application-error");
 
 let ajv = new Ajv({allErrors: true});
 let isChildTermOf = new IsChildTermOf(ajv);
 let isValidTerm = new IsValidTerm(ajv);
+new IsValidTaxonomy(ajv);
 
 function convertToValidationErrors(ajvErrorObjects) {
   let localErrors = [];
