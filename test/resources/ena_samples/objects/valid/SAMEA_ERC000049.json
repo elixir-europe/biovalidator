@@ -43,6 +43,9 @@
     "assembly quality" : [ {
       "value" : "Many fragments with little to no review of assembly other than reporting of standard assembly statistics"
     } ],
+    "assembly software" : [ {
+      "value" : "SPAdes;3,9.0; kmer set 21, 33, 55"
+    } ],
     "collection_date" : [ {
       "value" : "2007-04-23"
     } ],
@@ -77,6 +80,9 @@
       "value" : "-166.01",
       "units" : "DD"
     } ],
+    "date of birth" : [ {
+      "value" : "2014-01-15"
+    } ],
     "investigation type" : [ {
       "value" : "single amplified genome"
     } ],
@@ -106,6 +112,27 @@
     } ],
     "taxonomic identity marker" : [ {
       "value" : "16S rRNA gene"
+    } ],
+    "source of UViGs": [ {
+      "value": "isolate microbial genome"
+    } ],
+    "predicted genome type": [ {
+      "value": "DNA"
+    } ],
+    "predicted genome structure": [ {
+      "value": "segmented"
+    } ],
+    "detection type": [ {
+      "value": "provirus (UpViG)"
+    } ],
+    "viral identification software": [ {
+      "value": "BLS"
+    } ],
+    "virus enrichment approach": [ {
+      "value": "CsCl density gradient"
+    } ],
+    "collection date": [ {
+      "value": "2004-11-11T01:01:01Z"
     } ]
   }
 }

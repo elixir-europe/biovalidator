@@ -1,33 +1,43 @@
 {
-   "title" : "ENA virus pathogen reporting standard checklist",
-   "required" : [
-      "attributes"
-   ],
-   "type" : "object",
+   "version" : "1.0.0",
    "definitions" : {
+      "properties" : {
+         "attributes" : {
+            "type" : "object",
+            "properties" : {},
+            "patternProperties" : {
+               "^.*$" : {
+                  "$ref" : "#/definitions/attribute"
+               }
+            },
+            "description" : "Attributes for describing a sample.",
+            "required" : []
+         }
+      },
       "attribute" : {
-         "type" : "array",
-         "minItems" : 1,
          "items" : {
             "properties" : {
-               "value" : {
+               "units" : {
                   "minLength" : 1,
                   "type" : "string"
                },
                "terms" : {
                   "$ref" : "#/definitions/terms"
                },
-               "units" : {
-                  "minLength" : 1,
-                  "type" : "string"
+               "value" : {
+                  "type" : "string",
+                  "minLength" : 1
                }
             },
             "required" : [
                "value"
             ]
-         }
+         },
+         "minItems" : 1,
+         "type" : "array"
       },
       "terms" : {
+         "type" : "array",
          "items" : {
             "required" : [
                "url"
@@ -39,29 +49,574 @@
                }
             },
             "type" : "object"
-         },
-         "type" : "array"
-      },
-      "properties" : {
-         "attributes" : {
-            "type" : "object",
-            "properties" : {},
-            "required" : [],
-            "patternProperties" : {
-               "^.*$" : {
-                  "$ref" : "#/definitions/attribute"
-               }
-            },
-            "description" : "Attributes for describing a sample."
          }
       }
    },
    "author" : "ENA",
+   "$schema" : "http://json-schema.org/draft-07/schema#",
+   "type" : "object",
+   "$id" : "ERC000033",
+   "required" : [
+      "attributes"
+   ],
+   "title" : "ENA virus pathogen reporting standard checklist",
    "description" : "Minimum information about a virus pathogen. A checklist for reporting metadata of virus pathogen samples associated with genomic data. This minimum metadata standard was developed by the COMPARE platform for submission of virus surveillance and outbreak data (such as Ebola) as well as virus isolate information.",
-   "version" : "1.0.0",
-   "$async" : true,
    "properties" : {
       "attributes" : {
+         "properties" : {
+            "geographic location (region and locality)" : {
+               "description" : "The geographical origin of the sample as defined by the specific region name followed by the locality name.",
+               "items" : {}
+            },
+            "personal protective equipment" : {
+               "description" : "Use of personal protective equipment, such as gloves, gowns, during any type of exposure. Example: mask",
+               "items" : {}
+            },
+            "host health state" : {
+               "description" : "Health status of the host at the time of sample collection.",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "diseased",
+                           "healthy",
+                           "not applicable",
+                           "not collected",
+                           "not provided",
+                           "restricted access"
+                        ]
+                     }
+                  }
+               }
+            },
+            "host behaviour" : {
+               "description" : "Natural behaviour of the host.",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "captive-wild (e.g. at zoo)",
+                           "domestic",
+                           "other",
+                           "wild"
+                        ]
+                     }
+                  }
+               }
+            },
+            "receipt date" : {
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "^[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?$"
+                     }
+                  }
+               },
+               "description" : "Date on which the sample was received. Format:YYYY-MM-DD. Please provide the highest precision possible. If the sample was received by the institution and not collected, the 'receipt date' must be provided instead. Either the 'collection date' or 'receipt date' must be provided. If available, provide both dates."
+            },
+            "host habitat" : {
+               "description" : "Natural habitat of the avian or mammalian host.",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "domestic:free-range farm",
+                           "domestic:indoor farm",
+                           "domestic:live market",
+                           "domestic:semi-enclosed housing",
+                           "other",
+                           "wild:migratory",
+                           "wild:resident"
+                        ]
+                     }
+                  }
+               }
+            },
+            "host disease outcome" : {
+               "description" : "Disease outcome in the host.",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "dead",
+                           "recovered",
+                           "recovered with sequelae"
+                        ]
+                     }
+                  }
+               }
+            },
+            "illness symptoms" : {
+               "items" : {},
+               "description" : "The symptoms that have been reported in relation to the illness, such as cough, diarrhea, fever, headache, malaise, myalgia, nausea, runny_nose, shortness_of_breath, sore_throat. If multiple exposures are applicable, please state them separated by semicolon."
+            },
+            "isolate" : {
+               "items" : {},
+               "description" : "individual isolate from which the sample was obtained"
+            },
+            "serotype (required for a seropositive sample)" : {
+               "description" : "Serological variety of a species characterised by its antigenic properties. For Influenza, HA subtype should be the letter H followed by a number between 1-16 unless novel subtype is identified and the NA subtype should be the letter N followed by a number between 1-9 unless novel subtype is identified. If only one of the subtypes have been tested then use the format H5Nx or HxN1. Example: H1N1",
+               "items" : {}
+            },
+            "geographic location (latitude)" : {
+               "description" : "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(^.*[+-]?[0-9]+.?[0-9]*.*$)|(^not collected$)|(^not provided$)|(^restricted access$)"
+                     }
+                  },
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "host description" : {
+               "items" : {},
+               "description" : "Other descriptive information relating to the host."
+            },
+            "isolation source non-host-associated" : {
+               "items" : {},
+               "description" : "Describes the physical, environmental and/or local geographical source of the biological sample from which the sample was derived. Example: soil"
+            },
+            "sample capture status" : {
+               "description" : "Reason for the sample collection.",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "active surveillance in response to outbreak",
+                           "active surveillance not initiated by an outbreak",
+                           "farm sample",
+                           "market sample",
+                           "other",
+                           "pet sample",
+                           "zoo sample"
+                        ]
+                     }
+                  }
+               }
+            },
+            "illness duration" : {
+               "description" : "The number of days the illness lasted. Example: 4",
+               "items" : {}
+            },
+            "isolation source host-associated" : {
+               "description" : "Name of host tissue or organ sampled for analysis. Example: tracheal tissue",
+               "items" : {}
+            },
+            "virus identifier" : {
+               "items" : {},
+               "description" : "Unique laboratory identifier assigned to the virus by the investigator. Strain name is not sufficient since it might not be unique due to various passsages of the same virus. Format: up to 50 alphanumeric characters"
+            },
+            "host scientific name" : {
+               "description" : "Scientific name of the natural (as opposed to laboratory) host to the organism from which sample was obtained.",
+               "items" : {}
+            },
+            "collecting institution" : {
+               "description" : "Name of the institution to which the person collecting the specimen belongs. Format: Institute Name, Institute Address",
+               "items" : {}
+            },
+            "host subject id" : {
+               "description" : "a unique identifier by which each subject can be referred to, de-identified, e.g. #131",
+               "items" : {}
+            },
+            "definition for seropositive sample" : {
+               "description" : "The cut off value used by an investigatior in determining that a sample was seropositive.",
+               "items" : {}
+            },
+            "sample storage conditions" : {
+               "description" : "Conditions at which sample was stored, usually storage temperature, duration and location",
+               "items" : {}
+            },
+            "host age" : {
+               "description" : "age of host at the time of sampling; relevant scale depends on species and study, e.g. could be seconds for amoebae or centuries for trees",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  }
+               }
+            },
+            "subject exposure duration" : {
+               "items" : {},
+               "description" : "Duration of the exposure of the subject to an infected human or animal. If multiple exposures are applicable, please state their duration in the same order in which you reported the exposure in the field 'subject exposure'. Example: 1 day; 0.33 days"
+            },
+            "host common name" : {
+               "items" : {},
+               "description" : "common name of the host, e.g. human"
+            },
+            "type exposure" : {
+               "description" : "Setting within which the subject is exposed to animals, such as farm, slaughterhouse, food preparation. If multiple exposures are applicable, please state their type in the same order in which you reported the exposure in the field 'subject exposure'. Example: backyard flock; confined animal feeding operation",
+               "items" : {}
+            },
+            "collection date" : {
+               "description" : "The date of sampling, either as an instance (single point in time) or interval. In case no exact time is available, the date/time can be right truncated i.e. all of these are valid ISO8601 compliant times: 2008-01-23T19:23:10+00:00; 2008-01-23T19:23:10; 2008-01-23; 2008-01; 2008.",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(^[0-9]{4}(-[0-9]{2}(-[0-9]{2}(T[0-9]{2}:[0-9]{2}(:[0-9]{2})?Z?([+-][0-9]{1,2})?)?)?)?(/[0-9]{4}(-[0-9]{2}(-[0-9]{2}(T[0-9]{2}:[0-9]{2}(:[0-9]{2})?Z?([+-][0-9]{1,2})?)?)?)?)?$)|(^not collected$)|(^not provided$)|(^restricted access$)"
+                     }
+                  }
+               }
+            },
+            "gravidity" : {
+               "description" : "Whether or not the subject is gravid. If so, report date due or date post-conception and specify which of these two dates is being reported.",
+               "items" : {}
+            },
+            "host sex" : {
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "female",
+                           "hermaphrodite",
+                           "male",
+                           "neuter",
+                           "not applicable",
+                           "not collected",
+                           "not provided",
+                           "other",
+                           "restricted access"
+                        ]
+                     }
+                  }
+               },
+               "description" : "Gender or sex of the host."
+            },
+            "geographic location (country and/or sea)" : {
+               "description" : "The geographical origin of the sample as defined by the country or sea. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html).",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "Afghanistan",
+                           "Albania",
+                           "Algeria",
+                           "American Samoa",
+                           "Andorra",
+                           "Angola",
+                           "Anguilla",
+                           "Antarctica",
+                           "Antigua and Barbuda",
+                           "Arctic Ocean",
+                           "Argentina",
+                           "Armenia",
+                           "Aruba",
+                           "Ashmore and Cartier Islands",
+                           "Atlantic Ocean",
+                           "Australia",
+                           "Austria",
+                           "Azerbaijan",
+                           "Bahamas",
+                           "Bahrain",
+                           "Baker Island",
+                           "Baltic Sea",
+                           "Bangladesh",
+                           "Barbados",
+                           "Bassas da India",
+                           "Belarus",
+                           "Belgium",
+                           "Belize",
+                           "Benin",
+                           "Bermuda",
+                           "Bhutan",
+                           "Bolivia",
+                           "Borneo",
+                           "Bosnia and Herzegovina",
+                           "Botswana",
+                           "Bouvet Island",
+                           "Brazil",
+                           "British Virgin Islands",
+                           "Brunei",
+                           "Bulgaria",
+                           "Burkina Faso",
+                           "Burundi",
+                           "Cambodia",
+                           "Cameroon",
+                           "Canada",
+                           "Cape Verde",
+                           "Cayman Islands",
+                           "Central African Republic",
+                           "Chad",
+                           "Chile",
+                           "China",
+                           "Christmas Island",
+                           "Clipperton Island",
+                           "Cocos Islands",
+                           "Colombia",
+                           "Comoros",
+                           "Cook Islands",
+                           "Coral Sea Islands",
+                           "Costa Rica",
+                           "Cote d'Ivoire",
+                           "Croatia",
+                           "Cuba",
+                           "Curacao",
+                           "Cyprus",
+                           "Czech Republic",
+                           "Democratic Republic of the Congo",
+                           "Denmark",
+                           "Djibouti",
+                           "Dominica",
+                           "Dominican Republic",
+                           "East Timor",
+                           "Ecuador",
+                           "Egypt",
+                           "El Salvador",
+                           "Equatorial Guinea",
+                           "Eritrea",
+                           "Estonia",
+                           "Ethiopia",
+                           "Europa Island",
+                           "Falkland Islands (Islas Malvinas)",
+                           "Faroe Islands",
+                           "Fiji",
+                           "Finland",
+                           "France",
+                           "French Guiana",
+                           "French Polynesia",
+                           "French Southern and Antarctic Lands",
+                           "Gabon",
+                           "Gambia",
+                           "Gaza Strip",
+                           "Georgia",
+                           "Germany",
+                           "Ghana",
+                           "Gibraltar",
+                           "Glorioso Islands",
+                           "Greece",
+                           "Greenland",
+                           "Grenada",
+                           "Guadeloupe",
+                           "Guam",
+                           "Guatemala",
+                           "Guernsey",
+                           "Guinea",
+                           "Guinea-Bissau",
+                           "Guyana",
+                           "Haiti",
+                           "Heard Island and McDonald Islands",
+                           "Honduras",
+                           "Hong Kong",
+                           "Howland Island",
+                           "Hungary",
+                           "Iceland",
+                           "India",
+                           "Indian Ocean",
+                           "Indonesia",
+                           "Iran",
+                           "Iraq",
+                           "Ireland",
+                           "Isle of Man",
+                           "Israel",
+                           "Italy",
+                           "Jamaica",
+                           "Jan Mayen",
+                           "Japan",
+                           "Jarvis Island",
+                           "Jersey",
+                           "Johnston Atoll",
+                           "Jordan",
+                           "Juan de Nova Island",
+                           "Kazakhstan",
+                           "Kenya",
+                           "Kerguelen Archipelago",
+                           "Kingman Reef",
+                           "Kiribati",
+                           "Kosovo",
+                           "Kuwait",
+                           "Kyrgyzstan",
+                           "Laos",
+                           "Latvia",
+                           "Lebanon",
+                           "Lesotho",
+                           "Liberia",
+                           "Libya",
+                           "Liechtenstein",
+                           "Lithuania",
+                           "Luxembourg",
+                           "Macau",
+                           "Macedonia",
+                           "Madagascar",
+                           "Malawi",
+                           "Malaysia",
+                           "Maldives",
+                           "Mali",
+                           "Malta",
+                           "Marshall Islands",
+                           "Martinique",
+                           "Mauritania",
+                           "Mauritius",
+                           "Mayotte",
+                           "Mediterranean Sea",
+                           "Mexico",
+                           "Micronesia",
+                           "Midway Islands",
+                           "Moldova",
+                           "Monaco",
+                           "Mongolia",
+                           "Montenegro",
+                           "Montserrat",
+                           "Morocco",
+                           "Mozambique",
+                           "Myanmar",
+                           "Namibia",
+                           "Nauru",
+                           "Navassa Island",
+                           "Nepal",
+                           "Netherlands",
+                           "New Caledonia",
+                           "New Zealand",
+                           "Nicaragua",
+                           "Niger",
+                           "Nigeria",
+                           "Niue",
+                           "Norfolk Island",
+                           "North Korea",
+                           "North Sea",
+                           "Northern Mariana Islands",
+                           "Norway",
+                           "Oman",
+                           "Pacific Ocean",
+                           "Pakistan",
+                           "Palau",
+                           "Palmyra Atoll",
+                           "Panama",
+                           "Papua New Guinea",
+                           "Paracel Islands",
+                           "Paraguay",
+                           "Peru",
+                           "Philippines",
+                           "Pitcairn Islands",
+                           "Poland",
+                           "Portugal",
+                           "Puerto Rico",
+                           "Qatar",
+                           "Republic of the Congo",
+                           "Reunion",
+                           "Romania",
+                           "Ross Sea",
+                           "Russia",
+                           "Rwanda",
+                           "Saint Helena",
+                           "Saint Kitts and Nevis",
+                           "Saint Lucia",
+                           "Saint Pierre and Miquelon",
+                           "Saint Vincent and the Grenadines",
+                           "Samoa",
+                           "San Marino",
+                           "Sao Tome and Principe",
+                           "Saudi Arabia",
+                           "Senegal",
+                           "Serbia",
+                           "Seychelles",
+                           "Sierra Leone",
+                           "Singapore",
+                           "Sint Maarten",
+                           "Slovakia",
+                           "Slovenia",
+                           "Solomon Islands",
+                           "Somalia",
+                           "South Africa",
+                           "South Georgia and the South Sandwich Islands",
+                           "South Korea",
+                           "Southern Ocean",
+                           "Spain",
+                           "Spratly Islands",
+                           "Sri Lanka",
+                           "Sudan",
+                           "Suriname",
+                           "Svalbard",
+                           "Swaziland",
+                           "Sweden",
+                           "Switzerland",
+                           "Syria",
+                           "Taiwan",
+                           "Tajikistan",
+                           "Tanzania",
+                           "Tasman Sea",
+                           "Thailand",
+                           "Togo",
+                           "Tokelau",
+                           "Tonga",
+                           "Trinidad and Tobago",
+                           "Tromelin Island",
+                           "Tunisia",
+                           "Turkey",
+                           "Turkmenistan",
+                           "Turks and Caicos Islands",
+                           "Tuvalu",
+                           "USA",
+                           "Uganda",
+                           "Ukraine",
+                           "United Arab Emirates",
+                           "United Kingdom",
+                           "Uruguay",
+                           "Uzbekistan",
+                           "Vanuatu",
+                           "Venezuela",
+                           "Viet Nam",
+                           "Virgin Islands",
+                           "Wake Island",
+                           "Wallis and Futuna",
+                           "West Bank",
+                           "Western Sahara",
+                           "Yemen",
+                           "Zambia",
+                           "Zimbabwe",
+                           "not applicable",
+                           "not collected",
+                           "not provided",
+                           "restricted access"
+                        ]
+                     }
+                  }
+               }
+            },
+            "strain" : {
+               "items" : {},
+               "description" : "Name of the strain from which the sample was obtained."
+            },
+            "geographic location (longitude)" : {
+               "description" : "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(^.*[+-]?[0-9]+.?[0-9]*.*$)|(^not collected$)|(^not provided$)|(^restricted access$)"
+                     }
+                  },
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "subject exposure" : {
+               "items" : {},
+               "description" : "Exposure of the subject to infected human or animals, such as poultry, wild bird or swine. If multiple exposures are applicable, please state them separated by semicolon. Example: poultry; wild bird"
+            },
+            "hospitalisation" : {
+               "description" : "Was the subject confined to a hospital as a result of virus infection or problems occurring secondary to virus infection?",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "no",
+                           "yes"
+                        ]
+                     }
+                  }
+               }
+            },
+            "collector name" : {
+               "items" : {},
+               "description" : "Name of the person who collected the specimen. Example: John Smith"
+            }
+         },
          "required" : [
             "geographic location (country and/or sea)",
             "host common name",
@@ -72,163 +627,8 @@
             "collector name",
             "collecting institution",
             "isolate"
-         ],
-         "properties" : {
-            "strain" : {
-               "description" : "Name of the strain from which the sample was obtained.",
-               "items" : {}
-            },
-            "definition for seropositive sample" : {
-               "description" : "The cut off value used by an investigatior in determining that a sample was seropositive.",
-               "items" : {}
-            },
-            "subject exposure" : {
-               "items" : {},
-               "description" : "Exposure of the subject to infected human or animals, such as poultry, wild bird or swine. If multiple exposures are applicable, please state them separated by semicolon. Example: poultry; wild bird"
-            },
-            "host subject id" : {
-               "items" : {},
-               "description" : "a unique identifier by which each subject can be referred to, de-identified, e.g. #131"
-            },
-            "host description" : {
-               "items" : {},
-               "description" : "Other descriptive information relating to the host."
-            },
-            "host age" : {
-               "description" : "age of host at the time of sampling; relevant scale depends on species and study, e.g. could be seconds for amoebae or centuries for trees",
-               "items" : {
-                  "required" : [
-                     "units"
-                  ]
-               }
-            },
-            "geographic location (longitude)" : {
-               "items" : {
-                  "required" : [
-                     "units"
-                  ]
-               },
-               "description" : "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system"
-            },
-            "type exposure" : {
-               "description" : "Setting within which the subject is exposed to animals, such as farm, slaughterhouse, food preparation. If multiple exposures are applicable, please state their type in the same order in which you reported the exposure in the field 'subject exposure'. Example: backyard flock; confined animal feeding operation",
-               "items" : {}
-            },
-            "subject exposure duration" : {
-               "description" : "Duration of the exposure of the subject to an infected human or animal. If multiple exposures are applicable, please state their duration in the same order in which you reported the exposure in the field 'subject exposure'. Example: 1 day; 0.33 days",
-               "items" : {}
-            },
-            "illness symptoms" : {
-               "items" : {},
-               "description" : "The symptoms that have been reported in relation to the illness, such as cough, diarrhea, fever, headache, malaise, myalgia, nausea, runny_nose, shortness_of_breath, sore_throat. If multiple exposures are applicable, please state them separated by semicolon."
-            },
-            "sample storage conditions" : {
-               "description" : "Conditions at which sample was stored, usually storage temperature, duration and location",
-               "items" : {}
-            },
-            "virus identifier" : {
-               "items" : {},
-               "description" : "Unique laboratory identifier assigned to the virus by the investigator. Strain name is not sufficient since it might not be unique due to various passsages of the same virus. Format: up to 50 alphanumeric characters"
-            },
-            "hospitalisation" : {
-               "items" : {},
-               "description" : "Was the subject confined to a hospital as a result of virus infection or problems occurring secondary to virus infection?"
-            },
-            "host habitat" : {
-               "description" : "Natural habitat of the avian or mammalian host.",
-               "items" : {}
-            },
-            "personal protective equipment" : {
-               "description" : "Use of personal protective equipment, such as gloves, gowns, during any type of exposure. Example: mask",
-               "items" : {}
-            },
-            "host health state" : {
-               "description" : "Health status of the host at the time of sample collection.",
-               "items" : {}
-            },
-            "isolation source host-associated" : {
-               "description" : "Name of host tissue or organ sampled for analysis. Example: tracheal tissue",
-               "items" : {}
-            },
-            "host disease outcome" : {
-               "items" : {},
-               "description" : "Disease outcome in the host."
-            },
-            "host scientific name" : {
-               "items" : {},
-               "description" : "Scientific name of the natural (as opposed to laboratory) host to the organism from which sample was obtained."
-            },
-            "host sex" : {
-               "items" : {},
-               "description" : "Gender or sex of the host."
-            },
-            "receipt date" : {
-               "description" : "Date on which the sample was received. Format:YYYY-MM-DD. Please provide the highest precision possible. If the sample was received by the institution and not collected, the 'receipt date' must be provided instead. Either the 'collection date' or 'receipt date' must be provided. If available, provide both dates.",
-               "items" : {}
-            },
-            "geographic location (latitude)" : {
-               "items" : {
-                  "required" : [
-                     "units"
-                  ]
-               },
-               "description" : "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system"
-            },
-            "isolate" : {
-               "description" : "individual isolate from which the sample was obtained",
-               "items" : {}
-            },
-            "collector name" : {
-               "items" : {},
-               "description" : "Name of the person who collected the specimen. Example: John Smith"
-            },
-            "isolation source non-host-associated" : {
-               "items" : {},
-               "description" : "Describes the physical, environmental and/or local geographical source of the biological sample from which the sample was derived. Example: soil"
-            },
-            "serotype (required for a seropositive sample)" : {
-               "items" : {},
-               "description" : "Serological variety of a species characterised by its antigenic properties. For Influenza, HA subtype should be the letter H followed by a number between 1-16 unless novel subtype is identified and the NA subtype should be the letter N followed by a number between 1-9 unless novel subtype is identified. If only one of the subtypes have been tested then use the format H5Nx or HxN1. Example: H1N1"
-            },
-            "collecting institution" : {
-               "items" : {},
-               "description" : "Name of the institution to which the person collecting the specimen belongs. Format: Institute Name, Institute Address"
-            },
-            "host behaviour" : {
-               "items" : {},
-               "description" : "Natural behaviour of the host."
-            },
-            "illness duration" : {
-               "description" : "The number of days the illness lasted. Example: 4",
-               "items" : {}
-            },
-            "geographic location (region and locality)" : {
-               "description" : "The geographical origin of the sample as defined by the specific region name followed by the locality name.",
-               "items" : {}
-            },
-            "gravidity" : {
-               "description" : "Whether or not the subject is gravid. If so, report date due or date post-conception and specify which of these two dates is being reported.",
-               "items" : {}
-            },
-            "geographic location (country and/or sea)" : {
-               "items" : {},
-               "description" : "The geographical origin of the sample as defined by the country or sea. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html)."
-            },
-            "host common name" : {
-               "items" : {},
-               "description" : "common name of the host, e.g. human"
-            },
-            "collection date" : {
-               "items" : {},
-               "description" : "The date of sampling, either as an instance (single point in time) or interval. In case no exact time is available, the date/time can be right truncated i.e. all of these are valid ISO8601 compliant times: 2008-01-23T19:23:10+00:00; 2008-01-23T19:23:10; 2008-01-23; 2008-01; 2008."
-            },
-            "sample capture status" : {
-               "items" : {},
-               "description" : "Reason for the sample collection."
-            }
-         }
+         ]
       }
    },
-   "$schema" : "http://json-schema.org/draft-07/schema#",
-   "$id" : "ERC000033"
+   "$async" : true
 }

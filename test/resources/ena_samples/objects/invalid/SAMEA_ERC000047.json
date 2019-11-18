@@ -4,108 +4,105 @@
   "taxonId" : 157176,
   "attributes" : {
     "Alias" : [ {
-      "text" : "Nitrospira sp. RBC026"
+      "value" : "Nitrospira sp. RBC026"
     } ],
     "Description" : [ {
-      "text" : "This sample represents a MAG from the metagenomic sample ERS3016384"
+      "value" : "This sample represents a MAG from the metagenomic sample ERS3016384"
     } ],
     "ENA checklist" : [ {
-      "text" : "ERC000047"
+      "value" : "ERC000047"
     } ],
     "INSDC center alias" : [ {
-      "text" : "UNIVERSITY OF WATERLOO"
+      "value" : "UNIVERSITY OF WATERLOO"
     } ],
     "INSDC center name" : [ {
-      "text" : "UNIVERSITY OF WATERLOO"
+      "value" : "UNIVERSITY OF WATERLOO"
     } ],
     "INSDC first public" : [ {
-      "text" : "2019-10-26T04:04:53Z"
+      "value" : "2019-10-26T04:04:53Z"
     } ],
     "INSDC last update" : [ {
-      "text" : "2019-09-13T18:02:37Z"
+      "value" : "2019-09-13T18:02:37Z"
     } ],
     "INSDC status" : [ {
-      "text" : "public"
+      "value" : "public"
     } ],
     "Organism" : [ {
-      "text" : "uncultured Nitrospira sp.",
+      "value" : "uncultured Nitrospira sp.",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_157176" ]
     } ],
     "SRA accession" : [ {
-      "text" : "ERS3742618"
+      "value" : "ERS3742618"
     } ],
     "Title" : [ {
-      "text" : "Nitrospira bin RBC026"
+      "value" : "Nitrospira bin RBC026"
     } ],
     "assembly quality" : [ {
-      "text" : "Many fragments with little to no review of assembly other than reporting of standard assembly statistics"
+      "value" : "Many fragments with little to no review of assembly other than reporting of standard assembly statistics"
     } ],
     "assembly software" : [ {
-      "text" : "SPAdes"
+      "value" : "SPAdes"
     } ],
     "binning parameters" : [ {
-      "text" : "TNF and coverage"
+      "value" : "TNF and coverage"
     } ],
     "binning software" : [ {
-      "text" : "Maxbin"
+      "value" : "Maxbin"
     } ],
     "collection date" : [ {
-      "text" : "2010-06-09"
+      "value" : "2010-06-09"
     } ],
     "completeness score" : [ {
-      "text" : "75.06",
+      "value" : "75.06",
       "units" : "%"
     } ],
     "completeness software" : [ {
-      "text" : "CheckM"
+      "value" : "CheckM"
     } ],
     "contamination score" : [ {
-      "text" : "3.18",
+      "value" : "3.18",
       "units" : "%"
     } ],
     "environment (biome)" : [ {
-      "text" : "wastewater treatment plant"
+      "value" : "wastewater treatment plant"
     } ],
     "environment (feature)" : [ {
-      "text" : "wastewater treatment plant"
+      "value" : "wastewater treatment plant"
     } ],
     "environment (material)" : [ {
-      "text" : "biofilm"
+      "value" : "biofilm"
     } ],
     "geographic location (country and/or sea)" : [ {
-      "text" : "Canada"
+      "value" : "Canada"
     } ],
     "geographic location (latitude)" : [ {
-      "text" : "43.524549",
+      "value" : "43.524549",
       "units" : "DD"
     } ],
     "geographic location (longitude)" : [ {
-      "text" : "-80.264446",
+      "value" : "-80.264446",
       "units" : "DD"
     } ],
     "investigation type" : [ {
-      "text" : "metagenome-assembled genome"
+      "value" : "metagenome-assembled genome"
     } ],
     "isolation_source" : [ {
-      "text" : "wastewater biofilm"
+      "value" : "wastewater biofilm"
     } ],
     "metagenomic source" : [ {
-      "text" : "wastewater metagenome"
+      "value" : "wastewater metagenome"
     } ],
     "project name" : [ {
-      "text" : "RBCs"
+      "value" : "RBCs"
     } ],
     "sample derived from" : [ {
-      "text" : "ERS3016384"
-    } ],
-    "sequencing method" : [ {
-      "text" : "Illumina HiSeq"
+      "value" : "ERS3016384"
     } ],
     "synonym" : [ {
-      "text" : "Nitrospira sp. RBC026"
+      "value" : "Nitrospira sp. RBC026"
     } ],
     "taxonomic identity marker" : [ {
-      "text" : "multi marker approach"
+      "value" : "multi marker approach"
     } ]
   }
 }

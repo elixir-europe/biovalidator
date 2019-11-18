@@ -4,70 +4,70 @@
   "taxonId" : 256318,
   "attributes" : {
     "ENA checklist" : [ {
-      "text" : "ERC000025"
+      "value" : "ERC000025"
     } ],
     "INSDC center name" : [ {
-      "text" : "TEXAS A&M CORPUS CHRISTI"
+      "value" : "TEXAS A&M CORPUS CHRISTI"
     } ],
     "INSDC first public" : [ {
-      "text" : "2017-08-24T17:01:38Z"
+      "value" : "2017-08-24T17:01:38Z"
     } ],
     "INSDC last update" : [ {
-      "text" : "2016-10-21T09:43:39Z"
+      "value" : "2016-10-21T09:43:39Z"
     } ],
     "INSDC status" : [ {
-      "text" : "public"
+      "value" : "public"
     } ],
     "SRA accession" : [ {
-      "text" : "ERS1360943"
+      "value" : "ERS1360943"
     } ],
     "alias" : [ {
-      "text" : "H201"
+      "value" : "H201"
     } ],
     "collection date" : [ {
-      "text" : "2016-06-22"
+      "value" : "2016-06-22"
     } ],
     "description" : [ {
-      "text" : "First seawater replicate from LMFS."
+      "value" : "First seawater replicate from LMFS."
     } ],
     "environment (biome)" : [ {
-      "text" : "marine"
+      "value" : "marine"
     } ],
     "environment (feature)" : [ {
-      "text" : "shallow, hypersaline lagoon"
+      "value" : "shallow, hypersaline lagoon"
     } ],
     "environment (material)" : [ {
-      "text" : "seawater from water-sediment interface"
+      "value" : "seawater from water-sediment interface"
     } ],
     "geographic location (country and/or sea)" : [ {
-      "text" : "USA"
+      "value" : "USA"
     } ],
     "geographic location (latitude)" : [ {
-      "text" : "27.542",
+      "value" : "27.542",
       "units" : "DD"
     } ],
     "geographic location (longitude)" : [ {
-      "text" : "-97.286",
+      "value" : "-97.286",
       "units" : "DD"
     } ],
     "investigation type" : [ {
-      "text" : "metagenome"
+      "value" : "metagenome"
     } ],
     "miscellaneous environmental package" : [ {
-      "text" : "miscellaneous natural or artificial environment"
+      "value" : "miscellaneous natural or artificial environment"
     } ],
     "organism" : [ {
-      "text" : "metagenome",
+      "value" : "metagenome",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_256318" ]
     } ],
     "sequencing method" : [ {
-      "text" : "Illumina HiSeq 2500"
+      "value" : "Illumina HiSeq 2500"
     } ],
     "synonym" : [ {
-      "text" : "H201"
+      "value" : "H201"
     } ],
     "title" : [ {
-      "text" : "Seawater 1"
+      "value" : "Seawater 1"
     } ]
   }
 }

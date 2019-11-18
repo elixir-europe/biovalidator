@@ -4,121 +4,121 @@
   "taxonId" : 11320,
   "attributes" : {
     "ENA checklist" : [ {
-      "text" : "ERC000032"
+      "value" : "ERC000032"
     } ],
     "INSDC center name" : [ {
-      "text" : "Animal and Plant Health Agency (APHA)"
+      "value" : "Animal and Plant Health Agency (APHA)"
     } ],
     "INSDC first public" : [ {
-      "text" : "2016-02-17T17:03:03Z"
+      "value" : "2016-02-17T17:03:03Z"
     } ],
     "INSDC last update" : [ {
-      "text" : "2016-10-21T09:45:49Z"
+      "value" : "2016-10-21T09:45:49Z"
     } ],
     "INSDC status" : [ {
-      "text" : "public"
+      "value" : "public"
     } ],
     "SRA accession" : [ {
-      "text" : "ERS800302"
+      "value" : "ERS800302"
     } ],
     "alias" : [ {
-      "text" : "AVP-14-036255"
+      "value" : "AVP-14-036255"
     } ],
     "collecting institution" : [ {
-      "text" : "APHA"
+      "value" : "APHA"
     } ],
     "collection date" : [ {
-      "text" : "2014-11-14"
+      "value" : "2014-11-14"
     } ],
     "collector name" : [ {
-      "text" : "APHA"
+      "value" : "APHA"
     } ],
     "definition for seropositive sample" : [ {
-      "text" : "Ct >36 for RRT PCR, >1/16 HI titre with 4HAU antigen"
+      "value" : "Ct >36 for RRT PCR, >1/16 HI titre with 4HAU antigen"
     } ],
     "geographic location (country and/or sea)" : [ {
-      "text" : "United Kingdom"
+      "value" : "United Kingdom"
     } ],
     "geographic location (latitude)" : [ {
-      "text" : "54.001",
+      "value" : "54.001",
       "units" : "DD"
     } ],
     "geographic location (longitude)" : [ {
-      "text" : "-0.434",
+      "value" : "-0.434",
       "units" : "DD"
     } ],
     "geographic location (region and locality)" : [ {
-      "text" : "East Yorkshire"
+      "value" : "East Yorkshire"
     } ],
     "host age" : [ {
-      "text" : "60",
+      "value" : "60",
       "units" : "week"
     } ],
     "host behaviour" : [ {
-      "text" : "domestic"
+      "value" : "domestic"
     } ],
     "host common name" : [ {
-      "text" : "Domestic duck"
+      "value" : "Domestic duck"
     } ],
     "host disease outcome" : [ {
-      "text" : "dead"
+      "value" : "dead"
     } ],
     "host habitat" : [ {
-      "text" : "domestic:indoor farm"
+      "value" : "domestic:indoor farm"
     } ],
     "host health state" : [ {
-      "text" : "diseased"
+      "value" : "diseased"
     } ],
     "host scientific name" : [ {
-      "text" : "Anas platyrhynchos",
+      "value" : "Anas platyrhynchos",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_8839" ]
     } ],
     "host sex" : [ {
-      "text" : "female",
+      "value" : "female",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/PATO_0000383" ]
     } ],
     "host subject id" : [ {
-      "text" : "#1"
+      "value" : "#1"
     } ],
     "influenza test method" : [ {
-      "text" : "M gene RRT PCR, H5 RRT PCR, virus isolation and haemagglutinin inhbition"
+      "value" : "M gene RRT PCR, H5 RRT PCR, virus isolation and haemagglutinin inhbition"
     } ],
     "influenza test result" : [ {
-      "text" : "positive"
+      "value" : "positive"
     } ],
     "influenza virus type" : [ {
-      "text" : "A"
+      "value" : "A"
     } ],
     "isolation source host associated" : [ {
-      "text" : "pooled intestines"
+      "value" : "pooled intestines"
     } ],
     "organism" : [ {
-      "text" : "Influenza A virus",
+      "value" : "Influenza A virus",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_11320" ]
     } ],
     "other pathogens test result" : [ {
-      "text" : "negative"
+      "value" : "negative"
     } ],
     "other pathogens tested" : [ {
-      "text" : "AMPV-1"
+      "value" : "AMPV-1"
     } ],
     "receipt date" : [ {
-      "text" : "2014-11-15"
+      "value" : "2014-11-15"
     } ],
     "sample capture status" : [ {
-      "text" : "active surveillance not initiated by an outbreak"
+      "value" : "active surveillance not initiated by an outbreak"
     } ],
     "serotype (required for a seropositive sample)" : [ {
-      "text" : "H5N8"
+      "value" : "H5N8"
     } ],
     "synonym" : [ {
-      "text" : "AVP-14-036255"
+      "value" : "AVP-14-036255"
     } ],
     "title" : [ {
-      "text" : "Initial sample from November H5N8 outbreak in UK"
+      "value" : "Initial sample from November H5N8 outbreak in UK"
     } ],
     "virus identifier" : [ {
-      "text" : "A/duck/England/36254/14"
+      "value" : "A/duck/England/36254/14"
     } ]
   }
 }

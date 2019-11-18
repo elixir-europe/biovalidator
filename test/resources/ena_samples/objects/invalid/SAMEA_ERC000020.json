@@ -4,101 +4,101 @@
   "taxonId" : 99072,
   "attributes" : {
     "ENA checklist" : [ {
-      "text" : "ERC000020"
+      "value" : "ERC000020"
     } ],
     "Herbarium" : [ {
-      "text" : "REG"
+      "value" : "REG"
     } ],
     "INSDC center name" : [ {
-      "text" : "Univeristy of Natural Sciences in Wroclaw"
+      "value" : "Univeristy of Natural Sciences in Wroclaw"
     } ],
     "INSDC first public" : [ {
-      "text" : "2015-09-17T17:02:10Z"
+      "value" : "2015-09-17T17:02:10Z"
     } ],
     "INSDC last update" : [ {
-      "text" : "2016-10-21T09:41:57Z"
+      "value" : "2016-10-21T09:41:57Z"
     } ],
     "INSDC status" : [ {
-      "text" : "public"
+      "value" : "public"
     } ],
     "SRA accession" : [ {
-      "text" : "ERS758407"
+      "value" : "ERS758407"
     } ],
     "alias" : [ {
-      "text" : "vul2"
+      "value" : "vul2"
     } ],
     "collection date" : [ {
-      "text" : "2004-06-08"
+      "value" : "2004-06-08"
     } ],
     "collector" : [ {
-      "text" : "Eder & Oberprieler s.n."
+      "value" : "Eder & Oberprieler s.n."
     } ],
     "description" : [ {
-      "text" : "markers A39, B12, B20, C12, C20, C33, D18, D23, D27 from Chapman et al. (2007). TAG Theoretical and Applied Genetics 115, 747-755."
+      "value" : "markers A39, B12, B20, C12, C20, C33, D18, D23, D27 from Chapman et al. (2007). TAG Theoretical and Applied Genetics 115, 747-755."
     } ],
     "environment (biome)" : [ {
-      "text" : "temperate"
+      "value" : "temperate"
     } ],
     "environment (feature)" : [ {
-      "text" : "meadow"
+      "value" : "meadow"
     } ],
     "environment (material)" : [ {
-      "text" : "soil"
+      "value" : "soil"
     } ],
     "geographic location (country and/or sea)" : [ {
-      "text" : "Germany"
+      "value" : "Germany"
     } ],
     "geographic location (latitude)" : [ {
-      "text" : "49.03",
+      "value" : "49.03",
       "units" : "DD"
     } ],
     "geographic location (longitude)" : [ {
-      "text" : "11.88",
+      "value" : "11.88",
       "units" : "DD"
     } ],
     "internal_sample_name" : [ {
-      "text" : "L046"
+      "value" : "L046"
     } ],
     "investigation type" : [ {
-      "text" : "mimarks-survey"
+      "value" : "mimarks-survey"
     } ],
     "multiplex identifiers" : [ {
-      "text" : "ACTA"
+      "value" : "ACTA"
     } ],
     "nucleic acid extraction" : [ {
-      "text" : "CTAB"
+      "value" : "CTAB"
     } ],
     "organism" : [ {
-      "text" : "Leucanthemum vulgare",
+      "value" : "Leucanthemum vulgare",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_99072" ]
     } ],
     "pcr primers" : [ {
-      "text" : "M13_A39_Leu350bp_f; CACGACGTTGTAAAACGACAATGGTGTTTCAATTGGTTTTC; TitB_A39_Leu350bp_r; CTATGCGCCTTGCCAGCCCGCTCAGCCAACTCCAACAAGTAGGAG; M13_B12_f; CACGACGTTGTAAAACGACCAAGTGGCTGCAGCCATGGG; TitB_B12_Leu350bp_r; CTATGCGCCTTGCCAGCCCGCTCAGACGTAGTAGTTGATCAACTG; M13_B20_f; CACGACGTTGTAAAACGACAGTGGWATYAGTGGKGCTAGTTACT; TitB_B20_r; CTATGCGCCTTGCCAGCCCGCTCAGCCACCACGHACAAGMAGCCAAAG; M13_C12_f; CACGACGTTGTAAAACGACTCTTGCACCACCAACTGYTTGGC; TitB_C12_Leu350bp_r; CTATGCGCCTTGCCAGCCCGCTCAGGGGACAATGTTCAATGCTG; M13_C20_f; CACGACGTTGTAAAACGACTTCTTCAATGCKKCTGCTTCTCA; TitB_C20_r; CTATGCGCCTTGCCAGCCCGCTCAGAGCCAGTTGAATGAYAGCTCA; M13_C33_Leu350bp_f; CACGACGTTGTAAAACGACTCTACATCCAAAATACTACT; TitB_C33_Leu350bp_r; CTATGCGCCTTGCCAGCCCGCTCAGATTCCTGTTGACACATAAAC; M13_D18_f; CACGACGTTGTAAAACGACGGAAGRCTHCTWAGATATGACCCWCC; TitB_D18_r; CTATGCGCCTTGCCAGCCCGCTCAGCTGCAACAATCAATWGCHACCCAA"
+      "value" : "M13_A39_Leu350bp_f; CACGACGTTGTAAAACGACAATGGTGTTTCAATTGGTTTTC; TitB_A39_Leu350bp_r; CTATGCGCCTTGCCAGCCCGCTCAGCCAACTCCAACAAGTAGGAG; M13_B12_f; CACGACGTTGTAAAACGACCAAGTGGCTGCAGCCATGGG; TitB_B12_Leu350bp_r; CTATGCGCCTTGCCAGCCCGCTCAGACGTAGTAGTTGATCAACTG; M13_B20_f; CACGACGTTGTAAAACGACAGTGGWATYAGTGGKGCTAGTTACT; TitB_B20_r; CTATGCGCCTTGCCAGCCCGCTCAGCCACCACGHACAAGMAGCCAAAG; M13_C12_f; CACGACGTTGTAAAACGACTCTTGCACCACCAACTGYTTGGC; TitB_C12_Leu350bp_r; CTATGCGCCTTGCCAGCCCGCTCAGGGGACAATGTTCAATGCTG; M13_C20_f; CACGACGTTGTAAAACGACTTCTTCAATGCKKCTGCTTCTCA; TitB_C20_r; CTATGCGCCTTGCCAGCCCGCTCAGAGCCAGTTGAATGAYAGCTCA; M13_C33_Leu350bp_f; CACGACGTTGTAAAACGACTCTACATCCAAAATACTACT; TitB_C33_Leu350bp_r; CTATGCGCCTTGCCAGCCCGCTCAGATTCCTGTTGACACATAAAC; M13_D18_f; CACGACGTTGTAAAACGACGGAAGRCTHCTWAGATATGACCCWCC; TitB_D18_r; CTATGCGCCTTGCCAGCCCGCTCAGCTGCAACAATCAATWGCHACCCAA"
     } ],
     "plant-associated environmental package" : [ {
-      "text" : "plant-associated"
+      "value" : "plant-associated"
     } ],
     "ploidy" : [ {
-      "text" : "diploid",
+      "value" : "diploid",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/CL_0000415" ]
     } ],
     "sequencing method" : [ {
-      "text" : "454 pyrosequencing"
+      "value" : "454 pyrosequencing"
     } ],
     "source material identifiers" : [ {
-      "text" : "B 10 0550249"
+      "value" : "B 10 0550249"
     } ],
     "specimen voucher" : [ {
-      "text" : "B 10 0550249"
+      "value" : "B 10 0550249"
     } ],
     "synonym" : [ {
-      "text" : "vul2"
+      "value" : "vul2"
     } ],
     "target gene" : [ {
-      "text" : "A39, B12, B20, C12, C20, C33, D18, D23, D27"
+      "value" : "A39, B12, B20, C12, C20, C33, D18, D23, D27"
     } ],
     "title" : [ {
-      "text" : "vul2"
+      "value" : "vul2"
     } ]
   }
 }

@@ -4,64 +4,64 @@
   "taxonId" : 155900,
   "attributes" : {
     "ENA checklist" : [ {
-      "text" : "ERC000036"
+      "value" : "ERC000036"
     } ],
     "INSDC center alias" : [ {
-      "text" : "NYU"
+      "value" : "NYU"
     } ],
     "INSDC center name" : [ {
-      "text" : "NYU"
+      "value" : "NYU"
     } ],
     "INSDC first public" : [ {
-      "text" : "2019-07-27T04:04:15Z"
+      "value" : "2019-07-27T04:04:15Z"
     } ],
     "INSDC last update" : [ {
-      "text" : "2018-08-01T19:33:04Z"
+      "value" : "2018-08-01T19:33:04Z"
     } ],
     "INSDC status" : [ {
-      "text" : "public"
+      "value" : "public"
     } ],
     "SRA accession" : [ {
-      "text" : "ERS2632077"
+      "value" : "ERS2632077"
     } ],
     "alias" : [ {
-      "text" : "10"
+      "value" : "10"
     } ],
     "collection date" : [ {
-      "text" : "2014-11-19"
+      "value" : "2014-11-19"
     } ],
     "description" : [ {
-      "text" : "DEP_sewage"
+      "value" : "DEP_sewage"
     } ],
     "geographic location (country and/or sea)" : [ {
-      "text" : "USA"
+      "value" : "USA"
     } ],
     "geographic location (latitude)" : [ {
-      "text" : "40.736284",
+      "value" : "40.736284",
       "units" : "DD"
     } ],
     "geographic location (longitude)" : [ {
-      "text" : "-73.96796",
+      "value" : "-73.96796",
       "units" : "DD"
     } ],
     "geographic location (region and locality)" : [ {
-      "text" : "New York City"
+      "value" : "New York City"
     } ],
     "name of the sampling site" : [ {
-      "text" : "Bronx"
+      "value" : "Bronx"
     } ],
     "organism" : [ {
-      "text" : "uncultured organism",
+      "value" : "uncultured organism",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_155900" ]
     } ],
     "sewage type" : [ {
-      "text" : "raw municipal"
+      "value" : "raw municipal"
     } ],
     "synonym" : [ {
-      "text" : "10"
+      "value" : "10"
     } ],
     "title" : [ {
-      "text" : "S026"
+      "value" : "S026"
     } ]
   }
 }

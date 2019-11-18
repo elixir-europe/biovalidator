@@ -4,47 +4,47 @@
   "taxonId" : 1351,
   "attributes" : {
     "Alias" : [ {
-      "text" : "C2280E.faecalis"
+      "value" : "C2280E.faecalis"
     } ],
     "Description" : [ {
-      "text" : "WGS and RNA-Seq applied in the evaluation of antibiotic stress in multidrug resistant vanB1 Enterococcus faecalis strain"
+      "value" : "WGS and RNA-Seq applied in the evaluation of antibiotic stress in multidrug resistant vanB1 Enterococcus faecalis strain"
     } ],
     "ENA checklist" : [ {
-      "text" : "ERC000041"
+      "value" : "ERC000041"
     } ],
     "INSDC center alias" : [ {
-      "text" : "LAQV-REQUIMTE"
+      "value" : "LAQV-REQUIMTE"
     } ],
     "INSDC center name" : [ {
-      "text" : "LAQV-REQUIMTE"
+      "value" : "LAQV-REQUIMTE"
     } ],
     "INSDC first public" : [ {
-      "text" : "2019-10-26T04:03:17Z"
+      "value" : "2019-10-26T04:03:17Z"
     } ],
     "INSDC last update" : [ {
-      "text" : "2019-08-26T16:45:04Z"
+      "value" : "2019-08-26T16:45:04Z"
     } ],
     "INSDC status" : [ {
-      "text" : "public"
+      "value" : "public"
     } ],
     "Organism" : [ {
-      "text" : "Enterococcus faecalis",
+      "value" : "Enterococcus faecalis",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_1351" ]
     } ],
     "SRA accession" : [ {
-      "text" : "ERS3682795"
+      "value" : "ERS3682795"
     } ],
     "Title" : [ {
-      "text" : "vanB1 Enterococcus faecalis C2280"
+      "value" : "vanB1 Enterococcus faecalis C2280"
     } ],
     "isolate" : [ {
-      "text" : "Enterococcus faecalis C2280"
+      "value" : "Enterococcus faecalis C2280"
     } ],
     "receipt date" : [ {
-      "text" : "2004"
+      "value" : "2004"
     } ],
     "synonym" : [ {
-      "text" : "C2280E.faecalis"
+      "value" : "C2280E.faecalis"
     } ]
   }
 }

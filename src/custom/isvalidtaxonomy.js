@@ -24,7 +24,6 @@ module.exports = function isValidTaxonomy(ajv) {
             generateNotExistsErrorMessage();
           } else {
             let jsonBody = JSON.parse(body);
-            logger.log("debug", `Response JSON: ${JSON.stringify(jsonBody, null, 2)}`);
 
             if (jsonBody) {
               let numFound = jsonBody.length;

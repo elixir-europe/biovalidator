@@ -4,70 +4,70 @@
   "taxonId" : 9606,
   "attributes" : {
     "ENA checklist" : [ {
-      "text" : "ERC000016"
+      "value" : "ERC000016"
     } ],
     "INSDC center alias" : [ {
-      "text" : "SAHMRI"
+      "value" : "SAHMRI"
     } ],
     "INSDC center name" : [ {
-      "text" : "SAHMRI"
+      "value" : "SAHMRI"
     } ],
     "INSDC first public" : [ {
-      "text" : "2018-06-22T17:01:54Z"
+      "value" : "2018-06-22T17:01:54Z"
     } ],
     "INSDC last update" : [ {
-      "text" : "2018-04-23T00:20:19Z"
+      "value" : "2018-04-23T00:20:19Z"
     } ],
     "INSDC status" : [ {
-      "text" : "public"
+      "value" : "public"
     } ],
     "SRA accession" : [ {
-      "text" : "ERS2419807"
+      "value" : "ERS2419807"
     } ],
     "alias" : [ {
-      "text" : "107"
+      "value" : "107"
     } ],
     "collection date" : [ {
-      "text" : "2015"
+      "value" : "2015"
     } ],
     "environment (biome)" : [ {
-      "text" : "Sputum"
+      "value" : "Sputum"
     } ],
     "environment (feature)" : [ {
-      "text" : "Sputum"
+      "value" : "Sputum"
     } ],
     "environment (material)" : [ {
-      "text" : "Sputum"
+      "value" : "Sputum"
     } ],
     "geographic location (country and/or sea)" : [ {
-      "text" : "Australia"
+      "value" : "Australia"
     } ],
     "geographic location (latitude)" : [ {
-      "text" : "151.78 E",
+      "value" : "151.78 E",
       "units" : "DD"
     } ],
     "geographic location (longitude)" : [ {
-      "text" : "32.92 S",
+      "value" : "32.92 S",
       "units" : "DD"
     } ],
     "human oral environmental package" : [ {
-      "text" : "human-oral"
+      "value" : "human-oral"
     } ],
     "investigation type" : [ {
-      "text" : "metagenome"
+      "value" : "metagenome"
     } ],
     "organism" : [ {
-      "text" : "Homo sapiens",
+      "value" : "Homo sapiens",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_9606" ]
     } ],
     "sequencing method" : [ {
-      "text" : "Illumina Miseq"
+      "value" : "Illumina Miseq"
     } ],
     "synonym" : [ {
-      "text" : "107"
+      "value" : "107"
     } ],
     "title" : [ {
-      "text" : "AMAZES sputum 16s"
+      "value" : "AMAZES sputum 16s"
     } ]
   }
 }

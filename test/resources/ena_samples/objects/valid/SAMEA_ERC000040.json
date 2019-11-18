@@ -4,76 +4,76 @@
   "taxonId" : 256318,
   "attributes" : {
     "Alias" : [ {
-      "text" : "A3_UZ-CC_PMFC3_MS100"
+      "value" : "A3_UZ-CC_PMFC3_MS100"
     } ],
     "Description" : [ {
-      "text" : "Samples were in form of 3ml biomass pellet with high salt concentration(6 g/L) that had been used as anode material of flate plate plant microbial fuel cell(plant-MFC). The biomass pellets were either marine sediment only, a mixture of marine sediment with activated carbon or both combination with plant roots. First, The flat plate MFC reactors were operated without plants for 160 days (21 October 2016 until 4 April 2017).On day 160, plants (Spartina anglica) were transplanted into the anode of the flat plate MFC. Therefore, the systems were called plant-MFC. The plant-MFCs were operated for 190 days (4 April 2017 until 10 October 2017).After 190 day operation with plants(10 October 2017), the biomass samples were collected for the DNA extraction. The samples were stored immediately in -80 centigrade freezer after collection before the DNA sequencing was performed. Common cordgrass (Spartina anglica) and the marine sediment were collected from a tidal area wetland at Krabbendijke, The Netherlands (51.446710N, 4.093149E). Sediment was collected on 20 May 2016. The plants were collected on 5 March 2017. The utilized AC is granular activated carbon PK 1-3(Cabot Norit Netherlands BV, with apparent density of 290 g/L)"
+      "value" : "Samples were in form of 3ml biomass pellet with high salt concentration(6 g/L) that had been used as anode material of flate plate plant microbial fuel cell(plant-MFC). The biomass pellets were either marine sediment only, a mixture of marine sediment with activated carbon or both combination with plant roots. First, The flat plate MFC reactors were operated without plants for 160 days (21 October 2016 until 4 April 2017).On day 160, plants (Spartina anglica) were transplanted into the anode of the flat plate MFC. Therefore, the systems were called plant-MFC. The plant-MFCs were operated for 190 days (4 April 2017 until 10 October 2017).After 190 day operation with plants(10 October 2017), the biomass samples were collected for the DNA extraction. The samples were stored immediately in -80 centigrade freezer after collection before the DNA sequencing was performed. Common cordgrass (Spartina anglica) and the marine sediment were collected from a tidal area wetland at Krabbendijke, The Netherlands (51.446710N, 4.093149E). Sediment was collected on 20 May 2016. The plants were collected on 5 March 2017. The utilized AC is granular activated carbon PK 1-3(Cabot Norit Netherlands BV, with apparent density of 290 g/L)"
     } ],
     "ENA checklist" : [ {
-      "text" : "ERC000040"
+      "value" : "ERC000040"
     } ],
     "INSDC center alias" : [ {
-      "text" : "WAGENINGEN UNIVERSITY"
+      "value" : "WAGENINGEN UNIVERSITY"
     } ],
     "INSDC center name" : [ {
-      "text" : "WAGENINGEN UNIVERSITY"
+      "value" : "WAGENINGEN UNIVERSITY"
     } ],
     "INSDC first public" : [ {
-      "text" : "2019-10-08T17:04:25Z"
+      "value" : "2019-10-08T17:04:25Z"
     } ],
     "INSDC last update" : [ {
-      "text" : "2019-08-09T11:49:28Z"
+      "value" : "2019-08-09T11:49:28Z"
     } ],
     "INSDC status" : [ {
-      "text" : "public"
+      "value" : "public"
     } ],
     "Organism" : [ {
-      "text" : "metagenome",
+      "value" : "metagenome",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_256318" ]
     } ],
     "SRA accession" : [ {
-      "text" : "ERS3647487"
+      "value" : "ERS3647487"
     } ],
     "Title" : [ {
-      "text" : "Biomass pellet from upper-zone current collector Plant-MFC 3 with 100% marine sediment anode material"
+      "value" : "Biomass pellet from upper-zone current collector Plant-MFC 3 with 100% marine sediment anode material"
     } ],
     "collection date" : [ {
-      "text" : "2017-10-10"
+      "value" : "2017-10-10"
     } ],
     "environment (biome)" : [ {
-      "text" : "Marine sediment and plant was from Marshes area as described in the sample description"
+      "value" : "Marine sediment and plant was from Marshes area as described in the sample description"
     } ],
     "environment (feature)" : [ {
-      "text" : "Sample was taken from plant-MFC reactor operated in the dark and light ratio of 10:14 h within a climate chamber (Microclima 1750, Snijders Scientific, Tilburg, Netherlands) at 250C and humidity of 70%. The average photosynthetically active radiation (PAR) light intensity was was 470.4±12.14 µmol s-1 m-2."
+      "value" : "Sample was taken from plant-MFC reactor operated in the dark and light ratio of 10:14 h within a climate chamber (Microclima 1750, Snijders Scientific, Tilburg, Netherlands) at 250C and humidity of 70%. The average photosynthetically active radiation (PAR) light intensity was was 470.4±12.14 µmol s-1 m-2."
     } ],
     "environment (material)" : [ {
-      "text" : "marine sediment"
+      "value" : "marine sediment"
     } ],
     "environmental_sample" : [ {
-      "text" : "Yes"
+      "value" : "Yes"
     } ],
     "geographic location (country and/or sea)" : [ {
-      "text" : "Netherlands"
+      "value" : "Netherlands"
     } ],
     "geographic location (latitude)" : [ {
-      "text" : "51.986068",
+      "value" : "51.986068",
       "units" : "DD"
     } ],
     "geographic location (longitude)" : [ {
-      "text" : "5.658955",
+      "value" : "5.658955",
       "units" : "DD"
     } ],
     "pcr primers" : [ {
-      "text" : "The extracted DNA was quantified using Qubit® and diluted to 5 ng/μl as the final template DNA concentration for PCRs. The V3-V4 regions of 16s rDNA from the isolated DNA (template DNA) was amplified using the primer sets provided by Takahashi et al which allowing simultaneous amplification of bacterial and archaean 16s rDNA. The illumina library generation methods were subsequently used to generate DNA sequence data."
+      "value" : "The extracted DNA was quantified using Qubit® and diluted to 5 ng/μl as the final template DNA concentration for PCRs. The V3-V4 regions of 16s rDNA from the isolated DNA (template DNA) was amplified using the primer sets provided by Takahashi et al which allowing simultaneous amplification of bacterial and archaean 16s rDNA. The illumina library generation methods were subsequently used to generate DNA sequence data."
     } ],
     "synonym" : [ {
-      "text" : "A3_UZ-CC_PMFC3_MS100"
+      "value" : "A3_UZ-CC_PMFC3_MS100"
     } ],
     "target gene" : [ {
-      "text" : "16 s rDNA"
+      "value" : "16 s rDNA"
     } ],
     "target subfragment" : [ {
-      "text" : "V3-V4 regions of 16s rDNA"
+      "value" : "V3-V4 regions of 16s rDNA"
     } ]
   }
 }

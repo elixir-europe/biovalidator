@@ -4,104 +4,104 @@
   "taxonId" : 6216,
   "attributes" : {
     "ENA checklist" : [ {
-      "text" : "ERC000039"
+      "value" : "ERC000039"
     } ],
     "INSDC center alias" : [ {
-      "text" : "UNIVERSITY OF WARMIA AND MAZURY"
+      "value" : "UNIVERSITY OF WARMIA AND MAZURY"
     } ],
     "INSDC center name" : [ {
-      "text" : "UNIVERSITY OF WARMIA AND MAZURY"
+      "value" : "UNIVERSITY OF WARMIA AND MAZURY"
     } ],
     "INSDC first public" : [ {
-      "text" : "2019-02-18T17:05:12Z"
+      "value" : "2019-02-18T17:05:12Z"
     } ],
     "INSDC last update" : [ {
-      "text" : "2019-01-28T08:30:53Z"
+      "value" : "2019-01-28T08:30:53Z"
     } ],
     "INSDC status" : [ {
-      "text" : "public"
+      "value" : "public"
     } ],
     "SRA accession" : [ {
-      "text" : "ERS3052629"
+      "value" : "ERS3052629"
     } ],
     "alias" : [ {
-      "text" : "PET1"
+      "value" : "PET1"
     } ],
     "annotated by" : [ {
-      "text" : "Lukasz Paukszto, Karol G. Makowczenko, Jan P. Jastrzebski"
+      "value" : "Lukasz Paukszto, Karol G. Makowczenko, Jan P. Jastrzebski"
     } ],
     "assembled by" : [ {
-      "text" : "Wiktor Kuśmirek, Robert Nowak"
+      "value" : "Wiktor Kuśmirek, Robert Nowak"
     } ],
     "collecting institution" : [ {
-      "text" : "Department of General Biology and Parasitology, Medical University of Warsaw"
+      "value" : "Department of General Biology and Parasitology, Medical University of Warsaw"
     } ],
     "collection date" : [ {
-      "text" : "2017-05-20"
+      "value" : "2017-05-20"
     } ],
     "collector name" : [ {
-      "text" : "Ruslan Salamatin, Daniel Mlocicki"
+      "value" : "Ruslan Salamatin, Daniel Mlocicki"
     } ],
     "diagnostic method" : [ {
-      "text" : "dissection"
+      "value" : "dissection"
     } ],
     "genotype" : [ {
-      "text" : "WMS-il1 (inbred isolate)"
+      "value" : "WMS-il1 (inbred isolate)"
     } ],
     "geographic location (country and/or sea)" : [ {
-      "text" : "Poland"
+      "value" : "Poland"
     } ],
     "geographic location (latitude)" : [ {
-      "text" : "52.229676",
+      "value" : "52.229676",
       "units" : "DD"
     } ],
     "geographic location (longitude)" : [ {
-      "text" : "21.012229",
+      "value" : "21.012229",
       "units" : "DD"
     } ],
     "host age" : [ {
-      "text" : "1",
+      "value" : "1",
       "units" : "year"
     } ],
     "host common name" : [ {
-      "text" : "rat"
+      "value" : "rat"
     } ],
     "host disease outcome" : [ {
-      "text" : "recovered"
+      "value" : "recovered"
     } ],
     "host health state" : [ {
-      "text" : "diseased"
+      "value" : "diseased"
     } ],
     "host scientific name" : [ {
-      "text" : "Rattus norvegicus",
+      "value" : "Rattus norvegicus",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_10116" ]
     } ],
     "host sex" : [ {
-      "text" : "male",
+      "value" : "male",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/PATO_0000384" ]
     } ],
     "isolate" : [ {
-      "text" : "laboratory inbred isolate"
+      "value" : "laboratory inbred isolate"
     } ],
     "isolation source host associated" : [ {
-      "text" : "small intestine",
+      "value" : "small intestine",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/UBERON_0002108" ]
     } ],
     "known pathogenicity" : [ {
-      "text" : "low pathogenic"
+      "value" : "low pathogenic"
     } ],
     "organism" : [ {
-      "text" : "Hymenolepis diminuta",
+      "value" : "Hymenolepis diminuta",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_6216" ]
     } ],
     "strain" : [ {
-      "text" : "WMS-il1"
+      "value" : "WMS-il1"
     } ],
     "synonym" : [ {
-      "text" : "PET1"
+      "value" : "PET1"
     } ],
     "title" : [ {
-      "text" : "HiSeq1500 paired-end raw reads of Hymenolepis diminuta (host: rat)"
+      "value" : "HiSeq1500 paired-end raw reads of Hymenolepis diminuta (host: rat)"
     } ]
   }
 }

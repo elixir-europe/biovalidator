@@ -4,67 +4,67 @@
   "taxonId" : 9606,
   "attributes" : {
     "ENA checklist" : [ {
-      "text" : "ERC000018"
+      "value" : "ERC000018"
     } ],
     "INSDC center name" : [ {
-      "text" : "UNIVERSITY OF CAPE TOWN"
+      "value" : "UNIVERSITY OF CAPE TOWN"
     } ],
     "INSDC first public" : [ {
-      "text" : "2016-11-22T17:01:19Z"
+      "value" : "2016-11-22T17:01:19Z"
     } ],
     "INSDC last update" : [ {
-      "text" : "2016-10-21T09:38:49Z"
+      "value" : "2016-10-21T09:38:49Z"
     } ],
     "INSDC status" : [ {
-      "text" : "public"
+      "value" : "public"
     } ],
     "SRA accession" : [ {
-      "text" : "ERS1362218"
+      "value" : "ERS1362218"
     } ],
     "alias" : [ {
-      "text" : "SW100"
+      "value" : "SW100"
     } ],
     "collection date" : [ {
-      "text" : "2014-06"
+      "value" : "2014-06"
     } ],
     "environment (biome)" : [ {
-      "text" : "human-associated habitat"
+      "value" : "human-associated habitat"
     } ],
     "environment (feature)" : [ {
-      "text" : "vaginal"
+      "value" : "vaginal"
     } ],
     "environment (material)" : [ {
-      "text" : "vaginal swabs"
+      "value" : "vaginal swabs"
     } ],
     "geographic location (country and/or sea)" : [ {
-      "text" : "South Africa"
+      "value" : "South Africa"
     } ],
     "geographic location (latitude)" : [ {
-      "text" : "27.8540 E",
+      "value" : "27.8540 E",
       "units" : "DD"
     } ],
     "geographic location (longitude)" : [ {
-      "text" : "26.2485 S",
+      "value" : "26.2485 S",
       "units" : "DD"
     } ],
     "human vaginal environmental package" : [ {
-      "text" : "human-vaginal"
+      "value" : "human-vaginal"
     } ],
     "investigation type" : [ {
-      "text" : "mimarks-survey"
+      "value" : "mimarks-survey"
     } ],
     "organism" : [ {
-      "text" : "Homo sapiens",
+      "value" : "Homo sapiens",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_9606" ]
     } ],
     "sequencing method" : [ {
-      "text" : "Illumina MiSeq"
+      "value" : "Illumina MiSeq"
     } ],
     "synonym" : [ {
-      "text" : "SW100"
+      "value" : "SW100"
     } ],
     "title" : [ {
-      "text" : "Human vaginal microbiome"
+      "value" : "Human vaginal microbiome"
     } ]
   }
 }

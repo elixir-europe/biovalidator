@@ -4,111 +4,111 @@
   "taxonId" : 198431,
   "attributes" : {
     "Alias" : [ {
-      "text" : "AH-287-A01"
+      "value" : "AH-287-A01"
     } ],
     "Description" : [ {
-      "text" : "SAG AH-287-A01"
+      "value" : "SAG AH-287-A01"
     } ],
     "ENA checklist" : [ {
-      "text" : "ERC000048"
+      "value" : "ERC000048"
     } ],
     "INSDC center alias" : [ {
-      "text" : "WOODS HOLE OCEANOGRAPHIC INSTITUTION"
+      "value" : "WOODS HOLE OCEANOGRAPHIC INSTITUTION"
     } ],
     "INSDC center name" : [ {
-      "text" : "WOODS HOLE OCEANOGRAPHIC INSTITUTION"
+      "value" : "WOODS HOLE OCEANOGRAPHIC INSTITUTION"
     } ],
     "INSDC first public" : [ {
-      "text" : "2019-10-26T04:04:55Z"
+      "value" : "2019-10-26T04:04:55Z"
     } ],
     "INSDC last update" : [ {
-      "text" : "2019-10-14T03:54:43Z"
+      "value" : "2019-10-14T03:54:43Z"
     } ],
     "INSDC status" : [ {
-      "text" : "public"
+      "value" : "public"
     } ],
     "Organism" : [ {
-      "text" : "uncultured prokaryote",
+      "value" : "uncultured prokaryote",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_198431" ]
     } ],
     "SRA accession" : [ {
-      "text" : "ERS3868792"
+      "value" : "ERS3868792"
     } ],
     "Title" : [ {
-      "text" : "AH-287-A01"
+      "value" : "AH-287-A01"
     } ],
     "WGA amplification approach" : [ {
-      "text" : "mda based"
+      "value" : "mda based"
     } ],
     "assembly quality" : [ {
-      "text" : "Many fragments with little to no review of assembly other than reporting of standard assembly statistics"
+      "value" : "Many fragments with little to no review of assembly other than reporting of standard assembly statistics"
     } ],
     "assembly software" : [ {
-      "text" : "SPAdes;3,9.0; kmer set 21, 33, 55"
+      "value" : "SPAdes;3,9.0; kmer set 21, 33, 55"
     } ],
     "collection_date" : [ {
-      "text" : "2007-04-23"
+      "value" : "2007-04-23"
     } ],
     "completeness score" : [ {
-      "text" : "67",
+      "value" : "67",
       "units" : "%"
     } ],
     "completeness software" : [ {
-      "text" : "checkM"
+      "value" : "checkM"
     } ],
     "contamination score" : [ {
-      "text" : "0",
+      "value" : "0",
       "units" : "%"
     } ],
     "environment (biome)" : [ {
-      "text" : "marine"
+      "value" : "marine"
     } ],
     "environment (feature)" : [ {
-      "text" : "marine layer"
+      "value" : "marine layer"
     } ],
     "environment (material)" : [ {
-      "text" : "marine photic zone"
+      "value" : "marine photic zone"
     } ],
     "geographic location (country and/or sea)" : [ {
-      "text" : "not applicable"
+      "value" : "not applicable"
     } ],
     "geographic location (latitude)" : [ {
-      "text" : "-3.04",
+      "value" : "-3.04",
       "units" : "DD"
     } ],
     "geographic location (longitude)" : [ {
-      "text" : "-166.01",
+      "value" : "-166.01",
       "units" : "DD"
     } ],
     "investigation type" : [ {
-      "text" : "single amplified genome"
+      "value" : "single amplified genome"
     } ],
     "isolation_source" : [ {
-      "text" : "marine water"
+      "value" : "marine water"
     } ],
     "metagenomic source" : [ {
-      "text" : "marine metagenome"
+      "value" : "marine metagenome"
     } ],
     "project name" : [ {
-      "text" : "Harnessing the complexity of the marine microbiome through single cell genomics"
+      "value" : "Harnessing the complexity of the marine microbiome through single cell genomics"
     } ],
     "sample derived from" : [ {
-      "text" : "ERS3555736"
+      "value" : "ERS3555736"
     } ],
     "sequencing method" : [ {
-      "text" : "Illumina"
+      "value" : "Illumina"
     } ],
     "single cell or viral particle lysis approach" : [ {
-      "text" : "chemical"
+      "value" : "chemical"
     } ],
     "sorting technology" : [ {
-      "text" : "flow cytometric cell sorting"
+      "value" : "flow cytometric cell sorting"
     } ],
     "synonym" : [ {
-      "text" : "AH-287-A01"
+      "value" : "AH-287-A01"
     } ],
     "taxonomic identity marker" : [ {
-      "text" : "16S rRNA gene"
+      "value" : "16S rRNA gene"
     } ]
   }
 }

@@ -1,0 +1,821 @@
+{
+   "required" : [
+      "attributes"
+   ],
+   "version" : "1.0.0",
+   "type" : "object",
+   "$id" : "ERC000050",
+   "$async" : true,
+   "$schema" : "http://json-schema.org/draft-07/schema#",
+   "description" : "Minimum information to standardise metadata of binned metagenome samples. Ensures binned and MAG metagenome assembly metadata is compatible.",
+   "properties" : {
+      "attributes" : {
+         "required" : [
+            "project name",
+            "sequencing method",
+            "assembly software",
+            "binning software",
+            "investigation type",
+            "binning parameters",
+            "isolation_source",
+            "collection date",
+            "geographic location (country and/or sea)",
+            "geographic location (latitude)",
+            "geographic location (longitude)",
+            "environment (biome)",
+            "environment (feature)",
+            "environment (material)",
+            "sample derived from",
+            "metagenomic source"
+         ],
+         "properties" : {
+            "taxonomic classification" : {
+               "description" : "Method used for taxonomic classification, along with reference database used, classification rank, and thresholds used to classify new genomes. Expected values are: classification method, database name, and other parameters e.g. vConTACT vContact2 (references from NCBI RefSeq v83, genus rank classification, default parameters)",
+               "maxItems" : 1,
+               "items" : {}
+            },
+            "tRNA extraction software" : {
+               "description" : "Tools used for tRNA identification. Add names and versions of software(s), parameters used",
+               "maxItems" : 1,
+               "items" : {}
+            },
+            "binning parameters" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "The parameters that have been applied during the extraction of genomes from metagenomic datasets e.g. coverage and kmer"
+            },
+            "sequencing method" : {
+               "description" : "Sequencing method used; e.g. Sanger, pyrosequencing, ABI-solid",
+               "maxItems" : 1,
+               "items" : {}
+            },
+            "completeness approach" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "The approach used to determine the completeness of a given bin, SAG or MAG, which would typically make use of a set of conserved marker genes or a closely related reference genome. For UViG completeness, include reference genome or group used, and contig feature suggesting a complete genome"
+            },
+            "library reads sequenced" : {
+               "maxItems" : 1,
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "[+-]?[0-9]+"
+                     }
+                  }
+               },
+               "description" : "Total number of clones sequenced from the library"
+            },
+            "completeness software" : {
+               "description" : "Tools used for completion estimate, i.e. checkm, anvi'o, busco",
+               "maxItems" : 1,
+               "items" : {}
+            },
+            "environment (feature)" : {
+               "description" : "Environmental feature level includes geographic environmental features. Compared to biome, feature is a descriptor of the more local environment. Examples include: harbor, cliff, or lake. EnvO (v 2013-06-14) terms can be found via the link: www.environmentontology.org/Browse-EnvO",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "project name" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "Name of the project within which the sequencing was organized"
+            },
+            "geographic location (elevation)" : {
+               "description" : "The elevation of the sampling site as measured by the vertical distance from mean sea level.",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "[+-]?(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  },
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "maxItems" : 1
+            },
+            "16S recovery software" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "Tools used for 16S rRNA gene extraction. Add names and versions of software(s), parameters used"
+            },
+            "contamination screening parameters" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "Specific parameters used in the decontamination sofware, such as reference database, coverage, and kmers. Combinations of these parameters may also be used, i.e. kmer and coverage, or reference database and kmer"
+            },
+            "sample derived from" : {
+               "description" : "Reference to parental sample(s) or original run(s) that the assembly is derived from. The referenced samples or runs should already be registered in INSDC. This should be formatted as one of the following. A single sample/run e.g. ERSxxxxxx OR a comma separated list e.g. ERSxxxxxx,ERSxxxxxx OR a range e.g. ERSxxxxxx-ERSxxxxxx",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(^[ESD]R[SR]\\d{6,}(,[ESD]R[SR]\\d{6,})*$)|(^SAM[END][AG]?\\d+(,SAM[END][AG]?\\d+)*$)|(^EGA[NR]\\d{11}(,EGA[NR]\\d{11})*$)|(^[ESD]R[SR]\\d{6,}-[ESD]R[SR]\\d{6,}$)|(^SAM[END][AG]?\\d+-SAM[END][AG]?\\d+$)|(^EGA[NR]\\d{11}-EGA[NR]\\d{11}$)"
+                     }
+                  }
+               },
+               "maxItems" : 1
+            },
+            "environment (material)" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "The environmental material level refers to the material that was displaced by the sample, or material in which a sample was embedded, prior to the sampling event. Environmental material terms are generally mass nouns. Examples include: air, soil, or water. EnvO (v 2013-06-14) terms can be found via the link: www.environmentontology.org/Browse-EnvO"
+            },
+            "reassembly post binning" : {
+               "description" : "Has an assembly been performed on a genome bin extracted from a metagenomic assembly?",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "No",
+                           "Yes"
+                        ]
+                     }
+                  }
+               },
+               "maxItems" : 1
+            },
+            "taxonomic identity marker" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "The phylogenetic marker(s) used to assign an organism name to the bin, SAG or MAG. Examples are 16S gene, multi-marker approach or other e.g. rpoB gene"
+            },
+            "relevant electronic resources" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "-"
+            },
+            "contamination screening input" : {
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "contigs",
+                           "reads"
+                        ]
+                     }
+                  }
+               },
+               "maxItems" : 1,
+               "description" : "The type of sequence data used as input"
+            },
+            "geographic location (country and/or sea)" : {
+               "description" : "The geographical origin of the sample as defined by the country or sea. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html).",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "Afghanistan",
+                           "Albania",
+                           "Algeria",
+                           "American Samoa",
+                           "Andorra",
+                           "Angola",
+                           "Anguilla",
+                           "Antarctica",
+                           "Antigua and Barbuda",
+                           "Arctic Ocean",
+                           "Argentina",
+                           "Armenia",
+                           "Aruba",
+                           "Ashmore and Cartier Islands",
+                           "Atlantic Ocean",
+                           "Australia",
+                           "Austria",
+                           "Azerbaijan",
+                           "Bahamas",
+                           "Bahrain",
+                           "Baker Island",
+                           "Baltic Sea",
+                           "Bangladesh",
+                           "Barbados",
+                           "Bassas da India",
+                           "Belarus",
+                           "Belgium",
+                           "Belize",
+                           "Benin",
+                           "Bermuda",
+                           "Bhutan",
+                           "Bolivia",
+                           "Borneo",
+                           "Bosnia and Herzegovina",
+                           "Botswana",
+                           "Bouvet Island",
+                           "Brazil",
+                           "British Virgin Islands",
+                           "Brunei",
+                           "Bulgaria",
+                           "Burkina Faso",
+                           "Burundi",
+                           "Cambodia",
+                           "Cameroon",
+                           "Canada",
+                           "Cape Verde",
+                           "Cayman Islands",
+                           "Central African Republic",
+                           "Chad",
+                           "Chile",
+                           "China",
+                           "Christmas Island",
+                           "Clipperton Island",
+                           "Cocos Islands",
+                           "Colombia",
+                           "Comoros",
+                           "Cook Islands",
+                           "Coral Sea Islands",
+                           "Costa Rica",
+                           "Cote d'Ivoire",
+                           "Croatia",
+                           "Cuba",
+                           "Curacao",
+                           "Cyprus",
+                           "Czech Republic",
+                           "Democratic Republic of the Congo",
+                           "Denmark",
+                           "Djibouti",
+                           "Dominica",
+                           "Dominican Republic",
+                           "East Timor",
+                           "Ecuador",
+                           "Egypt",
+                           "El Salvador",
+                           "Equatorial Guinea",
+                           "Eritrea",
+                           "Estonia",
+                           "Ethiopia",
+                           "Europa Island",
+                           "Falkland Islands (Islas Malvinas)",
+                           "Faroe Islands",
+                           "Fiji",
+                           "Finland",
+                           "France",
+                           "French Guiana",
+                           "French Polynesia",
+                           "French Southern and Antarctic Lands",
+                           "Gabon",
+                           "Gambia",
+                           "Gaza Strip",
+                           "Georgia",
+                           "Germany",
+                           "Ghana",
+                           "Gibraltar",
+                           "Glorioso Islands",
+                           "Greece",
+                           "Greenland",
+                           "Grenada",
+                           "Guadeloupe",
+                           "Guam",
+                           "Guatemala",
+                           "Guernsey",
+                           "Guinea",
+                           "Guinea-Bissau",
+                           "Guyana",
+                           "Haiti",
+                           "Heard Island and McDonald Islands",
+                           "Honduras",
+                           "Hong Kong",
+                           "Howland Island",
+                           "Hungary",
+                           "Iceland",
+                           "India",
+                           "Indian Ocean",
+                           "Indonesia",
+                           "Iran",
+                           "Iraq",
+                           "Ireland",
+                           "Isle of Man",
+                           "Israel",
+                           "Italy",
+                           "Jamaica",
+                           "Jan Mayen",
+                           "Japan",
+                           "Jarvis Island",
+                           "Jersey",
+                           "Johnston Atoll",
+                           "Jordan",
+                           "Juan de Nova Island",
+                           "Kazakhstan",
+                           "Kenya",
+                           "Kerguelen Archipelago",
+                           "Kingman Reef",
+                           "Kiribati",
+                           "Kosovo",
+                           "Kuwait",
+                           "Kyrgyzstan",
+                           "Laos",
+                           "Latvia",
+                           "Lebanon",
+                           "Lesotho",
+                           "Liberia",
+                           "Libya",
+                           "Liechtenstein",
+                           "Lithuania",
+                           "Luxembourg",
+                           "Macau",
+                           "Macedonia",
+                           "Madagascar",
+                           "Malawi",
+                           "Malaysia",
+                           "Maldives",
+                           "Mali",
+                           "Malta",
+                           "Marshall Islands",
+                           "Martinique",
+                           "Mauritania",
+                           "Mauritius",
+                           "Mayotte",
+                           "Mediterranean Sea",
+                           "Mexico",
+                           "Micronesia",
+                           "Midway Islands",
+                           "Moldova",
+                           "Monaco",
+                           "Mongolia",
+                           "Montenegro",
+                           "Montserrat",
+                           "Morocco",
+                           "Mozambique",
+                           "Myanmar",
+                           "Namibia",
+                           "Nauru",
+                           "Navassa Island",
+                           "Nepal",
+                           "Netherlands",
+                           "New Caledonia",
+                           "New Zealand",
+                           "Nicaragua",
+                           "Niger",
+                           "Nigeria",
+                           "Niue",
+                           "Norfolk Island",
+                           "North Korea",
+                           "North Sea",
+                           "Northern Mariana Islands",
+                           "Norway",
+                           "Oman",
+                           "Pacific Ocean",
+                           "Pakistan",
+                           "Palau",
+                           "Palmyra Atoll",
+                           "Panama",
+                           "Papua New Guinea",
+                           "Paracel Islands",
+                           "Paraguay",
+                           "Peru",
+                           "Philippines",
+                           "Pitcairn Islands",
+                           "Poland",
+                           "Portugal",
+                           "Puerto Rico",
+                           "Qatar",
+                           "Republic of the Congo",
+                           "Reunion",
+                           "Romania",
+                           "Ross Sea",
+                           "Russia",
+                           "Rwanda",
+                           "Saint Helena",
+                           "Saint Kitts and Nevis",
+                           "Saint Lucia",
+                           "Saint Pierre and Miquelon",
+                           "Saint Vincent and the Grenadines",
+                           "Samoa",
+                           "San Marino",
+                           "Sao Tome and Principe",
+                           "Saudi Arabia",
+                           "Senegal",
+                           "Serbia",
+                           "Seychelles",
+                           "Sierra Leone",
+                           "Singapore",
+                           "Sint Maarten",
+                           "Slovakia",
+                           "Slovenia",
+                           "Solomon Islands",
+                           "Somalia",
+                           "South Africa",
+                           "South Georgia and the South Sandwich Islands",
+                           "South Korea",
+                           "Southern Ocean",
+                           "Spain",
+                           "Spratly Islands",
+                           "Sri Lanka",
+                           "Sudan",
+                           "Suriname",
+                           "Svalbard",
+                           "Swaziland",
+                           "Sweden",
+                           "Switzerland",
+                           "Syria",
+                           "Taiwan",
+                           "Tajikistan",
+                           "Tanzania",
+                           "Tasman Sea",
+                           "Thailand",
+                           "Togo",
+                           "Tokelau",
+                           "Tonga",
+                           "Trinidad and Tobago",
+                           "Tromelin Island",
+                           "Tunisia",
+                           "Turkey",
+                           "Turkmenistan",
+                           "Turks and Caicos Islands",
+                           "Tuvalu",
+                           "USA",
+                           "Uganda",
+                           "Ukraine",
+                           "United Arab Emirates",
+                           "United Kingdom",
+                           "Uruguay",
+                           "Uzbekistan",
+                           "Vanuatu",
+                           "Venezuela",
+                           "Viet Nam",
+                           "Virgin Islands",
+                           "Wake Island",
+                           "Wallis and Futuna",
+                           "West Bank",
+                           "Western Sahara",
+                           "Yemen",
+                           "Zambia",
+                           "Zimbabwe",
+                           "not applicable",
+                           "not collected",
+                           "not provided",
+                           "restricted access"
+                        ]
+                     }
+                  }
+               },
+               "maxItems" : 1
+            },
+            "sample collection device or method" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "The method or deviced employed for collecting the sample"
+            },
+            "source material identifiers" : {
+               "description" : "A unique identifier assigned to a material sample (as defined by http://rs.tdwg.org/dwc/terms/materialSampleID, and as opposed to a particular digital record of a material sample) used for extracting nucleic acids, and subsequent sequencing. The identifier can refer either to the original material collected or to any derived sub-samples. The INSDC qualifiers /specimen_voucher, /bio_material, or /culture_collection may or may not share the same value as the source_mat_id field. For instance, the /specimen_voucher qualifier and source_mat_id may both contain 'UAM:Herps:14' , referring to both the specimen voucher and sampled tissue with the same identifier. However, the /culture_collection qualifier may refer to a value from an initial culture (e.g. ATCC:11775) while source_mat_id would refer to an identifier from some derived culture from which the nucleic acids were extracted (e.g. xatc123 or ark:/2154/R2).",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "assembly software" : {
+               "description" : "Tool(s) used for assembly, including version number and parameters in the format {software};{version};{parameters} e.g. metaSPAdes;3.11.0;kmer set 21,33,55,77,99,121, default parameters otherwise",
+               "maxItems" : 1,
+               "items" : {}
+            },
+            "size fraction selected" : {
+               "description" : "Filtering pore size used in sample preparation e.g. 0-0.22 micrometer",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "library vector" : {
+               "description" : "Cloning vector type(s) used in construction of libraries",
+               "maxItems" : 1,
+               "items" : {}
+            },
+            "geographic location (longitude)" : {
+               "description" : "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(^.*[+-]?[0-9]+.?[0-9]*.*$)|(^not collected$)|(^not provided$)|(^restricted access$)"
+                     }
+                  }
+               },
+               "maxItems" : 1
+            },
+            "binning software" : {
+               "description" : "Tool(s) used for the extraction of genomes from metagenomic datasets e.g. concoct and maxbin",
+               "maxItems" : 1,
+               "items" : {}
+            },
+            "contamination score" : {
+               "description" : "The contamination score is based on the fraction of single-copy genes that are observed more than once in a query genome. Contamination score is one of 3 attributes which in combination reflect the standard quality of a MAG, see here for more information: https://ena-docs.readthedocs.io/en/latest/faq_metagenomes.html. If contamination ≥ 10% then please submit as a binned assembly.",
+               "maxItems" : 1,
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "^(\\d|[1-9]\\d|\\d\\.\\d{1,2}|[1-9]\\d\\.\\d{1,2}|100)$"
+                     }
+                  }
+               }
+            },
+            "relevant standard operating procedures" : {
+               "description" : "Standard operating procedures used in assembly and/or annotation of genomes, metagenomes or environmental sequences",
+               "maxItems" : 1,
+               "items" : {}
+            },
+            "library screening strategy" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "Specific enrichment or screening methods applied before and/or after creating clone libraries in order to select a specific group of sequences"
+            },
+            "geographic location (depth)" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  }
+               },
+               "maxItems" : 1,
+               "description" : "Depth is defined as the vertical distance below surface, e.g. for sediment or soil samples depth is measured from sediment or soil surface, respectivly. Depth can be reported as an interval for subsurface samples."
+            },
+            "investigation type" : {
+               "description" : "Nucleic Acid Sequence Report is the root element of all MIxS compliant reports as standardised by Genomic Standards Consortium",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "bacteria_archaea",
+                           "eukaryote",
+                           "metagenome",
+                           "metagenome-assembled genome",
+                           "metatranscriptome",
+                           "mimarks-specimen",
+                           "mimarks-survey",
+                           "organelle",
+                           "plasmid",
+                           "single amplified genome",
+                           "uncultivated viral genomes",
+                           "virus"
+                        ]
+                     }
+                  }
+               },
+               "maxItems" : 1
+            },
+            "nucleic acid extraction" : {
+               "description" : "Link to a literature reference, electronic resource or a standard operating procedure (SOP)",
+               "maxItems" : 1,
+               "items" : {}
+            },
+            "number of standard tRNAs extracted" : {
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "[+-]?[0-9]+"
+                     }
+                  }
+               },
+               "maxItems" : 1,
+               "description" : "The total number of tRNAs identified from the bin, SAG or MAG"
+            },
+            "reference for biomaterial" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "Primary publication if isolated before genome publication; otherwise, primary genome report. Mandatory for MIGS of bacteria and archaea."
+            },
+            "metagenomic source" : {
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "isValidTaxonomy" : "true"
+                     }
+                  }
+               },
+               "maxItems" : 1,
+               "description" : "The metagenomic source of the sample. This value should contain “metagenome” and be in the taxonomy database e.g. wastewater metagenome or human gut metagenome. Please note “metagenome” alone will not be accepted. Check here for more details on metagenome taxonomy: https://ena-docs.readthedocs.io/en/latest/faq_taxonomy.html#environmental-taxonomic-classifications"
+            },
+            "isolation_source" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "describes the physical, environmental and/or local geographical source of the biological sample from which the sample was derived"
+            },
+            "amount or size of sample collected" : {
+               "description" : "Amount or size of sample (volume, mass or area) that was collected",
+               "maxItems" : 1,
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  },
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "experimental factor" : {
+               "description" : "Experimental factors are essentially the variable aspects of an experiment design which can be used to describe an experiment, or set of experiments, in an increasingly detailed manner. This field accepts ontology terms from Experimental Factor Ontology (EFO) and/or Ontology for Biomedical Investigations (OBI). For a browser of EFO (v 2.43) terms, please see http://purl.bioontology.org/ontology/EFO; for a browser of OBI (v 2013-10-25) terms please see http://purl.bioontology.org/ontology/OBI",
+               "maxItems" : 1,
+               "items" : {}
+            },
+            "library size" : {
+               "description" : "Total number of clones in the library prepared for the project",
+               "maxItems" : 1,
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "[+-]?[0-9]+"
+                     }
+                  }
+               }
+            },
+            "MAG coverage software" : {
+               "description" : "Tool(s) used to determine the genome coverage if coverage is used as a binning parameter in the extraction of genomes from metagenomic datasets e.g. bwa, bbmap, bowtie, other",
+               "maxItems" : 1,
+               "items" : {}
+            },
+            "geographic location (latitude)" : {
+               "description" : "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system",
+               "maxItems" : 1,
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(^.*[+-]?[0-9]+.?[0-9]*.*$)|(^not collected$)|(^not provided$)|(^restricted access$)"
+                     }
+                  }
+               }
+            },
+            "adapters" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters"
+            },
+            "16S recovered" : {
+               "description" : "Can a 16S gene be recovered from the submitted bin, SAG or MAG?",
+               "maxItems" : 1,
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "No",
+                           "Yes"
+                        ]
+                     }
+                  }
+               }
+            },
+            "sample material processing" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "Any processing applied to the sample during or after retrieving the sample from environment. This field accepts OBI, for a browser of OBI (v 2013-10-25) terms please see http://purl.bioontology.org/ontology/OBI"
+            },
+            "environment (biome)" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "Biomes are defined based on factors such as plant structures, leaf types, plant spacing, and other factors like climate. Biome should be treated as the descriptor of the broad ecological context of a sample. Examples include: desert, taiga, deciduous woodland, or coral reef. EnvO (v 2013-06-14) terms can be found via the link: www.environmentontology.org/Browse-EnvO"
+            },
+            "assembly quality" : {
+               "maxItems" : 1,
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "Many fragments with little to no review of assembly other than reporting of standard assembly statistics",
+                           "Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S, and 5S rRNA genes and at least 18 tRNAs",
+                           "Single contiguous sequence without gaps or ambiguities with a consensus error rate equivalent to Q50 or better"
+                        ]
+                     }
+                  }
+               },
+               "description" : "Assembly quality is one of 3 attributes which in combination reflect the standard quality of a MAG, see here for more information: https://ena-docs.readthedocs.io/en/latest/faq_metagenomes.html. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length."
+            },
+            "completeness score" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "^(\\d|[1-9]\\d|\\d\\.\\d{1,2}|[1-9]\\d\\.\\d{1,2}|100)$"
+                     }
+                  }
+               },
+               "maxItems" : 1,
+               "description" : "Completeness score is typically based on either the fraction of markers found as compared to a database or the percent of a genome found as compared to a closely related reference genome. Completeness score is one of 3 attributes which in combination reflect the standard quality of a MAG, see here for more information: https://ena-docs.readthedocs.io/en/latest/faq_metagenomes.html."
+            },
+            "geographic location (altitude)" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  }
+               },
+               "maxItems" : 1,
+               "description" : "The altitude of the sample is the vertical distance between Earth's surface above Sea Level and the sampled position in the air."
+            },
+            "relationship to oxygen" : {
+               "maxItems" : 1,
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "aerobe",
+                           "anaerobe",
+                           "facultative",
+                           "microaerophilic",
+                           "microanaerobe",
+                           "obligate aerobe",
+                           "obligate anaerobe"
+                        ]
+                     }
+                  }
+               },
+               "description" : "Is this organism an aerobe, anaerobe? Please note that aerobic and anaerobic are valid descriptors for microbial environments"
+            },
+            "multiplex identifiers" : {
+               "description" : "Molecular barcodes, called Multiplex Identifiers (MIDs), that are used to specifically tag unique samples in a sequencing run. Sequence should be reported in uppercase letters",
+               "maxItems" : 1,
+               "items" : {}
+            },
+            "collection date" : {
+               "maxItems" : 1,
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(^[0-9]{4}(-[0-9]{2}(-[0-9]{2}(T[0-9]{2}:[0-9]{2}(:[0-9]{2})?Z?([+-][0-9]{1,2})?)?)?)?(/[0-9]{4}(-[0-9]{2}(-[0-9]{2}(T[0-9]{2}:[0-9]{2}(:[0-9]{2})?Z?([+-][0-9]{1,2})?)?)?)?)?$)|(^not collected$)|(^not provided$)|(^restricted access$)"
+                     }
+                  }
+               },
+               "description" : "The date of sampling, either as an instance (single point in time) or interval. In case no exact time is available, the date/time can be right truncated i.e. all of these are valid ISO8601 compliant times: 2008-01-23T19:23:10+00:00; 2008-01-23T19:23:10; 2008-01-23; 2008-01; 2008."
+            },
+            "decontamination software" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "Tool(s) used in contamination screening"
+            },
+            "nucleic acid amplification" : {
+               "description" : "Link to a literature reference, electronic resource or a standard operating procedure (SOP)",
+               "maxItems" : 1,
+               "items" : {}
+            }
+         }
+      }
+   },
+   "title" : "ENA binned metagenome",
+   "author" : "ENA",
+   "definitions" : {
+      "attribute" : {
+         "items" : {
+            "required" : [
+               "value"
+            ],
+            "properties" : {
+               "terms" : {
+                  "$ref" : "#/definitions/terms"
+               },
+               "units" : {
+                  "type" : "string",
+                  "minLength" : 1
+               },
+               "value" : {
+                  "minLength" : 1,
+                  "type" : "string"
+               }
+            }
+         },
+         "minItems" : 1,
+         "type" : "array"
+      },
+      "terms" : {
+         "type" : "array",
+         "items" : {
+            "type" : "object",
+            "required" : [
+               "url"
+            ],
+            "properties" : {
+               "url" : {
+                  "type" : "string",
+                  "format" : "uri"
+               }
+            }
+         }
+      },
+      "properties" : {
+         "attributes" : {
+            "description" : "Attributes for describing a sample.",
+            "properties" : {},
+            "patternProperties" : {
+               "^.*$" : {
+                  "$ref" : "#/definitions/attribute"
+               }
+            },
+            "type" : "object",
+            "required" : []
+         }
+      }
+   }
+}

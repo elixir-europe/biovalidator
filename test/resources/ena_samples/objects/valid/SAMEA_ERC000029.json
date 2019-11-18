@@ -4,68 +4,68 @@
   "taxonId" : 485,
   "attributes" : {
     "ENA checklist" : [ {
-      "text" : "ERC000029"
+      "value" : "ERC000029"
     } ],
     "INSDC center name" : [ {
-      "text" : "GH St Louis-Lariboisiere"
+      "value" : "GH St Louis-Lariboisiere"
     } ],
     "INSDC first public" : [ {
-      "text" : "2016-09-23T17:01:33Z"
+      "value" : "2016-09-23T17:01:33Z"
     } ],
     "INSDC last update" : [ {
-      "text" : "2016-09-23T12:02:52Z"
+      "value" : "2016-09-23T12:02:52Z"
     } ],
     "INSDC status" : [ {
-      "text" : "public"
+      "value" : "public"
     } ],
     "SRA accession" : [ {
-      "text" : "ERS1362324"
+      "value" : "ERS1362324"
     } ],
     "alias" : [ {
-      "text" : "F89"
+      "value" : "F89"
     } ],
     "collected_by" : [ {
-      "text" : "RENAGO network"
+      "value" : "RENAGO network"
     } ],
     "collection date" : [ {
-      "text" : "2010"
+      "value" : "2010"
     } ],
     "environmental_sample" : [ {
-      "text" : "No"
+      "value" : "No"
     } ],
     "geographic location (country and/or sea)" : [ {
-      "text" : "France"
+      "value" : "France"
     } ],
     "geographic location (latitude)" : [ {
-      "text" : "48.8321152",
+      "value" : "48.8321152",
       "units" : "DD"
     } ],
     "geographic location (longitude)" : [ {
-      "text" : "2.3388169",
+      "value" : "2.3388169",
       "units" : "DD"
     } ],
     "host health state" : [ {
-      "text" : "diseased"
+      "value" : "diseased"
     } ],
     "host scientific name" : [ {
-      "text" : "homo sapiens",
+      "value" : "homo sapiens",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_9606" ]
     } ],
     "Is the sequenced pathogen host associated?" : [ {
-      "text" : "Yes"
+      "value" : "Yes"
     } ],
     "isolate" : [ {
-      "text" : "mankind"
+      "value" : "mankind"
     } ],
     "organism" : [ {
-      "text" : "Neisseria gonorrhoeae",
+      "value" : "Neisseria gonorrhoeae",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_485" ]
     } ],
     "synonym" : [ {
-      "text" : "F89"
+      "value" : "F89"
     } ],
     "title" : [ {
-      "text" : "Neisseria gonorrhoeae"
+      "value" : "Neisseria gonorrhoeae"
     } ]
   }
 }
