@@ -4,84 +4,71 @@
   "taxonId" : 4058,
   "attributes" : {
     "ENA checklist" : [ {
-      "text" : "ERC000051"
+      "value" : "ERC000051"
     } ],
     "INSDC center alias" : [ {
-      "text" : "Universite-Francois-Rabelais"
+      "value" : "Universite-Francois-Rabelais"
     } ],
     "INSDC center name" : [ {
-      "text" : "Universite-Francois-Rabelais"
+      "value" : "Universite-Francois-Rabelais"
     } ],
     "INSDC first public" : [ {
-      "text" : "2017-12-31T17:02:39Z"
+      "value" : "2017-12-31T17:02:39Z"
     } ],
     "INSDC last update" : [ {
-      "text" : "2017-09-05T12:27:58Z"
+      "value" : "2017-09-05T12:27:58Z"
     } ],
     "INSDC status" : [ {
-      "text" : "public"
+      "value" : "public"
     } ],
     "SRA accession" : [ {
-      "text" : "ERS1907920"
+      "value" : "ERS1907920"
     } ],
     "alias" : [ {
-      "text" : "Root_AS1"
+      "value" : "Root_AS1"
     } ],
     "collection_date" : [ {
-      "text" : "2015"
-    } ],
-    "geographic location (country and/or sea)" : [ {
-      "text" : "France"
-    } ],
-    "geographic location (latitude)" : [ {
-      "text" : "47.3928",
-      "units" : "DD"
-    } ],
-    "geographic location (longitude)" : [ {
-      "text" : "0.683611",
-      "units" : "DD"
+      "value" : "2015"
     } ],
     "growth facility" : [ {
-      "text" : "glasshouse"
+      "value" : "glasshouse"
     } ],
     "isolation and growth condition" : [ {
-      "text" : "10.1038/srep40453"
+      "value" : "10.1038/srep40453"
     } ],
     "organism" : [ {
-      "text" : "Catharanthus roseus",
+      "value" : "Catharanthus roseus",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_4058" ]
     } ],
     "sample taxon name" : [ {
-      "text" : "Madgascar Periwinkle"
+      "value" : "Homo sapiens/Mus musculus xenograft"
     } ],
     "sample material" : [ {
-      "text" : "mat123"
+      "value" : "bone marrow aspirate"
     } ],
     "engrafted tumor sample passage" : [ {
-      "text" : "tum pass 123"
+      "value" : "tum pass 123"
     } ],
     "patient tumor site of collection" : [ {
-      "text" : "UK112233"
+      "value" : "http://purl.obolibrary.org/obo/NCIT_C12392"
     } ],
     "patient tumor type" : [ {
-      "text" : "Primary Neoplasm"
+      "value" : "Primary Neoplasm"
     } ],
     "sample unique ID" : [ {
-      "text" : "CRC000893839"
+      "value" : "CRC000893839"
     } ],
     "patient age at collection of tumor" : [ {
-      "text" : "77"
+      "value" : "77"
     } ],
     "patient tumor diagnosis at time of collection" : [ {
-      "text" : "Neoplasm",
-      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCIT_C3262" ]
+      "value" : "http://purl.obolibrary.org/obo/NCIT_C3262"
     } ],
     "patient tumor primary site" : [ {
-      "text" : "Not Available",
-      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCIT_C1262" ]
+      "value" : "http://purl.obolibrary.org/obo/NCIT_C12392"
     } ],
     "patient sex" : [ {
-      "text" : "Female"
+      "value" : "Female"
     } ]
   }
 }

@@ -4,74 +4,74 @@
   "taxonId" : 9606,
   "attributes" : {
     "ENA checklist" : [ {
-      "text" : "ERC000017"
+      "value" : "ERC000017"
     } ],
     "INSDC center alias" : [ {
-      "text" : "GENOME INSTITRUTE OF SINGAPORE"
+      "value" : "GENOME INSTITRUTE OF SINGAPORE"
     } ],
     "INSDC center name" : [ {
-      "text" : "GENOME INSTITRUTE OF SINGAPORE"
+      "value" : "GENOME INSTITRUTE OF SINGAPORE"
     } ],
     "INSDC first public" : [ {
-      "text" : "2017-12-29T17:02:48Z"
+      "value" : "2017-12-29T17:02:48Z"
     } ],
     "INSDC last update" : [ {
-      "text" : "2017-09-06T04:22:57Z"
+      "value" : "2017-09-06T04:22:57Z"
     } ],
     "INSDC status" : [ {
-      "text" : "public"
+      "value" : "public"
     } ],
     "SRA accession" : [ {
-      "text" : "ERS1908429"
+      "value" : "ERS1908429"
     } ],
     "alias" : [ {
-      "text" : "AHH21729"
+      "value" : "AHH21729"
     } ],
     "collection date" : [ {
-      "text" : "2016-01-01"
+      "value" : "2016-01-01"
     } ],
     "dermatology disorder" : [ {
-      "text" : "androgenetic alopecia"
+      "value" : "androgenetic alopecia"
     } ],
     "environment (biome)" : [ {
-      "text" : "human skin"
+      "value" : "human skin"
     } ],
     "environment (feature)" : [ {
-      "text" : "scalp"
+      "value" : "scalp"
     } ],
     "environment (material)" : [ {
-      "text" : "hair follicle",
+      "value" : "hair follicle",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/UBERON_0002073" ]
     } ],
     "geographic location (country and/or sea)" : [ {
-      "text" : "Singapore"
+      "value" : "Singapore"
     } ],
     "geographic location (latitude)" : [ {
-      "text" : "1.3667",
+      "value" : "1.3667",
       "units" : "DD"
     } ],
     "geographic location (longitude)" : [ {
-      "text" : "103.8",
+      "value" : "103.8",
       "units" : "DD"
     } ],
     "human skin environmental package" : [ {
-      "text" : "human-skin"
+      "value" : "human-skin"
     } ],
     "investigation type" : [ {
-      "text" : "metagenome"
+      "value" : "metagenome"
     } ],
     "organism" : [ {
-      "text" : "Homo sapiens",
+      "value" : "Homo sapiens",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_9606" ]
     } ],
     "sequencing method" : [ {
-      "text" : "illumina"
+      "value" : "illumina"
     } ],
     "synonym" : [ {
-      "text" : "AHH21729"
+      "value" : "AHH21729"
     } ],
     "title" : [ {
-      "text" : "hair follicle",
+      "value" : "hair follicle",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/UBERON_0002073" ]
     } ]
   }

@@ -1,25 +1,89 @@
 {
-   "type" : "object",
    "description" : "Minimum information to standardise metadata related to samples used in GMI PT (Global Microbial Identifier Proficiency Test). A checklist for reporting metadata of GMI PT samples associated with molecular data. This minimum metadata standard was developed by the COMPARE platform and can be used for submission of sample metadata derived from Campylobacter coli, Campylobacter jejuni, Listeria monocytogenes, Klebsiella pneumoniae, Salmonella enterica, Escherichia coli and Staphylococcus aureus.",
+   "author" : "ENA",
+   "required" : [
+      "attributes"
+   ],
+   "$async" : true,
+   "$id" : "ERC000041",
+   "definitions" : {
+      "terms" : {
+         "type" : "array",
+         "items" : {
+            "required" : [
+               "url"
+            ],
+            "properties" : {
+               "url" : {
+                  "type" : "string",
+                  "format" : "uri"
+               }
+            },
+            "type" : "object"
+         }
+      },
+      "properties" : {
+         "attributes" : {
+            "required" : [],
+            "description" : "Attributes for describing a sample.",
+            "patternProperties" : {
+               "^.*$" : {
+                  "$ref" : "#/definitions/attribute"
+               }
+            },
+            "type" : "object",
+            "properties" : {}
+         }
+      },
+      "attribute" : {
+         "type" : "array",
+         "items" : {
+            "required" : [
+               "value"
+            ],
+            "properties" : {
+               "terms" : {
+                  "$ref" : "#/definitions/terms"
+               },
+               "value" : {
+                  "minLength" : 1,
+                  "type" : "string"
+               },
+               "units" : {
+                  "minLength" : 1,
+                  "type" : "string"
+               }
+            }
+         },
+         "minItems" : 1
+      }
+   },
+   "version" : "1.0.0",
+   "title" : "ENA Global Microbial Identifier Proficiency Test (GMI PT) checklist",
    "properties" : {
       "attributes" : {
          "required" : [
             "isolate"
          ],
          "properties" : {
-            "library construction method" : {
+            "isolation_source" : {
+               "maxItems" : 1,
+               "description" : "describes the physical, environmental and/or local geographical source of the biological sample from which the sample was derived",
+               "items" : {}
+            },
+            "DNA concentration" : {
+               "maxItems" : 1,
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "DNA concentration used for sequencing in ng/µl"
+            },
+            "sample storage location" : {
                "maxItems" : 1,
                "items" : {},
-               "description" : "Library construction method used for clone libraries"
-            },
-            "read quality filter" : {
-               "items" : {},
-               "description" : "Programme used to filter reads quality before conducting the analysis"
-            },
-            "sub_species" : {
-               "description" : "name of sub-species of organism from which sample was obtained",
-               "items" : {},
-               "maxItems" : 1
+               "description" : "location at which sample was stored, usually name of a specific freezer/room"
             },
             "sample storage temperature" : {
                "maxItems" : 1,
@@ -27,87 +91,74 @@
                "items" : {
                   "required" : [
                      "units"
-                  ]
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "[+-]?(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  }
                }
             },
-            "geographic location (region and locality)" : {
+            "sampling time point" : {
                "maxItems" : 1,
                "items" : {},
-               "description" : "The geographical origin of the sample as defined by the specific region name followed by the locality name."
+               "description" : ""
             },
             "sample transportation temperature" : {
+               "maxItems" : 1,
                "items" : {
                   "required" : [
                      "units"
                   ]
                },
-               "description" : "transportation temperature from sample site to storage",
-               "maxItems" : 1
+               "description" : "transportation temperature from sample site to storage"
             },
-            "DNA concentration" : {
-               "items" : {
-                  "required" : [
-                     "units"
-                  ]
-               },
-               "description" : "DNA concentration used for sequencing in ng/�l",
-               "maxItems" : 1
-            },
-            "sample transportation time" : {
-               "description" : "transportation time from sample site to storage",
-               "items" : {},
-               "maxItems" : 1
-            },
-            "sample storage location" : {
+            "instrument for DNA concentration measurement" : {
                "maxItems" : 1,
-               "items" : {},
-               "description" : "location at which sample was stored, usually name of a specific freezer/room"
-            },
-            "links to additional analysis" : {
-               "items" : {},
-               "description" : "link to additional analysis results performed on the sample"
-            },
-            "collection_date" : {
-               "maxItems" : 1,
-               "description" : "date that the specimen was collected",
+               "description" : "Name/type of instrument used to measure the DNA concentration (ng/µl) prior to library preparation",
                "items" : {}
-            },
-            "isolate" : {
-               "maxItems" : 1,
-               "items" : {},
-               "description" : "individual isolate from which the sample was obtained"
             },
             "sample storage duration" : {
+               "maxItems" : 1,
                "items" : {
                   "required" : [
                      "units"
-                  ]
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  }
                },
-               "description" : "duration for which sample was stored",
-               "maxItems" : 1
+               "description" : "duration for which sample was stored"
             },
-            "geographic location (country and/or sea)" : {
+            "library construction method" : {
                "maxItems" : 1,
-               "description" : "The geographical origin of the sample as defined by the country or sea. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html).",
-               "items" : {}
-            },
-            "nucleic acid extraction" : {
-               "description" : "Link to a literature reference, electronic resource or a standard operating procedure (SOP)",
                "items" : {},
-               "maxItems" : 1
-            },
-            "Further Details" : {
-               "items" : {},
-               "description" : "Reference details related to a sample in form of an URI."
-            },
-            "protocol" : {
-               "description" : "The laboratory method used to reveal the presence of the sample sequenced in the experiment.",
-               "items" : {},
-               "maxItems" : 1
+               "description" : "Library construction method used for clone libraries"
             },
             "sample transportation date" : {
-               "maxItems" : 1,
                "description" : "transportation/shipping date of the sample. Format:YYYY-MM-DD",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "^[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?$"
+                     }
+                  }
+               },
+               "maxItems" : 1
+            },
+            "nucleic acid extraction" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "Link to a literature reference, electronic resource or a standard operating procedure (SOP)"
+            },
+            "read quality filter" : {
+               "description" : "Programme used to filter reads quality before conducting the analysis",
+               "items" : {}
+            },
+            "Further Details" : {
+               "description" : "Reference details related to a sample in form of an URI.",
                "items" : {}
             },
             "amount or size of sample collected" : {
@@ -115,92 +166,360 @@
                "items" : {
                   "required" : [
                      "units"
-                  ]
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  }
                },
                "maxItems" : 1
             },
+            "geographic location (region and locality)" : {
+               "maxItems" : 1,
+               "description" : "The geographical origin of the sample as defined by the specific region name followed by the locality name.",
+               "items" : {}
+            },
             "receipt date" : {
                "maxItems" : 1,
-               "items" : {},
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "^[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?$"
+                     }
+                  }
+               },
                "description" : "Date on which the sample was received. Format:YYYY-MM-DD. Please provide the highest precision possible. If the sample was received by the institution and not collected, the 'receipt date' must be provided instead. Either the 'collection date' or 'receipt date' must be provided. If available, provide both dates."
             },
-            "isolation_source" : {
-               "maxItems" : 1,
-               "items" : {},
-               "description" : "describes the physical, environmental and/or local geographical source of the biological sample from which the sample was derived"
-            },
-            "instrument for DNA concentration measurement" : {
-               "description" : "Name/type of instrument used to measure the DNA concentration (ng/�l) prior to library preparation",
-               "items" : {},
+            "collection_date" : {
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "^[0-9]{4}(-[0-9]{2}(-[0-9]{2}(T[0-9]{2}:[0-9]{2}(:[0-9]{2})?Z?([+-][0-9]{1,2})?)?)?)?(/[0-9]{4}(-[0-9]{2}(-[0-9]{2}(T[0-9]{2}:[0-9]{2}(:[0-9]{2})?Z?([+-][0-9]{1,2})?)?)?)?)?$"
+                     }
+                  }
+               },
+               "description" : "date that the specimen was collected",
                "maxItems" : 1
             },
-            "sampling time point" : {
+            "links to additional analysis" : {
                "items" : {},
-               "description" : "",
+               "description" : "link to additional analysis results performed on the sample"
+            },
+            "sub_species" : {
+               "maxItems" : 1,
+               "description" : "name of sub-species of organism from which sample was obtained",
+               "items" : {}
+            },
+            "sample transportation time" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "transportation time from sample site to storage"
+            },
+            "protocol" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "The laboratory method used to reveal the presence of the sample sequenced in the experiment."
+            },
+            "isolate" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "individual isolate from which the sample was obtained"
+            },
+            "geographic location (country and/or sea)" : {
+               "description" : "The geographical origin of the sample as defined by the country or sea. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html).",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "Afghanistan",
+                           "Albania",
+                           "Algeria",
+                           "American Samoa",
+                           "Andorra",
+                           "Angola",
+                           "Anguilla",
+                           "Antarctica",
+                           "Antigua and Barbuda",
+                           "Arctic Ocean",
+                           "Argentina",
+                           "Armenia",
+                           "Aruba",
+                           "Ashmore and Cartier Islands",
+                           "Atlantic Ocean",
+                           "Australia",
+                           "Austria",
+                           "Azerbaijan",
+                           "Bahamas",
+                           "Bahrain",
+                           "Baker Island",
+                           "Baltic Sea",
+                           "Bangladesh",
+                           "Barbados",
+                           "Bassas da India",
+                           "Belarus",
+                           "Belgium",
+                           "Belize",
+                           "Benin",
+                           "Bermuda",
+                           "Bhutan",
+                           "Bolivia",
+                           "Borneo",
+                           "Bosnia and Herzegovina",
+                           "Botswana",
+                           "Bouvet Island",
+                           "Brazil",
+                           "British Virgin Islands",
+                           "Brunei",
+                           "Bulgaria",
+                           "Burkina Faso",
+                           "Burundi",
+                           "Cambodia",
+                           "Cameroon",
+                           "Canada",
+                           "Cape Verde",
+                           "Cayman Islands",
+                           "Central African Republic",
+                           "Chad",
+                           "Chile",
+                           "China",
+                           "Christmas Island",
+                           "Clipperton Island",
+                           "Cocos Islands",
+                           "Colombia",
+                           "Comoros",
+                           "Cook Islands",
+                           "Coral Sea Islands",
+                           "Costa Rica",
+                           "Cote d'Ivoire",
+                           "Croatia",
+                           "Cuba",
+                           "Curacao",
+                           "Cyprus",
+                           "Czech Republic",
+                           "Democratic Republic of the Congo",
+                           "Denmark",
+                           "Djibouti",
+                           "Dominica",
+                           "Dominican Republic",
+                           "East Timor",
+                           "Ecuador",
+                           "Egypt",
+                           "El Salvador",
+                           "Equatorial Guinea",
+                           "Eritrea",
+                           "Estonia",
+                           "Ethiopia",
+                           "Europa Island",
+                           "Falkland Islands (Islas Malvinas)",
+                           "Faroe Islands",
+                           "Fiji",
+                           "Finland",
+                           "France",
+                           "French Guiana",
+                           "French Polynesia",
+                           "French Southern and Antarctic Lands",
+                           "Gabon",
+                           "Gambia",
+                           "Gaza Strip",
+                           "Georgia",
+                           "Germany",
+                           "Ghana",
+                           "Gibraltar",
+                           "Glorioso Islands",
+                           "Greece",
+                           "Greenland",
+                           "Grenada",
+                           "Guadeloupe",
+                           "Guam",
+                           "Guatemala",
+                           "Guernsey",
+                           "Guinea",
+                           "Guinea-Bissau",
+                           "Guyana",
+                           "Haiti",
+                           "Heard Island and McDonald Islands",
+                           "Honduras",
+                           "Hong Kong",
+                           "Howland Island",
+                           "Hungary",
+                           "Iceland",
+                           "India",
+                           "Indian Ocean",
+                           "Indonesia",
+                           "Iran",
+                           "Iraq",
+                           "Ireland",
+                           "Isle of Man",
+                           "Israel",
+                           "Italy",
+                           "Jamaica",
+                           "Jan Mayen",
+                           "Japan",
+                           "Jarvis Island",
+                           "Jersey",
+                           "Johnston Atoll",
+                           "Jordan",
+                           "Juan de Nova Island",
+                           "Kazakhstan",
+                           "Kenya",
+                           "Kerguelen Archipelago",
+                           "Kingman Reef",
+                           "Kiribati",
+                           "Kosovo",
+                           "Kuwait",
+                           "Kyrgyzstan",
+                           "Laos",
+                           "Latvia",
+                           "Lebanon",
+                           "Lesotho",
+                           "Liberia",
+                           "Libya",
+                           "Liechtenstein",
+                           "Lithuania",
+                           "Luxembourg",
+                           "Macau",
+                           "Macedonia",
+                           "Madagascar",
+                           "Malawi",
+                           "Malaysia",
+                           "Maldives",
+                           "Mali",
+                           "Malta",
+                           "Marshall Islands",
+                           "Martinique",
+                           "Mauritania",
+                           "Mauritius",
+                           "Mayotte",
+                           "Mediterranean Sea",
+                           "Mexico",
+                           "Micronesia",
+                           "Midway Islands",
+                           "Moldova",
+                           "Monaco",
+                           "Mongolia",
+                           "Montenegro",
+                           "Montserrat",
+                           "Morocco",
+                           "Mozambique",
+                           "Myanmar",
+                           "Namibia",
+                           "Nauru",
+                           "Navassa Island",
+                           "Nepal",
+                           "Netherlands",
+                           "New Caledonia",
+                           "New Zealand",
+                           "Nicaragua",
+                           "Niger",
+                           "Nigeria",
+                           "Niue",
+                           "Norfolk Island",
+                           "North Korea",
+                           "North Sea",
+                           "Northern Mariana Islands",
+                           "Norway",
+                           "Oman",
+                           "Pacific Ocean",
+                           "Pakistan",
+                           "Palau",
+                           "Palmyra Atoll",
+                           "Panama",
+                           "Papua New Guinea",
+                           "Paracel Islands",
+                           "Paraguay",
+                           "Peru",
+                           "Philippines",
+                           "Pitcairn Islands",
+                           "Poland",
+                           "Portugal",
+                           "Puerto Rico",
+                           "Qatar",
+                           "Republic of the Congo",
+                           "Reunion",
+                           "Romania",
+                           "Ross Sea",
+                           "Russia",
+                           "Rwanda",
+                           "Saint Helena",
+                           "Saint Kitts and Nevis",
+                           "Saint Lucia",
+                           "Saint Pierre and Miquelon",
+                           "Saint Vincent and the Grenadines",
+                           "Samoa",
+                           "San Marino",
+                           "Sao Tome and Principe",
+                           "Saudi Arabia",
+                           "Senegal",
+                           "Serbia",
+                           "Seychelles",
+                           "Sierra Leone",
+                           "Singapore",
+                           "Sint Maarten",
+                           "Slovakia",
+                           "Slovenia",
+                           "Solomon Islands",
+                           "Somalia",
+                           "South Africa",
+                           "South Georgia and the South Sandwich Islands",
+                           "South Korea",
+                           "Southern Ocean",
+                           "Spain",
+                           "Spratly Islands",
+                           "Sri Lanka",
+                           "Sudan",
+                           "Suriname",
+                           "Svalbard",
+                           "Swaziland",
+                           "Sweden",
+                           "Switzerland",
+                           "Syria",
+                           "Taiwan",
+                           "Tajikistan",
+                           "Tanzania",
+                           "Tasman Sea",
+                           "Thailand",
+                           "Togo",
+                           "Tokelau",
+                           "Tonga",
+                           "Trinidad and Tobago",
+                           "Tromelin Island",
+                           "Tunisia",
+                           "Turkey",
+                           "Turkmenistan",
+                           "Turks and Caicos Islands",
+                           "Tuvalu",
+                           "USA",
+                           "Uganda",
+                           "Ukraine",
+                           "United Arab Emirates",
+                           "United Kingdom",
+                           "Uruguay",
+                           "Uzbekistan",
+                           "Vanuatu",
+                           "Venezuela",
+                           "Viet Nam",
+                           "Virgin Islands",
+                           "Wake Island",
+                           "Wallis and Futuna",
+                           "West Bank",
+                           "Western Sahara",
+                           "Yemen",
+                           "Zambia",
+                           "Zimbabwe",
+                           "not applicable",
+                           "not collected",
+                           "not provided",
+                           "restricted access"
+                        ]
+                     }
+                  }
+               },
                "maxItems" : 1
             }
          }
       }
    },
-   "title" : "ENA Global Microbial Identifier Proficiency Test (GMI PT) checklist",
-   "definitions" : {
-      "terms" : {
-         "items" : {
-            "properties" : {
-               "url" : {
-                  "format" : "uri",
-                  "type" : "string"
-               }
-            },
-            "type" : "object",
-            "required" : [
-               "url"
-            ]
-         },
-         "type" : "array"
-      },
-      "attribute" : {
-         "items" : {
-            "properties" : {
-               "value" : {
-                  "type" : "string",
-                  "minLength" : 1
-               },
-               "units" : {
-                  "minLength" : 1,
-                  "type" : "string"
-               },
-               "terms" : {
-                  "$ref" : "#/definitions/terms"
-               }
-            },
-            "required" : [
-               "value"
-            ]
-         },
-         "type" : "array",
-         "minItems" : 1
-      },
-      "properties" : {
-         "attributes" : {
-            "patternProperties" : {
-               "^.*$" : {
-                  "$ref" : "#/definitions/attribute"
-               }
-            },
-            "properties" : {},
-            "description" : "Attributes for describing a sample.",
-            "type" : "object",
-            "required" : []
-         }
-      }
-   },
-   "required" : [
-      "attributes"
-   ],
-   "$async" : true,
    "$schema" : "http://json-schema.org/draft-07/schema#",
-   "author" : "ENA",
-   "version" : "1.0.0",
-   "$id" : "ERC000041"
+   "type" : "object"
 }

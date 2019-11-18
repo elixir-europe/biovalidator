@@ -4,108 +4,108 @@
   "taxonId" : 172733,
   "attributes" : {
     "ENA checklist" : [ {
-      "text" : "ERC000050"
+      "value" : "ERC000050"
     } ],
     "INSDC center alias" : [ {
-      "text" : "EBI"
+      "value" : "EBI"
     } ],
     "INSDC center name" : [ {
-      "text" : "European Bioinformatics Institute"
+      "value" : "European Bioinformatics Institute"
     } ],
     "INSDC first public" : [ {
-      "text" : "2019-04-01T17:02:50Z"
+      "value" : "2019-04-01T17:02:50Z"
     } ],
     "INSDC last update" : [ {
-      "text" : "2019-03-18T17:19:45Z"
+      "value" : "2019-03-18T17:19:45Z"
     } ],
     "INSDC status" : [ {
-      "text" : "public"
+      "value" : "public"
     } ],
     "SRA accession" : [ {
-      "text" : "ERS3232338"
+      "value" : "ERS3232338"
     } ],
     "alias" : [ {
-      "text" : "MAG-GUT10816"
+      "value" : "MAG-GUT10816"
     } ],
     "assembly quality" : [ {
-      "text" : "Many fragments with little to no review of assembly other than reporting of standard assembly statistics"
+      "value" : "Many fragments with little to no review of assembly other than reporting of standard assembly statistics"
     } ],
     "assembly software" : [ {
-      "text" : "SPAdes;3.10.0"
+      "value" : "SPAdes;3.10.0"
     } ],
     "binning parameters" : [ {
-      "text" : "default"
+      "value" : "default"
     } ],
     "binning software" : [ {
-      "text" : "MetaBAT v2.12.1"
+      "value" : "MetaBAT v2.12.1"
     } ],
     "collection date" : [ {
-      "text" : "not provided"
+      "value" : "not provided"
     } ],
     "completeness score" : [ {
-      "text" : "59.48",
+      "value" : "59.48",
       "units" : "%"
     } ],
     "completeness software" : [ {
-      "text" : "CheckM v1.0.7"
+      "value" : "CheckM v1.0.7"
     } ],
     "contamination score" : [ {
-      "text" : "0.34",
+      "value" : "0.34",
       "units" : "%"
     } ],
     "description" : [ {
-      "text" : "This sample represents a MAG from the metagenomic run SRR5275443"
+      "value" : "This sample represents a MAG from the metagenomic run SRR5275443"
     } ],
     "environment (biome)" : [ {
-      "text" : "human-associated habitat"
+      "value" : "human-associated habitat"
     } ],
     "environment (feature)" : [ {
-      "text" : "human gut"
+      "value" : "human gut"
     } ],
     "environment (material)" : [ {
-      "text" : "faeces"
+      "value" : "faeces"
     } ],
     "geographic location (country and/or sea)" : [ {
-      "text" : "USA"
+      "value" : "USA"
     } ],
     "geographic location (latitude)" : [ {
-      "text" : "37.0902",
+      "value" : "37.0902",
       "units" : "DD"
     } ],
     "geographic location (longitude)" : [ {
-      "text" : "-95.7129",
+      "value" : "-95.7129",
       "units" : "DD"
     } ],
     "investigation type" : [ {
-      "text" : "metagenome-assembled genome"
+      "value" : "metagenome-assembled genome"
     } ],
     "isolation source" : [ {
-      "text" : "human gut"
+      "value" : "human gut"
     } ],
     "metagenomic source" : [ {
-      "text" : "human gut metagenome"
+      "value" : "human gut metagenome"
     } ],
     "organism" : [ {
-      "text" : "uncultured Clostridiales bacterium",
+      "value" : "uncultured Clostridiales bacterium",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_172733" ]
     } ],
     "project name" : [ {
-      "text" : "Human gut MAGs"
-    } ],
-    "sample derived from" : [ {
-      "text" : "SAMN06328427"
+      "value" : "Human gut MAGs"
     } ],
     "sequencing method" : [ {
-      "text" : "Illumina"
+      "value" : "Illumina"
     } ],
     "synonym" : [ {
-      "text" : "MAG-GUT10816"
+      "value" : "MAG-GUT10816"
     } ],
     "taxonomic identity marker" : [ {
-      "text" : "multi-marker approach"
+      "value" : "multi-marker approach"
+    } ],
+    "isolation_source" : [ {
+      "value" : "marine water"
     } ],
     "title" : [ {
-      "text" : "Metagenome-Assembled Genome (MAG)"
+      "value" : "Metagenome-Assembled Genome (MAG)"
     } ]
   }
 }

@@ -1,16 +1,453 @@
 {
-   "$schema" : "http://json-schema.org/draft-07/schema#",
-   "description" : "Marine microalgae contextual information. The checklist has been developed in collaboration with EMBRIC Project partners and is suitable for reporting metadata related to environmental samples and those in culture collections.",
+   "version" : "1.0.0",
+   "$id" : "ERC000043",
+   "title" : "ENA Marine Microalgae Checklist",
+   "author" : "ENA",
    "required" : [
       "attributes"
    ],
+   "$async" : true,
+   "type" : "object",
+   "definitions" : {
+      "attribute" : {
+         "items" : {
+            "required" : [
+               "value"
+            ],
+            "properties" : {
+               "terms" : {
+                  "$ref" : "#/definitions/terms"
+               },
+               "units" : {
+                  "type" : "string",
+                  "minLength" : 1
+               },
+               "value" : {
+                  "minLength" : 1,
+                  "type" : "string"
+               }
+            }
+         },
+         "minItems" : 1,
+         "type" : "array"
+      },
+      "terms" : {
+         "type" : "array",
+         "items" : {
+            "required" : [
+               "url"
+            ],
+            "type" : "object",
+            "properties" : {
+               "url" : {
+                  "type" : "string",
+                  "format" : "uri"
+               }
+            }
+         }
+      },
+      "properties" : {
+         "attributes" : {
+            "patternProperties" : {
+               "^.*$" : {
+                  "$ref" : "#/definitions/attribute"
+               }
+            },
+            "required" : [],
+            "type" : "object",
+            "description" : "Attributes for describing a sample.",
+            "properties" : {}
+         }
+      }
+   },
+   "description" : "Marine microalgae contextual information. The checklist has been developed in collaboration with EMBRIC Project partners and is suitable for reporting metadata related to environmental samples and those in culture collections.",
    "properties" : {
       "attributes" : {
          "properties" : {
-            "Temperature" : {
-               "description" : "Temperature of water at the time of taking the sample. Format: ##.####, SDN:P02:75:TEMP, SDN:P06:46:UPAA for °C. Example: 17.7122.",
+            "geographic location (longitude)" : {
+               "description" : "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(^.*[+-]?[0-9]+.?[0-9]*.*$)|(^not collected$)|(^not provided$)|(^restricted access$)"
+                     }
+                  },
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "maxItems" : 1
+            },
+            "collection date" : {
+               "description" : "The date of sampling, either as an instance (single point in time) or interval. In case no exact time is available, the date/time can be right truncated i.e. all of these are valid ISO8601 compliant times: 2008-01-23T19:23:10+00:00; 2008-01-23T19:23:10; 2008-01-23; 2008-01; 2008.",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(^[0-9]{4}(-[0-9]{2}(-[0-9]{2}(T[0-9]{2}:[0-9]{2}(:[0-9]{2})?Z?([+-][0-9]{1,2})?)?)?)?(/[0-9]{4}(-[0-9]{2}(-[0-9]{2}(T[0-9]{2}:[0-9]{2}(:[0-9]{2})?Z?([+-][0-9]{1,2})?)?)?)?)?$)|(^not collected$)|(^not provided$)|(^restricted access$)"
+                     }
+                  }
+               }
+            },
+            "geographic location (latitude)" : {
+               "description" : "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(^.*[+-]?[0-9]+.?[0-9]*.*$)|(^not collected$)|(^not provided$)|(^restricted access$)"
+                     }
+                  }
+               },
+               "maxItems" : 1
+            },
+            "Depth" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "([0-9]*\\.)?[0-9]+\\s?([-]\\s?([0-9]*\\.)?[0-9]+)?"
+                     }
+                  }
+               },
+               "maxItems" : 1,
+               "description" : "The distance below the surface of the water at which a measurement was made or a sample was collected. Format: ####.##, Positive below the sea surface. SDN:P06:46:ULAA for m. Example: 14.71"
+            },
+            "sample storage temperature" : {
                "maxItems" : 1,
                "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "[+-]?(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  }
+               },
+               "description" : "temperature at which sample was stored, e.g. -80"
+            },
+            "geographic location (country and/or sea)" : {
+               "description" : "The geographical origin of the sample as defined by the country or sea. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html).",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "Afghanistan",
+                           "Albania",
+                           "Algeria",
+                           "American Samoa",
+                           "Andorra",
+                           "Angola",
+                           "Anguilla",
+                           "Antarctica",
+                           "Antigua and Barbuda",
+                           "Arctic Ocean",
+                           "Argentina",
+                           "Armenia",
+                           "Aruba",
+                           "Ashmore and Cartier Islands",
+                           "Atlantic Ocean",
+                           "Australia",
+                           "Austria",
+                           "Azerbaijan",
+                           "Bahamas",
+                           "Bahrain",
+                           "Baker Island",
+                           "Baltic Sea",
+                           "Bangladesh",
+                           "Barbados",
+                           "Bassas da India",
+                           "Belarus",
+                           "Belgium",
+                           "Belize",
+                           "Benin",
+                           "Bermuda",
+                           "Bhutan",
+                           "Bolivia",
+                           "Borneo",
+                           "Bosnia and Herzegovina",
+                           "Botswana",
+                           "Bouvet Island",
+                           "Brazil",
+                           "British Virgin Islands",
+                           "Brunei",
+                           "Bulgaria",
+                           "Burkina Faso",
+                           "Burundi",
+                           "Cambodia",
+                           "Cameroon",
+                           "Canada",
+                           "Cape Verde",
+                           "Cayman Islands",
+                           "Central African Republic",
+                           "Chad",
+                           "Chile",
+                           "China",
+                           "Christmas Island",
+                           "Clipperton Island",
+                           "Cocos Islands",
+                           "Colombia",
+                           "Comoros",
+                           "Cook Islands",
+                           "Coral Sea Islands",
+                           "Costa Rica",
+                           "Cote d'Ivoire",
+                           "Croatia",
+                           "Cuba",
+                           "Curacao",
+                           "Cyprus",
+                           "Czech Republic",
+                           "Democratic Republic of the Congo",
+                           "Denmark",
+                           "Djibouti",
+                           "Dominica",
+                           "Dominican Republic",
+                           "East Timor",
+                           "Ecuador",
+                           "Egypt",
+                           "El Salvador",
+                           "Equatorial Guinea",
+                           "Eritrea",
+                           "Estonia",
+                           "Ethiopia",
+                           "Europa Island",
+                           "Falkland Islands (Islas Malvinas)",
+                           "Faroe Islands",
+                           "Fiji",
+                           "Finland",
+                           "France",
+                           "French Guiana",
+                           "French Polynesia",
+                           "French Southern and Antarctic Lands",
+                           "Gabon",
+                           "Gambia",
+                           "Gaza Strip",
+                           "Georgia",
+                           "Germany",
+                           "Ghana",
+                           "Gibraltar",
+                           "Glorioso Islands",
+                           "Greece",
+                           "Greenland",
+                           "Grenada",
+                           "Guadeloupe",
+                           "Guam",
+                           "Guatemala",
+                           "Guernsey",
+                           "Guinea",
+                           "Guinea-Bissau",
+                           "Guyana",
+                           "Haiti",
+                           "Heard Island and McDonald Islands",
+                           "Honduras",
+                           "Hong Kong",
+                           "Howland Island",
+                           "Hungary",
+                           "Iceland",
+                           "India",
+                           "Indian Ocean",
+                           "Indonesia",
+                           "Iran",
+                           "Iraq",
+                           "Ireland",
+                           "Isle of Man",
+                           "Israel",
+                           "Italy",
+                           "Jamaica",
+                           "Jan Mayen",
+                           "Japan",
+                           "Jarvis Island",
+                           "Jersey",
+                           "Johnston Atoll",
+                           "Jordan",
+                           "Juan de Nova Island",
+                           "Kazakhstan",
+                           "Kenya",
+                           "Kerguelen Archipelago",
+                           "Kingman Reef",
+                           "Kiribati",
+                           "Kosovo",
+                           "Kuwait",
+                           "Kyrgyzstan",
+                           "Laos",
+                           "Latvia",
+                           "Lebanon",
+                           "Lesotho",
+                           "Liberia",
+                           "Libya",
+                           "Liechtenstein",
+                           "Lithuania",
+                           "Luxembourg",
+                           "Macau",
+                           "Macedonia",
+                           "Madagascar",
+                           "Malawi",
+                           "Malaysia",
+                           "Maldives",
+                           "Mali",
+                           "Malta",
+                           "Marshall Islands",
+                           "Martinique",
+                           "Mauritania",
+                           "Mauritius",
+                           "Mayotte",
+                           "Mediterranean Sea",
+                           "Mexico",
+                           "Micronesia",
+                           "Midway Islands",
+                           "Moldova",
+                           "Monaco",
+                           "Mongolia",
+                           "Montenegro",
+                           "Montserrat",
+                           "Morocco",
+                           "Mozambique",
+                           "Myanmar",
+                           "Namibia",
+                           "Nauru",
+                           "Navassa Island",
+                           "Nepal",
+                           "Netherlands",
+                           "New Caledonia",
+                           "New Zealand",
+                           "Nicaragua",
+                           "Niger",
+                           "Nigeria",
+                           "Niue",
+                           "Norfolk Island",
+                           "North Korea",
+                           "North Sea",
+                           "Northern Mariana Islands",
+                           "Norway",
+                           "Oman",
+                           "Pacific Ocean",
+                           "Pakistan",
+                           "Palau",
+                           "Palmyra Atoll",
+                           "Panama",
+                           "Papua New Guinea",
+                           "Paracel Islands",
+                           "Paraguay",
+                           "Peru",
+                           "Philippines",
+                           "Pitcairn Islands",
+                           "Poland",
+                           "Portugal",
+                           "Puerto Rico",
+                           "Qatar",
+                           "Republic of the Congo",
+                           "Reunion",
+                           "Romania",
+                           "Ross Sea",
+                           "Russia",
+                           "Rwanda",
+                           "Saint Helena",
+                           "Saint Kitts and Nevis",
+                           "Saint Lucia",
+                           "Saint Pierre and Miquelon",
+                           "Saint Vincent and the Grenadines",
+                           "Samoa",
+                           "San Marino",
+                           "Sao Tome and Principe",
+                           "Saudi Arabia",
+                           "Senegal",
+                           "Serbia",
+                           "Seychelles",
+                           "Sierra Leone",
+                           "Singapore",
+                           "Sint Maarten",
+                           "Slovakia",
+                           "Slovenia",
+                           "Solomon Islands",
+                           "Somalia",
+                           "South Africa",
+                           "South Georgia and the South Sandwich Islands",
+                           "South Korea",
+                           "Southern Ocean",
+                           "Spain",
+                           "Spratly Islands",
+                           "Sri Lanka",
+                           "Sudan",
+                           "Suriname",
+                           "Svalbard",
+                           "Swaziland",
+                           "Sweden",
+                           "Switzerland",
+                           "Syria",
+                           "Taiwan",
+                           "Tajikistan",
+                           "Tanzania",
+                           "Tasman Sea",
+                           "Thailand",
+                           "Togo",
+                           "Tokelau",
+                           "Tonga",
+                           "Trinidad and Tobago",
+                           "Tromelin Island",
+                           "Tunisia",
+                           "Turkey",
+                           "Turkmenistan",
+                           "Turks and Caicos Islands",
+                           "Tuvalu",
+                           "USA",
+                           "Uganda",
+                           "Ukraine",
+                           "United Arab Emirates",
+                           "United Kingdom",
+                           "Uruguay",
+                           "Uzbekistan",
+                           "Vanuatu",
+                           "Venezuela",
+                           "Viet Nam",
+                           "Virgin Islands",
+                           "Wake Island",
+                           "Wallis and Futuna",
+                           "West Bank",
+                           "Western Sahara",
+                           "Yemen",
+                           "Zambia",
+                           "Zimbabwe",
+                           "not applicable",
+                           "not collected",
+                           "not provided",
+                           "restricted access"
+                        ]
+                     }
+                  }
+               },
+               "maxItems" : 1
+            },
+            "sample storage conditions" : {
+               "description" : "Conditions at which sample was stored, usually storage temperature, duration and location",
+               "items" : {}
+            },
+            "Salinity" : {
+               "description" : "Salinity of water at the time of taking the sample. Format: ##.#, SDN:P02::PSAL, SDN:P06::UGKG for PSU. Example: 39.1 psu.",
+               "maxItems" : 1,
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  },
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "light intensity" : {
+               "description" : "measurement of light intensity",
+               "maxItems" : 1,
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  },
                   "required" : [
                      "units"
                   ]
@@ -20,120 +457,83 @@
                "items" : {},
                "description" : "The method or deviced employed for collecting the sample"
             },
-            "geographic location (country and/or sea)" : {
-               "maxItems" : 1,
-               "description" : "The geographical origin of the sample as defined by the country or sea. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html).",
-               "items" : {}
-            },
-            "collection date" : {
-               "items" : {},
-               "description" : "The date of sampling, either as an instance (single point in time) or interval. In case no exact time is available, the date/time can be right truncated i.e. all of these are valid ISO8601 compliant times: 2008-01-23T19:23:10+00:00; 2008-01-23T19:23:10; 2008-01-23; 2008-01; 2008."
-            },
-            "Salinity" : {
-               "description" : "Salinity of water at the time of taking the sample. Format: ##.#, SDN:P02::PSAL, SDN:P06::UGKG for PSU. Example: 39.1 psu.",
-               "maxItems" : 1,
-               "items" : {
-                  "required" : [
-                     "units"
-                  ]
-               }
-            },
-            "isolation and growth condition" : {
-               "items" : {},
-               "description" : "Publication reference in the form of pubmed ID (pmid), digital object identifier (doi) or url for isolation and growth condition specifications of the organism/material. Mandatory for MIGS and MIMARKS Specimen."
-            },
-            "sample storage temperature" : {
-               "items" : {
-                  "required" : [
-                     "units"
-                  ]
-               },
-               "maxItems" : 1,
-               "description" : "temperature at which sample was stored, e.g. -80"
-            },
-            "pH" : {
-               "items" : {},
-               "maxItems" : 1,
-               "description" : "pH measurement"
-            },
-            "sample storage duration" : {
-               "items" : {
-                  "required" : [
-                     "units"
-                  ]
-               },
-               "maxItems" : 1,
-               "description" : "duration for which sample was stored"
-            },
-            "sample storage conditions" : {
-               "description" : "Conditions at which sample was stored, usually storage temperature, duration and location",
-               "items" : {}
-            },
-            "light intensity" : {
-               "items" : {
-                  "required" : [
-                     "units"
-                  ]
-               },
-               "description" : "measurement of light intensity",
-               "maxItems" : 1
-            },
-            "geographic location (longitude)" : {
-               "description" : "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system",
-               "maxItems" : 1,
-               "items" : {
-                  "required" : [
-                     "units"
-                  ]
-               }
-            },
-            "geographic location (latitude)" : {
-               "description" : "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system",
-               "maxItems" : 1,
-               "items" : {
-                  "required" : [
-                     "units"
-                  ]
-               }
-            },
             "growth condition" : {
                "items" : {},
                "description" : "A role that a material entity can play which enables particular conditions used to grow organisms or parts of the organism. This includes isolated environments such as cultures and open environments such as field studies."
             },
-            "amount or size of sample collected" : {
-               "maxItems" : 1,
-               "description" : "Amount or size of sample (volume, mass or area) that was collected",
-               "items" : {
-                  "required" : [
-                     "units"
-                  ]
-               }
-            },
-            "Depth" : {
-               "maxItems" : 1,
-               "description" : "The distance below the surface of the water at which a measurement was made or a sample was collected. Format: ####.##, Positive below the sea surface. SDN:P06:46:ULAA for m. Example: 14.71",
-               "items" : {
-                  "required" : [
-                     "units"
-                  ]
-               }
-            },
             "culture_collection" : {
+               "description" : "institution code and identifier for the culture from which the sample was obtained, with optional collection code.",
+               "items" : {}
+            },
+            "isolation and growth condition" : {
+               "description" : "Publication reference in the form of pubmed ID (pmid), digital object identifier (doi) or url for isolation and growth condition specifications of the organism/material. Mandatory for MIGS and MIMARKS Specimen.",
+               "items" : {}
+            },
+            "pH" : {
+               "description" : "pH measurement",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  }
+               },
+               "maxItems" : 1
+            },
+            "Further Details" : {
                "items" : {},
-               "description" : "institution code and identifier for the culture from which the sample was obtained, with optional collection code."
+               "description" : "Reference details related to a sample in form of an URI."
             },
             "collected_by" : {
                "description" : "name of persons or institute who collected the specimen",
                "items" : {}
             },
             "strain" : {
-               "items" : {},
                "description" : "Name of the strain from which the sample was obtained.",
+               "items" : {},
                "maxItems" : 1
             },
-            "Further Details" : {
-               "description" : "Reference details related to a sample in form of an URI.",
-               "items" : {}
+            "sample storage duration" : {
+               "description" : "duration for which sample was stored",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  },
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "maxItems" : 1
+            },
+            "amount or size of sample collected" : {
+               "description" : "Amount or size of sample (volume, mass or area) that was collected",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  }
+               },
+               "maxItems" : 1
+            },
+            "Temperature" : {
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "[+-]?(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  },
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "maxItems" : 1,
+               "description" : "Temperature of water at the time of taking the sample. Format: ##.####, SDN:P02:75:TEMP, SDN:P06:46:UPAA for Â°C. Example: 17.7122."
             }
          },
          "required" : [
@@ -141,62 +541,5 @@
          ]
       }
    },
-   "title" : "ENA Marine Microalgae Checklist",
-   "$async" : true,
-   "definitions" : {
-      "attribute" : {
-         "type" : "array",
-         "minItems" : 1,
-         "items" : {
-            "required" : [
-               "value"
-            ],
-            "properties" : {
-               "value" : {
-                  "minLength" : 1,
-                  "type" : "string"
-               },
-               "terms" : {
-                  "$ref" : "#/definitions/terms"
-               },
-               "units" : {
-                  "type" : "string",
-                  "minLength" : 1
-               }
-            }
-         }
-      },
-      "properties" : {
-         "attributes" : {
-            "description" : "Attributes for describing a sample.",
-            "properties" : {},
-            "type" : "object",
-            "required" : [],
-            "patternProperties" : {
-               "^.*$" : {
-                  "$ref" : "#/definitions/attribute"
-               }
-            }
-         }
-      },
-      "terms" : {
-         "type" : "array",
-         "items" : {
-            "type" : "object",
-            "properties" : {
-               "url" : {
-                  "format" : "uri",
-                  "type" : "string"
-               }
-            },
-            "required" : [
-               "url"
-            ]
-         }
-      }
-   },
-   "$id" : "ERC000043",
-   "type" : "object",
-   "author" : "ENA",
-   "version" : "1.0.0"
+   "$schema" : "http://json-schema.org/draft-07/schema#"
 }

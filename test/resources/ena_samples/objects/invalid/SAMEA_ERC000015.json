@@ -4,80 +4,80 @@
   "taxonId" : 9606,
   "attributes" : {
     "ENA checklist" : [ {
-      "text" : "ERC000015"
+      "value" : "ERC000015"
     } ],
     "INSDC center alias" : [ {
-      "text" : "Bioinformatics Lab, Innovation Center"
+      "value" : "Bioinformatics Lab, Innovation Center"
     } ],
     "INSDC center name" : [ {
-      "text" : "Bioinformatics Lab, Innovation Center"
+      "value" : "Bioinformatics Lab, Innovation Center"
     } ],
     "INSDC first public" : [ {
-      "text" : "2018-04-12T17:03:01Z"
+      "value" : "2018-04-12T17:03:01Z"
     } ],
     "INSDC last update" : [ {
-      "text" : "2018-04-12T07:15:17Z"
+      "value" : "2018-04-12T07:15:17Z"
     } ],
     "INSDC status" : [ {
-      "text" : "public"
+      "value" : "public"
     } ],
     "SRA accession" : [ {
-      "text" : "ERS2395513"
+      "value" : "ERS2395513"
     } ],
     "alias" : [ {
-      "text" : "4036"
+      "value" : "4036"
     } ],
     "collection date" : [ {
-      "text" : "2016-03-05"
+      "value" : "2016-03-05"
     } ],
     "description" : [ {
-      "text" : "LogMPIE is an observational, multi-center, cross geography and age-group study. The primary objective of the study was to report the microbiome baseline across India. The study reported data from over 1000 subjects. Additionally, for individual subjects, factors such as BMI, lifestyle, dietary habits and gender were recorded.The study was conducted by Tata Chemicals Limited."
+      "value" : "LogMPIE is an observational, multi-center, cross geography and age-group study. The primary objective of the study was to report the microbiome baseline across India. The study reported data from over 1000 subjects. Additionally, for individual subjects, factors such as BMI, lifestyle, dietary habits and gender were recorded.The study was conducted by Tata Chemicals Limited."
     } ],
     "environment (biome)" : [ {
-      "text" : "Bacterial microbiome"
+      "value" : "Bacterial microbiome"
     } ],
     "environment (feature)" : [ {
-      "text" : "Metagenome"
+      "value" : "Metagenome"
     } ],
     "environment (material)" : [ {
-      "text" : "faecal matter"
+      "value" : "faecal matter"
     } ],
     "geographic location (country and/or sea)" : [ {
-      "text" : "India"
+      "value" : "India"
     } ],
     "geographic location (latitude)" : [ {
-      "text" : "17.38714",
+      "value" : "17.38714",
       "units" : "DD"
     } ],
     "geographic location (longitude)" : [ {
-      "text" : "78.491684",
+      "value" : "78.491684",
       "units" : "DD"
     } ],
     "geographic location (region and locality)" : [ {
-      "text" : "Ajmer"
+      "value" : "Ajmer"
     } ],
     "host body mass index" : [ {
-      "text" : "18.1955",
+      "value" : "18.1955",
       "units" : "kg/m2"
     } ],
     "human gut environmental package" : [ {
-      "text" : "human-gut"
+      "value" : "human-gut"
     } ],
     "investigation type" : [ {
-      "text" : "metagenome"
+      "value" : "metagenome"
     } ],
     "organism" : [ {
-      "text" : "Homo sapiens",
+      "value" : "Homo sapiens",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_9606" ]
     } ],
     "sequencing method" : [ {
-      "text" : "Ion torrent"
+      "value" : "Ion torrent"
     } ],
     "synonym" : [ {
-      "text" : "4036"
+      "value" : "4036"
     } ],
     "title" : [ {
-      "text" : "LogMPIE: Landscape Of Gut Microbiome - Pan India Exploration study"
+      "value" : "LogMPIE: Landscape Of Gut Microbiome - Pan India Exploration study"
     } ]
   }
 }

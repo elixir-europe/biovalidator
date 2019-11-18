@@ -4,75 +4,75 @@
   "taxonId" : 4058,
   "attributes" : {
     "ENA checklist" : [ {
-      "text" : "ERC000037"
+      "value" : "ERC000037"
     } ],
     "INSDC center alias" : [ {
-      "text" : "Universite-Francois-Rabelais"
+      "value" : "Universite-Francois-Rabelais"
     } ],
     "INSDC center name" : [ {
-      "text" : "Universite-Francois-Rabelais"
+      "value" : "Universite-Francois-Rabelais"
     } ],
     "INSDC first public" : [ {
-      "text" : "2017-12-31T17:02:39Z"
+      "value" : "2017-12-31T17:02:39Z"
     } ],
     "INSDC last update" : [ {
-      "text" : "2017-09-05T12:27:58Z"
+      "value" : "2017-09-05T12:27:58Z"
     } ],
     "INSDC status" : [ {
-      "text" : "public"
+      "value" : "public"
     } ],
     "SRA accession" : [ {
-      "text" : "ERS1907920"
+      "value" : "ERS1907920"
     } ],
     "alias" : [ {
-      "text" : "Root_AS1"
+      "value" : "Root_AS1"
     } ],
     "collection date" : [ {
-      "text" : "2015"
+      "value" : "2015"
     } ],
     "geographic location (country and/or sea)" : [ {
-      "text" : "France"
+      "value" : "France"
     } ],
     "geographic location (latitude)" : [ {
-      "text" : "47.3928",
+      "value" : "47.3928",
       "units" : "DD"
     } ],
     "geographic location (longitude)" : [ {
-      "text" : "0.683611",
+      "value" : "0.683611",
       "units" : "DD"
     } ],
     "growth facility" : [ {
-      "text" : "glasshouse"
+      "value" : "glasshouse"
     } ],
     "isolation and growth condition" : [ {
-      "text" : "10.1038/srep40453"
+      "value" : "10.1038/srep40453"
     } ],
     "organism" : [ {
-      "text" : "Catharanthus roseus",
+      "value" : "Catharanthus roseus",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_4058" ]
     } ],
     "organism common name" : [ {
-      "text" : "Madgascar Periwinkle"
+      "value" : "Madgascar Periwinkle"
     } ],
     "plant developmental stage" : [ {
-      "text" : "hydroponic grown roots"
+      "value" : "hydroponic grown roots"
     } ],
     "plant growth medium" : [ {
-      "text" : "water",
+      "value" : "water",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/CHEBI_15377" ]
     } ],
     "plant structure" : [ {
-      "text" : "adventitious root apex"
+      "value" : "adventitious root apex"
     } ],
     "rooting conditions" : [ {
-      "text" : "water",
+      "value" : "water",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/CHEBI_15377" ]
     } ],
     "synonym" : [ {
-      "text" : "Root_AS1"
+      "value" : "Root_AS1"
     } ],
     "title" : [ {
-      "text" : "RNA-seq analysis of C. roseus adventitious roots"
+      "value" : "RNA-seq analysis of C. roseus adventitious roots"
     } ]
   }
 }

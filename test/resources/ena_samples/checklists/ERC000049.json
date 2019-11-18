@@ -1,0 +1,1008 @@
+{
+   "author" : "ENA",
+   "description" : "Genomic Standards Consortium package extension for reporting of measurements and observations obtained from the environment where the sample was obtained. By choosing the environmental package, a selection of fields can be made from a relevant subsets of the GSC terms.",
+   "version" : "1.0.0",
+   "title" : "GSC MIUVIGS",
+   "required" : [
+      "attributes"
+   ],
+   "definitions" : {
+      "attribute" : {
+         "minItems" : 1,
+         "type" : "array",
+         "items" : {
+            "required" : [
+               "value"
+            ],
+            "properties" : {
+               "terms" : {
+                  "$ref" : "#/definitions/terms"
+               },
+               "value" : {
+                  "minLength" : 1,
+                  "type" : "string"
+               },
+               "units" : {
+                  "minLength" : 1,
+                  "type" : "string"
+               }
+            }
+         }
+      },
+      "terms" : {
+         "items" : {
+            "type" : "object",
+            "required" : [
+               "url"
+            ],
+            "properties" : {
+               "url" : {
+                  "type" : "string",
+                  "format" : "uri"
+               }
+            }
+         },
+         "type" : "array"
+      },
+      "properties" : {
+         "attributes" : {
+            "required" : [],
+            "type" : "object",
+            "description" : "Attributes for describing a sample.",
+            "properties" : {},
+            "patternProperties" : {
+               "^.*$" : {
+                  "$ref" : "#/definitions/attribute"
+               }
+            }
+         }
+      }
+   },
+   "type" : "object",
+   "$id" : "ERC000049",
+   "$schema" : "http://json-schema.org/draft-07/schema#",
+   "properties" : {
+      "attributes" : {
+         "required" : [
+            "project name",
+            "sequencing method",
+            "assembly software",
+            "assembly quality",
+            "investigation type",
+            "source of UViGs",
+            "virus enrichment approach",
+            "predicted genome type",
+            "predicted genome structure",
+            "detection type",
+            "viral identification software",
+            "isolation_source",
+            "collection date",
+            "geographic location (country and/or sea)",
+            "geographic location (latitude)",
+            "geographic location (longitude)",
+            "environment (biome)",
+            "environment (feature)",
+            "environment (material)",
+            "sample derived from",
+            "metagenomic source"
+         ],
+         "properties" : {
+            "sample derived from" : {
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(^[ESD]R[SR]\\d{6,}(,[ESD]R[SR]\\d{6,})*$)|(^SAM[END][AG]?\\d+(,SAM[END][AG]?\\d+)*$)|(^EGA[NR]\\d{11}(,EGA[NR]\\d{11})*$)|(^[ESD]R[SR]\\d{6,}-[ESD]R[SR]\\d{6,}$)|(^SAM[END][AG]?\\d+-SAM[END][AG]?\\d+$)|(^EGA[NR]\\d{11}-EGA[NR]\\d{11}$)"
+                     }
+                  }
+               },
+               "maxItems" : 1,
+               "description" : "Reference to parental sample(s) or original run(s) that the assembly is derived from. The referenced samples or runs should already be registered in INSDC. This should be formatted as one of the following. A single sample/run e.g. ERSxxxxxx OR a comma separated list e.g. ERSxxxxxx,ERSxxxxxx OR a range e.g. ERSxxxxxx-ERSxxxxxx"
+            },
+            "taxonomic classification" : {
+               "description" : "Method used for taxonomic classification, along with reference database used, classification rank, and thresholds used to classify new genomes. Expected values are: classification method, database name, and other parameters e.g. vConTACT vContact2 (references from NCBI RefSeq v83, genus rank classification, default parameters)",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "multiplex identifiers" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "Molecular barcodes, called Multiplex Identifiers (MIDs), that are used to specifically tag unique samples in a sequencing run. Sequence should be reported in uppercase letters"
+            },
+            "estimated size" : {
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "[+-]?[0-9]+"
+                     }
+                  }
+               },
+               "maxItems" : 1,
+               "description" : "The estimated size of the genome (in bp) prior to sequencing. Of particular importance in the sequencing of (eukaryotic) genome which could remain in draft form for a long or unspecified period. Mandatory for MIGS of eukaryotes."
+            },
+            "viral identification software" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "Tool(s) used for the identification of UViG as a viral genome, software or protocol name including version number, parameters, and cutoffs used formatted {software};{version};{parameters} e.g. VirSorter; 1.0.4; Virome database, category 2"
+            },
+            "library vector" : {
+               "description" : "Cloning vector type(s) used in construction of libraries",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "library size" : {
+               "maxItems" : 1,
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "[+-]?[0-9]+"
+                     }
+                  }
+               },
+               "description" : "Total number of clones in the library prepared for the project"
+            },
+            "library reads sequenced" : {
+               "description" : "Total number of clones sequenced from the library",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "[+-]?[0-9]+"
+                     }
+                  }
+               },
+               "maxItems" : 1
+            },
+            "assembly software" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "Tool(s) used for assembly, including version number and parameters in the format {software};{version};{parameters} e.g. metaSPAdes;3.11.0;kmer set 21,33,55,77,99,121, default parameters otherwise"
+            },
+            "geographic location (depth)" : {
+               "maxItems" : 1,
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  }
+               },
+               "description" : "Depth is defined as the vertical distance below surface, e.g. for sediment or soil samples depth is measured from sediment or soil surface, respectivly. Depth can be reported as an interval for subsurface samples."
+            },
+            "geographic location (country and/or sea)" : {
+               "description" : "The geographical origin of the sample as defined by the country or sea. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html).",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "Afghanistan",
+                           "Albania",
+                           "Algeria",
+                           "American Samoa",
+                           "Andorra",
+                           "Angola",
+                           "Anguilla",
+                           "Antarctica",
+                           "Antigua and Barbuda",
+                           "Arctic Ocean",
+                           "Argentina",
+                           "Armenia",
+                           "Aruba",
+                           "Ashmore and Cartier Islands",
+                           "Atlantic Ocean",
+                           "Australia",
+                           "Austria",
+                           "Azerbaijan",
+                           "Bahamas",
+                           "Bahrain",
+                           "Baker Island",
+                           "Baltic Sea",
+                           "Bangladesh",
+                           "Barbados",
+                           "Bassas da India",
+                           "Belarus",
+                           "Belgium",
+                           "Belize",
+                           "Benin",
+                           "Bermuda",
+                           "Bhutan",
+                           "Bolivia",
+                           "Borneo",
+                           "Bosnia and Herzegovina",
+                           "Botswana",
+                           "Bouvet Island",
+                           "Brazil",
+                           "British Virgin Islands",
+                           "Brunei",
+                           "Bulgaria",
+                           "Burkina Faso",
+                           "Burundi",
+                           "Cambodia",
+                           "Cameroon",
+                           "Canada",
+                           "Cape Verde",
+                           "Cayman Islands",
+                           "Central African Republic",
+                           "Chad",
+                           "Chile",
+                           "China",
+                           "Christmas Island",
+                           "Clipperton Island",
+                           "Cocos Islands",
+                           "Colombia",
+                           "Comoros",
+                           "Cook Islands",
+                           "Coral Sea Islands",
+                           "Costa Rica",
+                           "Cote d'Ivoire",
+                           "Croatia",
+                           "Cuba",
+                           "Curacao",
+                           "Cyprus",
+                           "Czech Republic",
+                           "Democratic Republic of the Congo",
+                           "Denmark",
+                           "Djibouti",
+                           "Dominica",
+                           "Dominican Republic",
+                           "East Timor",
+                           "Ecuador",
+                           "Egypt",
+                           "El Salvador",
+                           "Equatorial Guinea",
+                           "Eritrea",
+                           "Estonia",
+                           "Ethiopia",
+                           "Europa Island",
+                           "Falkland Islands (Islas Malvinas)",
+                           "Faroe Islands",
+                           "Fiji",
+                           "Finland",
+                           "France",
+                           "French Guiana",
+                           "French Polynesia",
+                           "French Southern and Antarctic Lands",
+                           "Gabon",
+                           "Gambia",
+                           "Gaza Strip",
+                           "Georgia",
+                           "Germany",
+                           "Ghana",
+                           "Gibraltar",
+                           "Glorioso Islands",
+                           "Greece",
+                           "Greenland",
+                           "Grenada",
+                           "Guadeloupe",
+                           "Guam",
+                           "Guatemala",
+                           "Guernsey",
+                           "Guinea",
+                           "Guinea-Bissau",
+                           "Guyana",
+                           "Haiti",
+                           "Heard Island and McDonald Islands",
+                           "Honduras",
+                           "Hong Kong",
+                           "Howland Island",
+                           "Hungary",
+                           "Iceland",
+                           "India",
+                           "Indian Ocean",
+                           "Indonesia",
+                           "Iran",
+                           "Iraq",
+                           "Ireland",
+                           "Isle of Man",
+                           "Israel",
+                           "Italy",
+                           "Jamaica",
+                           "Jan Mayen",
+                           "Japan",
+                           "Jarvis Island",
+                           "Jersey",
+                           "Johnston Atoll",
+                           "Jordan",
+                           "Juan de Nova Island",
+                           "Kazakhstan",
+                           "Kenya",
+                           "Kerguelen Archipelago",
+                           "Kingman Reef",
+                           "Kiribati",
+                           "Kosovo",
+                           "Kuwait",
+                           "Kyrgyzstan",
+                           "Laos",
+                           "Latvia",
+                           "Lebanon",
+                           "Lesotho",
+                           "Liberia",
+                           "Libya",
+                           "Liechtenstein",
+                           "Lithuania",
+                           "Luxembourg",
+                           "Macau",
+                           "Macedonia",
+                           "Madagascar",
+                           "Malawi",
+                           "Malaysia",
+                           "Maldives",
+                           "Mali",
+                           "Malta",
+                           "Marshall Islands",
+                           "Martinique",
+                           "Mauritania",
+                           "Mauritius",
+                           "Mayotte",
+                           "Mediterranean Sea",
+                           "Mexico",
+                           "Micronesia",
+                           "Midway Islands",
+                           "Moldova",
+                           "Monaco",
+                           "Mongolia",
+                           "Montenegro",
+                           "Montserrat",
+                           "Morocco",
+                           "Mozambique",
+                           "Myanmar",
+                           "Namibia",
+                           "Nauru",
+                           "Navassa Island",
+                           "Nepal",
+                           "Netherlands",
+                           "New Caledonia",
+                           "New Zealand",
+                           "Nicaragua",
+                           "Niger",
+                           "Nigeria",
+                           "Niue",
+                           "Norfolk Island",
+                           "North Korea",
+                           "North Sea",
+                           "Northern Mariana Islands",
+                           "Norway",
+                           "Oman",
+                           "Pacific Ocean",
+                           "Pakistan",
+                           "Palau",
+                           "Palmyra Atoll",
+                           "Panama",
+                           "Papua New Guinea",
+                           "Paracel Islands",
+                           "Paraguay",
+                           "Peru",
+                           "Philippines",
+                           "Pitcairn Islands",
+                           "Poland",
+                           "Portugal",
+                           "Puerto Rico",
+                           "Qatar",
+                           "Republic of the Congo",
+                           "Reunion",
+                           "Romania",
+                           "Ross Sea",
+                           "Russia",
+                           "Rwanda",
+                           "Saint Helena",
+                           "Saint Kitts and Nevis",
+                           "Saint Lucia",
+                           "Saint Pierre and Miquelon",
+                           "Saint Vincent and the Grenadines",
+                           "Samoa",
+                           "San Marino",
+                           "Sao Tome and Principe",
+                           "Saudi Arabia",
+                           "Senegal",
+                           "Serbia",
+                           "Seychelles",
+                           "Sierra Leone",
+                           "Singapore",
+                           "Sint Maarten",
+                           "Slovakia",
+                           "Slovenia",
+                           "Solomon Islands",
+                           "Somalia",
+                           "South Africa",
+                           "South Georgia and the South Sandwich Islands",
+                           "South Korea",
+                           "Southern Ocean",
+                           "Spain",
+                           "Spratly Islands",
+                           "Sri Lanka",
+                           "Sudan",
+                           "Suriname",
+                           "Svalbard",
+                           "Swaziland",
+                           "Sweden",
+                           "Switzerland",
+                           "Syria",
+                           "Taiwan",
+                           "Tajikistan",
+                           "Tanzania",
+                           "Tasman Sea",
+                           "Thailand",
+                           "Togo",
+                           "Tokelau",
+                           "Tonga",
+                           "Trinidad and Tobago",
+                           "Tromelin Island",
+                           "Tunisia",
+                           "Turkey",
+                           "Turkmenistan",
+                           "Turks and Caicos Islands",
+                           "Tuvalu",
+                           "USA",
+                           "Uganda",
+                           "Ukraine",
+                           "United Arab Emirates",
+                           "United Kingdom",
+                           "Uruguay",
+                           "Uzbekistan",
+                           "Vanuatu",
+                           "Venezuela",
+                           "Viet Nam",
+                           "Virgin Islands",
+                           "Wake Island",
+                           "Wallis and Futuna",
+                           "West Bank",
+                           "Western Sahara",
+                           "Yemen",
+                           "Zambia",
+                           "Zimbabwe",
+                           "not applicable",
+                           "not collected",
+                           "not provided",
+                           "restricted access"
+                        ]
+                     }
+                  }
+               },
+               "maxItems" : 1
+            },
+            "library screening strategy" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "Specific enrichment or screening methods applied before and/or after creating clone libraries in order to select a specific group of sequences"
+            },
+            "geographic location (latitude)" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(^.*[+-]?[0-9]+.?[0-9]*.*$)|(^not collected$)|(^not provided$)|(^restricted access$)"
+                     }
+                  }
+               },
+               "maxItems" : 1,
+               "description" : "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system"
+            },
+            "vOTU classification approach" : {
+               "items" : {},
+               "description" : "Cutoffs and approach used when clustering new UViGs in “species-level” vOTUs. Note that results from standard 95% ANI / 85% AF clustering should be provided alongside vOTUS defined from another set of thresholds, even if the latter are the ones primarily used during the analysis. This should be formatted {ANI cutoff};{AF cutoff};{clustering method} e.g. 95% ANI;85% AF; greedy incremental clustering"
+            },
+            "environment (material)" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "The environmental material level refers to the material that was displaced by the sample, or material in which a sample was embedded, prior to the sampling event. Environmental material terms are generally mass nouns. Examples include: air, soil, or water. EnvO (v 2013-06-14) terms can be found via the link: www.environmentontology.org/Browse-EnvO"
+            },
+            "binning software" : {
+               "description" : "Tool(s) used for the extraction of genomes from metagenomic datasets e.g. concoct and maxbin",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "geographic location (altitude)" : {
+               "description" : "The altitude of the sample is the vertical distance between Earth's surface above Sea Level and the sampled position in the air.",
+               "maxItems" : 1,
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  },
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "experimental factor" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "Experimental factors are essentially the variable aspects of an experiment design which can be used to describe an experiment, or set of experiments, in an increasingly detailed manner. This field accepts ontology terms from Experimental Factor Ontology (EFO) and/or Ontology for Biomedical Investigations (OBI). For a browser of EFO (v 2.43) terms, please see http://purl.bioontology.org/ontology/EFO; for a browser of OBI (v 2013-10-25) terms please see http://purl.bioontology.org/ontology/OBI"
+            },
+            "completeness approach" : {
+               "description" : "The approach used to determine the completeness of a given bin, SAG or MAG, which would typically make use of a set of conserved marker genes or a closely related reference genome. For UViG completeness, include reference genome or group used, and contig feature suggesting a complete genome",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "predicted genome structure" : {
+               "description" : "Expected structure of the viral genome",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "non-segmented",
+                           "segmented",
+                           "undetermined"
+                        ]
+                     }
+                  }
+               },
+               "maxItems" : 1
+            },
+            "investigation type" : {
+               "maxItems" : 1,
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "bacteria_archaea",
+                           "eukaryote",
+                           "metagenome",
+                           "metagenome-assembled genome",
+                           "metatranscriptome",
+                           "mimarks-specimen",
+                           "mimarks-survey",
+                           "organelle",
+                           "plasmid",
+                           "single amplified genome",
+                           "uncultivated viral genomes",
+                           "virus"
+                        ]
+                     }
+                  }
+               },
+               "description" : "Nucleic Acid Sequence Report is the root element of all MIxS compliant reports as standardised by Genomic Standards Consortium"
+            },
+            "host prediction approach" : {
+               "description" : "Tool or approach used for host prediction",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "CRISPR spacer match",
+                           "co-occurrence",
+                           "combination",
+                           "host sequence similarity",
+                           "kmer similarity",
+                           "other",
+                           "provirus"
+                        ]
+                     }
+                  }
+               }
+            },
+            "nucleic acid extraction" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "Link to a literature reference, electronic resource or a standard operating procedure (SOP)"
+            },
+            "adapters" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters"
+            },
+            "collection date" : {
+               "maxItems" : 1,
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(^[0-9]{4}(-[0-9]{2}(-[0-9]{2}(T[0-9]{2}:[0-9]{2}(:[0-9]{2})?Z?([+-][0-9]{1,2})?)?)?)?(/[0-9]{4}(-[0-9]{2}(-[0-9]{2}(T[0-9]{2}:[0-9]{2}(:[0-9]{2})?Z?([+-][0-9]{1,2})?)?)?)?)?$)|(^not collected$)|(^not provided$)|(^restricted access$)"
+                     }
+                  }
+               },
+               "description" : "The date of sampling, either as an instance (single point in time) or interval. In case no exact time is available, the date/time can be right truncated i.e. all of these are valid ISO8601 compliant times: 2008-01-23T19:23:10+00:00; 2008-01-23T19:23:10; 2008-01-23; 2008-01; 2008."
+            },
+            "vOTU database" : {
+               "description" : "Reference database (i.e. sequences not generated as part of the current study) used to cluster new genomes in \"species-level\" vOTUs, if any. This should be formatted: {database};{version} e.g. NCBI Viral RefSeq;83",
+               "maxItems" : 1,
+               "items" : {}
+            },
+            "MAG coverage software" : {
+               "description" : "Tool(s) used to determine the genome coverage if coverage is used as a binning parameter in the extraction of genomes from metagenomic datasets e.g. bwa, bbmap, bowtie, other",
+               "maxItems" : 1,
+               "items" : {}
+            },
+            "predicted genome type" : {
+               "description" : "Type of genome predicted for the UViG",
+               "maxItems" : 1,
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "DNA",
+                           "RNA",
+                           "dsDNA",
+                           "dsRNA",
+                           "mixed",
+                           "ssDNA",
+                           "ssRNA",
+                           "ssRNA (+)",
+                           "ssRNA (-)",
+                           "uncharacterized"
+                        ]
+                     }
+                  }
+               }
+            },
+            "taxonomic identity marker" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "The phylogenetic marker(s) used to assign an organism name to the bin, SAG or MAG. Examples are 16S gene, multi-marker approach or other e.g. rpoB gene"
+            },
+            "nucleic acid amplification" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "Link to a literature reference, electronic resource or a standard operating procedure (SOP)"
+            },
+            "project name" : {
+               "description" : "Name of the project within which the sequencing was organized",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "WGA amplification approach" : {
+               "description" : "Method used to amplify genomic DNA in preparation for sequencing",
+               "maxItems" : 1,
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "mda based",
+                           "pcr based"
+                        ]
+                     }
+                  }
+               }
+            },
+            "sample material processing" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "Any processing applied to the sample during or after retrieving the sample from environment. This field accepts OBI, for a browser of OBI (v 2013-10-25) terms please see http://purl.bioontology.org/ontology/OBI"
+            },
+            "binning parameters" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "The parameters that have been applied during the extraction of genomes from metagenomic datasets e.g. coverage and kmer"
+            },
+            "relevant standard operating procedures" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "Standard operating procedures used in assembly and/or annotation of genomes, metagenomes or environmental sequences"
+            },
+            "source material identifiers" : {
+               "description" : "A unique identifier assigned to a material sample (as defined by http://rs.tdwg.org/dwc/terms/materialSampleID, and as opposed to a particular digital record of a material sample) used for extracting nucleic acids, and subsequent sequencing. The identifier can refer either to the original material collected or to any derived sub-samples. The INSDC qualifiers /specimen_voucher, /bio_material, or /culture_collection may or may not share the same value as the source_mat_id field. For instance, the /specimen_voucher qualifier and source_mat_id may both contain 'UAM:Herps:14' , referring to both the specimen voucher and sampled tissue with the same identifier. However, the /culture_collection qualifier may refer to a value from an initial culture (e.g. ATCC:11775) while source_mat_id would refer to an identifier from some derived culture from which the nucleic acids were extracted (e.g. xatc123 or ark:/2154/R2).",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "observed biotic relationship" : {
+               "description" : "Is it free-living or in a host and if the latter what type of relationship is observed",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "commensal",
+                           "free living",
+                           "parasite",
+                           "symbiont"
+                        ]
+                     }
+                  }
+               },
+               "maxItems" : 1
+            },
+            "metagenomic source" : {
+               "maxItems" : 1,
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "isValidTaxonomy" : "true"
+                     }
+                  }
+               },
+               "description" : "The metagenomic source of the sample. This value should contain “metagenome” and be in the taxonomy database e.g. wastewater metagenome or human gut metagenome. Please note “metagenome” alone will not be accepted. Check here for more details on metagenome taxonomy: https://ena-docs.readthedocs.io/en/latest/faq_taxonomy.html#environmental-taxonomic-classifications"
+            },
+            "environment (feature)" : {
+               "description" : "Environmental feature level includes geographic environmental features. Compared to biome, feature is a descriptor of the more local environment. Examples include: harbor, cliff, or lake. EnvO (v 2013-06-14) terms can be found via the link: www.environmentontology.org/Browse-EnvO",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "geographic location (longitude)" : {
+               "description" : "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(^.*[+-]?[0-9]+.?[0-9]*.*$)|(^not collected$)|(^not provided$)|(^restricted access$)"
+                     }
+                  }
+               },
+               "maxItems" : 1
+            },
+            "virus enrichment approach" : {
+               "description" : "List of approaches used to enrich the sample for viruses, if any",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "CsCl density gradient",
+                           "DNAse",
+                           "FeCl Precipitation",
+                           "PEG Precipitation",
+                           "RNAse",
+                           "centrifugation",
+                           "filtration",
+                           "none",
+                           "other",
+                           "targeted sequence capture",
+                           "ultracentrifugation",
+                           "ultrafiltration"
+                        ]
+                     }
+                  }
+               },
+               "maxItems" : 1
+            },
+            "annotation source" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "For cases where annotation was provided by a community jamboree or model organism database rather than by a specific submitter"
+            },
+            "tRNA extraction software" : {
+               "description" : "Tools used for tRNA identification. Add names and versions of software(s), parameters used",
+               "maxItems" : 1,
+               "items" : {}
+            },
+            "size fraction selected" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "Filtering pore size used in sample preparation e.g. 0-0.22 micrometer"
+            },
+            "sorting technology" : {
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "flow cytometric cell sorting",
+                           "lazer-tweezing",
+                           "microfluidics",
+                           "micromanipulation",
+                           "optical manipulation",
+                           "other"
+                        ]
+                     }
+                  }
+               },
+               "maxItems" : 1,
+               "description" : "Method used to sort/isolate cells or particles of interest"
+            },
+            "reference for biomaterial" : {
+               "description" : "Primary publication if isolated before genome publication; otherwise, primary genome report. Mandatory for MIGS of bacteria and archaea.",
+               "maxItems" : 1,
+               "items" : {}
+            },
+            "relevant electronic resources" : {
+               "description" : "-",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "geographic location (region and locality)" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "The geographical origin of the sample as defined by the specific region name followed by the locality name."
+            },
+            "environment (biome)" : {
+               "description" : "Biomes are defined based on factors such as plant structures, leaf types, plant spacing, and other factors like climate. Biome should be treated as the descriptor of the broad ecological context of a sample. Examples include: desert, taiga, deciduous woodland, or coral reef. EnvO (v 2013-06-14) terms can be found via the link: www.environmentontology.org/Browse-EnvO",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "host prediction estimated accuracy" : {
+               "description" : "For each tool or approach used for host prediction, estimated false discovery rates should be included, either computed de novo or from the literature",
+               "items" : {}
+            },
+            "detection type" : {
+               "description" : "Type of UViG detection",
+               "maxItems" : 1,
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "independent sequence (UViG)",
+                           "provirus (UpViG)"
+                        ]
+                     }
+                  }
+               }
+            },
+            "sequencing method" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "Sequencing method used; e.g. Sanger, pyrosequencing, ABI-solid"
+            },
+            "isolation_source" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "describes the physical, environmental and/or local geographical source of the biological sample from which the sample was derived"
+            },
+            "assembly quality" : {
+               "maxItems" : 1,
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "Many fragments with little to no review of assembly other than reporting of standard assembly statistics",
+                           "Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S, and 5S rRNA genes and at least 18 tRNAs",
+                           "Single contiguous sequence without gaps or ambiguities with a consensus error rate equivalent to Q50 or better"
+                        ]
+                     }
+                  }
+               },
+               "description" : "Assembly quality is one of 3 attributes which in combination reflect the standard quality of a MAG, see here for more information: https://ena-docs.readthedocs.io/en/latest/faq_metagenomes.html. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length."
+            },
+            "sample collection device or method" : {
+               "description" : "The method or deviced employed for collecting the sample",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "similarity search method" : {
+               "description" : "Tool used to compare ORFs with database, along with version and cutoffs used. Add names and versions of software(s), parameters used",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "vOTU sequence comparison approach" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "Tool and thresholds used to compare sequences when computing \"species-level\" vOTUs formatted: {software};{version};{parameters} e.g. gblastn;2.6.0+;e-value cutoff: 0.001"
+            },
+            "feature prediction" : {
+               "description" : "Method used to predict UViGs features such as ORFs, integration site, etc. Add names and versions of software(s), parameters used",
+               "maxItems" : 1,
+               "items" : {}
+            },
+            "completeness software" : {
+               "description" : "Tools used for completion estimate, i.e. checkm, anvi'o, busco",
+               "maxItems" : 1,
+               "items" : {}
+            },
+            "reassembly post binning" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "No",
+                           "Yes"
+                        ]
+                     }
+                  }
+               },
+               "maxItems" : 1,
+               "description" : "Has an assembly been performed on a genome bin extracted from a metagenomic assembly?"
+            },
+            "geographic location (elevation)" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "[+-]?(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  }
+               },
+               "maxItems" : 1,
+               "description" : "The elevation of the sampling site as measured by the vertical distance from mean sea level."
+            },
+            "reference database(s)" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "List of database(s) used for ORF annotation, along with version number and reference to website or publication"
+            },
+            "number of standard tRNAs extracted" : {
+               "description" : "The total number of tRNAs identified from the bin, SAG or MAG",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "[+-]?[0-9]+"
+                     }
+                  }
+               },
+               "maxItems" : 1
+            },
+            "WGA amplification kit" : {
+               "description" : "Kit used to amplify genomic DNA in preparation for sequencing",
+               "maxItems" : 1,
+               "items" : {}
+            },
+            "single cell or viral particle lysis approach" : {
+               "description" : "Method used to free DNA from interior of the cell(s) or particle(s)",
+               "maxItems" : 1,
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "chemical",
+                           "combination",
+                           "enzymatic",
+                           "physical"
+                        ]
+                     }
+                  }
+               }
+            },
+            "single cell or viral particle lysis kit protocol" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "Name of the kit or standard protocol used for cell(s) or particle(s) lysis"
+            },
+            "amount or size of sample collected" : {
+               "description" : "Amount or size of sample (volume, mass or area) that was collected",
+               "maxItems" : 1,
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  }
+               }
+            },
+            "known pathogenicity" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "To what is the entity pathogenic, for instance plant, fungi, bacteria"
+            },
+            "source of UViGs" : {
+               "maxItems" : 1,
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "isolate microbial genome",
+                           "metagenome (not viral targeted)",
+                           "metatranscriptome (not viral targeted)",
+                           "microbial single amplified genome (SAG)",
+                           "other",
+                           "sequence-targeted RNA metagenome",
+                           "sequence-targeted metagenome",
+                           "viral fraction RNA metagenome (RNA virome)",
+                           "viral fraction metagenome (virome)",
+                           "viral single amplified genome (vSAG)"
+                        ]
+                     }
+                  }
+               },
+               "description" : "Type of dataset from which the UViG was obtained"
+            },
+            "specific host" : {
+               "description" : "If there is a host involved, please provide its taxid (or environmental if not actually isolated from the dead or alive host - i.e. pathogen could be isolated from a swipe of a bench etc) and report whether it is a laboratory or natural host). From this we can calculate any number of groupings of hosts (e.g. animal vs plant, all fish hosts, etc)",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "completeness score" : {
+               "description" : "Completeness score is typically based on either the fraction of markers found as compared to a database or the percent of a genome found as compared to a closely related reference genome. Completeness score is one of 3 attributes which in combination reflect the standard quality of a MAG, see here for more information: https://ena-docs.readthedocs.io/en/latest/faq_metagenomes.html.",
+               "maxItems" : 1,
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "^(\\d|[1-9]\\d|\\d\\.\\d{1,2}|[1-9]\\d\\.\\d{1,2}|100)$"
+                     }
+                  },
+                  "required" : [
+                     "units"
+                  ]
+               }
+            }
+         }
+      }
+   },
+   "$async" : true
+}

@@ -4,54 +4,54 @@
   "taxonId" : 4577,
   "attributes" : {
     "ENA checklist" : [ {
-      "text" : "ERC000035"
+      "value" : "ERC000035"
     } ],
     "INSDC center name" : [ {
-      "text" : "ENA"
+      "value" : "ENA"
     } ],
     "INSDC first public" : [ {
-      "text" : "2016-05-17T14:59:01Z"
+      "value" : "2016-05-17T14:59:01Z"
     } ],
     "INSDC last update" : [ {
-      "text" : "2016-05-13T14:33:37Z"
+      "value" : "2016-05-13T14:33:37Z"
     } ],
     "INSDC status" : [ {
-      "text" : "public"
+      "value" : "public"
     } ],
     "SRA accession" : [ {
-      "text" : "ERS1158303"
+      "value" : "ERS1158303"
     } ],
     "age" : [ {
-      "text" : "14 day"
+      "value" : "14 day"
     } ],
     "alias" : [ {
-      "text" : "SRR031088_SAMN00005991"
+      "value" : "SRR031088_SAMN00005991"
     } ],
     "dev stage" : [ {
-      "text" : "seedling",
+      "value" : "seedling",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/PO_0007131" ]
     } ],
     "experimental factor 1" : [ {
-      "text" : "genotype"
+      "value" : "genotype"
     } ],
     "genotype" : [ {
-      "text" : "Mo17 x B73 F1 hybrid"
+      "value" : "Mo17 x B73 F1 hybrid"
     } ],
     "organism" : [ {
-      "text" : "Zea mays",
+      "value" : "Zea mays",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_4577" ]
     } ],
     "organism part" : [ {
-      "text" : "aerial part (EFO_0001901)"
+      "value" : "aerial part (EFO_0001901)"
     } ],
     "recurated from" : [ {
-      "text" : "SAMN00005991"
+      "value" : "SAMN00005991"
     } ],
     "synonym" : [ {
-      "text" : "SRR031088_SAMN00005991"
+      "value" : "SRR031088_SAMN00005991"
     } ],
     "title" : [ {
-      "text" : "ENA Crop Plant sample enhanced annotation"
+      "value" : "ENA Crop Plant sample enhanced annotation"
     } ]
   }
 }

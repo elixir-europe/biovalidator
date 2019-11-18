@@ -4,163 +4,163 @@
   "taxonId" : 527640,
   "attributes" : {
     "ENA checklist" : [ {
-      "text" : "ERC000019"
+      "value" : "ERC000019"
     } ],
     "Fe(II)" : [ {
-      "text" : "0.043 mg/L"
+      "value" : "0.043 mg/L"
     } ],
     "Fe(tot_" : [ {
-      "text" : "0.073 mg/L"
+      "value" : "0.073 mg/L"
     } ],
     "Fluorine" : [ {
-      "text" : "1.79 mg/L"
+      "value" : "1.79 mg/L"
     } ],
     "INSDC center alias" : [ {
-      "text" : "MPI BREMEN"
+      "value" : "MPI BREMEN"
     } ],
     "INSDC center name" : [ {
-      "text" : "Max Planck Institute for Marine Microbiology"
+      "value" : "Max Planck Institute for Marine Microbiology"
     } ],
     "INSDC first public" : [ {
-      "text" : "2014-01-04T17:02:06Z"
+      "value" : "2014-01-04T17:02:06Z"
     } ],
     "INSDC last update" : [ {
-      "text" : "2018-03-09T10:32:00Z"
+      "value" : "2018-03-09T10:32:00Z"
     } ],
     "INSDC status" : [ {
-      "text" : "public"
+      "value" : "public"
     } ],
     "SRA accession" : [ {
-      "text" : "ERS371131"
+      "value" : "ERS371131"
     } ],
     "alias" : [ {
-      "text" : "AS-1.sff"
+      "value" : "AS-1.sff"
     } ],
     "alkalinity" : [ {
-      "text" : "6.85",
+      "value" : "6.85",
       "units" : "mEq/L"
     } ],
     "ammonium" : [ {
-      "text" : "0.0229",
+      "value" : "0.0229",
       "units" : "µM"
     } ],
     "amount or size of sample collected" : [ {
-      "text" : "50",
+      "value" : "50",
       "units" : "L"
     } ],
     "bromide" : [ {
-      "text" : "105.496",
+      "value" : "105.496",
       "units" : "µM"
     } ],
     "calcium" : [ {
-      "text" : "4164.09",
+      "value" : "4164.09",
       "units" : "µM"
     } ],
     "chloride" : [ {
-      "text" : "13514.7",
+      "value" : "13514.7",
       "units" : "µmol/kg"
     } ],
     "collection date" : [ {
-      "text" : "2010-03"
+      "value" : "2010-03"
     } ],
     "conductivity" : [ {
-      "text" : "3520 mS/m"
+      "value" : "3520 mS/m"
     } ],
     "geographic location (depth)" : [ {
-      "text" : "0",
+      "value" : "0",
       "units" : "m"
     } ],
     "description" : [ {
-      "text" : "Aspo 11 March 2010 TASF R1"
+      "value" : "Aspo 11 March 2010 TASF R1"
     } ],
     "dissolved inorganic carbon" : [ {
-      "text" : "1.1",
+      "value" : "1.1",
       "units" : "µmol/kg"
     } ],
     "dissolved organic carbon" : [ {
-      "text" : "16",
+      "value" : "16",
       "units" : "µmol/kg"
     } ],
     "dissolved oxygen" : [ {
-      "text" : "0.8915795",
+      "value" : "0.8915795",
       "units" : "µmol/kg"
     } ],
     "environment (biome)" : [ {
-      "text" : "Brackish Groundwater"
+      "value" : "Brackish Groundwater"
     } ],
     "environment (feature)" : [ {
-      "text" : "Microbial mat",
+      "value" : "Microbial mat",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/ENVO_01000008" ]
     } ],
     "environment (material)" : [ {
-      "text" : "Microbial mat materia"
+      "value" : "Microbial mat materia"
     } ],
     "geographic location (country and/or sea)" : [ {
-      "text" : "Sweden"
+      "value" : "Sweden"
     } ],
     "geographic location (elevation)" : [ {
-      "text" : "-460",
+      "value" : "-460",
       "units" : "m"
     } ],
     "geographic location (latitude)" : [ {
-      "text" : "57.43288889",
+      "value" : "57.43288889",
       "units" : "DD"
     } ],
     "geographic location (longitude)" : [ {
-      "text" : "16.66067778",
+      "value" : "16.66067778",
       "units" : "DD"
     } ],
     "investigation type" : [ {
-      "text" : "mimarks-survey"
+      "value" : "mimarks-survey"
     } ],
     "magnesium" : [ {
-      "text" : "30.71",
+      "value" : "30.71",
       "units" : "µM"
     } ],
     "microbial mat/biofilm environmental package" : [ {
-      "text" : "microbial mat/biofilm"
+      "value" : "microbial mat/biofilm"
     } ],
     "nitrate" : [ {
-      "text" : "0.025387635",
+      "value" : "0.025387635",
       "units" : "µM"
     } ],
     "organism" : [ {
-      "text" : "microbial mat metagenome",
+      "value" : "microbial mat metagenome",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_527640" ]
     } ],
     "pcr primers" : [ {
-      "text" : "primers: 27F GAGTTTGATCNTGGCTCAG ; 519R GTN TTA CNG CGG CKG CTG"
+      "value" : "primers: 27F GAGTTTGATCNTGGCTCAG ; 519R GTN TTA CNG CGG CKG CTG"
     } ],
     "ph" : [ {
-      "text" : "7.93"
+      "value" : "7.93"
     } ],
     "potassium" : [ {
-      "text" : "25.4",
+      "value" : "25.4",
       "units" : "µM"
     } ],
     "project name" : [ {
-      "text" : "Rich microbial communities in and around underwater springs in the Dead Sea"
+      "value" : "Rich microbial communities in and around underwater springs in the Dead Sea"
     } ],
     "sequencing method" : [ {
-      "text" : "454 GS FLX Titanium"
+      "value" : "454 GS FLX Titanium"
     } ],
     "sodium" : [ {
-      "text" : "3301.886992",
+      "value" : "3301.886992",
       "units" : "µM"
     } ],
     "sulfate" : [ {
-      "text" : "672.44",
+      "value" : "672.44",
       "units" : "µmol/kg"
     } ],
     "sulfide" : [ {
-      "text" : "0.006",
+      "value" : "0.006",
       "units" : "µmol/kg"
     } ],
     "synonym" : [ {
-      "text" : "AS-1.sff"
+      "value" : "AS-1.sff"
     } ],
     "title" : [ {
-      "text" : "AS11_TASF_R1"
+      "value" : "AS11_TASF_R1"
     } ]
   }
 }

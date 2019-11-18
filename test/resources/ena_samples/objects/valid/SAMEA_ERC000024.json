@@ -4,85 +4,85 @@
   "taxonId" : 1561972,
   "attributes" : {
     "ENA checklist" : [ {
-      "text" : "ERC000024"
+      "value" : "ERC000024"
     } ],
     "INSDC center alias" : [ {
-      "text" : "UNIVERSITY OF SOUTHERN CALIFORNIA"
+      "value" : "UNIVERSITY OF SOUTHERN CALIFORNIA"
     } ],
     "INSDC center name" : [ {
-      "text" : "UNIVERSITY OF SOUTHERN CALIFORNIA"
+      "value" : "UNIVERSITY OF SOUTHERN CALIFORNIA"
     } ],
     "INSDC first public" : [ {
-      "text" : "2018-10-31T17:03:13Z"
+      "value" : "2018-10-31T17:03:13Z"
     } ],
     "INSDC last update" : [ {
-      "text" : "2018-04-13T01:00:35Z"
+      "value" : "2018-04-13T01:00:35Z"
     } ],
     "INSDC status" : [ {
-      "text" : "public"
+      "value" : "public"
     } ],
     "SRA accession" : [ {
-      "text" : "ERS2402661"
+      "value" : "ERS2402661"
     } ],
     "alias" : [ {
-      "text" : "M5.35.fastq"
+      "value" : "M5.35.fastq"
     } ],
     "collection date" : [ {
-      "text" : "2011-08"
+      "value" : "2011-08"
     } ],
     "description" : [ {
-      "text" : "surface seawater 16S amplicon investigated by 15N stable isotope probing"
+      "value" : "surface seawater 16S amplicon investigated by 15N stable isotope probing"
     } ],
     "environment (biome)" : [ {
-      "text" : "surface seawater"
+      "value" : "surface seawater"
     } ],
     "environment (feature)" : [ {
-      "text" : "southern california bight"
+      "value" : "southern california bight"
     } ],
     "environment (material)" : [ {
-      "text" : "water",
+      "value" : "water",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/CHEBI_15377" ]
     } ],
     "environmental package" : [ {
-      "text" : "water",
+      "value" : "water",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/CHEBI_15377" ]
     } ],
     "geographic location (country and/or sea)" : [ {
-      "text" : "Pacific Ocean"
+      "value" : "Pacific Ocean"
     } ],
     "geographic location (depth)" : [ {
-      "text" : "5",
+      "value" : "5",
       "units" : "m"
     } ],
     "geographic location (latitude)" : [ {
-      "text" : "33.55",
+      "value" : "33.55",
       "units" : "DD"
     } ],
     "geographic location (longitude)" : [ {
-      "text" : "-118.4",
+      "value" : "-118.4",
       "units" : "DD"
     } ],
     "investigation type" : [ {
-      "text" : "mimarks-survey"
+      "value" : "mimarks-survey"
     } ],
     "organism" : [ {
-      "text" : "seawater metagenome",
+      "value" : "seawater metagenome",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_1561972" ]
     } ],
     "project name" : [ {
-      "text" : "April SPOT SIP study"
+      "value" : "April SPOT SIP study"
     } ],
     "sequencing method" : [ {
-      "text" : "PE Illumina Miseq 2x250"
+      "value" : "PE Illumina Miseq 2x250"
     } ],
     "synonym" : [ {
-      "text" : "M5.35.fastq"
+      "value" : "M5.35.fastq"
     } ],
     "title" : [ {
-      "text" : "M5.35"
+      "value" : "M5.35"
     } ],
     "water environmental package" : [ {
-      "text" : "water",
+      "value" : "water",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/CHEBI_15377" ]
     } ]
   }

@@ -4,66 +4,66 @@
   "taxonId" : 10497,
   "attributes" : {
     "ENA checklist" : [ {
-      "text" : "ERC000033"
+      "value" : "ERC000033"
     } ],
     "INSDC center alias" : [ {
-      "text" : "Friedrich-Loeffler-Institute"
+      "value" : "Friedrich-Loeffler-Institute"
     } ],
     "INSDC center name" : [ {
-      "text" : "Friedrich-Loeffler-Institute"
+      "value" : "Friedrich-Loeffler-Institute"
     } ],
     "INSDC first public" : [ {
-      "text" : "2018-05-02T17:03:02Z"
+      "value" : "2018-05-02T17:03:02Z"
     } ],
     "INSDC last update" : [ {
-      "text" : "2018-04-23T10:10:57Z"
+      "value" : "2018-04-23T10:10:57Z"
     } ],
     "INSDC status" : [ {
-      "text" : "public"
+      "value" : "public"
     } ],
     "SRA accession" : [ {
-      "text" : "ERS2419824"
+      "value" : "ERS2419824"
     } ],
     "alias" : [ {
-      "text" : "lib02053"
+      "value" : "lib02053"
     } ],
     "collecting institution" : [ {
-      "text" : "Friedrich-Loeffler-Institute"
+      "value" : "Friedrich-Loeffler-Institute"
     } ],
     "collector name" : [ {
-      "text" : "Laura Zani"
+      "value" : "Laura Zani"
     } ],
     "description" : [ {
-      "text" : "Deletion at the 5’-end of Estonian ASFV strains associated with an attenuated phenotype"
+      "value" : "Deletion at the 5’-end of Estonian ASFV strains associated with an attenuated phenotype"
     } ],
     "host common name" : [ {
-      "text" : "wild boar"
+      "value" : "wild boar"
     } ],
     "host health state" : [ {
-      "text" : "diseased"
+      "value" : "diseased"
     } ],
     "host scientific name" : [ {
-      "text" : "Sus scrofa scrofa"
+      "value" : "Sus scrofa scrofa"
     } ],
     "host sex" : [ {
-      "text" : "female",
+      "value" : "female",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/PATO_0000383" ]
     } ],
     "host subject id" : [ {
-      "text" : "#19"
+      "value" : "#19"
     } ],
     "isolate" : [ {
-      "text" : "Estonia 2014"
+      "value" : "Estonia 2014"
     } ],
     "organism" : [ {
-      "text" : "African swine fever virus",
+      "value" : "African swine fever virus",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_10497" ]
     } ],
     "synonym" : [ {
-      "text" : "lib02053"
+      "value" : "lib02053"
     } ],
     "title" : [ {
-      "text" : "Estonia 2014"
+      "value" : "Estonia 2014"
     } ]
   }
 }

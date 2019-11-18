@@ -57,6 +57,10 @@ describe("Sample Checklist tests", () => {
       ["ERC000043.json", "strain"],
       ["ERC000044.json", "host scientific name"],
       ["ERC000045.json", "collection_date"],
+      ["ERC000047.json", "sequencing method"],
+      ["ERC000048.json", "assembly software"],
+      ["ERC000049.json", "viral identification software"],
+      ["ERC000050.json", "sample derived from"],
       ["ERC000051.json", "sample origin"],
     ]);
 

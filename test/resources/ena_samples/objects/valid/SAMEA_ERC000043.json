@@ -4,41 +4,41 @@
   "taxonId" : 2850,
   "attributes" : {
     "ENA checklist" : [ {
-      "text" : "ERC000043"
+      "value" : "ERC000043"
     } ],
     "INSDC center alias" : [ {
-      "text" : "UNIVERSITY OF KONSTANZ"
+      "value" : "UNIVERSITY OF KONSTANZ"
     } ],
     "INSDC center name" : [ {
-      "text" : "UNIVERSITY OF KONSTANZ"
+      "value" : "UNIVERSITY OF KONSTANZ"
     } ],
     "INSDC first public" : [ {
-      "text" : "2019-08-02T17:03:41Z"
+      "value" : "2019-08-02T17:03:41Z"
     } ],
     "INSDC last update" : [ {
-      "text" : "2019-08-02T11:58:40Z"
+      "value" : "2019-08-02T11:58:40Z"
     } ],
     "INSDC status" : [ {
-      "text" : "public"
+      "value" : "public"
     } ],
     "SRA accession" : [ {
-      "text" : "ERS3631860"
+      "value" : "ERS3631860"
     } ],
     "alias" : [ {
-      "text" : "x1KO_1a"
+      "value" : "x1KO_1a"
     } ],
     "organism" : [ {
-      "text" : "Phaeodactylum tricornutum",
+      "value" : "Phaeodactylum tricornutum",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_2850" ]
     } ],
     "strain" : [ {
-      "text" : "4"
+      "value" : "4"
     } ],
     "synonym" : [ {
-      "text" : "x1KO_1a"
+      "value" : "x1KO_1a"
     } ],
     "title" : [ {
-      "text" : "TALEN Lhcx1 knockout on P. tricornutum 4"
+      "value" : "TALEN Lhcx1 knockout on P. tricornutum 4"
     } ]
   }
 }

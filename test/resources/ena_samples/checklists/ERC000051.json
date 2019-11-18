@@ -1,7 +1,190 @@
 {
+   "type" : "object",
    "title" : "PDX Checklist",
+   "version" : "1.0.0",
+   "$id" : "ERC000051",
+   "description" : "Minimum information required for reporting samples associated with patient-derived xenograft (PDX) models or patient samples",
+   "$async" : true,
    "properties" : {
       "attributes" : {
+         "properties" : {
+            "sample unique ID" : {
+               "items" : {},
+               "description" : "Unique identifier of the PDX or tumor sample, e.g. CRC00003",
+               "maxItems" : 1
+            },
+            "engrafted tumor collection site" : {
+               "maxItems" : 1,
+               "description" : "If the sample origin is “engrafted tumor”, please indicate the collection site from which the engrafted tumor sample was extracted (e.g. Liver). Please use terminology from NCIT ontology: https://www.ebi.ac.uk/ols/ontologies/ncit. If unknown please select NCIT term: “Not Available” ( http://purl.obolibrary.org/obo/NCIT_C126101)”. If the sample origin is “patient tumor” please do not use this attribute.",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "format" : "uri",
+                        "isValidTerm" : "true",
+                        "type" : "string"
+                     }
+                  }
+               }
+            },
+            "patient tumor type" : {
+               "maxItems" : 1,
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "Metastatic Neoplasm",
+                           "Primary Neoplasm",
+                           "Recurrent Neoplasm",
+                           "not provided"
+                        ]
+                     }
+                  }
+               },
+               "description" : "For a primary sample (a tumor at the original site of origin), please select “Primary Neoplasm” . For a metastatic sample (a tumor that has spread from its original (primary) site of growth to another site, close to or distant from the primary site), please select “Metastatic Neoplasm” . For a recurring neoplasm sample (neoplasm returning after a period of remission at the same location), please select “Recurrent Neoplasm” . If unknown tumor type, please select “not provided”."
+            },
+            "engrafted tumor sample passage" : {
+               "maxItems" : 1,
+               "description" : "If engrafted tumor sample, please indicate the passage from which the engrafted tumor sample was harvested (passage 0 must be the first engraftment in the mouse). Please ensure you add a non-negative number greater than 0. If the sample origin is “patient tumor” please enter \"not applicable\". If passage number is unknown please enter \"not provided”.",
+               "items" : {}
+            },
+            "patient tumor diagnosis at time of collection" : {
+               "maxItems" : 1,
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "type" : "string",
+                        "isValidTerm" : "true",
+                        "format" : "uri"
+                     }
+                  }
+               },
+               "description" : "Patient tumor diagnosis at time of collection for engraftment in PDX model or organoid/cell derivation. Please use terminology from NCIT ontology: https://www.ebi.ac.uk/ols/ontologies/ncit - Please note in NCIT ontology, usually the “cancer” concept is represented with “malignant neoplasm”example: “lung cancer” is “Malignant Lung Neoplasm” (http://purl.obolibrary.org/obo/NCIT_C7377). If precise diagnosis is unknown, please use \"Neoplasm\" (http://purl.obolibrary.org/obo/NCIT_C3262)"
+            },
+            "sample origin" : {
+               "description" : "Sample origin from which data deposited was generated, e.g. Engrafted tumor",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "Engrafted tumor",
+                           "Patient derived cell culture",
+                           "Patient tumor",
+                           "Xenograft derived cell culture",
+                           "Xenograft derived cell line",
+                           "Xenograft derived organoid",
+                           "not provided"
+                        ]
+                     }
+                  }
+               },
+               "maxItems" : 1
+            },
+            "patient age at collection of tumor" : {
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "^(0|([1-9][0-9]{0,2}))$"
+                     }
+                  }
+               },
+               "description" : "Age in years of the patient when the tumor was extracted. Please note this must be a whole number, e.g. 45",
+               "maxItems" : 1
+            },
+            "was the PDX model humanised?" : {
+               "maxItems" : 1,
+               "description" : "If the sample origin is “engrafted tumor”, please indicate if the host strain, from which the sample was extracted, has undergone human immune system reconstitution, using “Yes” (model humanised) or “No” (model not humanised). If the sample origin is “patient tumor” please select \"not applicable\".",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "No",
+                           "Yes",
+                           "not applicable"
+                        ]
+                     }
+                  }
+               }
+            },
+            "engraftment host strain name" : {
+               "maxItems" : 1,
+               "description" : "If the sample origin is “engrafted tumor”, please indicate the host mouse strain name from which the engrafted tumor sample was extracted (e.g. NOD.Cg-Prkdcscid Il2rgtm1Wjl/SzJ). Please use the following guidelines for the correct nomenclature format: http://www.informatics.jax.org/mgihome/nomen/strains.shtml#mice. If the sample origin is “patient tumor” please add \"not applicable\" and if unknown please add \"not provided\".",
+               "items" : {}
+            },
+            "patient tumor site of collection" : {
+               "description" : "Site of collection of the patient tissue sample which was extracted (can be different to primary site if it is a metastatic sample). Please use NCIT ontology, e.g. Liver (http://purl.obolibrary.org/obo/NCIT_C12392). If unknown please select NCIT term: “Not Available” (http://purl.obolibrary.org/obo/NCIT_C126101)",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "isValidTerm" : "true",
+                        "format" : "uri",
+                        "type" : "string"
+                     }
+                  }
+               },
+               "maxItems" : 1
+            },
+            "patient tumor primary site" : {
+               "description" : "Site of the primary tumor where cancer originates (may not correspond to the site of the collected tissue sample). Please use NCIT ontology, e.g. Colon (http://purl.obolibrary.org/obo/NCIT_C12382). If unknown please select NCIT term: “Not Available” ( http://purl.obolibrary.org/obo/NCIT_C126101)",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "type" : "string",
+                        "isValidTerm" : "true",
+                        "format" : "uri"
+                     }
+                  }
+               },
+               "maxItems" : 1
+            },
+            "sample material" : {
+               "maxItems" : 1,
+               "description" : "Sample material from which data deposited was generated, e.g. tissue fragment. If unknown please select \"not provided\".",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "bone marrow aspirate",
+                           "cell suspension",
+                           "malignant effusion",
+                           "not provided",
+                           "organoid",
+                           "peripheral blood",
+                           "tissue fragment"
+                        ]
+                     }
+                  }
+               }
+            },
+            "patient sex" : {
+               "maxItems" : 1,
+               "description" : "Sex of the patient from which the tumor was extracted. If sex is unknown please select “not available”",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "Female",
+                           "Male",
+                           "not available"
+                        ]
+                     }
+                  }
+               }
+            },
+            "sample taxon name" : {
+               "description" : "This field indicates if a sample is derived from a patient or xenograft. The following two options are available: Homo sapiens/Mus musculus xenograft (sample is from a Xenograft derived tumor/cell culture) or Homo sapiens (sample is from a patient tumor/cell culture). Please ensure the selected value here is identical to the value in the 'scientific name' column/field.",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "Homo sapiens",
+                           "Homo sapiens/Mus musculus xenograft"
+                        ]
+                     }
+                  }
+               },
+               "maxItems" : 1
+            }
+         },
          "required" : [
             "sample origin",
             "sample taxon name",
@@ -14,140 +197,63 @@
             "patient tumor diagnosis at time of collection",
             "patient tumor primary site",
             "patient sex"
-         ],
-         "properties" : {
-            "sample taxon name" : {
-               "description" : "This field indicates if a sample is derived from a patient or xenograft. The following two options are available: Homo sapiens/Mus musculus xenograft (sample is from a Xenograft derived tumor/cell culture) or Homo sapiens (sample is from a patient tumor/cell culture). Please ensure the selected value here is identical to the value in the 'scientific name' column/field.",
-               "maxItems" : 1,
-               "items" : {}
-            },
-            "sample origin" : {
-               "description" : "Sample origin from which data deposited was generated, e.g. Engrafted tumor",
-               "maxItems" : 1,
-               "items" : {}
-            },
-            "patient tumor diagnosis at time of collection" : {
-               "maxItems" : 1,
-               "description" : "Patient tumor diagnosis at time of collection for engraftment in PDX model or organoid/cell derivation. Please use terminology from NCIT ontology: https://www.ebi.ac.uk/ols/ontologies/ncit - Please note in NCIT ontology, usually the “cancer” concept is represented with “malignant neoplasm”example: “lung cancer” is “Malignant Lung Neoplasm” (http://purl.obolibrary.org/obo/NCIT_C7377). If precise diagnosis is unknown, please use \"Neoplasm\" (http://purl.obolibrary.org/obo/NCIT_C3262)",
-               "items" : {}
-            },
-            "patient sex" : {
-               "maxItems" : 1,
-               "description" : "Sex of the patient from which the tumor was extracted. If sex is unknown please select “not available”",
-               "items" : {}
-            },
-            "sample material" : {
-               "items" : {},
-               "maxItems" : 1,
-               "description" : "Sample material from which data deposited was generated, e.g. tissue fragment. If unknown please select \"not provided\"."
-            },
-            "engraftment host strain name" : {
-               "maxItems" : 1,
-               "description" : "If the sample origin is “engrafted tumor”, please indicate the host mouse strain name from which the engrafted tumor sample was extracted (e.g. NOD.Cg-Prkdcscid Il2rgtm1Wjl/SzJ). Please use the following guidelines for the correct nomenclature format: http://www.informatics.jax.org/mgihome/nomen/strains.shtml#mice. If the sample origin is “patient tumor” please add \"not applicable\" and if unknown please add \"not provided\".",
-               "items" : {}
-            },
-            "patient tumor type" : {
-               "items" : {},
-               "maxItems" : 1,
-               "description" : "For a primary sample (a tumor at the original site of origin), please select “Primary Neoplasm” . For a metastatic sample (a tumor that has spread from its original (primary) site of growth to another site, close to or distant from the primary site), please select “Metastatic Neoplasm” . For a recurring neoplasm sample (neoplasm returning after a period of remission at the same location), please select “Recurrent Neoplasm” . If unknown tumor type, please select “not provided”."
-            },
-            "patient tumor site of collection" : {
-               "items" : {},
-               "description" : "Site of collection of the patient tissue sample which was extracted (can be different to primary site if it is a metastatic sample). Please use NCIT ontology, e.g. Liver (http://purl.obolibrary.org/obo/NCIT_C12392). If unknown please select NCIT term: “Not Available” (http://purl.obolibrary.org/obo/NCIT_C126101)",
-               "maxItems" : 1
-            },
-            "patient age at collection of tumor" : {
-               "description" : "Age in years of the patient when the tumor was extracted. Please note this must be a whole number, e.g. 45",
-               "maxItems" : 1,
-               "items" : {}
-            },
-            "engrafted tumor sample passage" : {
-               "items" : {},
-               "maxItems" : 1,
-               "description" : "If engrafted tumor sample, please indicate the passage from which the engrafted tumor sample was harvested (passage 0 must be the first engraftment in the mouse). Please ensure you add a non-negative number greater than 0. If the sample origin is “patient tumor” please enter \"not applicable\". If passage number is unknown please enter \"not provided”."
-            },
-            "engrafted tumor collection site" : {
-               "items" : {},
-               "description" : "If the sample origin is “engrafted tumor”, please indicate the collection site from which the engrafted tumor sample was extracted (e.g. Liver). Please use terminology from NCIT ontology: https://www.ebi.ac.uk/ols/ontologies/ncit. If unknown please select NCIT term: “Not Available” ( http://purl.obolibrary.org/obo/NCIT_C126101)”. If the sample origin is “patient tumor” please do not use this attribute.",
-               "maxItems" : 1
-            },
-            "patient tumor primary site" : {
-               "items" : {},
-               "description" : "Site of the primary tumor where cancer originates (may not correspond to the site of the collected tissue sample). Please use NCIT ontology, e.g. Colon (http://purl.obolibrary.org/obo/NCIT_C12382). If unknown please select NCIT term: “Not Available” ( http://purl.obolibrary.org/obo/NCIT_C126101)",
-               "maxItems" : 1
-            },
-            "was the PDX model humanised?" : {
-               "items" : {},
-               "description" : "If the sample origin is “engrafted tumor”, please indicate if the host strain, from which the sample was extracted, has undergone human immune system reconstitution, using “Yes” (model humanised) or “No” (model not humanised). If the sample origin is “patient tumor” please select \"not applicable\".",
-               "maxItems" : 1
-            },
-            "sample unique ID" : {
-               "maxItems" : 1,
-               "description" : "Unique identifier of the PDX or tumor sample, e.g. CRC00003",
-               "items" : {}
-            }
-         }
+         ]
       }
    },
-   "author" : "ENA",
-   "$id" : "ERC000051",
-   "$schema" : "http://json-schema.org/draft-07/schema#",
-   "type" : "object",
    "definitions" : {
       "terms" : {
+         "type" : "array",
          "items" : {
+            "type" : "object",
+            "required" : [
+               "url"
+            ],
             "properties" : {
                "url" : {
                   "format" : "uri",
                   "type" : "string"
                }
+            }
+         }
+      },
+      "properties" : {
+         "attributes" : {
+            "patternProperties" : {
+               "^.*$" : {
+                  "$ref" : "#/definitions/attribute"
+               }
             },
+            "required" : [],
+            "properties" : {},
             "type" : "object",
-            "required" : [
-               "url"
-            ]
-         },
-         "type" : "array"
+            "description" : "Attributes for describing a sample."
+         }
       },
       "attribute" : {
-         "type" : "array",
          "items" : {
             "properties" : {
                "units" : {
-                  "type" : "string",
-                  "minLength" : 1
-               },
-               "terms" : {
-                  "$ref" : "#/definitions/terms"
+                  "minLength" : 1,
+                  "type" : "string"
                },
                "value" : {
                   "minLength" : 1,
                   "type" : "string"
+               },
+               "terms" : {
+                  "$ref" : "#/definitions/terms"
                }
             },
             "required" : [
                "value"
             ]
          },
+         "type" : "array",
          "minItems" : 1
-      },
-      "properties" : {
-         "attributes" : {
-            "required" : [],
-            "patternProperties" : {
-               "^.*$" : {
-                  "$ref" : "#/definitions/attribute"
-               }
-            },
-            "type" : "object",
-            "description" : "Attributes for describing a sample.",
-            "properties" : {}
-         }
       }
    },
-   "description" : "Minimum information required for reporting samples associated with patient-derived xenograft (PDX) models or patient samples",
-   "version" : "1.0.0",
-   "$async" : true,
+   "$schema" : "http://json-schema.org/draft-07/schema#",
+   "author" : "ENA",
    "required" : [
       "attributes"
    ]

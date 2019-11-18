@@ -4,70 +4,70 @@
   "taxonId" : 256318,
   "attributes" : {
     "ENA checklist" : [ {
-      "text" : "ERC000023"
+      "value" : "ERC000023"
     } ],
     "INSDC center name" : [ {
-      "text" : "WDRC KAUST"
+      "value" : "WDRC KAUST"
     } ],
     "INSDC first public" : [ {
-      "text" : "2015-09-23T17:01:30Z"
+      "value" : "2015-09-23T17:01:30Z"
     } ],
     "INSDC last update" : [ {
-      "text" : "2016-10-21T09:43:04Z"
+      "value" : "2016-10-21T09:43:04Z"
     } ],
     "INSDC status" : [ {
-      "text" : "public"
+      "value" : "public"
     } ],
     "SRA accession" : [ {
-      "text" : "ERS782280"
+      "value" : "ERS782280"
     } ],
     "alias" : [ {
-      "text" : "MEC_MBER_anode_0.7A_bacteria_B"
+      "value" : "MEC_MBER_anode_0.7A_bacteria_B"
     } ],
     "collection date" : [ {
-      "text" : "2014"
+      "value" : "2014"
     } ],
     "description" : [ {
-      "text" : "MEC_MBER_anode_0.7A_bacteria_B"
+      "value" : "MEC_MBER_anode_0.7A_bacteria_B"
     } ],
     "environment (biome)" : [ {
-      "text" : "Sludge"
+      "value" : "Sludge"
     } ],
     "environment (feature)" : [ {
-      "text" : "MECs"
+      "value" : "MECs"
     } ],
     "environment (material)" : [ {
-      "text" : "Anaerobic Biomass"
+      "value" : "Anaerobic Biomass"
     } ],
     "geographic location (country and/or sea)" : [ {
-      "text" : "Saudi Arabia"
+      "value" : "Saudi Arabia"
     } ],
     "geographic location (latitude)" : [ {
-      "text" : "22.3103",
+      "value" : "22.3103",
       "units" : "DD"
     } ],
     "geographic location (longitude)" : [ {
-      "text" : "39.1041",
+      "value" : "39.1041",
       "units" : "DD"
     } ],
     "investigation type" : [ {
-      "text" : "metagenome"
+      "value" : "metagenome"
     } ],
     "organism" : [ {
-      "text" : "metagenome",
+      "value" : "metagenome",
       "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_256318" ]
     } ],
     "sequencing method" : [ {
-      "text" : "454 FLX TITANIUM"
+      "value" : "454 FLX TITANIUM"
     } ],
     "synonym" : [ {
-      "text" : "MEC_MBER_anode_0.7A_bacteria_B"
+      "value" : "MEC_MBER_anode_0.7A_bacteria_B"
     } ],
     "title" : [ {
-      "text" : "MEC_MBER_anode_0.7A_bacteria_B"
+      "value" : "MEC_MBER_anode_0.7A_bacteria_B"
     } ],
     "wastewater/sludge environmental package" : [ {
-      "text" : "wastewater/sludge"
+      "value" : "wastewater/sludge"
     } ]
   }
 }
