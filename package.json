@@ -1,6 +1,6 @@
 {
   "name": "json-schema-validator",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "A nodejs JSON schema validator.",
   "main": "src/server.js",
   "repository": "https://github.com/EMBL-EBI-SUBS/json-schema-validator.git",
@@ -19,22 +19,18 @@
     "schema",
     "validator"
   ],
-  "author": "EMBL-EBI-SUBS, fpenim",
+  "author": "EMBL-EBI-SUBS, fpenim, ke4, haseeb-gh",
   "license": "Apache-2.0",
   "dependencies": {
-    "ajv": "^6.5.5",
-    "body-parser": "^1.18.3",
-    "express": "^4.16.4",
+    "elixir-jsonschema-validator": "^1.6.1",
+    "express": "^4.17.1",
     "npid": "^0.4.0",
-    "request": "^2.88.0",
-    "update": "^0.7.4",
-    "winston": "^3.1.0",
-    "winston-daily-rotate-file": "^3.4.1",
-    "yargs": "^11.1.0",
-    "event-stream": "3.3.4"
+    "request": "^2.88.2",
+    "winston": "^3.2.1",
+    "winston-daily-rotate-file": "^3.10.0"
   },
   "devDependencies": {
     "jest": "^23.6.0",
-    "nodemon": "^1.18.6"
+    "nodemon": "^1.19.4"
   }
 }
