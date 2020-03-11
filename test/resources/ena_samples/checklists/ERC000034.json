@@ -1,0 +1,148 @@
+{
+   "title" : "ENA mutagenesis by carcinogen treatment checklist",
+   "author" : "ENA",
+   "required" : [
+      "attributes"
+   ],
+   "description" : "Minimum Information required for reporting samples associated with genomic data, derived from carcinogen induced animal tumours. This minimum metadata standard was developed in collaboration with Duncan Odom lab for the Mouse Liver Cancer Evolution Project.",
+   "definitions" : {
+      "properties" : {
+         "attributes" : {
+            "patternProperties" : {
+               "^.*$" : {
+                  "$ref" : "#/definitions/attribute"
+               }
+            },
+            "description" : "Attributes for describing a sample.",
+            "required" : [],
+            "properties" : {},
+            "type" : "object"
+         }
+      },
+      "terms" : {
+         "type" : "array",
+         "items" : {
+            "required" : [
+               "url"
+            ],
+            "properties" : {
+               "url" : {
+                  "format" : "uri",
+                  "type" : "string"
+               }
+            },
+            "type" : "object"
+         }
+      },
+      "attribute" : {
+         "items" : {
+            "required" : [
+               "value"
+            ],
+            "properties" : {
+               "terms" : {
+                  "$ref" : "#/definitions/terms"
+               },
+               "value" : {
+                  "minLength" : 1,
+                  "type" : "string"
+               },
+               "units" : {
+                  "minLength" : 1,
+                  "type" : "string"
+               }
+            }
+         },
+         "type" : "array",
+         "minItems" : 1
+      }
+   },
+   "$schema" : "http://json-schema.org/draft-07/schema#",
+   "type" : "object",
+   "$async" : true,
+   "properties" : {
+      "attributes" : {
+         "required" : [
+            "tissue_type",
+            "sex",
+            "diagnosis",
+            "strain"
+         ],
+         "properties" : {
+            "sex" : {
+               "description" : "sex of the organism from which the sample was obtained",
+               "maxItems" : 1,
+               "items" : {}
+            },
+            "tissue_type" : {
+               "description" : "tissue type from which the sample was obtained",
+               "maxItems" : 1,
+               "items" : {}
+            },
+            "date of birth" : {
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "format" : "date-time"
+                     }
+                  }
+               },
+               "maxItems" : 1,
+               "description" : "Date of birth of subject the sample was derived from."
+            },
+            "treatment dose" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "The dose of the treatment agent used."
+            },
+            "strain" : {
+               "items" : {},
+               "description" : "Name of the strain from which the sample was obtained.",
+               "maxItems" : 1
+            },
+            "tumor grading (OBI_0600002)" : {
+               "items" : {},
+               "description" : "Determination of the grade (severity/stage) of a tumor sample, used in cancer biology to describe abnormalities/qualities of tumor cells or tissues. Values can be described by terms from NCI Thesaurus."
+            },
+            "Further Details" : {
+               "items" : {},
+               "description" : "Reference details related to a sample in form of an URI."
+            },
+            "date of death" : {
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "format" : "date-time"
+                     }
+                  }
+               },
+               "description" : "Date of death of subject the sample was derived from.",
+               "maxItems" : 1
+            },
+            "treatment agent" : {
+               "items" : {},
+               "description" : "The name of the treatment agent used."
+            },
+            "diagnosis" : {
+               "items" : {},
+               "description" : "The investigation, analysis and recognition of the presence and nature of disease, condition, or injury from expressed signs and symptoms; also, the scientific determination of any kind; the concise results of such an investigation (http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C15220)."
+            },
+            "treatment date" : {
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "format" : "date-time"
+                     }
+                  }
+               },
+               "description" : "The date of the treatment applied."
+            }
+         }
+      }
+   },
+   "$id" : "ERC000034",
+   "version" : "1.0.0"
+}

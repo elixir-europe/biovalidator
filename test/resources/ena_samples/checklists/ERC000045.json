@@ -1,0 +1,414 @@
+{
+   "definitions" : {
+      "properties" : {
+         "attributes" : {
+            "patternProperties" : {
+               "^.*$" : {
+                  "$ref" : "#/definitions/attribute"
+               }
+            },
+            "type" : "object",
+            "description" : "Attributes for describing a sample.",
+            "properties" : {},
+            "required" : []
+         }
+      },
+      "terms" : {
+         "type" : "array",
+         "items" : {
+            "type" : "object",
+            "properties" : {
+               "url" : {
+                  "format" : "uri",
+                  "type" : "string"
+               }
+            },
+            "required" : [
+               "url"
+            ]
+         }
+      },
+      "attribute" : {
+         "type" : "array",
+         "items" : {
+            "properties" : {
+               "units" : {
+                  "minLength" : 1,
+                  "type" : "string"
+               },
+               "terms" : {
+                  "$ref" : "#/definitions/terms"
+               },
+               "value" : {
+                  "type" : "string",
+                  "minLength" : 1
+               }
+            },
+            "required" : [
+               "value"
+            ]
+         },
+         "minItems" : 1
+      }
+   },
+   "$schema" : "http://json-schema.org/draft-07/schema#",
+   "title" : "COMPARE-ECDC-EFSA pilot food-associated reporting standard",
+   "author" : "ENA",
+   "description" : "A checklist for reporting metadata of food-borne pathogen samples for the COMPARE-ECDC-EFSA reporting system.",
+   "properties" : {
+      "attributes" : {
+         "required" : [
+            "collection_date",
+            "isolation_source",
+            "isolate"
+         ],
+         "properties" : {
+            "receipt date" : {
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "^[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?$"
+                     }
+                  }
+               },
+               "description" : "Date on which the sample was received. Format:YYYY-MM-DD. Please provide the highest precision possible. If the sample was received by the institution and not collected, the 'receipt date' must be provided instead. Either the 'collection date' or 'receipt date' must be provided. If available, provide both dates.",
+               "maxItems" : 1
+            },
+            "collected_by" : {
+               "maxItems" : 1,
+               "description" : "name of persons or institute who collected the specimen",
+               "items" : {}
+            },
+            "isolation_source" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "describes the physical, environmental and/or local geographical source of the biological sample from which the sample was derived"
+            },
+            "isolate" : {
+               "maxItems" : 1,
+               "items" : {},
+               "description" : "individual isolate from which the sample was obtained"
+            },
+            "geographic location (region and locality)" : {
+               "description" : "The geographical origin of the sample as defined by the specific region name followed by the locality name.",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "collection_date" : {
+               "maxItems" : 1,
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "^[0-9]{4}(-[0-9]{2}(-[0-9]{2}(T[0-9]{2}:[0-9]{2}(:[0-9]{2})?Z?([+-][0-9]{1,2})?)?)?)?(/[0-9]{4}(-[0-9]{2}(-[0-9]{2}(T[0-9]{2}:[0-9]{2}(:[0-9]{2})?Z?([+-][0-9]{1,2})?)?)?)?)?$"
+                     }
+                  }
+               },
+               "description" : "date that the specimen was collected"
+            },
+            "serotype" : {
+               "description" : "serological variety of a species characterized by its antigenic properties",
+               "items" : {},
+               "maxItems" : 1
+            },
+            "geographic location (country and/or sea)" : {
+               "maxItems" : 1,
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "Afghanistan",
+                           "Albania",
+                           "Algeria",
+                           "American Samoa",
+                           "Andorra",
+                           "Angola",
+                           "Anguilla",
+                           "Antarctica",
+                           "Antigua and Barbuda",
+                           "Arctic Ocean",
+                           "Argentina",
+                           "Armenia",
+                           "Aruba",
+                           "Ashmore and Cartier Islands",
+                           "Atlantic Ocean",
+                           "Australia",
+                           "Austria",
+                           "Azerbaijan",
+                           "Bahamas",
+                           "Bahrain",
+                           "Baker Island",
+                           "Baltic Sea",
+                           "Bangladesh",
+                           "Barbados",
+                           "Bassas da India",
+                           "Belarus",
+                           "Belgium",
+                           "Belize",
+                           "Benin",
+                           "Bermuda",
+                           "Bhutan",
+                           "Bolivia",
+                           "Borneo",
+                           "Bosnia and Herzegovina",
+                           "Botswana",
+                           "Bouvet Island",
+                           "Brazil",
+                           "British Virgin Islands",
+                           "Brunei",
+                           "Bulgaria",
+                           "Burkina Faso",
+                           "Burundi",
+                           "Cambodia",
+                           "Cameroon",
+                           "Canada",
+                           "Cape Verde",
+                           "Cayman Islands",
+                           "Central African Republic",
+                           "Chad",
+                           "Chile",
+                           "China",
+                           "Christmas Island",
+                           "Clipperton Island",
+                           "Cocos Islands",
+                           "Colombia",
+                           "Comoros",
+                           "Cook Islands",
+                           "Coral Sea Islands",
+                           "Costa Rica",
+                           "Cote d'Ivoire",
+                           "Croatia",
+                           "Cuba",
+                           "Curacao",
+                           "Cyprus",
+                           "Czech Republic",
+                           "Democratic Republic of the Congo",
+                           "Denmark",
+                           "Djibouti",
+                           "Dominica",
+                           "Dominican Republic",
+                           "East Timor",
+                           "Ecuador",
+                           "Egypt",
+                           "El Salvador",
+                           "Equatorial Guinea",
+                           "Eritrea",
+                           "Estonia",
+                           "Ethiopia",
+                           "Europa Island",
+                           "Falkland Islands (Islas Malvinas)",
+                           "Faroe Islands",
+                           "Fiji",
+                           "Finland",
+                           "France",
+                           "French Guiana",
+                           "French Polynesia",
+                           "French Southern and Antarctic Lands",
+                           "Gabon",
+                           "Gambia",
+                           "Gaza Strip",
+                           "Georgia",
+                           "Germany",
+                           "Ghana",
+                           "Gibraltar",
+                           "Glorioso Islands",
+                           "Greece",
+                           "Greenland",
+                           "Grenada",
+                           "Guadeloupe",
+                           "Guam",
+                           "Guatemala",
+                           "Guernsey",
+                           "Guinea",
+                           "Guinea-Bissau",
+                           "Guyana",
+                           "Haiti",
+                           "Heard Island and McDonald Islands",
+                           "Honduras",
+                           "Hong Kong",
+                           "Howland Island",
+                           "Hungary",
+                           "Iceland",
+                           "India",
+                           "Indian Ocean",
+                           "Indonesia",
+                           "Iran",
+                           "Iraq",
+                           "Ireland",
+                           "Isle of Man",
+                           "Israel",
+                           "Italy",
+                           "Jamaica",
+                           "Jan Mayen",
+                           "Japan",
+                           "Jarvis Island",
+                           "Jersey",
+                           "Johnston Atoll",
+                           "Jordan",
+                           "Juan de Nova Island",
+                           "Kazakhstan",
+                           "Kenya",
+                           "Kerguelen Archipelago",
+                           "Kingman Reef",
+                           "Kiribati",
+                           "Kosovo",
+                           "Kuwait",
+                           "Kyrgyzstan",
+                           "Laos",
+                           "Latvia",
+                           "Lebanon",
+                           "Lesotho",
+                           "Liberia",
+                           "Libya",
+                           "Liechtenstein",
+                           "Lithuania",
+                           "Luxembourg",
+                           "Macau",
+                           "Macedonia",
+                           "Madagascar",
+                           "Malawi",
+                           "Malaysia",
+                           "Maldives",
+                           "Mali",
+                           "Malta",
+                           "Marshall Islands",
+                           "Martinique",
+                           "Mauritania",
+                           "Mauritius",
+                           "Mayotte",
+                           "Mediterranean Sea",
+                           "Mexico",
+                           "Micronesia",
+                           "Midway Islands",
+                           "Moldova",
+                           "Monaco",
+                           "Mongolia",
+                           "Montenegro",
+                           "Montserrat",
+                           "Morocco",
+                           "Mozambique",
+                           "Myanmar",
+                           "Namibia",
+                           "Nauru",
+                           "Navassa Island",
+                           "Nepal",
+                           "Netherlands",
+                           "New Caledonia",
+                           "New Zealand",
+                           "Nicaragua",
+                           "Niger",
+                           "Nigeria",
+                           "Niue",
+                           "Norfolk Island",
+                           "North Korea",
+                           "North Sea",
+                           "Northern Mariana Islands",
+                           "Norway",
+                           "Oman",
+                           "Pacific Ocean",
+                           "Pakistan",
+                           "Palau",
+                           "Palmyra Atoll",
+                           "Panama",
+                           "Papua New Guinea",
+                           "Paracel Islands",
+                           "Paraguay",
+                           "Peru",
+                           "Philippines",
+                           "Pitcairn Islands",
+                           "Poland",
+                           "Portugal",
+                           "Puerto Rico",
+                           "Qatar",
+                           "Republic of the Congo",
+                           "Reunion",
+                           "Romania",
+                           "Ross Sea",
+                           "Russia",
+                           "Rwanda",
+                           "Saint Helena",
+                           "Saint Kitts and Nevis",
+                           "Saint Lucia",
+                           "Saint Pierre and Miquelon",
+                           "Saint Vincent and the Grenadines",
+                           "Samoa",
+                           "San Marino",
+                           "Sao Tome and Principe",
+                           "Saudi Arabia",
+                           "Senegal",
+                           "Serbia",
+                           "Seychelles",
+                           "Sierra Leone",
+                           "Singapore",
+                           "Sint Maarten",
+                           "Slovakia",
+                           "Slovenia",
+                           "Solomon Islands",
+                           "Somalia",
+                           "South Africa",
+                           "South Georgia and the South Sandwich Islands",
+                           "South Korea",
+                           "Southern Ocean",
+                           "Spain",
+                           "Spratly Islands",
+                           "Sri Lanka",
+                           "Sudan",
+                           "Suriname",
+                           "Svalbard",
+                           "Swaziland",
+                           "Sweden",
+                           "Switzerland",
+                           "Syria",
+                           "Taiwan",
+                           "Tajikistan",
+                           "Tanzania",
+                           "Tasman Sea",
+                           "Thailand",
+                           "Togo",
+                           "Tokelau",
+                           "Tonga",
+                           "Trinidad and Tobago",
+                           "Tromelin Island",
+                           "Tunisia",
+                           "Turkey",
+                           "Turkmenistan",
+                           "Turks and Caicos Islands",
+                           "Tuvalu",
+                           "USA",
+                           "Uganda",
+                           "Ukraine",
+                           "United Arab Emirates",
+                           "United Kingdom",
+                           "Uruguay",
+                           "Uzbekistan",
+                           "Vanuatu",
+                           "Venezuela",
+                           "Viet Nam",
+                           "Virgin Islands",
+                           "Wake Island",
+                           "Wallis and Futuna",
+                           "West Bank",
+                           "Western Sahara",
+                           "Yemen",
+                           "Zambia",
+                           "Zimbabwe",
+                           "not applicable",
+                           "not collected",
+                           "not provided",
+                           "restricted access"
+                        ]
+                     }
+                  }
+               },
+               "description" : "The geographical origin of the sample as defined by the country or sea. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html)."
+            }
+         }
+      }
+   },
+   "$id" : "ERC000045",
+   "type" : "object",
+   "$async" : true,
+   "required" : [
+      "attributes"
+   ],
+   "version" : "1.0.0"
+}

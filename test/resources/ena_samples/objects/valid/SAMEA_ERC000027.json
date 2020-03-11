@@ -1,0 +1,142 @@
+{
+  "name" : "ERS2429976",
+  "accession" : "SAMEA4609282",
+  "taxonId" : 408172,
+  "attributes" : {
+    "DNA extraction method" : [ {
+      "value" : "PowerWater DNA isolation kit"
+    } ],
+    "ENA checklist" : [ {
+      "value" : "ERC000027"
+    } ],
+    "INSDC center alias" : [ {
+      "value" : "HELLENIC CENTRE FOR MARINE RESEARCH"
+    } ],
+    "INSDC center name" : [ {
+      "value" : "HELLENIC CENTRE FOR MARINE RESEARCH"
+    } ],
+    "INSDC first public" : [ {
+      "value" : "2019-06-24T04:04:00Z"
+    } ],
+    "INSDC last update" : [ {
+      "value" : "2018-04-25T08:57:32Z"
+    } ],
+    "INSDC status" : [ {
+      "value" : "public"
+    } ],
+    "Latitude End" : [ {
+      "value" : "40.83483333",
+      "units" : "DD"
+    } ],
+    "Longitude End" : [ {
+      "value" : "25.7445",
+      "units" : "DD"
+    } ],
+    "SRA accession" : [ {
+      "value" : "ERS2429976"
+    } ],
+    "alias" : [ {
+      "value" : "HX_f_31_18"
+    } ],
+    "amount or size of sample collected" : [ {
+      "value" : "2",
+      "units" : "L"
+    } ],
+    "Depth" : [ {
+      "value" : "2",
+      "units" : "m"
+    } ],
+    "description" : [ {
+      "value" : "coastal Aegean Sea (Eastern Mediterranean); plankton; eukaryotic and prokaryotic communities composition; amplicons; illumina MiSeq"
+    } ],
+    "environment (biome)" : [ {
+      "value" : "temperate mediterannean sea biome"
+    } ],
+    "environment (feature)" : [ {
+      "value" : "marine pelagic feature"
+    } ],
+    "environment (material)" : [ {
+      "value" : "planktonic material"
+    } ],
+    "environmental package" : [ {
+      "value" : "water",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/CHEBI_15377" ]
+    } ],
+    "Event Date/Time" : [ {
+      "value" : "2014-07-04T13:00:00Z"
+    } ],
+    "fraction_microns" : [ {
+      "value" : "0.2"
+    } ],
+    "Latitude Start" : [ {
+      "value" : "40.83483333",
+      "units" : "DD"
+    } ],
+    "Longitude Start" : [ {
+      "value" : "25.7445",
+      "units" : "DD"
+    } ],
+    "Marine Region" : [ {
+      "value" : "Aegean Sea (eastern Mediterranean)"
+    } ],
+    "organism" : [ {
+      "value" : "marine metagenome",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_408172" ]
+    } ],
+    "primer_f" : [ {
+      "value" : "5'CCCTGCCHTTTGTACACAC"
+    } ],
+    "primer_f_reference" : [ {
+      "value" : "Amaral-Zettler LA, McCliment EA, Ducklow HW, Huse SM. (2009). A Method for Studying Protistan Diversity Using Massively Parallel Sequencing of V9 Hypervariable Regions of Small-Subunit Ribosomal RNA Genes. PLoS One 4: e6372."
+    } ],
+    "primer_r" : [ {
+      "value" : "5'CCTTCYGCAGGTTCACCTAC"
+    } ],
+    "primer_r_reference" : [ {
+      "value" : "Amaral-Zettler LA, McCliment EA, Ducklow HW, Huse SM. (2009). A Method for Studying Protistan Diversity Using Massively Parallel Sequencing of V9 Hypervariable Regions of Small-Subunit Ribosomal RNA Genes. PLoS One 4: e6372."
+    } ],
+    "project name" : [ {
+      "value" : "HX_field"
+    } ],
+    "Protocol Label" : [ {
+      "value" : "filtration and preservation"
+    } ],
+    "Salinity" : [ {
+      "value" : "34.6656",
+      "units" : "practical salinity unit"
+    } ],
+    "sample collection device or method" : [ {
+      "value" : "filtration using peristaltic pump"
+    } ],
+    "sample storage duration" : [ {
+      "value" : "20",
+      "units" : "month"
+    } ],
+    "sample storage temperature" : [ {
+      "value" : "-80",
+      "units" : "°C"
+    } ],
+    "Sampling Campaign" : [ {
+      "value" : "cruise"
+    } ],
+    "Sampling Platform" : [ {
+      "value" : "Research Vessel HCMR"
+    } ],
+    "Sampling Site" : [ {
+      "value" : "HX_f_ALE3"
+    } ],
+    "synonym" : [ {
+      "value" : "HX_f_31_18"
+    } ],
+    "target gene" : [ {
+      "value" : "18S"
+    } ],
+    "Temperature" : [ {
+      "value" : "22.13",
+      "units" : "ºC"
+    } ],
+    "title" : [ {
+      "value" : "HX_f_31_18_ALE_3_sw"
+    } ]
+  }
+}

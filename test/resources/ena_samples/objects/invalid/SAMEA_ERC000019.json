@@ -1,0 +1,163 @@
+{
+  "name" : "ERS371131",
+  "accession" : "SAMEA2338096",
+  "taxonId" : 527640,
+  "attributes" : {
+    "ENA checklist" : [ {
+      "value" : "ERC000019"
+    } ],
+    "Fe(II)" : [ {
+      "value" : "0.043 mg/L"
+    } ],
+    "Fe(tot_" : [ {
+      "value" : "0.073 mg/L"
+    } ],
+    "Fluorine" : [ {
+      "value" : "1.79 mg/L"
+    } ],
+    "INSDC center alias" : [ {
+      "value" : "MPI BREMEN"
+    } ],
+    "INSDC center name" : [ {
+      "value" : "Max Planck Institute for Marine Microbiology"
+    } ],
+    "INSDC first public" : [ {
+      "value" : "2014-01-04T17:02:06Z"
+    } ],
+    "INSDC last update" : [ {
+      "value" : "2018-03-09T10:32:00Z"
+    } ],
+    "INSDC status" : [ {
+      "value" : "public"
+    } ],
+    "SRA accession" : [ {
+      "value" : "ERS371131"
+    } ],
+    "alias" : [ {
+      "value" : "AS-1.sff"
+    } ],
+    "alkalinity" : [ {
+      "value" : "6.85",
+      "units" : "mEq/L"
+    } ],
+    "ammonium" : [ {
+      "value" : "0.0229",
+      "units" : "µM"
+    } ],
+    "amount or size of sample collected" : [ {
+      "value" : "50",
+      "units" : "L"
+    } ],
+    "bromide" : [ {
+      "value" : "105.496",
+      "units" : "µM"
+    } ],
+    "calcium" : [ {
+      "value" : "4164.09",
+      "units" : "µM"
+    } ],
+    "chloride" : [ {
+      "value" : "13514.7",
+      "units" : "µmol/kg"
+    } ],
+    "collection date" : [ {
+      "value" : "2010-03"
+    } ],
+    "conductivity" : [ {
+      "value" : "3520 mS/m"
+    } ],
+    "geographic location (depth)" : [ {
+      "value" : "0",
+      "units" : "m"
+    } ],
+    "description" : [ {
+      "value" : "Aspo 11 March 2010 TASF R1"
+    } ],
+    "dissolved inorganic carbon" : [ {
+      "value" : "1.1",
+      "units" : "µmol/kg"
+    } ],
+    "dissolved organic carbon" : [ {
+      "value" : "16",
+      "units" : "µmol/kg"
+    } ],
+    "dissolved oxygen" : [ {
+      "value" : "0.8915795",
+      "units" : "µmol/kg"
+    } ],
+    "environment (biome)" : [ {
+      "value" : "Brackish Groundwater"
+    } ],
+    "environment (feature)" : [ {
+      "value" : "Microbial mat",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/ENVO_01000008" ]
+    } ],
+    "environment (material)" : [ {
+      "value" : "Microbial mat materia"
+    } ],
+    "geographic location (country and/or sea)" : [ {
+      "value" : "Sweden"
+    } ],
+    "geographic location (elevation)" : [ {
+      "value" : "-460",
+      "units" : "m"
+    } ],
+    "geographic location (latitude)" : [ {
+      "value" : "57.43288889",
+      "units" : "DD"
+    } ],
+    "geographic location (longitude)" : [ {
+      "value" : "16.66067778",
+      "units" : "DD"
+    } ],
+    "investigation type" : [ {
+      "value" : "mimarks-survey"
+    } ],
+    "magnesium" : [ {
+      "value" : "30.71",
+      "units" : "µM"
+    } ],
+    "microbial mat/biofilm environmental package" : [ {
+      "value" : "microbial mat/biofilm"
+    } ],
+    "nitrate" : [ {
+      "value" : "0.025387635",
+      "units" : "µM"
+    } ],
+    "organism" : [ {
+      "value" : "microbial mat metagenome",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_527640" ]
+    } ],
+    "pcr primers" : [ {
+      "value" : "primers: 27F GAGTTTGATCNTGGCTCAG ; 519R GTN TTA CNG CGG CKG CTG"
+    } ],
+    "ph" : [ {
+      "value" : "7.93"
+    } ],
+    "potassium" : [ {
+      "value" : "25.4",
+      "units" : "µM"
+    } ],
+    "sequencing method" : [ {
+      "value" : "454 GS FLX Titanium"
+    } ],
+    "sodium" : [ {
+      "value" : "3301.886992",
+      "units" : "µM"
+    } ],
+    "sulfate" : [ {
+      "value" : "672.44",
+      "units" : "µmol/kg"
+    } ],
+    "sulfide" : [ {
+      "value" : "0.006",
+      "units" : "µmol/kg"
+    } ],
+    "synonym" : [ {
+      "value" : "AS-1.sff"
+    } ],
+    "title" : [ {
+      "value" : "AS11_TASF_R1"
+    } ]
+  }
+}

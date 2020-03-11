@@ -1,0 +1,76 @@
+{
+  "name" : "ERS1348830",
+  "accession" : "SAMEA4437381",
+  "taxonId" : 9606,
+  "attributes" : {
+    "ENA checklist" : [ {
+      "value" : "ERC000011"
+    } ],
+    "INSDC center name" : [ {
+      "value" : "Department of Cell and Molecular Biology (CMB), Karolinska Institutet, Stockholm, Sweden."
+    } ],
+    "INSDC first public" : [ {
+      "value" : "2016-09-22T17:01:28Z"
+    } ],
+    "INSDC last update" : [ {
+      "value" : "2016-09-14T15:21:08Z"
+    } ],
+    "INSDC status" : [ {
+      "value" : "public"
+    } ],
+    "Organism" : [ {
+      "value" : "Homo sapiens",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_9606" ]
+    } ],
+    "SRA accession" : [ {
+      "value" : "ERS1348830"
+    } ],
+    "age" : [ {
+      "value" : "25",
+      "units" : "year"
+    } ],
+    "alias" : [ {
+      "value" : "E-MTAB-5061:HP1502401_L15"
+    } ],
+    "body mass index" : [ {
+      "value" : "24.7"
+    } ],
+    "broker name" : [ {
+      "value" : "ArrayExpress"
+    } ],
+    "cell type" : [ {
+      "value" : "alpha cell"
+    } ],
+    "description" : [ {
+      "value" : "Protocols: Human primary islets (85-95% pure) were purchased from Prodo Laboratories Inc (Irvine, CA, USA) and cultured for 4 days in Prodo Islet Media Standard PIM(S) to recover after arrival. Islets were dissociated into single-cell suspension and viable individual cells were distributed by FACS into 384-well plates containing lysis buffer. Spike-in RNA from the External RNA Controls Consortium (ERCC) (Ambion, Life Technologies) was added to each well in 1:40 000 dilution. Single-cell RNA-seq libraries were generated as decribed in Picelli et al., 2014, Full-length RNA-seq from single cells using Smart-seq2, Nature Protocols."
+    } ],
+    "disease" : [ {
+      "value" : "normal",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/PATO_0000461" ]
+    } ],
+    "individual" : [ {
+      "value" : "HP1502401"
+    } ],
+    "organism" : [ {
+      "value" : "Homo sapiens",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_9606" ]
+    } ],
+    "organism part" : [ {
+      "value" : "pancreas",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/UBERON_0001264" ]
+    } ],
+    "sex" : [ {
+      "value" : "male",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/PATO_0000384" ]
+    } ],
+    "single cell well quality" : [ {
+      "value" : "OK"
+    } ],
+    "synonym" : [ {
+      "value" : "E-MTAB-5061:HP1502401_L15"
+    } ],
+    "title" : [ {
+      "value" : "HP1502401_L15"
+    } ]
+  }
+}

@@ -1,0 +1,1089 @@
+{
+   "author" : "ENA",
+   "$id" : "ERC000020",
+   "definitions" : {
+      "attribute" : {
+         "minItems" : 1,
+         "type" : "array",
+         "items" : {
+            "required" : [
+               "value"
+            ],
+            "properties" : {
+               "value" : {
+                  "type" : "string",
+                  "minLength" : 1
+               },
+               "units" : {
+                  "type" : "string",
+                  "minLength" : 1
+               },
+               "terms" : {
+                  "$ref" : "#/definitions/terms"
+               }
+            }
+         }
+      },
+      "properties" : {
+         "attributes" : {
+            "required" : [],
+            "description" : "Attributes for describing a sample.",
+            "properties" : {},
+            "type" : "object",
+            "patternProperties" : {
+               "^.*$" : {
+                  "$ref" : "#/definitions/attribute"
+               }
+            }
+         }
+      },
+      "terms" : {
+         "type" : "array",
+         "items" : {
+            "type" : "object",
+            "required" : [
+               "url"
+            ],
+            "properties" : {
+               "url" : {
+                  "type" : "string",
+                  "format" : "uri"
+               }
+            }
+         }
+      }
+   },
+   "version" : "1.0.0",
+   "$schema" : "http://json-schema.org/draft-07/schema#",
+   "$async" : true,
+   "type" : "object",
+   "description" : "Genomic Standards Consortium package extension for reporting of measurements and observations obtained from the environment where the sample was obtained. By choosing the environmental package, a selection of fields can be made from a relevant subsets of the GSC terms.",
+   "properties" : {
+      "attributes" : {
+         "properties" : {
+            "host infra-specific name" : {
+               "description" : "taxonomic information about the host below subspecies level",
+               "items" : {}
+            },
+            "host height" : {
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  },
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "the height of subject"
+            },
+            "plant body site" : {
+               "items" : {},
+               "description" : "name of body site that the sample was obtained from. For Plant Ontology (PO) (v 20) terms, see http://purl.bioontology.org/ontology/PO"
+            },
+            "standing water regimen" : {
+               "description" : "treatment involving an exposure to standing water during a plant's life span, types can be flood water or standing water; can include multiple regimens",
+               "items" : {}
+            },
+            "organism count" : {
+               "description" : "total count of any organism per gram or volume of sample, should include name of organism followed by count; can include multiple organism counts",
+               "items" : {}
+            },
+            "geographic location (altitude)" : {
+               "description" : "The altitude of the sample is the vertical distance between Earth's surface above Sea Level and the sampled position in the air.",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  }
+               }
+            },
+            "radiation regimen" : {
+               "description" : "information about treatment involving exposure of plant or a plant part to a particular radiation regimen; should include the radiation type, amount or intensity administered, treatment duration, interval and total experimental duration; can include multiple radiation regimens",
+               "items" : {}
+            },
+            "growth hormone regimen" : {
+               "items" : {},
+               "description" : "information about treatment involving use of growth hormones; should include the name of growth hormone, amount administered, treatment duration, interval and total experimental duration; can include multiple growth hormone regimens"
+            },
+            "encoded traits" : {
+               "items" : {},
+               "description" : "Should include key traits like antibiotic resistance or xenobiotic degradation phenotypes for plasmids, converting genes for phage"
+            },
+            "host infra-specific rank" : {
+               "items" : {},
+               "description" : "taxonomic rank information about the host below subspecies level, such as variety, form, rank etc."
+            },
+            "sample storage temperature" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "[+-]?(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  }
+               },
+               "description" : "temperature at which sample was stored, e.g. -80"
+            },
+            "host common name" : {
+               "items" : {},
+               "description" : "common name of the host, e.g. human"
+            },
+            "chemical mutagen" : {
+               "items" : {},
+               "description" : "treatment involving use of mutagens; should include the name of mutagen, amount administered, treatment duration, interval and total experimental duration; can include multiple mutagen regimens"
+            },
+            "non-mineral nutrient regimen" : {
+               "items" : {},
+               "description" : "information about treatment involving the exposure of plant to non-mineral nutrient such as oxygen, hydrogen or carbon; should include the name of non-mineral nutrient, amount administered, treatment duration, interval and total experimental duration; can include multiple non-mineral nutrient regimens"
+            },
+            "relevant standard operating procedures" : {
+               "items" : {},
+               "description" : "Standard operating procedures used in assembly and/or annotation of genomes, metagenomes or environmental sequences"
+            },
+            "host genotype" : {
+               "description" : "observed genotype",
+               "items" : {}
+            },
+            "rainfall regimen" : {
+               "description" : "information about treatment involving an exposure to a given amount of rainfall; can include multiple regimens",
+               "items" : {}
+            },
+            "geographic location (elevation)" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "[+-]?(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  }
+               },
+               "description" : "The elevation of the sampling site as measured by the vertical distance from mean sea level."
+            },
+            "annotation source" : {
+               "items" : {},
+               "description" : "For cases where annotation was provided by a community jamboree or model organism database rather than by a specific submitter"
+            },
+            "collection date" : {
+               "description" : "The date of sampling, either as an instance (single point in time) or interval. In case no exact time is available, the date/time can be right truncated i.e. all of these are valid ISO8601 compliant times: 2008-01-23T19:23:10+00:00; 2008-01-23T19:23:10; 2008-01-23; 2008-01; 2008.",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(^[0-9]{4}(-[0-9]{2}(-[0-9]{2}(T[0-9]{2}:[0-9]{2}(:[0-9]{2})?Z?([+-][0-9]{1,2})?)?)?)?(/[0-9]{4}(-[0-9]{2}(-[0-9]{2}(T[0-9]{2}:[0-9]{2}(:[0-9]{2})?Z?([+-][0-9]{1,2})?)?)?)?)?$)|(^not collected$)|(^not provided$)|(^restricted access$)"
+                     }
+                  }
+               }
+            },
+            "sample volume or weight for DNA extraction" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  }
+               },
+               "description" : "Volume (mL) or weight (g) of sample processed for DNA extraction"
+            },
+            "pcr conditions" : {
+               "items" : {},
+               "description" : "Description of reaction conditions and components for PCR in the form of 'initial denaturation:94degC_1.5min; annealing=...'"
+            },
+            "miscellaneous parameter" : {
+               "items" : {},
+               "description" : "Any other measurement performed or parameter collected, that is not listed here"
+            },
+            "investigation type" : {
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "bacteria_archaea",
+                           "eukaryote",
+                           "metagenome",
+                           "metagenome-assembled genome",
+                           "metatranscriptome",
+                           "mimarks-specimen",
+                           "mimarks-survey",
+                           "organelle",
+                           "plasmid",
+                           "single amplified genome",
+                           "uncultivated viral genomes",
+                           "virus"
+                        ]
+                     }
+                  }
+               },
+               "description" : "Nucleic Acid Sequence Report is the root element of all MIxS compliant reports as standardised by Genomic Standards Consortium"
+            },
+            "estimated size" : {
+               "description" : "The estimated size of the genome (in bp) prior to sequencing. Of particular importance in the sequencing of (eukaryotic) genome which could remain in draft form for a long or unspecified period. Mandatory for MIGS of eukaryotes.",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "[+-]?[0-9]+"
+                     }
+                  }
+               }
+            },
+            "host total mass" : {
+               "description" : "total mass of the host at collection, the unit depends on host",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  }
+               }
+            },
+            "library size" : {
+               "description" : "Total number of clones in the library prepared for the project",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "[+-]?[0-9]+"
+                     }
+                  }
+               }
+            },
+            "geographic location (depth)" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  }
+               },
+               "description" : "Depth is defined as the vertical distance below surface, e.g. for sediment or soil samples depth is measured from sediment or soil surface, respectivly. Depth can be reported as an interval for subsurface samples."
+            },
+            "air temperature regimen" : {
+               "description" : "information about treatment involving an exposure to varying temperatures; should include the temperature, treatment duration, interval and total experimental duration; can include different temperature regimens",
+               "items" : {}
+            },
+            "tissue culture growth media" : {
+               "items" : {},
+               "description" : "description of plant tissue culture growth media used"
+            },
+            "watering regimen" : {
+               "description" : "information about treatment involving an exposure to watering frequencies; can include multiple regimens",
+               "items" : {}
+            },
+            "isolation and growth condition" : {
+               "description" : "Publication reference in the form of pubmed ID (pmid), digital object identifier (doi) or url for isolation and growth condition specifications of the organism/material. Mandatory for MIGS and MIMARKS Specimen.",
+               "items" : {}
+            },
+            "sequence quality check" : {
+               "description" : "Indicate if the sequence has been called by automatic systems (none) or undergone a manual editing procedure (e.g. by inspecting the raw data or chromatograms). Applied only for sequences that are not submitted to SRA or DRA",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "manual",
+                           "none",
+                           "software"
+                        ]
+                     }
+                  }
+               }
+            },
+            "geographic location (region and locality)" : {
+               "description" : "The geographical origin of the sample as defined by the specific region name followed by the locality name.",
+               "items" : {}
+            },
+            "mechanical damage" : {
+               "items" : {},
+               "description" : "information about any mechanical damage exerted on the plant; can include multiple damages and sites"
+            },
+            "relationship to oxygen" : {
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "aerobe",
+                           "anaerobe",
+                           "facultative",
+                           "microaerophilic",
+                           "microanaerobe",
+                           "obligate aerobe",
+                           "obligate anaerobe"
+                        ]
+                     }
+                  }
+               },
+               "description" : "Is this organism an aerobe, anaerobe? Please note that aerobic and anaerobic are valid descriptors for microbial environments"
+            },
+            "environment (biome)" : {
+               "description" : "Biomes are defined based on factors such as plant structures, leaf types, plant spacing, and other factors like climate. Biome should be treated as the descriptor of the broad ecological context of a sample. Examples include: desert, taiga, deciduous woodland, or coral reef. EnvO (v 2013-06-14) terms can be found via the link: www.environmentontology.org/Browse-EnvO",
+               "items" : {}
+            },
+            "humidity regimen" : {
+               "items" : {},
+               "description" : "information about treatment involving an exposure to varying degree of humidity; information about treatment involving use of growth hormones; should include amount of humidity administered, treatment duration, interval and total experimental duration; can include multiple regimens"
+            },
+            "library screening strategy" : {
+               "description" : "Specific enrichment or screening methods applied before and/or after creating clone libraries in order to select a specific group of sequences",
+               "items" : {}
+            },
+            "fertilizer regimen" : {
+               "items" : {},
+               "description" : "information about treatment involving the use of fertilizers; should include the name fertilizer, amount administered, treatment duration, interval and total experimental duration; can include multiple fertilizer regimens"
+            },
+            "sample storage location" : {
+               "items" : {},
+               "description" : "location at which sample was stored, usually name of a specific freezer/room"
+            },
+            "geographic location (latitude)" : {
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(^.*[+-]?[0-9]+.?[0-9]*.*$)|(^not collected$)|(^not provided$)|(^restricted access$)"
+                     }
+                  },
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system"
+            },
+            "number of replicons" : {
+               "description" : "Reports the number of replicons in a nuclear genome of eukaryotes, in the genome of a bacterium or archaea or the number of segments in a segmented virus. Always applied to the haploid chromosome count of a eukaryote. Mandatory for MIGS of eukaryotes, bacteria, archaea and segmented virus.",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "[+-]?[0-9]+"
+                     }
+                  }
+               }
+            },
+            "chimera check" : {
+               "items" : {},
+               "description" : "A chimeric sequence, or chimera for short, is a sequence comprised of two or more phylogenetically distinct parent sequences. Chimeras are usually PCR artifacts thought to occur when a prematurely terminated amplicon reanneals to a foreign DNA strand and is copied to completion in the following PCR cycles. The point at which the chimeric sequence changes from one parent to the next is called the breakpoint or conversion point"
+            },
+            "host length" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  }
+               },
+               "description" : "the length of subject"
+            },
+            "water temperature regimen" : {
+               "description" : "information about treatment involving an exposure to water with varying degree of temperature; can include multiple regimens",
+               "items" : {}
+            },
+            "temperature" : {
+               "description" : "temperature of the sample at time of sampling",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "[+-]?(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  }
+               }
+            },
+            "amount or size of sample collected" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  }
+               },
+               "description" : "Amount or size of sample (volume, mass or area) that was collected"
+            },
+            "host phenotype" : {
+               "description" : "phenotype of host. For Phenotypic quality Ontology (PATO) (v 2013-10-28) terms, please see http://purl.bioontology.org/ontology/PATO",
+               "items" : {}
+            },
+            "plant-associated environmental package" : {
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "plant-associated"
+                        ]
+                     }
+                  }
+               },
+               "description" : "MIGS/MIMS/MIMARKS extension for reporting of measurements and observations obtained from one or more of the environments where the sample was obtained. All environmental packages listed here are further defined in separate subtables. By giving the name of the environmental package, a selection of fields can be made from the subtables and can be reported"
+            },
+            "environment (material)" : {
+               "description" : "The environmental material level refers to the material that was displaced by the sample, or material in which a sample was embedded, prior to the sampling event. Environmental material terms are generally mass nouns. Examples include: air, soil, or water. EnvO (v 2013-06-14) terms can be found via the link: www.environmentontology.org/Browse-EnvO",
+               "items" : {}
+            },
+            "perturbation" : {
+               "description" : "type of perturbation, e.g. chemical administration, physical disturbance, etc., coupled with time that perturbation occurred; can include multiple perturbation types",
+               "items" : {}
+            },
+            "experimental factor" : {
+               "items" : {},
+               "description" : "Experimental factors are essentially the variable aspects of an experiment design which can be used to describe an experiment, or set of experiments, in an increasingly detailed manner. This field accepts ontology terms from Experimental Factor Ontology (EFO) and/or Ontology for Biomedical Investigations (OBI). For a browser of EFO (v 2.43) terms, please see http://purl.bioontology.org/ontology/EFO; for a browser of OBI (v 2013-10-25) terms please see http://purl.bioontology.org/ontology/OBI"
+            },
+            "host wet mass" : {
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  },
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "measurement of wet mass"
+            },
+            "growth media" : {
+               "items" : {},
+               "description" : "information about growth media for growing the plants or tissue cultured samples"
+            },
+            "pesticide regimen" : {
+               "items" : {},
+               "description" : "information about treatment involving use of insecticides; should include the name of pesticide, amount administered, treatment duration, interval and total experimental duration; can include multiple pesticide regimens"
+            },
+            "finishing strategy" : {
+               "items" : {},
+               "description" : "Was the genome project intended to produce a complete or draft genome, Coverage, the fold coverage of the sequencing expressed as 2x, 3x, 18x etc, and how many contigs were produced for the genome. Mandatory for MIGS of eukaryote, bacteria and archaea."
+            },
+            "salt regimen" : {
+               "description" : "information about treatment involving use of salts as supplement to liquid and soil growth media; should include the name of salt, amount administered, treatment duration, interval and total experimental duration; can include multiple salt regimens",
+               "items" : {}
+            },
+            "propagation" : {
+               "description" : "This field is specific to different taxa. For plants: sexual/asexual, for phages: lytic/lysogenic, for plasmids: incompatibility group (Note: there is the strong opinion to name phage propagation obligately lytic or temperate, therefore we also give this choice. Mandatory for MIGS of eukaryotes, plasmids and viruses.",
+               "items" : {}
+            },
+            "library vector" : {
+               "items" : {},
+               "description" : "Cloning vector type(s) used in construction of libraries"
+            },
+            "extrachromosomal elements" : {
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "[+-]?[0-9]+"
+                     }
+                  }
+               },
+               "description" : "Do plasmids exist of significant phenotypic consequence (e.g. ones that determine virulence or antibiotic resistance). Megaplasmids? Other plasmids (borrelia has 15+ plasmids)."
+            },
+            "relevant electronic resources" : {
+               "description" : "-",
+               "items" : {}
+            },
+            "nucleic acid amplification" : {
+               "description" : "Link to a literature reference, electronic resource or a standard operating procedure (SOP)",
+               "items" : {}
+            },
+            "plant product" : {
+               "items" : {},
+               "description" : "substance produced by the plant, where the sample was obtained from"
+            },
+            "host disease status" : {
+               "items" : {},
+               "description" : "list of diseases with which the host has been diagnosed; can include multiple diagnoses. The value of the field depends on host; for humans the terms should be chosen from DO (Disease Ontology) at http://www.disease-ontology.org, other hosts are free text"
+            },
+            "antibiotic regimen" : {
+               "items" : {},
+               "description" : "information about treatment involving antibiotic administration; should include the name of antibiotic, amount administered, treatment duration, interval and total experimental duration; can include multiple antibiotic regimens"
+            },
+            "host dry mass" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  }
+               },
+               "description" : "measurement of dry mass"
+            },
+            "pH regimen" : {
+               "items" : {},
+               "description" : "information about treatment involving exposure of plants to varying levels of pH of the growth media; can include multiple regimen"
+            },
+            "gravity" : {
+               "items" : {},
+               "description" : "information about treatment involving use of gravity factor to study various types of responses in presence, absence or modified levels of gravity; can include multiple treatments"
+            },
+            "host age" : {
+               "description" : "age of host at the time of sampling; relevant scale depends on species and study, e.g. could be seconds for amoebae or centuries for trees",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  },
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "pcr primers" : {
+               "items" : {},
+               "description" : "PCR primers that were used to amplify the sequence of the targeted gene, locus or subfragment. This field should contain all the primers used for a single PCR reaction if multiple forward or reverse primers are present in a single PCR reaction. The primer sequence should be reported in uppercase letters"
+            },
+            "subspecific genetic lineage" : {
+               "items" : {},
+               "description" : "This should provide further information about the genetic distinctness of this lineage by recording additional information i.e biovar, serovar, serotype, biovar, or any relevant genetic typing schemes like Group I plasmid. It can also contain alternative taxonomic information"
+            },
+            "sample storage duration" : {
+               "description" : "duration for which sample was stored",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  },
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "source material identifiers" : {
+               "items" : {},
+               "description" : "A unique identifier assigned to a material sample (as defined by http://rs.tdwg.org/dwc/terms/materialSampleID, and as opposed to a particular digital record of a material sample) used for extracting nucleic acids, and subsequent sequencing. The identifier can refer either to the original material collected or to any derived sub-samples. The INSDC qualifiers /specimen_voucher, /bio_material, or /culture_collection may or may not share the same value as the source_mat_id field. For instance, the /specimen_voucher qualifier and source_mat_id may both contain 'UAM:Herps:14' , referring to both the specimen voucher and sampled tissue with the same identifier. However, the /culture_collection qualifier may refer to a value from an initial culture (e.g. ATCC:11775) while source_mat_id would refer to an identifier from some derived culture from which the nucleic acids were extracted (e.g. xatc123 or ark:/2154/R2)."
+            },
+            "sequencing method" : {
+               "items" : {},
+               "description" : "Sequencing method used; e.g. Sanger, pyrosequencing, ABI-solid"
+            },
+            "adapters" : {
+               "description" : "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
+               "items" : {}
+            },
+            "reference for biomaterial" : {
+               "items" : {},
+               "description" : "Primary publication if isolated before genome publication; otherwise, primary genome report. Mandatory for MIGS of bacteria and archaea."
+            },
+            "project name" : {
+               "items" : {},
+               "description" : "Name of the project within which the sequencing was organized"
+            },
+            "geographic location (country and/or sea)" : {
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "Afghanistan",
+                           "Albania",
+                           "Algeria",
+                           "American Samoa",
+                           "Andorra",
+                           "Angola",
+                           "Anguilla",
+                           "Antarctica",
+                           "Antigua and Barbuda",
+                           "Arctic Ocean",
+                           "Argentina",
+                           "Armenia",
+                           "Aruba",
+                           "Ashmore and Cartier Islands",
+                           "Atlantic Ocean",
+                           "Australia",
+                           "Austria",
+                           "Azerbaijan",
+                           "Bahamas",
+                           "Bahrain",
+                           "Baker Island",
+                           "Baltic Sea",
+                           "Bangladesh",
+                           "Barbados",
+                           "Bassas da India",
+                           "Belarus",
+                           "Belgium",
+                           "Belize",
+                           "Benin",
+                           "Bermuda",
+                           "Bhutan",
+                           "Bolivia",
+                           "Borneo",
+                           "Bosnia and Herzegovina",
+                           "Botswana",
+                           "Bouvet Island",
+                           "Brazil",
+                           "British Virgin Islands",
+                           "Brunei",
+                           "Bulgaria",
+                           "Burkina Faso",
+                           "Burundi",
+                           "Cambodia",
+                           "Cameroon",
+                           "Canada",
+                           "Cape Verde",
+                           "Cayman Islands",
+                           "Central African Republic",
+                           "Chad",
+                           "Chile",
+                           "China",
+                           "Christmas Island",
+                           "Clipperton Island",
+                           "Cocos Islands",
+                           "Colombia",
+                           "Comoros",
+                           "Cook Islands",
+                           "Coral Sea Islands",
+                           "Costa Rica",
+                           "Cote d'Ivoire",
+                           "Croatia",
+                           "Cuba",
+                           "Curacao",
+                           "Cyprus",
+                           "Czech Republic",
+                           "Democratic Republic of the Congo",
+                           "Denmark",
+                           "Djibouti",
+                           "Dominica",
+                           "Dominican Republic",
+                           "East Timor",
+                           "Ecuador",
+                           "Egypt",
+                           "El Salvador",
+                           "Equatorial Guinea",
+                           "Eritrea",
+                           "Estonia",
+                           "Ethiopia",
+                           "Europa Island",
+                           "Falkland Islands (Islas Malvinas)",
+                           "Faroe Islands",
+                           "Fiji",
+                           "Finland",
+                           "France",
+                           "French Guiana",
+                           "French Polynesia",
+                           "French Southern and Antarctic Lands",
+                           "Gabon",
+                           "Gambia",
+                           "Gaza Strip",
+                           "Georgia",
+                           "Germany",
+                           "Ghana",
+                           "Gibraltar",
+                           "Glorioso Islands",
+                           "Greece",
+                           "Greenland",
+                           "Grenada",
+                           "Guadeloupe",
+                           "Guam",
+                           "Guatemala",
+                           "Guernsey",
+                           "Guinea",
+                           "Guinea-Bissau",
+                           "Guyana",
+                           "Haiti",
+                           "Heard Island and McDonald Islands",
+                           "Honduras",
+                           "Hong Kong",
+                           "Howland Island",
+                           "Hungary",
+                           "Iceland",
+                           "India",
+                           "Indian Ocean",
+                           "Indonesia",
+                           "Iran",
+                           "Iraq",
+                           "Ireland",
+                           "Isle of Man",
+                           "Israel",
+                           "Italy",
+                           "Jamaica",
+                           "Jan Mayen",
+                           "Japan",
+                           "Jarvis Island",
+                           "Jersey",
+                           "Johnston Atoll",
+                           "Jordan",
+                           "Juan de Nova Island",
+                           "Kazakhstan",
+                           "Kenya",
+                           "Kerguelen Archipelago",
+                           "Kingman Reef",
+                           "Kiribati",
+                           "Kosovo",
+                           "Kuwait",
+                           "Kyrgyzstan",
+                           "Laos",
+                           "Latvia",
+                           "Lebanon",
+                           "Lesotho",
+                           "Liberia",
+                           "Libya",
+                           "Liechtenstein",
+                           "Lithuania",
+                           "Luxembourg",
+                           "Macau",
+                           "Macedonia",
+                           "Madagascar",
+                           "Malawi",
+                           "Malaysia",
+                           "Maldives",
+                           "Mali",
+                           "Malta",
+                           "Marshall Islands",
+                           "Martinique",
+                           "Mauritania",
+                           "Mauritius",
+                           "Mayotte",
+                           "Mediterranean Sea",
+                           "Mexico",
+                           "Micronesia",
+                           "Midway Islands",
+                           "Moldova",
+                           "Monaco",
+                           "Mongolia",
+                           "Montenegro",
+                           "Montserrat",
+                           "Morocco",
+                           "Mozambique",
+                           "Myanmar",
+                           "Namibia",
+                           "Nauru",
+                           "Navassa Island",
+                           "Nepal",
+                           "Netherlands",
+                           "New Caledonia",
+                           "New Zealand",
+                           "Nicaragua",
+                           "Niger",
+                           "Nigeria",
+                           "Niue",
+                           "Norfolk Island",
+                           "North Korea",
+                           "North Sea",
+                           "Northern Mariana Islands",
+                           "Norway",
+                           "Oman",
+                           "Pacific Ocean",
+                           "Pakistan",
+                           "Palau",
+                           "Palmyra Atoll",
+                           "Panama",
+                           "Papua New Guinea",
+                           "Paracel Islands",
+                           "Paraguay",
+                           "Peru",
+                           "Philippines",
+                           "Pitcairn Islands",
+                           "Poland",
+                           "Portugal",
+                           "Puerto Rico",
+                           "Qatar",
+                           "Republic of the Congo",
+                           "Reunion",
+                           "Romania",
+                           "Ross Sea",
+                           "Russia",
+                           "Rwanda",
+                           "Saint Helena",
+                           "Saint Kitts and Nevis",
+                           "Saint Lucia",
+                           "Saint Pierre and Miquelon",
+                           "Saint Vincent and the Grenadines",
+                           "Samoa",
+                           "San Marino",
+                           "Sao Tome and Principe",
+                           "Saudi Arabia",
+                           "Senegal",
+                           "Serbia",
+                           "Seychelles",
+                           "Sierra Leone",
+                           "Singapore",
+                           "Sint Maarten",
+                           "Slovakia",
+                           "Slovenia",
+                           "Solomon Islands",
+                           "Somalia",
+                           "South Africa",
+                           "South Georgia and the South Sandwich Islands",
+                           "South Korea",
+                           "Southern Ocean",
+                           "Spain",
+                           "Spratly Islands",
+                           "Sri Lanka",
+                           "Sudan",
+                           "Suriname",
+                           "Svalbard",
+                           "Swaziland",
+                           "Sweden",
+                           "Switzerland",
+                           "Syria",
+                           "Taiwan",
+                           "Tajikistan",
+                           "Tanzania",
+                           "Tasman Sea",
+                           "Thailand",
+                           "Togo",
+                           "Tokelau",
+                           "Tonga",
+                           "Trinidad and Tobago",
+                           "Tromelin Island",
+                           "Tunisia",
+                           "Turkey",
+                           "Turkmenistan",
+                           "Turks and Caicos Islands",
+                           "Tuvalu",
+                           "USA",
+                           "Uganda",
+                           "Ukraine",
+                           "United Arab Emirates",
+                           "United Kingdom",
+                           "Uruguay",
+                           "Uzbekistan",
+                           "Vanuatu",
+                           "Venezuela",
+                           "Viet Nam",
+                           "Virgin Islands",
+                           "Wake Island",
+                           "Wallis and Futuna",
+                           "West Bank",
+                           "Western Sahara",
+                           "Yemen",
+                           "Zambia",
+                           "Zimbabwe",
+                           "not applicable",
+                           "not collected",
+                           "not provided",
+                           "restricted access"
+                        ]
+                     }
+                  }
+               },
+               "description" : "The geographical origin of the sample as defined by the country or sea. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html)."
+            },
+            "trophic level" : {
+               "description" : "Trophic levels are the feeding position in a food chain. Microbes can be a range of producers (e.g. chemolithotroph)",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "autotroph",
+                           "carboxydotroph",
+                           "chemoautotroph",
+                           "chemoheterotroph",
+                           "chemolithoautotroph",
+                           "chemolithotroph",
+                           "chemoorganoheterotroph",
+                           "chemoorganotroph",
+                           "chemosynthetic",
+                           "chemotroph",
+                           "copiotroph",
+                           "diazotroph",
+                           "facultative autotroph",
+                           "heterotroph",
+                           "lithoautotroph",
+                           "lithoheterotroph",
+                           "lithotroph",
+                           "methanotroph",
+                           "methylotroph",
+                           "mixotroph",
+                           "obligate chemoautolithotroph",
+                           "oligotroph",
+                           "organoheterotroph",
+                           "organotroph",
+                           "photoautotroph",
+                           "photoheterotroph",
+                           "photolithoautotroph",
+                           "photolithotroph",
+                           "photosynthetic",
+                           "phototroph"
+                        ]
+                     }
+                  }
+               }
+            },
+            "target gene" : {
+               "description" : "Targeted gene or locus name for marker gene studies",
+               "items" : {}
+            },
+            "observed biotic relationship" : {
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "commensal",
+                           "free living",
+                           "parasite",
+                           "symbiont"
+                        ]
+                     }
+                  }
+               },
+               "description" : "Is it free-living or in a host and if the latter what type of relationship is observed"
+            },
+            "fungicide regimen" : {
+               "items" : {},
+               "description" : "information about treatment involving use of fungicides; should include the name of fungicide, amount administered, treatment duration, interval and total experimental duration; can include multiple fungicide regimens"
+            },
+            "known pathogenicity" : {
+               "items" : {},
+               "description" : "To what is the entity pathogenic, for instance plant, fungi, bacteria"
+            },
+            "sample material processing" : {
+               "items" : {},
+               "description" : "Any processing applied to the sample during or after retrieving the sample from environment. This field accepts OBI, for a browser of OBI (v 2013-10-25) terms please see http://purl.bioontology.org/ontology/OBI"
+            },
+            "gaseous environment" : {
+               "description" : "use of conditions with differing gaseous environments; should include the name of gaseous compound, amount administered, treatment duration, interval and total experimental duration; can include multiple gaseous environment regimens",
+               "items" : {}
+            },
+            "chemical administration" : {
+               "items" : {},
+               "description" : "list of chemical compounds administered to the host or site where sampling occurred, and when (e.g. antibiotics, N fertilizer, air filter); can include multiple compounds. For Chemical Entities of Biological Interest ontology (CHEBI) (v111), please see http://purl.bioontology.org/ontology/CHEBI"
+            },
+            "climate environment" : {
+               "description" : "treatment involving an exposure to a particular climate; can include multiple climates",
+               "items" : {}
+            },
+            "herbicide regimen" : {
+               "items" : {},
+               "description" : "information about treatment involving use of herbicides; information about treatment involving use of growth hormones; should include the name of herbicide, amount administered, treatment duration, interval and total experimental duration; can include multiple regimens"
+            },
+            "sample collection device or method" : {
+               "items" : {},
+               "description" : "The method or deviced employed for collecting the sample"
+            },
+            "environment (feature)" : {
+               "description" : "Environmental feature level includes geographic environmental features. Compared to biome, feature is a descriptor of the more local environment. Examples include: harbor, cliff, or lake. EnvO (v 2013-06-14) terms can be found via the link: www.environmentontology.org/Browse-EnvO",
+               "items" : {}
+            },
+            "library reads sequenced" : {
+               "description" : "Total number of clones sequenced from the library",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "[+-]?[0-9]+"
+                     }
+                  }
+               }
+            },
+            "multiplex identifiers" : {
+               "items" : {},
+               "description" : "Molecular barcodes, called Multiplex Identifiers (MIDs), that are used to specifically tag unique samples in a sequencing run. Sequence should be reported in uppercase letters"
+            },
+            "library construction method" : {
+               "description" : "Library construction method used for clone libraries",
+               "items" : {}
+            },
+            "geographic location (longitude)" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(^.*[+-]?[0-9]+.?[0-9]*.*$)|(^not collected$)|(^not provided$)|(^restricted access$)"
+                     }
+                  }
+               },
+               "description" : "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system"
+            },
+            "host life stage" : {
+               "items" : {},
+               "description" : "description of life stage of host"
+            },
+            "sample salinity" : {
+               "description" : "salinity of sample, i.e. measure of total salt concentration",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  }
+               }
+            },
+            "target subfragment" : {
+               "description" : "Name of subfragment of a gene or locus. Important to e.g. identify special regions on marker genes like V6 on 16S rRNA",
+               "items" : {}
+            },
+            "ploidy" : {
+               "description" : "The ploidy level of the genome (e.g. allopolyploid, haploid, diploid, triploid, tetraploid). It has implications for the downstream study of duplicated gene and regions of the genomes (and perhaps for difficulties in assembly). For terms, please select terms listed under class ploidy (PATO:001374) of Phenotypic Quality Ontology (PATO), and for a browser of PATO (v 2013-10-28) please refer to http://purl.bioontology.org/ontology/PATO. Mandatory for MIGS of eukaryotes.",
+               "items" : {}
+            },
+            "oxygenation status of sample" : {
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "aerobic",
+                           "anaerobic"
+                        ]
+                     }
+                  }
+               },
+               "description" : "oxygenation status of sample"
+            },
+            "seasonal environment" : {
+               "items" : {},
+               "description" : "treatment involving an exposure to a particular season (e.g. winter, summer, rabi, rainy etc.)"
+            },
+            "nucleic acid extraction" : {
+               "items" : {},
+               "description" : "Link to a literature reference, electronic resource or a standard operating procedure (SOP)"
+            },
+            "mineral nutrient regimen" : {
+               "description" : "information about treatment involving the use of mineral supplements; should include the name of mineral nutrient, amount administered, treatment duration, interval and total experimental duration; can include multiple mineral nutrient regimens",
+               "items" : {}
+            },
+            "host taxid" : {
+               "description" : "NCBI taxon id of the host, e.g. 9606",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "[+-]?[0-9]+"
+                     }
+                  }
+               }
+            }
+         },
+         "required" : [
+            "project name",
+            "sequencing method",
+            "investigation type",
+            "collection date",
+            "geographic location (country and/or sea)",
+            "geographic location (latitude)",
+            "geographic location (longitude)",
+            "plant-associated environmental package",
+            "environment (biome)",
+            "environment (feature)",
+            "environment (material)"
+         ]
+      }
+   },
+   "title" : "GSC MIxS plant associated",
+   "required" : [
+      "attributes"
+   ]
+}

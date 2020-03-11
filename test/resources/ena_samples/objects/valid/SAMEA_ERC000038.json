@@ -1,0 +1,179 @@
+{
+  "name" : "ERS9999938",
+  "accession" : "SAMEA9999938",
+  "taxonId" : 408172,
+  "attributes" : {
+    "Chlorophyll Sensor" : [ {
+      "value" : "2.344913",
+      "units" : "mg Chl/m3"
+    } ],
+    "Citation" : [ {
+      "value" : "Tara Oceans Consortium, Coordinators & Tara Oceans Expedition, Participants. Registry of all samples from the Tara Oceans Expedition (2009-2013). PANGAEA. doi:10.1594/PANGAEA.842197 (2015) (https://dx.doi.org/10.1594/PANGAEA.842197)"
+    } ],
+    "ENA checklist" : [ {
+      "value" : "ERC000038"
+    } ],
+    "Event Date/Time End" : [ {
+      "value" : "2013-07-01T15:24:00"
+    } ],
+    "INSDC center alias" : [ {
+      "value" : "GSC"
+    } ],
+    "INSDC center name" : [ {
+      "value" : "Genoscope"
+    } ],
+    "INSDC first public" : [ {
+      "value" : "2019-09-13T17:03:57Z"
+    } ],
+    "INSDC last update" : [ {
+      "value" : "2016-08-25T11:48:17Z"
+    } ],
+    "INSDC status" : [ {
+      "value" : "public"
+    } ],
+    "Latitude End" : [ {
+      "value" : "72.5971",
+      "units" : "DD"
+    } ],
+    "Longitude End" : [ {
+      "value" : "44.1735",
+      "units" : "DD"
+    } ],
+    "SRA accession" : [ {
+      "value" : "ERS1308612"
+    } ],
+    "Salinity Sensor" : [ {
+      "value" : "34.976035",
+      "units" : "practical salinity unit"
+    } ],
+    "alias" : [ {
+      "value" : "TARA_N010000496"
+    } ],
+    "Depth" : [ {
+      "value" : "40",
+      "units" : "m"
+    } ],
+    "description" : [ {
+      "value" : "This sample (TARA_N010000496) was collected at station TARA_168 during campaign TARA_20130629Z of the Tara Oceans expedition (2009-2013), using a high volume peristaltic pump [HVP-PUMP]. The sampling event (TARA_20130701T1234Z_168_EVENT_PUMP) occurred at position latitudeN=72.5432 and longitudeE=44.102, on date/time=2013-07-01T12:34:00, at a depth of 38-42 m. The sample material was collected in the marine biome (ENVO:00000447) targeting a [DCM] deep chlorophyll maximum layer (ENVO:01000326). The sample material was size-fractionated (3-20 micrometres) and prepared on board using protocol [SEQ-(10-100L-or-15min)_W3-20] for later detection and identification of biological and molecular entities (nucleotides) by sequencing (SEQ) methods. This sample may be used for example in biodiversity, metagenomics and/or transcriptomics studies of unicellular eukaryotes (protists) and attached prokaryotes. This sample has replicate sample(s): TARA_N010000497, TARA_N010000503, TARA_N010000504, TARA_N010000505."
+    } ],
+    "environment (biome)" : [ {
+      "value" : "Polar Biome"
+    } ],
+    "environment (feature)" : [ {
+      "value" : "[DCM] deep chlorophyll maximum layer (ENVO:01000326)"
+    } ],
+    "environment (feature) further details" : [ {
+      "value" : "discrete depth within the epipelagic zone (ENVO:00000209) at the interface of the photic zone (ENVO:00000209) and the aphotic zone (ENVO:00000210), <50 m from a strong peak in chlorophyll fluorescence, <50 m below a marine epipelagic wind mixed layer (ENVO:01000061)"
+    } ],
+    "environment (material)" : [ {
+      "value" : "water (ENVO:00002006), including particulate matter (ENVO:01000060) such as planktonic material (ENVO:01000063)"
+    } ],
+    "environmental package" : [ {
+      "value" : "water",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/CHEBI_15377" ]
+    } ],
+    "Event Date/Time" : [ {
+      "value" : "2013-07-01T12:34:00"
+    } ],
+    "event label" : [ {
+      "value" : "TARA_20130701T1234Z_168_EVENT_PUMP"
+    } ],
+    "further details" : [ {
+      "value" : "http://store.pangaea.de/Projects/TARA-OCEANS/Logsheets_Wetlab/TARA_20130701Z_168_WETLAB_GENO.pdf"
+    } ],
+    "last update date" : [ {
+      "value" : "2016-04-23Z"
+    } ],
+    "Latitude Start" : [ {
+      "value" : "72.5432",
+      "units" : "DD"
+    } ],
+    "Longitude Start" : [ {
+      "value" : "44.102",
+      "units" : "DD"
+    } ],
+    "Marine Region" : [ {
+      "value" : "[AO] Arctic Ocean (MRGID:1906)"
+    } ],
+    "nitrate sensor" : [ {
+      "value" : "-3.888729",
+      "units" : "µmol/L"
+    } ],
+    "organism" : [ {
+      "value" : "marine metagenome",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_408172" ]
+    } ],
+    "oxygen sensor" : [ {
+      "value" : "326.5136",
+      "units" : "µmol/kg"
+    } ],
+    "project name" : [ {
+      "value" : "Tara Oceans Expedition (2009-2013)"
+    } ],
+    "protocol description" : [ {
+      "value" : "In the size fraction W3-20 micrometres, the sample material was pre-filtered on 20-micrometres, using a nylon mesh, and concentrated on 3-micrometres, using a 142-mm-diameter Millipore polycarbonate membrane filter (ref:TSTP14250). A volume of 10-100 Litres was filtered and the 3-micrometre-pore-size filter was packaged in a sterile cryogenic tube (5 mL), labelled with a barcode identification sticker and stored on board in liquid nitrogen. Note 1: Latex or nitril gloves were used for this protocol. Note 2: All containers, filter holders and tubing were washed with 0.1% bleach, rinsed twice with fresh water and rinsed again twice with the pre-filtered sample material. All tweezers are kept clean with ethanol. Note 3: The entire process did not exceed 15 minutes. Note 4: The volume filtered is indicated for each replicate in the Sample registry (http://doi.pangaea.de/10.1594/PANGAEA.842197). A total of 2-6 replicates were prepared and sent for later analysis to the Genoscope, National Sequencing Centre, Paris, France."
+    } ],
+    "Protocol Label" : [ {
+      "value" : "SEQ-(10-100L-or-15min)_W3-20"
+    } ],
+    "sample collection device" : [ {
+      "value" : "high volume peristaltic pump [HVP-PUMP]"
+    } ],
+    "sample material label" : [ {
+      "value" : "TARA_168_DCM_3-20"
+    } ],
+    "sample status" : [ {
+      "value" : "This version can be used to provide data discovery services"
+    } ],
+    "Sampling Campaign" : [ {
+      "value" : "TARA_20130629Z"
+    } ],
+    "Sampling Platform" : [ {
+      "value" : "SV Tara"
+    } ],
+    "Sampling Station" : [ {
+      "value" : "TARA_168"
+    } ],
+    "shell length" : [ {
+      "value" : "22.11881",
+      "units" : "m"
+    } ],
+    "shell width" : [ {
+      "value" : "33.73631",
+      "units" : "m"
+    } ],
+    "shellfish soft tissue weight" : [ {
+      "value" : "5",
+      "units" : "g"
+    } ],
+    "shellfish total weight" : [ {
+      "value" : "145",
+      "units" : "g"
+    } ],
+    "seabed habitat" : [ {
+      "value" : "SB928288"
+    } ],
+    "age" : [ {
+      "value" : "12"
+    } ],
+    "aquaculture origin" : [ {
+      "value" : "AOAR - aquacultue origin aquaculture raised"
+    } ],
+    "size fraction lower threshold" : [ {
+      "value" : "3"
+    } ],
+    "size fraction upper threshold" : [ {
+      "value" : "20"
+    } ],
+    "synonym" : [ {
+      "value" : "TARA_N010000496"
+    } ],
+    "Temperature" : [ {
+      "value" : "3.824545",
+      "units" : "ºC"
+    } ],
+    "title" : [ {
+      "value" : "TARA_20130701T1234Z_168_EVENT_PUMP_DCM_(40m)_SEQ-(10-100L-or-15min)_W3-20_N010000496"
+    } ]
+  }
+}

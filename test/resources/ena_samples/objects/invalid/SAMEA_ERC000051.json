@@ -1,0 +1,74 @@
+{
+  "name" : "ERS9999951",
+  "accession" : "SAMEA9999951",
+  "taxonId" : 4058,
+  "attributes" : {
+    "ENA checklist" : [ {
+      "value" : "ERC000051"
+    } ],
+    "INSDC center alias" : [ {
+      "value" : "Universite-Francois-Rabelais"
+    } ],
+    "INSDC center name" : [ {
+      "value" : "Universite-Francois-Rabelais"
+    } ],
+    "INSDC first public" : [ {
+      "value" : "2017-12-31T17:02:39Z"
+    } ],
+    "INSDC last update" : [ {
+      "value" : "2017-09-05T12:27:58Z"
+    } ],
+    "INSDC status" : [ {
+      "value" : "public"
+    } ],
+    "SRA accession" : [ {
+      "value" : "ERS1907920"
+    } ],
+    "alias" : [ {
+      "value" : "Root_AS1"
+    } ],
+    "collection_date" : [ {
+      "value" : "2015"
+    } ],
+    "growth facility" : [ {
+      "value" : "glasshouse"
+    } ],
+    "isolation and growth condition" : [ {
+      "value" : "10.1038/srep40453"
+    } ],
+    "organism" : [ {
+      "value" : "Catharanthus roseus",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_4058" ]
+    } ],
+    "sample taxon name" : [ {
+      "value" : "Homo sapiens/Mus musculus xenograft"
+    } ],
+    "sample material" : [ {
+      "value" : "bone marrow aspirate"
+    } ],
+    "engrafted tumor sample passage" : [ {
+      "value" : "tum pass 123"
+    } ],
+    "patient tumor site of collection" : [ {
+      "value" : "http://purl.obolibrary.org/obo/NCIT_C12392"
+    } ],
+    "patient tumor type" : [ {
+      "value" : "Primary Neoplasm"
+    } ],
+    "sample unique ID" : [ {
+      "value" : "CRC000893839"
+    } ],
+    "patient age at collection of tumor" : [ {
+      "value" : "77"
+    } ],
+    "patient tumor diagnosis at time of collection" : [ {
+      "value" : "http://purl.obolibrary.org/obo/NCIT_C3262"
+    } ],
+    "patient tumor primary site" : [ {
+      "value" : "http://purl.obolibrary.org/obo/NCIT_C12392"
+    } ],
+    "patient sex" : [ {
+      "value" : "Female"
+    } ]
+  }
+}

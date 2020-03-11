@@ -1,0 +1,84 @@
+{
+  "name" : "ERS1355627",
+  "accession" : "SAMEA4444178",
+  "taxonId" : 1269027,
+  "attributes" : {
+    "ENA checklist" : [ {
+      "value" : "ERC000021"
+    } ],
+    "INSDC center name" : [ {
+      "value" : "UNIVERSITY OF ESSEX"
+    } ],
+    "INSDC first public" : [ {
+      "value" : "2017-09-30T17:02:11Z"
+    } ],
+    "INSDC last update" : [ {
+      "value" : "2016-10-21T09:35:45Z"
+    } ],
+    "INSDC status" : [ {
+      "value" : "public"
+    } ],
+    "SRA accession" : [ {
+      "value" : "ERS1355627"
+    } ],
+    "alias" : [ {
+      "value" : "2-MID76"
+    } ],
+    "collection date" : [ {
+      "value" : "2012-12-03"
+    } ],
+    "geographic location (depth)" : [ {
+      "value" : "0-0.002",
+      "units" : "m"
+    } ],
+    "description" : [ {
+      "value" : "Mud flat sediment"
+    } ],
+    "environment (biome)" : [ {
+      "value" : "mud flat"
+    } ],
+    "environment (feature)" : [ {
+      "value" : "mud flat"
+    } ],
+    "environment (material)" : [ {
+      "value" : "sediment"
+    } ],
+    "geographic location (country and/or sea)" : [ {
+      "value" : "United Kingdom"
+    } ],
+    "geographic location (elevation)" : [ {
+      "value" : "0",
+      "units" : "m"
+    } ],
+    "geographic location (latitude)" : [ {
+      "value" : "51.833333",
+      "units" : "DD"
+    } ],
+    "geographic location (longitude)" : [ {
+      "value" : "0.983333",
+      "units" : "DD"
+    } ],
+    "investigation type" : [ {
+      "value" : "mimarks-survey"
+    } ],
+    "organism" : [ {
+      "value" : "tidal flat metagenome",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_1269027" ]
+    } ],
+    "project name" : [ {
+      "value" : "Julio-EPS"
+    } ],
+    "sediment environmental package" : [ {
+      "value" : "sediment"
+    } ],
+    "sequencing method" : [ {
+      "value" : "pyrosequencing"
+    } ],
+    "synonym" : [ {
+      "value" : "2-MID76"
+    } ],
+    "title" : [ {
+      "value" : "mud flat 16S rRNA amplicon"
+    } ]
+  }
+}

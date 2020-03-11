@@ -1,0 +1,62 @@
+{
+  "name" : "ERS3908518",
+  "accession" : "SAMEA6107842",
+  "taxonId" : 287,
+  "attributes" : {
+    "Alias" : [ {
+      "value" : "AUS903"
+    } ],
+    "Description" : [ {
+      "value" : "Lower airways"
+    } ],
+    "ENA checklist" : [ {
+      "value" : "ERC000044"
+    } ],
+    "INSDC center alias" : [ {
+      "value" : "UQ"
+    } ],
+    "INSDC center name" : [ {
+      "value" : "University of Queensland"
+    } ],
+    "INSDC first public" : [ {
+      "value" : "2019-11-01T17:04:09Z"
+    } ],
+    "INSDC last update" : [ {
+      "value" : "2019-10-22T16:09:49Z"
+    } ],
+    "INSDC status" : [ {
+      "value" : "public"
+    } ],
+    "Organism" : [ {
+      "value" : "Pseudomonas aeruginosa",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_287" ]
+    } ],
+    "SRA accession" : [ {
+      "value" : "ERS3908518"
+    } ],
+    "Title" : [ {
+      "value" : "Australian CF shared strain"
+    } ],
+    "collected_by" : [ {
+      "value" : "Royal Children's Hospital"
+    } ],
+    "collection_date" : [ {
+      "value" : "2007-11-12"
+    } ],
+    "geographic location (country and/or sea)" : [ {
+      "value" : "Australia"
+    } ],
+    "geographic location (region and locality)" : [ {
+      "value" : "Brisbane"
+    } ],
+    "host disease status" : [ {
+      "value" : "Cystic fibrosis"
+    } ],
+    "isolate" : [ {
+      "value" : "AUS903"
+    } ],
+    "synonym" : [ {
+      "value" : "AUS903"
+    } ]
+  }
+}

@@ -1,13 +1,14 @@
-let Ajv = require("ajv");
 const logger = require("./winston");
-let IsChildTermOf = require("./custom/ischildtermof");
-let IsValidTerm = require("./custom/isvalidterm");
 const ValidationError = require("./model/validation-error");
 const AppError = require("./model/application-error");
 
-let ajv = new Ajv({allErrors: true});
-let isChildTermOf = new IsChildTermOf(ajv);
-let isValidTerm = new IsValidTerm(ajv);
+const { ElixirValidator, isChildTermOf, isValidTerm, isValidTaxonomy} = require('elixir-jsonschema-validator');
+
+const validator = new ElixirValidator([
+  new isChildTermOf(null, "https://www.ebi.ac.uk/ols/api/search?q="),
+  new isValidTerm(null, "https://www.ebi.ac.uk/ols/api/search?q="),
+  new isValidTaxonomy(null)
+]);
 
 function convertToValidationErrors(ajvErrorObjects) {
   let localErrors = [];
@@ -27,23 +28,25 @@ function convertToValidationErrors(ajvErrorObjects) {
 function runValidation(inputSchema, inputObject) {
   logger.log("silly", "Running validation...");
   return new Promise((resolve, reject) => {
-    var validate = ajv.compile(inputSchema);
-    Promise.resolve(validate(inputObject))
-    .then((data) => {
-        if (validate.errors) {
-          logger.log("debug", ajv.errorsText(validate.errors, {dataVar: inputObject.alias}));
-          resolve(convertToValidationErrors(validate.errors));
-        } else {
+    validator.validate(inputSchema, inputObject)
+    .then((validationResult) => {
+        if (validationResult.length == 0) {
           resolve([]);
+        } else {
+          let ajvErrors = [];
+          validationResult.forEach(validationError => {
+            ajvErrors.push(validationError);
+          });
+
+          resolve(convertToValidationErrors(ajvErrors));
         }
       }
-    ).catch((err, errors) => {
-      if (!(err instanceof Ajv.ValidationError)) {
-        logger.log("error", "An error ocurred while running the validation.");
-        reject(new AppError("An error ocurred while running the validation."));
+    ).catch((error) => {
+      if (error.errors) {
+        reject(new AppError(error.errors));
       } else {
-        logger.log("debug", ajv.errorsText(err.errors, {dataVar: inputObject.alias}));
-        resolve(convertToValidationErrors(err.errors));
+        logger.log("error", "An error ocurred while running the validation. Error : " + JSON.stringify(error));
+        reject(new AppError("An error ocurred while running the validation."));
       }
     });
   });

@@ -1,0 +1,78 @@
+{
+  "name" : "ERS1908429",
+  "accession" : "SAMEA104283451",
+  "taxonId" : 9606,
+  "attributes" : {
+    "ENA checklist" : [ {
+      "value" : "ERC000017"
+    } ],
+    "INSDC center alias" : [ {
+      "value" : "GENOME INSTITRUTE OF SINGAPORE"
+    } ],
+    "INSDC center name" : [ {
+      "value" : "GENOME INSTITRUTE OF SINGAPORE"
+    } ],
+    "INSDC first public" : [ {
+      "value" : "2017-12-29T17:02:48Z"
+    } ],
+    "INSDC last update" : [ {
+      "value" : "2017-09-06T04:22:57Z"
+    } ],
+    "INSDC status" : [ {
+      "value" : "public"
+    } ],
+    "SRA accession" : [ {
+      "value" : "ERS1908429"
+    } ],
+    "alias" : [ {
+      "value" : "AHH21729"
+    } ],
+    "collection date" : [ {
+      "value" : "2016-01-01"
+    } ],
+    "dermatology disorder" : [ {
+      "value" : "androgenetic alopecia"
+    } ],
+    "environment (biome)" : [ {
+      "value" : "human skin"
+    } ],
+    "environment (feature)" : [ {
+      "value" : "scalp"
+    } ],
+    "environment (material)" : [ {
+      "value" : "hair follicle",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/UBERON_0002073" ]
+    } ],
+    "geographic location (country and/or sea)" : [ {
+      "value" : "Singapore"
+    } ],
+    "geographic location (latitude)" : [ {
+      "value" : "1.3667",
+      "units" : "DD"
+    } ],
+    "geographic location (longitude)" : [ {
+      "value" : "103.8",
+      "units" : "DD"
+    } ],
+    "human skin environmental package" : [ {
+      "value" : "human-skin"
+    } ],
+    "investigation type" : [ {
+      "value" : "metagenome"
+    } ],
+    "organism" : [ {
+      "value" : "Homo sapiens",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_9606" ]
+    } ],
+    "sequencing method" : [ {
+      "value" : "illumina"
+    } ],
+    "synonym" : [ {
+      "value" : "AHH21729"
+    } ],
+    "title" : [ {
+      "value" : "hair follicle",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/UBERON_0002073" ]
+    } ]
+  }
+}

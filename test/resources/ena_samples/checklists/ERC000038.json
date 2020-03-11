@@ -1,0 +1,352 @@
+{
+   "version" : "1.0.0",
+   "author" : "ENA",
+   "type" : "object",
+   "$async" : true,
+   "description" : "Shellfish contextual information associated with molecular data. The checklist has been developed in collaboration with EMBRIC Project partners.",
+   "$id" : "ERC000038",
+   "title" : "ENA Shellfish Checklist",
+   "properties" : {
+      "attributes" : {
+         "required" : [
+            "Event Date/Time",
+            "Latitude Start",
+            "Longitude Start",
+            "Depth",
+            "Protocol Label",
+            "environment (biome)",
+            "environment (feature)",
+            "environment (material)",
+            "Sampling Campaign",
+            "Sampling Station",
+            "Sampling Platform",
+            "seabed habitat",
+            "age",
+            "aquaculture origin",
+            "shellfish total weight",
+            "shellfish soft tissue weight",
+            "shell length",
+            "shell width"
+         ],
+         "properties" : {
+            "age" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "Age of the organism the sample was derived from."
+            },
+            "shellfish soft tissue weight" : {
+               "description" : "Total weight of all soft tissue, i.e. weight of entire organism without shell, at the time of sampling",
+               "maxItems" : 1,
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  }
+               }
+            },
+            "toxin burden" : {
+               "description" : "Concentration of toxins in the organism at the time of sampling",
+               "maxItems" : 1,
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  },
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "adductor weight" : {
+               "description" : "Total weight of striated muscle and smooth muscle",
+               "maxItems" : 1,
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  }
+               }
+            },
+            "sample health state" : {
+               "maxItems" : 1,
+               "description" : "health status of the subject at the time of sample collection",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "diseased",
+                           "healthy"
+                        ]
+                     }
+                  }
+               }
+            },
+            "storage conditions (fresh/frozen/other)" : {
+               "maxItems" : 1,
+               "description" : "explain how and for how long the soil sample was stored before DNA extraction.",
+               "items" : {}
+            },
+            "Depth" : {
+               "maxItems" : 1,
+               "description" : "The distance below the surface of the water at which a measurement was made or a sample was collected. Format: ####.##, Positive below the sea surface. SDN:P06:46:ULAA for m. Example: 14.71",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "([0-9]*\\.)?[0-9]+\\s?([-]\\s?([0-9]*\\.)?[0-9]+)?"
+                     }
+                  },
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "Event Date/Time" : {
+               "maxItems" : 1,
+               "description" : "Date and time in UTC when the sampling event started and ended, e.g. each CTD cast, net tow, or bucket collection is a distinct event. Format: yyyy-mm-ddThh:mm:ssZ. Example: 2013-06-21T14:05:00Z/2013-06-21T14:46:00Z.",
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "^[0-9]{4}(-[0-9]{2}(-[0-9]{2}(T[0-9]{2}:[0-9]{2}(:[0-9]{2})?Z?([+-][0-9]{1,2})?)?)?)?(/[0-9]{4}(-[0-9]{2}(-[0-9]{2}(T[0-9]{2}:[0-9]{2}(:[0-9]{2})?Z?([+-][0-9]{1,2})?)?)?)?)?$"
+                     }
+                  }
+               }
+            },
+            "shellfish total weight" : {
+               "maxItems" : 1,
+               "description" : "Total weight of shellfish including shell at the time of sampling. Epifauna and epiphytes to be removed.",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  }
+               }
+            },
+            "Protocol Label" : {
+               "items" : {},
+               "description" : "Identifies the protocol used to produce the sample, e.g. filtration and preservation. Example: BACT_NUC_W0.22-1.6.",
+               "maxItems" : 1
+            },
+            "Marine Region" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "The geographical origin of the sample as defined by the marine region name chosen from the Marine Regions vocabulary at http://www.marineregions.org/. Example: Aegean Sea."
+            },
+            "environment (biome)" : {
+               "items" : {},
+               "description" : "Biomes are defined based on factors such as plant structures, leaf types, plant spacing, and other factors like climate. Biome should be treated as the descriptor of the broad ecological context of a sample. Examples include: desert, taiga, deciduous woodland, or coral reef. EnvO (v 2013-06-14) terms can be found via the link: www.environmentontology.org/Browse-EnvO",
+               "maxItems" : 1
+            },
+            "seabed habitat" : {
+               "maxItems" : 1,
+               "description" : "Classification of the seabed where the organism has been found; for European seabed habitats please use terms from http://eunis.eea.europa.eu/habitats-code-browser.jsp; example: B3.4 : Soft sea-cliffs, often vegetated",
+               "items" : {}
+            },
+            "shell width" : {
+               "description" : "width of shell (perpendicular angle to length)",
+               "maxItems" : 1,
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  },
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "Longitude Start" : {
+               "description" : "Longitude of the location where the sampling event started, e.g. each CTD cast, net tow, or bucket collection is a distinct event. Format: ###.####, Decimal degrees; East= +, West= -; Use WGS 84 for GPS data. Example: -096.1012.",
+               "maxItems" : 1,
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "[+-]?[0-9]+.?[0-9]*"
+                     }
+                  },
+                  "required" : [
+                     "units"
+                  ]
+               }
+            },
+            "Latitude Start" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "[+-]?[0-9]+.?[0-9]*"
+                     }
+                  }
+               },
+               "description" : "Latitude of the location where the sampling event started, e.g. each CTD cast, net tow, or bucket collection is a distinct event. Format: ##.####, Decimal degrees; North= +, South= -; Use WGS 84 for GPS data. Example: -24.6666.",
+               "maxItems" : 1
+            },
+            "sample disease status" : {
+               "items" : {},
+               "description" : "list of diseases with which the subject has been diagnosed at the time of sample collection; can include multiple diagnoses; the value of the field depends on subject; e.g. Charcoal rot (Macrophomina phaseolina), Late wilt (Cephalosporium maydis)",
+               "maxItems" : 1
+            },
+            "aquaculture origin" : {
+               "description" : "Origin of stock and raised conditions",
+               "maxItems" : 1,
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "enum" : [
+                           "AOAR - aquacultue origin aquaculture raised",
+                           "WOAR - wild origin aquaculture raised",
+                           "WOWR - wild origin wild raised"
+                        ]
+                     }
+                  }
+               }
+            },
+            "environment (feature)" : {
+               "items" : {},
+               "description" : "Environmental feature level includes geographic environmental features. Compared to biome, feature is a descriptor of the more local environment. Examples include: harbor, cliff, or lake. EnvO (v 2013-06-14) terms can be found via the link: www.environmentontology.org/Browse-EnvO"
+            },
+            "gonad weight" : {
+               "maxItems" : 1,
+               "description" : "Total weight of entire gonad tissue",
+               "items" : {
+                  "required" : [
+                     "units"
+                  ],
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  }
+               }
+            },
+            "shell markings" : {
+               "items" : {
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "Visible markings on outer shell",
+               "maxItems" : 1
+            },
+            "Sampling Station" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "Refers to the site/station where data/sample collection is performed. Example: TARA_100."
+            },
+            "shell length" : {
+               "items" : {
+                  "properties" : {
+                     "value" : {
+                        "pattern" : "(0|((0\\.)|([1-9][0-9]*\\.?))[0-9]*)([Ee][+-]?[0-9]+)?"
+                     }
+                  },
+                  "required" : [
+                     "units"
+                  ]
+               },
+               "description" : "length of shell (perpendicular to the hinge)",
+               "maxItems" : 1
+            },
+            "environment (material)" : {
+               "items" : {},
+               "maxItems" : 1,
+               "description" : "The environmental material level refers to the material that was displaced by the sample, or material in which a sample was embedded, prior to the sampling event. Environmental material terms are generally mass nouns. Examples include: air, soil, or water. EnvO (v 2013-06-14) terms can be found via the link: www.environmentontology.org/Browse-EnvO"
+            },
+            "treatment agent" : {
+               "description" : "The name of the treatment agent used.",
+               "items" : {}
+            },
+            "Sample Collection Device" : {
+               "description" : "The sampling device(s) used for the Event. Example: CTD(sbe9C)/Rosette with Niskin bottles.",
+               "maxItems" : 1,
+               "items" : {}
+            },
+            "Sampling Campaign" : {
+               "description" : "Refers to a finite or indefinite activity aiming at collecting data/samples, e.g. a cruise, a time series, a mesocosm experiment. Example: TARA_20110401Z.",
+               "maxItems" : 1,
+               "items" : {}
+            },
+            "Sampling Platform" : {
+               "items" : {},
+               "description" : "Refers to the unique stage from which the sampling device has been deployed. Includes Platform category from SDN:L06, http://seadatanet.maris2.nl/v_bodc_vocab_v2/search.asp?lib=L06, and Platform name. Example: Research Vessel Tara.",
+               "maxItems" : 1
+            },
+            "chemical compound" : {
+               "items" : {},
+               "description" : "A drug, solvent, chemical, etc., with a property that can be measured such as concentration (http://purl.obolibrary.org/obo/CHEBI_37577)."
+            }
+         }
+      }
+   },
+   "$schema" : "http://json-schema.org/draft-07/schema#",
+   "required" : [
+      "attributes"
+   ],
+   "definitions" : {
+      "properties" : {
+         "attributes" : {
+            "required" : [],
+            "type" : "object",
+            "patternProperties" : {
+               "^.*$" : {
+                  "$ref" : "#/definitions/attribute"
+               }
+            },
+            "description" : "Attributes for describing a sample.",
+            "properties" : {}
+         }
+      },
+      "terms" : {
+         "items" : {
+            "properties" : {
+               "url" : {
+                  "type" : "string",
+                  "format" : "uri"
+               }
+            },
+            "required" : [
+               "url"
+            ],
+            "type" : "object"
+         },
+         "type" : "array"
+      },
+      "attribute" : {
+         "minItems" : 1,
+         "type" : "array",
+         "items" : {
+            "properties" : {
+               "value" : {
+                  "minLength" : 1,
+                  "type" : "string"
+               },
+               "terms" : {
+                  "$ref" : "#/definitions/terms"
+               },
+               "units" : {
+                  "type" : "string",
+                  "minLength" : 1
+               }
+            },
+            "required" : [
+               "value"
+            ]
+         }
+      }
+   }
+}

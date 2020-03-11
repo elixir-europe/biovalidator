@@ -1,0 +1,130 @@
+{
+  "name" : "ERS363388",
+  "accession" : "SAMEA2242603",
+  "taxonId" : 410658,
+  "attributes" : {
+    "Acronym of the soil name" : [ {
+      "value" : "F76"
+    } ],
+    "Acronym of the used DNA extraction method" : [ {
+      "value" : "ISO"
+    } ],
+    "ENA checklist" : [ {
+      "value" : "ERC000022"
+    } ],
+    "INSDC center alias" : [ {
+      "value" : "INRA-CMSE"
+    } ],
+    "INSDC center name" : [ {
+      "value" : "UMR Agroecology, INRA - Burgundy University, Dijon, France"
+    } ],
+    "INSDC first public" : [ {
+      "value" : "2014-07-31T17:01:03Z"
+    } ],
+    "INSDC last update" : [ {
+      "value" : "2016-10-21T09:33:02Z"
+    } ],
+    "INSDC status" : [ {
+      "value" : "public"
+    } ],
+    "Number of the biological replicate" : [ {
+      "value" : "2"
+    } ],
+    "SRA accession" : [ {
+      "value" : "ERS363388"
+    } ],
+    "alias" : [ {
+      "value" : "ISO_F76_18S_02"
+    } ],
+    "collection date" : [ {
+      "value" : "2011"
+    } ],
+    "current land use" : [ {
+      "value" : "Forest soil"
+    } ],
+    "geographic location (depth)" : [ {
+      "value" : "0.1",
+      "units" : "m"
+    } ],
+    "description" : [ {
+      "value" : "Five different soils representing forest, grassland and arable biomes were collected from across France. All necessary permits were obtained from the respective land owners (INRA, ADEME, and private owners) for the described field studies. Five individual cores (20 cm depth) were sampled at each site using an unaligned sampling design within a defined area. Replicate soil cores were then bulked to obtain a composite sample for each site. After sieving soil samples to <4 mm, aliquots of 50 g were stored at -40degC prior to DNA extraction. Several physico-chemical parameters were measured for each soil: texture, pH, CaCO3, and total C and N. Physical and chemical analyses were performed by the Soil Analysis Laboratory of INRA (Arras, France, http://www.lille.inra.fr/las) using standard procedures (Plassart et al., 2012 - PLOS ONE)."
+    } ],
+    "environment (biome)" : [ {
+      "value" : "temperate woodland biome"
+    } ],
+    "environment (feature)" : [ {
+      "value" : "planted forest"
+    } ],
+    "environment (material)" : [ {
+      "value" : "forest soil"
+    } ],
+    "geographic location (country and/or sea)" : [ {
+      "value" : "France"
+    } ],
+    "geographic location (elevation)" : [ {
+      "value" : "20",
+      "units" : "m"
+    } ],
+    "geographic location (latitude)" : [ {
+      "value" : "49.45401",
+      "units" : "DD"
+    } ],
+    "geographic location (longitude)" : [ {
+      "value" : "0.742874",
+      "units" : "DD"
+    } ],
+    "investigation type" : [ {
+      "value" : "mimarks-survey"
+    } ],
+    "multiplex identifiers" : [ {
+      "value" : "CGCGACATCT"
+    } ],
+    "nucleic acid extraction" : [ {
+      "value" : "This protocol is a version of ISO-11063 standard (Martin-Laurent et al., 2001). Soil was added to a bead beating tube containing 2 g of glass beads of 106 µm diameter and eight glass beads of 2 mm diameter. Each soil sample was mixed with a solution of 100 mM Tris-HCl (pH 8), 100 mM EDTA (pH8), 100 mM NaCl, 2% (w/v) polyvinylpyrrolidone (40 g/mol) and 2% (w/v) sodium dodecyl sulfate. Tubes were then shaken for 30 s at 1600 rpm in a mini bead-beater cell disruptor (Mikro-Dismembrator, Braun Biotech International) before incubation for 10 min at 70degC and centrifugation at 14,000g for 1 min. Finally, nucleic acids were precipitated by adding 1 volume of ice-cold isopropanol. The DNA pellets obtained after centrifugation (14,000g for 5 min at 4degC) were washed with 70% ethanol (full details are described in Martin-Laurent et al. (2001) and Philippot et al. (2010))."
+    } ],
+    "organism" : [ {
+      "value" : "soil metagenome",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_410658" ]
+    } ],
+    "pcr conditions" : [ {
+      "value" : "5ng of DNA were used for a 25µl PCR conducted under the following conditions: initial denaturation: 94degC_3.0min; 35 cycles of denaturation: 94degC_1.0min; annealing: 52degC_1.0min;elongation: 72degC_1.0min;final elongation:72degC_5.0min. A second PCR of 9 cycles was then conducted under similar PCR conditions with purified PCR products and ten base pair multiplex identifiers added to the primers at 5' position to specifically identify each sample and avoid PCR biases."
+    } ],
+    "pcr primers" : [ {
+      "value" : "FR1:5-ANCCATTCAATCGGTANT-3;FF390:5-CGATAACGAACGAGACCT-3"
+    } ],
+    "ph" : [ {
+      "value" : "3.8"
+    } ],
+    "sample weight for DNA extraction" : [ {
+      "value" : "1",
+      "units" : "g"
+    } ],
+    "sequencing method" : [ {
+      "value" : "454-Pyrosequencing"
+    } ],
+    "soil environmental package" : [ {
+      "value" : "soil"
+    } ],
+    "synonym" : [ {
+      "value" : "ISO_F76_18S_02"
+    } ],
+    "target gene" : [ {
+      "value" : "18S rDNA"
+    } ],
+    "texture" : [ {
+      "value" : "53/37/10",
+      "units" : "% sand/silt/clay"
+    } ],
+    "title" : [ {
+      "value" : "ISO_soil_bacteria_fungi_diversity_study"
+    } ],
+    "total n" : [ {
+      "value" : "3.1",
+      "units" : "g/kg"
+    } ],
+    "total organic carbon" : [ {
+      "value" : "103.3",
+      "units" : "g/kg"
+    } ]
+  }
+}

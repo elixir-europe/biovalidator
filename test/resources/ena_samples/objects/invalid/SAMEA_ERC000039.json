@@ -1,0 +1,107 @@
+{
+  "name" : "ERS3052629",
+  "accession" : "SAMEA5245231",
+  "taxonId" : 6216,
+  "attributes" : {
+    "ENA checklist" : [ {
+      "value" : "ERC000039"
+    } ],
+    "INSDC center alias" : [ {
+      "value" : "UNIVERSITY OF WARMIA AND MAZURY"
+    } ],
+    "INSDC center name" : [ {
+      "value" : "UNIVERSITY OF WARMIA AND MAZURY"
+    } ],
+    "INSDC first public" : [ {
+      "value" : "2019-02-18T17:05:12Z"
+    } ],
+    "INSDC last update" : [ {
+      "value" : "2019-01-28T08:30:53Z"
+    } ],
+    "INSDC status" : [ {
+      "value" : "public"
+    } ],
+    "SRA accession" : [ {
+      "value" : "ERS3052629"
+    } ],
+    "alias" : [ {
+      "value" : "PET1"
+    } ],
+    "annotated by" : [ {
+      "value" : "Lukasz Paukszto, Karol G. Makowczenko, Jan P. Jastrzebski"
+    } ],
+    "assembled by" : [ {
+      "value" : "Wiktor Kuśmirek, Robert Nowak"
+    } ],
+    "collecting institution" : [ {
+      "value" : "Department of General Biology and Parasitology, Medical University of Warsaw"
+    } ],
+    "collection date" : [ {
+      "value" : "2017-05-20"
+    } ],
+    "collector name" : [ {
+      "value" : "Ruslan Salamatin, Daniel Mlocicki"
+    } ],
+    "diagnostic method" : [ {
+      "value" : "dissection"
+    } ],
+    "genotype" : [ {
+      "value" : "WMS-il1 (inbred isolate)"
+    } ],
+    "geographic location (country and/or sea)" : [ {
+      "value" : "Poland"
+    } ],
+    "geographic location (latitude)" : [ {
+      "value" : "52.229676",
+      "units" : "DD"
+    } ],
+    "geographic location (longitude)" : [ {
+      "value" : "21.012229",
+      "units" : "DD"
+    } ],
+    "host age" : [ {
+      "value" : "1",
+      "units" : "year"
+    } ],
+    "host common name" : [ {
+      "value" : "rat"
+    } ],
+    "host disease outcome" : [ {
+      "value" : "recovered"
+    } ],
+    "host health state" : [ {
+      "value" : "diseased"
+    } ],
+    "host scientific name" : [ {
+      "value" : "Rattus norvegicus",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_10116" ]
+    } ],
+    "host sex" : [ {
+      "value" : "male",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/PATO_0000384" ]
+    } ],
+    "isolate" : [ {
+      "value" : "laboratory inbred isolate"
+    } ],
+    "isolation source host associated" : [ {
+      "value" : "small intestine",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/UBERON_0002108" ]
+    } ],
+    "known pathogenicity" : [ {
+      "value" : "low pathogenic"
+    } ],
+    "organism" : [ {
+      "value" : "Hymenolepis diminuta",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_6216" ]
+    } ],
+    "strain" : [ {
+      "value" : "WMS-il1"
+    } ],
+    "synonym" : [ {
+      "value" : "PET1"
+    } ],
+    "title" : [ {
+      "value" : "HiSeq1500 paired-end raw reads of Hymenolepis diminuta (host: rat)"
+    } ]
+  }
+}

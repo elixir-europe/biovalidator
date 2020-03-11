@@ -1,0 +1,69 @@
+{
+  "name" : "ERS2419824",
+  "accession" : "SAMEA4599116",
+  "taxonId" : 10497,
+  "attributes" : {
+    "ENA checklist" : [ {
+      "value" : "ERC000033"
+    } ],
+    "INSDC center alias" : [ {
+      "value" : "Friedrich-Loeffler-Institute"
+    } ],
+    "INSDC center name" : [ {
+      "value" : "Friedrich-Loeffler-Institute"
+    } ],
+    "INSDC first public" : [ {
+      "value" : "2018-05-02T17:03:02Z"
+    } ],
+    "INSDC last update" : [ {
+      "value" : "2018-04-23T10:10:57Z"
+    } ],
+    "INSDC status" : [ {
+      "value" : "public"
+    } ],
+    "SRA accession" : [ {
+      "value" : "ERS2419824"
+    } ],
+    "alias" : [ {
+      "value" : "lib02053"
+    } ],
+    "collecting institution" : [ {
+      "value" : "Friedrich-Loeffler-Institute"
+    } ],
+    "collector name" : [ {
+      "value" : "Laura Zani"
+    } ],
+    "description" : [ {
+      "value" : "Deletion at the 5’-end of Estonian ASFV strains associated with an attenuated phenotype"
+    } ],
+    "host common name" : [ {
+      "value" : "wild boar"
+    } ],
+    "host health state" : [ {
+      "value" : "diseased"
+    } ],
+    "host scientific name" : [ {
+      "value" : "Sus scrofa scrofa"
+    } ],
+    "host sex" : [ {
+      "value" : "female",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/PATO_0000383" ]
+    } ],
+    "host subject id" : [ {
+      "value" : "#19"
+    } ],
+    "isolate" : [ {
+      "value" : "Estonia 2014"
+    } ],
+    "organism" : [ {
+      "value" : "African swine fever virus",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_10497" ]
+    } ],
+    "synonym" : [ {
+      "value" : "lib02053"
+    } ],
+    "title" : [ {
+      "value" : "Estonia 2014"
+    } ]
+  }
+}

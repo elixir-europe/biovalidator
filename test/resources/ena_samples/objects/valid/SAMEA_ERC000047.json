@@ -1,0 +1,111 @@
+{
+  "name" : "ERS3742618",
+  "accession" : "SAMEA5954138",
+  "taxonId" : 157176,
+  "attributes" : {
+    "Alias" : [ {
+      "value" : "Nitrospira sp. RBC026"
+    } ],
+    "Description" : [ {
+      "value" : "This sample represents a MAG from the metagenomic sample ERS3016384"
+    } ],
+    "ENA checklist" : [ {
+      "value" : "ERC000047"
+    } ],
+    "INSDC center alias" : [ {
+      "value" : "UNIVERSITY OF WATERLOO"
+    } ],
+    "INSDC center name" : [ {
+      "value" : "UNIVERSITY OF WATERLOO"
+    } ],
+    "INSDC first public" : [ {
+      "value" : "2019-10-26T04:04:53Z"
+    } ],
+    "INSDC last update" : [ {
+      "value" : "2019-09-13T18:02:37Z"
+    } ],
+    "INSDC status" : [ {
+      "value" : "public"
+    } ],
+    "Organism" : [ {
+      "value" : "uncultured Nitrospira sp.",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_157176" ]
+    } ],
+    "SRA accession" : [ {
+      "value" : "ERS3742618"
+    } ],
+    "Title" : [ {
+      "value" : "Nitrospira bin RBC026"
+    } ],
+    "assembly quality" : [ {
+      "value" : "Many fragments with little to no review of assembly other than reporting of standard assembly statistics"
+    } ],
+    "assembly software" : [ {
+      "value" : "SPAdes"
+    } ],
+    "binning parameters" : [ {
+      "value" : "TNF and coverage"
+    } ],
+    "binning software" : [ {
+      "value" : "Maxbin"
+    } ],
+    "collection date" : [ {
+      "value" : "2010-06-09"
+    } ],
+    "completeness score" : [ {
+      "value" : "75.06",
+      "units" : "%"
+    } ],
+    "completeness software" : [ {
+      "value" : "CheckM"
+    } ],
+    "contamination score" : [ {
+      "value" : "3.18",
+      "units" : "%"
+    } ],
+    "environment (biome)" : [ {
+      "value" : "wastewater treatment plant"
+    } ],
+    "environment (feature)" : [ {
+      "value" : "wastewater treatment plant"
+    } ],
+    "environment (material)" : [ {
+      "value" : "biofilm"
+    } ],
+    "geographic location (country and/or sea)" : [ {
+      "value" : "Canada"
+    } ],
+    "geographic location (latitude)" : [ {
+      "value" : "43.524549",
+      "units" : "DD"
+    } ],
+    "geographic location (longitude)" : [ {
+      "value" : "-80.264446",
+      "units" : "DD"
+    } ],
+    "investigation type" : [ {
+      "value" : "metagenome-assembled genome"
+    } ],
+    "isolation_source" : [ {
+      "value" : "wastewater biofilm"
+    } ],
+    "metagenomic source" : [ {
+      "value" : "wastewater metagenome"
+    } ],
+    "project name" : [ {
+      "value" : "RBCs"
+    } ],
+    "sample derived from" : [ {
+      "value" : "ERS3016384"
+    } ],
+    "sequencing method" : [ {
+      "value" : "Illumina HiSeq"
+    } ],
+    "synonym" : [ {
+      "value" : "Nitrospira sp. RBC026"
+    } ],
+    "taxonomic identity marker" : [ {
+      "value" : "multi marker approach"
+    } ]
+  }
+}

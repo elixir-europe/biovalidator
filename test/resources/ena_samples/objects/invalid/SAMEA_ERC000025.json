@@ -1,0 +1,73 @@
+{
+  "name" : "ERS1360943",
+  "accession" : "SAMEA4461764",
+  "taxonId" : 256318,
+  "attributes" : {
+    "ENA checklist" : [ {
+      "value" : "ERC000025"
+    } ],
+    "INSDC center name" : [ {
+      "value" : "TEXAS A&M CORPUS CHRISTI"
+    } ],
+    "INSDC first public" : [ {
+      "value" : "2017-08-24T17:01:38Z"
+    } ],
+    "INSDC last update" : [ {
+      "value" : "2016-10-21T09:43:39Z"
+    } ],
+    "INSDC status" : [ {
+      "value" : "public"
+    } ],
+    "SRA accession" : [ {
+      "value" : "ERS1360943"
+    } ],
+    "alias" : [ {
+      "value" : "H201"
+    } ],
+    "collection date" : [ {
+      "value" : "2016-06-22"
+    } ],
+    "description" : [ {
+      "value" : "First seawater replicate from LMFS."
+    } ],
+    "environment (biome)" : [ {
+      "value" : "marine"
+    } ],
+    "environment (feature)" : [ {
+      "value" : "shallow, hypersaline lagoon"
+    } ],
+    "environment (material)" : [ {
+      "value" : "seawater from water-sediment interface"
+    } ],
+    "geographic location (country and/or sea)" : [ {
+      "value" : "USA"
+    } ],
+    "geographic location (latitude)" : [ {
+      "value" : "27.542",
+      "units" : "DD"
+    } ],
+    "geographic location (longitude)" : [ {
+      "value" : "-97.286",
+      "units" : "DD"
+    } ],
+    "investigation type" : [ {
+      "value" : "metagenome"
+    } ],
+    "miscellaneous environmental package" : [ {
+      "value" : "miscellaneous natural or artificial environment"
+    } ],
+    "organism" : [ {
+      "value" : "metagenome",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_256318" ]
+    } ],
+    "sequencing method" : [ {
+      "value" : "Illumina HiSeq 2500"
+    } ],
+    "synonym" : [ {
+      "value" : "H201"
+    } ],
+    "title" : [ {
+      "value" : "Seawater 1"
+    } ]
+  }
+}

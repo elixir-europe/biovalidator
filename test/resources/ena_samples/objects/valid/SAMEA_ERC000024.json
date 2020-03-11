@@ -1,0 +1,89 @@
+{
+  "name" : "ERS2402661",
+  "accession" : "SAMEA3466492",
+  "taxonId" : 1561972,
+  "attributes" : {
+    "ENA checklist" : [ {
+      "value" : "ERC000024"
+    } ],
+    "INSDC center alias" : [ {
+      "value" : "UNIVERSITY OF SOUTHERN CALIFORNIA"
+    } ],
+    "INSDC center name" : [ {
+      "value" : "UNIVERSITY OF SOUTHERN CALIFORNIA"
+    } ],
+    "INSDC first public" : [ {
+      "value" : "2018-10-31T17:03:13Z"
+    } ],
+    "INSDC last update" : [ {
+      "value" : "2018-04-13T01:00:35Z"
+    } ],
+    "INSDC status" : [ {
+      "value" : "public"
+    } ],
+    "SRA accession" : [ {
+      "value" : "ERS2402661"
+    } ],
+    "alias" : [ {
+      "value" : "M5.35.fastq"
+    } ],
+    "collection date" : [ {
+      "value" : "2011-08"
+    } ],
+    "description" : [ {
+      "value" : "surface seawater 16S amplicon investigated by 15N stable isotope probing"
+    } ],
+    "environment (biome)" : [ {
+      "value" : "surface seawater"
+    } ],
+    "environment (feature)" : [ {
+      "value" : "southern california bight"
+    } ],
+    "environment (material)" : [ {
+      "value" : "water",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/CHEBI_15377" ]
+    } ],
+    "environmental package" : [ {
+      "value" : "water",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/CHEBI_15377" ]
+    } ],
+    "geographic location (country and/or sea)" : [ {
+      "value" : "Pacific Ocean"
+    } ],
+    "geographic location (depth)" : [ {
+      "value" : "5",
+      "units" : "m"
+    } ],
+    "geographic location (latitude)" : [ {
+      "value" : "33.55",
+      "units" : "DD"
+    } ],
+    "geographic location (longitude)" : [ {
+      "value" : "-118.4",
+      "units" : "DD"
+    } ],
+    "investigation type" : [ {
+      "value" : "mimarks-survey"
+    } ],
+    "organism" : [ {
+      "value" : "seawater metagenome",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_1561972" ]
+    } ],
+    "project name" : [ {
+      "value" : "April SPOT SIP study"
+    } ],
+    "sequencing method" : [ {
+      "value" : "PE Illumina Miseq 2x250"
+    } ],
+    "synonym" : [ {
+      "value" : "M5.35.fastq"
+    } ],
+    "title" : [ {
+      "value" : "M5.35"
+    } ],
+    "water environmental package" : [ {
+      "value" : "water",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/CHEBI_15377" ]
+    } ]
+  }
+}

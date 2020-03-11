@@ -1,0 +1,73 @@
+{
+  "name" : "ERS1362218",
+  "accession" : "SAMEA4463039",
+  "taxonId" : 9606,
+  "attributes" : {
+    "ENA checklist" : [ {
+      "value" : "ERC000018"
+    } ],
+    "INSDC center name" : [ {
+      "value" : "UNIVERSITY OF CAPE TOWN"
+    } ],
+    "INSDC first public" : [ {
+      "value" : "2016-11-22T17:01:19Z"
+    } ],
+    "INSDC last update" : [ {
+      "value" : "2016-10-21T09:38:49Z"
+    } ],
+    "INSDC status" : [ {
+      "value" : "public"
+    } ],
+    "SRA accession" : [ {
+      "value" : "ERS1362218"
+    } ],
+    "alias" : [ {
+      "value" : "SW100"
+    } ],
+    "collection date" : [ {
+      "value" : "2014-06"
+    } ],
+    "environment (biome)" : [ {
+      "value" : "human-associated habitat"
+    } ],
+    "environment (feature)" : [ {
+      "value" : "vaginal"
+    } ],
+    "environment (material)" : [ {
+      "value" : "vaginal swabs"
+    } ],
+    "geographic location (country and/or sea)" : [ {
+      "value" : "South Africa"
+    } ],
+    "geographic location (latitude)" : [ {
+      "value" : "27.8540 E",
+      "units" : "DD"
+    } ],
+    "geographic location (longitude)" : [ {
+      "value" : "26.2485 S",
+      "units" : "DD"
+    } ],
+    "human vaginal environmental package" : [ {
+      "value" : "human-vaginal"
+    } ],
+    "investigation type" : [ {
+      "value" : "mimarks-survey"
+    } ],
+    "organism" : [ {
+      "value" : "Homo sapiens",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_9606" ]
+    } ],
+    "project name" : [ {
+      "value" : "WISH 16S rRNA vaginal microbiome"
+    } ],
+    "sequencing method" : [ {
+      "value" : "Illumina MiSeq"
+    } ],
+    "synonym" : [ {
+      "value" : "SW100"
+    } ],
+    "title" : [ {
+      "value" : "Human vaginal microbiome"
+    } ]
+  }
+}

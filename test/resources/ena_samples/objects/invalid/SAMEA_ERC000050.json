@@ -1,0 +1,111 @@
+{
+  "name" : "ERS3232338",
+  "accession" : "SAMEA5427052",
+  "taxonId" : 172733,
+  "attributes" : {
+    "ENA checklist" : [ {
+      "value" : "ERC000050"
+    } ],
+    "INSDC center alias" : [ {
+      "value" : "EBI"
+    } ],
+    "INSDC center name" : [ {
+      "value" : "European Bioinformatics Institute"
+    } ],
+    "INSDC first public" : [ {
+      "value" : "2019-04-01T17:02:50Z"
+    } ],
+    "INSDC last update" : [ {
+      "value" : "2019-03-18T17:19:45Z"
+    } ],
+    "INSDC status" : [ {
+      "value" : "public"
+    } ],
+    "SRA accession" : [ {
+      "value" : "ERS3232338"
+    } ],
+    "alias" : [ {
+      "value" : "MAG-GUT10816"
+    } ],
+    "assembly quality" : [ {
+      "value" : "Many fragments with little to no review of assembly other than reporting of standard assembly statistics"
+    } ],
+    "assembly software" : [ {
+      "value" : "SPAdes;3.10.0"
+    } ],
+    "binning parameters" : [ {
+      "value" : "default"
+    } ],
+    "binning software" : [ {
+      "value" : "MetaBAT v2.12.1"
+    } ],
+    "collection date" : [ {
+      "value" : "not provided"
+    } ],
+    "completeness score" : [ {
+      "value" : "59.48",
+      "units" : "%"
+    } ],
+    "completeness software" : [ {
+      "value" : "CheckM v1.0.7"
+    } ],
+    "contamination score" : [ {
+      "value" : "0.34",
+      "units" : "%"
+    } ],
+    "description" : [ {
+      "value" : "This sample represents a MAG from the metagenomic run SRR5275443"
+    } ],
+    "environment (biome)" : [ {
+      "value" : "human-associated habitat"
+    } ],
+    "environment (feature)" : [ {
+      "value" : "human gut"
+    } ],
+    "environment (material)" : [ {
+      "value" : "faeces"
+    } ],
+    "geographic location (country and/or sea)" : [ {
+      "value" : "USA"
+    } ],
+    "geographic location (latitude)" : [ {
+      "value" : "37.0902",
+      "units" : "DD"
+    } ],
+    "geographic location (longitude)" : [ {
+      "value" : "-95.7129",
+      "units" : "DD"
+    } ],
+    "investigation type" : [ {
+      "value" : "metagenome-assembled genome"
+    } ],
+    "isolation source" : [ {
+      "value" : "human gut"
+    } ],
+    "metagenomic source" : [ {
+      "value" : "human gut metagenome"
+    } ],
+    "organism" : [ {
+      "value" : "uncultured Clostridiales bacterium",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_172733" ]
+    } ],
+    "project name" : [ {
+      "value" : "Human gut MAGs"
+    } ],
+    "sequencing method" : [ {
+      "value" : "Illumina"
+    } ],
+    "synonym" : [ {
+      "value" : "MAG-GUT10816"
+    } ],
+    "taxonomic identity marker" : [ {
+      "value" : "multi-marker approach"
+    } ],
+    "isolation_source" : [ {
+      "value" : "marine water"
+    } ],
+    "title" : [ {
+      "value" : "Metagenome-Assembled Genome (MAG)"
+    } ]
+  }
+}

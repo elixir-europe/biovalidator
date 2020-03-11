@@ -1,0 +1,111 @@
+{
+  "name" : "ERS3868792",
+  "accession" : "SAMEA6067674",
+  "taxonId" : 198431,
+  "attributes" : {
+    "Alias" : [ {
+      "value" : "AH-287-A01"
+    } ],
+    "Description" : [ {
+      "value" : "SAG AH-287-A01"
+    } ],
+    "ENA checklist" : [ {
+      "value" : "ERC000048"
+    } ],
+    "INSDC center alias" : [ {
+      "value" : "WOODS HOLE OCEANOGRAPHIC INSTITUTION"
+    } ],
+    "INSDC center name" : [ {
+      "value" : "WOODS HOLE OCEANOGRAPHIC INSTITUTION"
+    } ],
+    "INSDC first public" : [ {
+      "value" : "2019-10-26T04:04:55Z"
+    } ],
+    "INSDC last update" : [ {
+      "value" : "2019-10-14T03:54:43Z"
+    } ],
+    "INSDC status" : [ {
+      "value" : "public"
+    } ],
+    "Organism" : [ {
+      "value" : "uncultured prokaryote",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_198431" ]
+    } ],
+    "SRA accession" : [ {
+      "value" : "ERS3868792"
+    } ],
+    "Title" : [ {
+      "value" : "AH-287-A01"
+    } ],
+    "WGA amplification approach" : [ {
+      "value" : "mda based"
+    } ],
+    "assembly quality" : [ {
+      "value" : "Many fragments with little to no review of assembly other than reporting of standard assembly statistics"
+    } ],
+    "collection_date" : [ {
+      "value" : "2007-04-23"
+    } ],
+    "completeness score" : [ {
+      "value" : "67",
+      "units" : "%"
+    } ],
+    "completeness software" : [ {
+      "value" : "checkM"
+    } ],
+    "contamination score" : [ {
+      "value" : "0",
+      "units" : "%"
+    } ],
+    "environment (biome)" : [ {
+      "value" : "marine"
+    } ],
+    "environment (feature)" : [ {
+      "value" : "marine layer"
+    } ],
+    "environment (material)" : [ {
+      "value" : "marine photic zone"
+    } ],
+    "geographic location (country and/or sea)" : [ {
+      "value" : "not applicable"
+    } ],
+    "geographic location (latitude)" : [ {
+      "value" : "-3.04",
+      "units" : "DD"
+    } ],
+    "geographic location (longitude)" : [ {
+      "value" : "-166.01",
+      "units" : "DD"
+    } ],
+    "investigation type" : [ {
+      "value" : "single amplified genome"
+    } ],
+    "isolation_source" : [ {
+      "value" : "marine water"
+    } ],
+    "metagenomic source" : [ {
+      "value" : "marine metagenome"
+    } ],
+    "project name" : [ {
+      "value" : "Harnessing the complexity of the marine microbiome through single cell genomics"
+    } ],
+    "sample derived from" : [ {
+      "value" : "ERS3555736"
+    } ],
+    "sequencing method" : [ {
+      "value" : "Illumina"
+    } ],
+    "single cell or viral particle lysis approach" : [ {
+      "value" : "chemical"
+    } ],
+    "sorting technology" : [ {
+      "value" : "flow cytometric cell sorting"
+    } ],
+    "synonym" : [ {
+      "value" : "AH-287-A01"
+    } ],
+    "taxonomic identity marker" : [ {
+      "value" : "16S rRNA gene"
+    } ]
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "name" : "ERS942961",
+  "accession" : "SAMEA3635812",
+  "taxonId" : 1591089,
+  "attributes" : {
+    "ENA checklist" : [ {
+      "value" : "ERC000031"
+    } ],
+    "INSDC center alias" : [ {
+      "value" : "UNIVERSITY OF WATERLOO"
+    } ],
+    "INSDC center name" : [ {
+      "value" : "UNIVERSITY OF WATERLOO"
+    } ],
+    "INSDC first public" : [ {
+      "value" : "2015-12-09T17:01:05Z"
+    } ],
+    "INSDC last update" : [ {
+      "value" : "2018-03-09T13:33:49Z"
+    } ],
+    "INSDC status" : [ {
+      "value" : "public"
+    } ],
+    "SRA accession" : [ {
+      "value" : "ERS942961"
+    } ],
+    "air temperature" : [ {
+      "value" : "16",
+      "units" : "ºC"
+    } ],
+    "alias" : [ {
+      "value" : "B53L"
+    } ],
+    "building occupancy type" : [ {
+      "value" : "educational"
+    } ],
+    "building setting" : [ {
+      "value" : "urban"
+    } ],
+    "built environment environmental package" : [ {
+      "value" : "built environment"
+    } ],
+    "carbon dioxide" : [ {
+      "value" : "0",
+      "units" : "µmol/L"
+    } ],
+    "collection date" : [ {
+      "value" : "2014-10-24"
+    } ],
+    "description" : [ {
+      "value" : "Obtained from University of Waterloo campus entrances"
+    } ],
+    "environment (biome)" : [ {
+      "value" : "Temperate deciduous forest"
+    } ],
+    "environment (feature)" : [ {
+      "value" : "University campus buildings"
+    } ],
+    "environment (material)" : [ {
+      "value" : "Outside door handle"
+    } ],
+    "filter type" : [ {
+      "value" : "particulate air filter"
+    } ],
+    "geographic location (country and/or sea)" : [ {
+      "value" : "Canada"
+    } ],
+    "geographic location (latitude)" : [ {
+      "value" : "43.47",
+      "units" : "DD"
+    } ],
+    "geographic location (longitude)" : [ {
+      "value" : "-80.54",
+      "units" : "DD"
+    } ],
+    "heating and cooling system type" : [ {
+      "value" : "radiant system"
+    } ],
+    "indoor space" : [ {
+      "value" : "hallway"
+    } ],
+    "investigation type" : [ {
+      "value" : "mimarks-survey"
+    } ],
+    "light type" : [ {
+      "value" : "natural light"
+    } ],
+    "occupancy at sampling" : [ {
+      "value" : "0"
+    } ],
+    "occupant density at sampling" : [ {
+      "value" : "0"
+    } ],
+    "organism" : [ {
+      "value" : "urban metagenome",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_1591089" ]
+    } ],
+    "organism count" : [ {
+      "value" : "6418"
+    } ],
+    "project name" : [ {
+      "value" : "Microbial biogeography of a university campus"
+    } ],
+    "relative air humidity" : [ {
+      "value" : "0",
+      "units" : "%"
+    } ],
+    "sequencing method" : [ {
+      "value" : "Illumina"
+    } ],
+    "space typical state" : [ {
+      "value" : "typically occupied"
+    } ],
+    "synonym" : [ {
+      "value" : "B53L"
+    } ],
+    "title" : [ {
+      "value" : "Outside door handle swab"
+    } ],
+    "typical occupant density" : [ {
+      "value" : "479"
+    } ],
+    "ventilation type" : [ {
+      "value" : "natural ventilation"
+    } ]
+  }
+}

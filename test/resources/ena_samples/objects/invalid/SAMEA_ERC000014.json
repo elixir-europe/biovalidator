@@ -1,0 +1,81 @@
+{
+  "name" : "ERS789090",
+  "accession" : "SAMEA3481639",
+  "taxonId" : 9606,
+  "attributes" : {
+    "ENA checklist" : [ {
+      "value" : "ERC000014"
+    } ],
+    "INSDC center name" : [ {
+      "value" : "OREGON STATE UNIVERSITY , CORVALLIS, OREGON, UNITED STATES"
+    } ],
+    "INSDC first public" : [ {
+      "value" : "2015-07-16T15:54:30Z"
+    } ],
+    "INSDC last update" : [ {
+      "value" : "2016-10-21T09:40:47Z"
+    } ],
+    "INSDC status" : [ {
+      "value" : "public"
+    } ],
+    "SRA accession" : [ {
+      "value" : "ERS789090"
+    } ],
+    "alias" : [ {
+      "value" : "BN2153_V1V2_93_BBY10M"
+    } ],
+    "collection date" : [ {
+      "value" : "2013"
+    } ],
+    "environment (biome)": [ {
+        "value": "NA"
+    } ],
+    "environment (feature)": [ {
+        "value": "NA"
+    } ],
+    "environment (material)": [ {
+        "value": "NA"
+    } ],
+    "description" : [ {
+      "value" : "Human body-site associated samples for validation of ARK algorithm"
+    } ],
+    "geographic location (country and/or sea)" : [ {
+      "value" : "Tanzania"
+    } ],
+    "geographic location (latitude)" : [ {
+      "value" : "-6.812414",
+      "units" : "DD"
+    } ],
+    "geographic location (longitude)" : [ {
+      "value" : "39.297048",
+      "units" : "DD"
+    } ],
+    "host body product" : [ {
+      "value" : "Vagina",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/UBERON_0000996" ]
+    } ],
+    "human-associated environmental package" : [ {
+      "value" : "human-associated"
+    } ],
+    "investigation type" : [ {
+      "value" : "metagenome"
+    } ],
+    "miscellaneous parameter" : [ {
+      "value" : "adult",
+      "ontologyTerms" : [ "http://www.ebi.ac.uk/efo/EFO_0001272" ]
+    } ],
+    "organism" : [ {
+      "value" : "Homo sapiens",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_9606" ]
+    } ],
+    "sequencing method" : [ {
+      "value" : "Illumina MiSeq"
+    } ],
+    "synonym" : [ {
+      "value" : "BN2153_V1V2_93_BBY10M"
+    } ],
+    "title" : [ {
+      "value" : "ARK: Aggregate of Reads by K-Means for Estimation of Bacterial Community Composition"
+    } ]
+  }
+}

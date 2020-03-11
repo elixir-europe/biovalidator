@@ -1,0 +1,62 @@
+{
+  "name" : "ERS364003",
+  "accession" : "SAMEA2242082",
+  "taxonId" : 1280,
+  "attributes" : {
+    "ENA checklist" : [ {
+      "value" : "ERC000028"
+    } ],
+    "INSDC center alias" : [ {
+      "value" : "BUGS"
+    } ],
+    "INSDC center name" : [ {
+      "value" : "St George's, University of London"
+    } ],
+    "INSDC first public" : [ {
+      "value" : "2014-10-02T17:03:59Z"
+    } ],
+    "INSDC last update" : [ {
+      "value" : "2016-10-21T09:44:51Z"
+    } ],
+    "INSDC status" : [ {
+      "value" : "public"
+    } ],
+    "SRA accession" : [ {
+      "value" : "ERS364003"
+    } ],
+    "alias" : [ {
+      "value" : "AP2751"
+    } ],
+    "collection date" : [ {
+      "value" : "2012-09-12"
+    } ],
+    "geographic location (country and/or sea)" : [ {
+      "value" : "United Kingdom"
+    } ],
+    "host health state" : [ {
+      "value" : "healthy"
+    } ],
+    "host scientific name" : [ {
+      "value" : "homo sapiens"
+    } ],
+    "isolation_source" : [ {
+      "value" : "marine water"
+    } ],
+    "isolate": [ {
+      "value" : "ISO1234"
+    } ],
+    "organism" : [ {
+      "value" : "Staphylococcus aureus",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_1280" ]
+    } ],
+    "strain" : [ {
+      "value" : "AP2751"
+    } ],
+    "synonym" : [ {
+      "value" : "AP2751"
+    } ],
+    "title" : [ {
+      "value" : "AP2751"
+    } ]
+  }
+}

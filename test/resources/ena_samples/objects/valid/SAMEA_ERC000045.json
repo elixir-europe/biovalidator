@@ -1,0 +1,62 @@
+{
+  "name" : "ERS3014146",
+  "accession" : "SAMEA5206674",
+  "taxonId" : 59201,
+  "attributes" : {
+    "ENA checklist" : [ {
+      "value" : "ERC000045"
+    } ],
+    "INSDC center alias" : [ {
+      "value" : "ANSES"
+    } ],
+    "INSDC center name" : [ {
+      "value" : "ANSES"
+    } ],
+    "INSDC first public" : [ {
+      "value" : "2019-01-08T17:03:44Z"
+    } ],
+    "INSDC last update" : [ {
+      "value" : "2019-01-08T09:06:27Z"
+    } ],
+    "INSDC status" : [ {
+      "value" : "public"
+    } ],
+    "SRA accession" : [ {
+      "value" : "ERS3014146"
+    } ],
+    "alias" : [ {
+      "value" : "2011_11878"
+    } ],
+    "collection_date" : [ {
+      "value" : "2011"
+    } ],
+    "description" : [ {
+      "value" : "human - faeces"
+    } ],
+    "geographic location (country and/or sea" : [ {
+      "value" : "46.071721, 2.038834"
+    } ],
+    "isolate" : [ {
+      "value" : "2011_11878"
+    } ],
+    "isolation_source" : [ {
+      "value" : "marine water"
+    } ],
+    "organism" : [ {
+      "value" : "Salmonella enterica subsp. enterica",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_59201" ]
+    } ],
+    "receipt date" : [ {
+      "value" : "2011"
+    } ],
+    "serotype" : [ {
+      "value" : "S. 4,12:i:- (Inconsistent variant"
+    } ],
+    "synonym" : [ {
+      "value" : "2011_11878"
+    } ],
+    "title" : [ {
+      "value" : "2011_11878"
+    } ]
+  }
+}

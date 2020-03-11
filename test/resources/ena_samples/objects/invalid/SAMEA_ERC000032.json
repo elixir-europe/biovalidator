@@ -1,0 +1,121 @@
+{
+  "name" : "ERS800302",
+  "accession" : "SAMEA3493153",
+  "taxonId" : 11320,
+  "attributes" : {
+    "ENA checklist" : [ {
+      "value" : "ERC000032"
+    } ],
+    "INSDC center name" : [ {
+      "value" : "Animal and Plant Health Agency (APHA)"
+    } ],
+    "INSDC first public" : [ {
+      "value" : "2016-02-17T17:03:03Z"
+    } ],
+    "INSDC last update" : [ {
+      "value" : "2016-10-21T09:45:49Z"
+    } ],
+    "INSDC status" : [ {
+      "value" : "public"
+    } ],
+    "SRA accession" : [ {
+      "value" : "ERS800302"
+    } ],
+    "alias" : [ {
+      "value" : "AVP-14-036255"
+    } ],
+    "collecting institution" : [ {
+      "value" : "APHA"
+    } ],
+    "collection date" : [ {
+      "value" : "2014-11-14"
+    } ],
+    "collector name" : [ {
+      "value" : "APHA"
+    } ],
+    "definition for seropositive sample" : [ {
+      "value" : "Ct >36 for RRT PCR, >1/16 HI titre with 4HAU antigen"
+    } ],
+    "geographic location (latitude)" : [ {
+      "value" : "54.001",
+      "units" : "DD"
+    } ],
+    "geographic location (longitude)" : [ {
+      "value" : "-0.434",
+      "units" : "DD"
+    } ],
+    "geographic location (region and locality)" : [ {
+      "value" : "East Yorkshire"
+    } ],
+    "host age" : [ {
+      "value" : "60",
+      "units" : "week"
+    } ],
+    "host behaviour" : [ {
+      "value" : "domestic"
+    } ],
+    "host common name" : [ {
+      "value" : "Domestic duck"
+    } ],
+    "host disease outcome" : [ {
+      "value" : "dead"
+    } ],
+    "host habitat" : [ {
+      "value" : "domestic:indoor farm"
+    } ],
+    "host health state" : [ {
+      "value" : "diseased"
+    } ],
+    "host scientific name" : [ {
+      "value" : "Anas platyrhynchos",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_8839" ]
+    } ],
+    "host sex" : [ {
+      "value" : "female",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/PATO_0000383" ]
+    } ],
+    "host subject id" : [ {
+      "value" : "#1"
+    } ],
+    "influenza test method" : [ {
+      "value" : "M gene RRT PCR, H5 RRT PCR, virus isolation and haemagglutinin inhbition"
+    } ],
+    "influenza test result" : [ {
+      "value" : "positive"
+    } ],
+    "influenza virus type" : [ {
+      "value" : "A"
+    } ],
+    "isolation source host associated" : [ {
+      "value" : "pooled intestines"
+    } ],
+    "organism" : [ {
+      "value" : "Influenza A virus",
+      "ontologyTerms" : [ "http://purl.obolibrary.org/obo/NCBITaxon_11320" ]
+    } ],
+    "other pathogens test result" : [ {
+      "value" : "negative"
+    } ],
+    "other pathogens tested" : [ {
+      "value" : "AMPV-1"
+    } ],
+    "receipt date" : [ {
+      "value" : "2014-11-15"
+    } ],
+    "sample capture status" : [ {
+      "value" : "active surveillance not initiated by an outbreak"
+    } ],
+    "serotype (required for a seropositive sample)" : [ {
+      "value" : "H5N8"
+    } ],
+    "synonym" : [ {
+      "value" : "AVP-14-036255"
+    } ],
+    "title" : [ {
+      "value" : "Initial sample from November H5N8 outbreak in UK"
+    } ],
+    "virus identifier" : [ {
+      "value" : "A/duck/England/36254/14"
+    } ]
+  }
+}
