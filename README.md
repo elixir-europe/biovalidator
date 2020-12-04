@@ -8,8 +8,6 @@ This service uses [Elixir's JSON schema validator library](https://github.com/el
 
 The validation is done using the [AJV](https://github.com/epoberezkin/ajv) library version ^6.0.0 that fully supports the JSON Schema **draft-07**.
 
-Deployed for tests purposes on heroku: https://subs-json-schema-validator.herokuapp.com/validate
-
 ## Contents
 - [Getting Started](README.md#getting-started)
 
