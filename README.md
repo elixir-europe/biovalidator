@@ -13,7 +13,23 @@ Deployed for tests purposes on heroku: https://subs-json-schema-validator.heroku
 ## Contents
 - [Getting Started](README.md#getting-started)
 
+- [Prerequisites](README.md#prerequisites)
+
+- [Installing](README.md#installing)
+
+- [Running the Tests](README.md#running-the-tests)
+
+- [Executing](README.md#executing)
+
+- [Executing with Docker](README.md#executing-with-docker)
+
+- [Development](README.md#development)
+
 - [Validation API](README.md#validation-api)
+
+- [Usage](README.md#usage)
+
+- [API Errors](README.md#api-errors)
 
 - [Custom keywords](README.md#custom-keywords)
 
@@ -187,7 +203,8 @@ HTTP status code `400`
 ## Custom keywords
 The AJV library supports the implementation of custom json schema keywords to address validation scenarios that go beyond what json schema can handle.
 
-The list of implemented custom keywords could be found in the Elixir's JSON Schema Validator library's documentation: [https://github.com/elixir-europe/json-schema-validator/blob/master/README.md#custom-keywords].
+The list of implemented custom keywords could be found in the
+[Elixir's JSON Schema Validator library's documentation](https://github.com/elixir-europe/json-schema-validator/blob/master/README.md#custom-keywords).
 
 ## License
  For more details about licensing see the [LICENSE](LICENSE.md).
