@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: json-schema-validator
+  namespace: json-schema-validator
+spec:
+  selector:
+    matchLabels:
+      app: json-schema-validator
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: json-schema-validator
+    spec:
+      containers:
+      - name: json-schema-validator
+        image: %DOCKER_IMAGE%
+        ports:
+        - containerPort: 3000
+      imagePullSecrets:
+      - name: gitlab
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: json-schema-validator
+  namespace: json-schema-validator
+spec:
+  selector:
+    app: json-schema-validator
+  ports:
+  - protocol: TCP
+    port: 3000
+    targetPort: 3000
+  type: NodePort
+

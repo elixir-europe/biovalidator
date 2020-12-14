@@ -1,0 +1,37 @@
+variables:
+  GIT_STRATEGY: clone
+  DOCKER_DRIVER: overlay2
+  CONTAINER_BUILD_IMAGE: build:latest
+  CONTAINER_RUNTIME_IMAGE: runtime
+  DOCKER_TLS_CERTDIR: ""
+
+stages:
+  - build
+  - deploy
+
+build_docker_image: 
+  image: docker:latest
+  services:
+    - docker:dind
+  stage: build
+  script:
+    - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
+    - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG .
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG
+  after_script:
+      - docker logout ${CI_REGISTRY}
+
+hx-production:
+  stage: deploy
+  script:
+     - sed -i s#%DOCKER_IMAGE%#$CI_REGISTRY_IMAGE\:$CI_COMMIT_TAG#g k8s-deployment.yaml
+     - export KUBECONFIG=/home/gitlab-runner/.kube/hx-wp-webadmin-01-team-admin &&  kubectl apply -f k8s-deployment.yaml
+  only:
+    - disable
+hh-production:
+  stage: deploy
+  script:
+     - sed -i s#%DOCKER_IMAGE%#$CI_REGISTRY_IMAGE\:$CI_COMMIT_TAG#g k8s-deployment.yaml
+     - export KUBECONFIG=/home/gitlab-runner/.kube/hh-wp-webadmin-01-team-admin &&  kubectl apply -f k8s-deployment.yaml
+  only:
+    - disable
