@@ -10,6 +10,8 @@ const npid = require("npid");
 const app = express();
 const port = process.env.PORT || 3020;
 
+app.use(express.static('src/views'));
+
 app.use(bodyParser.json());
 
 app.use(function(req, res, next) {
@@ -56,7 +58,7 @@ app.get("/validate", (req, res) => {
   logger.log("silly", "Received GET request.");
 
   res.send({
-    message: "This is the USI JSON Schema Validator. Please POST to this endpoint the schema and object to validate structured as in bodyStructure. For more information and examples on how to use the validator see https://github.com/EMBL-EBI-SUBS/json-schema-validator",
+    message: "This is the Bio Validator. Please POST to this endpoint the schema and object to validate structured as in bodyStructure. For more information and examples on how to use the validator see https://github.com/elixir-europe/bio-validator",
     bodyStructure: {
       schema: {},
       object: {}
