@@ -1,5 +1,5 @@
 const CurieExpansion = require("../utils/curie_expansion");
-const ajv = require("ajv");
+const ajv = require("ajv").default;
 const request = require("request-promise");
 const CustomAjvError = require("../model/custom-ajv-error");
 
@@ -17,13 +17,14 @@ class GraphRestriction {
      */
     configure(ajv) {
         const keywordDefinition= {
+            keyword: this.keywordName,
             async: GraphRestriction._isAsync(),
             type: "string",
             validate: this.generateKeywordFunction(),
             errors: true
         };
 
-        return ajv.addKeyword(this.keywordName, keywordDefinition);
+        return ajv.addKeyword(keywordDefinition);
     }
 
     keywordFunction() {

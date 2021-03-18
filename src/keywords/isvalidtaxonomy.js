@@ -1,4 +1,4 @@
-const Ajv = require("ajv");
+const Ajv = require("ajv").default;
 const request = require("request");
 const logger = require("../winston");
 const CustomAjvError = require("../model/custom-ajv-error");
@@ -13,13 +13,14 @@ class IsValidTaxonomy {
 
     configure(ajv) {
         const keywordDefinition = {
+            keyword: this.keywordName,
             async: this.isAsync(),
             type: "string",
             validate: this.generateKeywordFunction(),
             errors: true
         };
 
-        return ajv.addKeyword(this.keywordName, keywordDefinition);
+        return ajv.addKeyword(keywordDefinition);
     }
 
     keywordFunction() {

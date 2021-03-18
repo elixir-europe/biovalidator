@@ -5,7 +5,8 @@
 const Promise = require('bluebird');
 const path = require("path");
 const fs = require('fs');
-const ajv = require("ajv");
+const Ajv = require("ajv").default;
+const addFormats = require("ajv-formats");
 const request = require("request-promise");
 const AppError = require("./model/application-error");
 
@@ -39,7 +40,7 @@ class BioValidator {
                             }
                         }
                     ).catch((err) => {
-                    if (!(err instanceof ajv.ValidationError)) {
+                    if (!(err instanceof Ajv.ValidationError)) {
                         console.error("An error occurred while running the validation.");
                         reject(new AppError("An error occurred while running the validation."));
                     } else {
@@ -100,8 +101,8 @@ class BioValidator {
     }
 
     constructAjv(customKeywordValidators) {
-        const ajvInstance = new ajv({allErrors: true, schemaId: 'id', loadSchema: this.generateLoadSchemaRefFn()});
-        ajvInstance.addMetaSchema(require('ajv/lib/refs/json-schema-draft-04.json'));
+        const ajvInstance = new Ajv({allErrors: true, strict:false, loadSchema: this.generateLoadSchemaRefFn()});
+        addFormats(ajvInstance);
         BioValidator._addCustomKeywordValidators(ajvInstance, customKeywordValidators);
 
         return ajvInstance
