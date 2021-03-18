@@ -22,7 +22,8 @@
   "author": "EMBL-EBI-SUBS, fpenim, ke4, haseeb-gh",
   "license": "Apache-2.0",
   "dependencies": {
-    "ajv": "^6.10.2",
+    "ajv": "~7.2.1",
+    "ajv-formats": "^1.5.1",
     "express": "^4.17.1",
     "npid": "^0.4.0",
     "request": "^2.88.2",

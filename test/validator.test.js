@@ -9,10 +9,10 @@ test("Empty Schema (empty object)", () => {
 });
 
 test("Attributes Schema", () => {
-  let inputSchema = fs.readFileSync("examples/schemas/attributes-schema.json");
+  let inputSchema = fs.readFileSync("examples/schemas/attributes-schema.json", "utf-8");
   let jsonSchema = JSON.parse(inputSchema);
 
-  let inputObj = fs.readFileSync("examples/objects/attributes.json"); 
+  let inputObj = fs.readFileSync("examples/objects/attributes.json", "utf-8");
   let jsonObj = JSON.parse(inputObj);
 
   return runValidation(jsonSchema, jsonObj).then( (data) => {
@@ -24,10 +24,10 @@ test("Attributes Schema", () => {
 });
 
 test("BioSamples Schema - FAANG \'organism\' sample", () => {
-  let inputSchema = fs.readFileSync("examples/schemas/biosamples-schema.json");
+  let inputSchema = fs.readFileSync("examples/schemas/biosamples-schema.json", "utf-8");
   let jsonSchema = JSON.parse(inputSchema);
 
-  let inputObj = fs.readFileSync("examples/objects/faang-organism-sample.json");
+  let inputObj = fs.readFileSync("examples/objects/faang-organism-sample.json", "utf-8");
   let jsonObj = JSON.parse(inputObj);
 
   return runValidation(jsonSchema, jsonObj).then( (data) => {
@@ -37,10 +37,10 @@ test("BioSamples Schema - FAANG \'organism\' sample", () => {
 });
 
 test("Study Schema", () => {
-  let inputSchema = fs.readFileSync("examples/schemas/submittables/study-schema.json");
+  let inputSchema = fs.readFileSync("examples/schemas/submittables/study-schema.json", "utf-8");
   let jsonSchema = JSON.parse(inputSchema);
 
-  let inputObj = fs.readFileSync("examples/objects/study.json");
+  let inputObj = fs.readFileSync("examples/objects/study.json", "utf-8");
   let jsonObj = JSON.parse(inputObj);
 
   return runValidation(jsonSchema, jsonObj).then( (data) => {
