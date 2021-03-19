@@ -10,6 +10,10 @@ const addFormats = require("ajv-formats");
 const request = require("request-promise");
 const AppError = require("./model/application-error");
 
+const devMode = 0;
+console.debug = devMode ? console.debug : () => { };
+
+
 /**
  *
  * Wraps the generic validator, outputs errors in custom format.

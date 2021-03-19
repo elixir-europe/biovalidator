@@ -30,7 +30,7 @@ function runValidation(inputSchema, inputObject) {
   return new Promise((resolve, reject) => {
     validator.validate(inputSchema, inputObject)
     .then((validationResult) => {
-        if (validationResult.length == 0) {
+        if (validationResult.length === 0) {
           resolve([]);
         } else {
           let ajvErrors = [];
