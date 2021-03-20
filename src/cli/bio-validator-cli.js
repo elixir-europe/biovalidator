@@ -50,6 +50,7 @@ class BioValidatorCLI {
         if (output.length === 0) {
             log_info("No validation errors reported.");
         } else {
+            log_error("The validation process has found the following error(s):\n")
             log_error(this.error_report(output));
         }
         console.log("Validation finished.");
