@@ -2,11 +2,9 @@
 [![Build Status](https://travis-ci.org/EMBL-EBI-SUBS/json-schema-validator.svg?branch=master)](https://travis-ci.org/EMBL-EBI-SUBS/json-schema-validator) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/7fbabc981e294249a9a0967965418058)](https://www.codacy.com/app/fpenim/json-schema-validator?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=EMBL-EBI-SUBS/json-schema-validator&amp;utm_campaign=Badge_Grade)
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 
-This repository contains a [JSON Schema](http://json-schema.org/) validator for the EMBL-EBI Submissions Project. This validator runs as a standalone node server that receives validation requests and gives back it's results.
+This repository contains a deployable and/or executable [JSON Schema](http://json-schema.org/) validator service. This validator can runs as a standalone node server or just a command line application that receives validation requests and gives back it's results.
 
-This service uses [Elixir's JSON schema validator library](https://github.com/elixir-europe/json-schema-validator).
-
-The validation is done using the [AJV](https://github.com/epoberezkin/ajv) library version ^6.0.0 that fully supports the JSON Schema **draft-07**.
+The validation is done using the [AJV](https://github.com/epoberezkin/ajv) library version ^7.0.0 that fully supports the JSON Schema **draft-07**.
 
 ## Contents
 - [Getting Started](README.md#getting-started)
