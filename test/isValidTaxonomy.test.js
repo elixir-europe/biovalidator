@@ -3,10 +3,10 @@ const BioValidator = require('../src/bio-validator');
 const IsValidTaxonomy = require('../src/keywords/isvalidtaxonomy');
 
 test("valid taxonomy expression should pass the validation", () => {
-  let inputSchema = fs.readFileSync("examples/schemas/isValidTaxonomy-schema.json");
+  let inputSchema = fs.readFileSync("examples/schemas/isValidTaxonomy-schema.json", "utf-8");
   let jsonSchema = JSON.parse(inputSchema);
 
-  let inputObj = fs.readFileSync("examples/objects/isValidTaxonomy.json");
+  let inputObj = fs.readFileSync("examples/objects/isValidTaxonomy.json", "utf-8");
   let jsonObj = JSON.parse(inputObj);
 
   const schemaValidator = new BioValidator(
@@ -21,10 +21,10 @@ test("valid taxonomy expression should pass the validation", () => {
 });
 
 test("invalid taxonomy expresson should return an error", () => {
-  let inputSchema = fs.readFileSync("examples/schemas/isValidTaxonomy-schema.json");
+  let inputSchema = fs.readFileSync("examples/schemas/isValidTaxonomy-schema.json", "utf-8");
   let jsonSchema = JSON.parse(inputSchema);
 
-  let inputObj = fs.readFileSync("examples/objects/isInvalidTaxonomy.json");
+  let inputObj = fs.readFileSync("examples/objects/isInvalidTaxonomy.json", "utf-8");
   let jsonObj = JSON.parse(inputObj);
 
   const schemaValidator = new BioValidator(
