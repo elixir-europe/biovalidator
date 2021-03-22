@@ -4,7 +4,7 @@
 
 This repository contains a deployable and/or executable [JSON Schema](http://json-schema.org/) validator service. This validator can runs as a standalone node server or just a command line application that receives validation requests and gives back it's results.
 
-The validation is done using the [AJV](https://github.com/epoberezkin/ajv) library version ^7.0.0 that fully supports the JSON Schema **draft-07**.
+The validation is done using the [AJV](https://github.com/epoberezkin/ajv) library version ^7.0.0 that supports the JSON Schema draft-06/07/2019-09.
 
 ## Contents
 - [Getting Started](README.md#getting-started)
