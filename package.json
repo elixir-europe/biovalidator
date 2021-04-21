@@ -1,9 +1,9 @@
 {
-  "name": "json-schema-validator",
-  "version": "1.8.0",
+  "name": "biovalidator",
+  "version": "1.9.0",
   "description": "A nodejs JSON schema validator service.",
   "main": "src/server.js",
-  "repository": "https://github.com/EMBL-EBI-SUBS/json-schema-validator.git",
+  "repository": "https://github.com/elixir-europe/biovalidator.git",
   "scripts": {
     "start": "node src/server.js",
     "test": "jest",
