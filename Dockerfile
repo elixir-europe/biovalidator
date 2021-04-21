@@ -1,17 +1,14 @@
-FROM node:carbon
+FROM node:12.22.0-buster
 
 # Create app directory
 WORKDIR /usr/src/app
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
 COPY package*.json ./
+COPY ./start.sh /
 
 RUN npm install
 
 # Bundle app source
 COPY . .
 
-EXPOSE 3000
-CMD [ "npm", "start" ]
+ENTRYPOINT ["/start.sh"]

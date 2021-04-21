@@ -371,6 +371,23 @@ JSON object:
 }
 ```
 
+## Running in Docker
+Dockerized version of BioValidator is available in [quay.io](https://quay.io/repository/ebi-ait/biovalidator). 
+These images can be used to run the validator without cloning this repository. 
+
+Pull docker image from [quay.io](https://quay.io/repository/ebi-ait/biovalidator)
+```shell
+docker pull quay.io/ebi-ait/biovalidator:1.0.0
+```
+Run in server mode
+```shell
+docker run -p 3020:3020 -d quay.io/ebi-ait/biovalidator:1.0.0 --server
+```
+Run in onetime mode
+```shell
+docker run quay.io/ebi-ait/biovalidator:1.0.0 --schema /path/to/schema.json --json /path/to/json.json
+```
+
 
 ## License
  For more details about licensing see the [LICENSE](LICENSE.md).
