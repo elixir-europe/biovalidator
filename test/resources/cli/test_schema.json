@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "alias": {
+      "description": "A sample unique identifier in a submission.",
+      "type": "string"
+    },
+    "taxonId": {
+      "description": "The taxonomy id for the sample species.",
+      "type": "integer"
+    },
+    "taxon": {
+      "description": "The taxonomy name for the sample species.",
+      "type": "string"
+    },
+    "releaseDate": {
+      "description": "Date from which this sample is released publicly.",
+      "type": "string",
+      "format": "date"
+    },
+    "disease": {
+      "description": "The disease for the sample species.",
+      "type": "string"
+    },
+    "disease_id": {
+      "description": "The ontology id for the disease sample species.",
+      "type": "string",
+      "graph_restriction": {
+        "ontologies": ["obo:mondo", "obo:efo"],
+        "classes": ["MONDO:0000001", "PATO:0000461"],
+        "relations": ["rdfs:subClassOf"],
+        "direct": false,
+        "include_self": true
+      }
+    }
+  },
+  "required": ["alias", "taxonId"]
+}

@@ -1,10 +1,10 @@
 const logger = require("./winston");
 const ValidationError = require("./model/validation-error");
 const AppError = require("./model/application-error");
+const BioValidator = require("./bio-validator");
+const { isChildTermOf, isValidTerm, isValidTaxonomy } = require("./keywords");
 
-const { ElixirValidator, isChildTermOf, isValidTerm, isValidTaxonomy} = require('elixir-jsonschema-validator');
-
-const validator = new ElixirValidator([
+const validator = new BioValidator([
   new isChildTermOf(null, "https://www.ebi.ac.uk/ols/api/search?q="),
   new isValidTerm(null, "https://www.ebi.ac.uk/ols/api/search?q="),
   new isValidTaxonomy(null)
@@ -30,7 +30,7 @@ function runValidation(inputSchema, inputObject) {
   return new Promise((resolve, reject) => {
     validator.validate(inputSchema, inputObject)
     .then((validationResult) => {
-        if (validationResult.length == 0) {
+        if (validationResult.length === 0) {
           resolve([]);
         } else {
           let ajvErrors = [];

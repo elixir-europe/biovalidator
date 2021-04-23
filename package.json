@@ -1,9 +1,9 @@
 {
-  "name": "json-schema-validator",
-  "version": "1.8.0",
+  "name": "biovalidator",
+  "version": "1.9.0",
   "description": "A nodejs JSON schema validator service.",
   "main": "src/server.js",
-  "repository": "https://github.com/EMBL-EBI-SUBS/json-schema-validator.git",
+  "repository": "https://github.com/elixir-europe/biovalidator.git",
   "scripts": {
     "start": "node src/server.js",
     "test": "jest",
@@ -22,12 +22,15 @@
   "author": "EMBL-EBI-SUBS, fpenim, ke4, haseeb-gh",
   "license": "Apache-2.0",
   "dependencies": {
-    "elixir-jsonschema-validator": "^2.0.0",
+    "ajv": "~7.2.1",
+    "ajv-formats": "^1.5.1",
     "express": "^4.17.1",
     "npid": "^0.4.0",
     "request": "^2.88.2",
+    "request-promise": "^4.2.4",
     "winston": "^3.2.1",
-    "winston-daily-rotate-file": "^3.10.0"
+    "winston-daily-rotate-file": "^3.10.0",
+    "yargs": "^16.2.0"
   },
   "devDependencies": {
     "bufferutil": "^4.0.2",
