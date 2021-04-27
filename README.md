@@ -7,6 +7,7 @@ This repository contains a deployable and/or executable [JSON Schema](http://jso
 The validation is done using the [AJV](https://github.com/epoberezkin/ajv) library version ^7.0.0 that supports the JSON Schema draft-06/07/2019-09.
 
 ## Contents
+
 - [JSON Schema Validator service](#json-schema-validator-service)
   - [Contents](#contents)
   - [Getting Started](#getting-started)
@@ -14,13 +15,12 @@ The validation is done using the [AJV](https://github.com/epoberezkin/ajv) libra
     - [Installing](#installing)
       - [Node.js / npm](#nodejs--npm)
       - [Project](#project)
-    - [Running the Tests](#running-the-tests)
+    - [Running the tests](#running-the-tests)
   - [Usage](#usage)
     - [1. The web interface (Simple)](#1-the-web-interface-simple)
     - [2. Executing with the provided CLI script](#2-executing-with-the-provided-cli-script)
-  - [3. The validation API (Advanced)](#3-the-validation-api-advanced)
-    - [Usage](#usage-1)
-    - [API Errors](#api-errors)
+    - [3. The validation API (Advanced)](#3-the-validation-api-advanced)
+      - [API Errors](#api-errors)
   - [Advanced settings](#advanced-settings)
     - [Startup arguments](#startup-arguments)
     - [Custom keywords](#custom-keywords)
@@ -62,7 +62,7 @@ cd bio-validator
 npm install
 ```
 
-### Running the Tests
+### Running the tests
 ```
 npm test
 ```
@@ -116,10 +116,9 @@ Examples:
 > ```
 
 
-## 3. The validation API (Advanced)
+### 3. The validation API (Advanced)
 This validator exposes one single endpoint that will accept POST requests. When running on you local machine it will look like: **http://localhost:3020/validate**.
 
-### Usage
 The endpoint will expect the body to have the following structure:
 ```js
 {
@@ -197,7 +196,7 @@ HTTP status code `200`
 ```
 Where *errors* is an array of error messages for a given input identified by its path on *dataPath*. There may be one or more error objects within the response array. An empty array represents a valid validation result.
 
-### API Errors
+#### API Errors
 Sending malformed JSON or a body with either the schema or the submittable missing will result in an API error (the request will not reach the validation). API errors have the following structure:
 
 HTTP status code `400`
