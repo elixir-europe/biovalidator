@@ -109,11 +109,12 @@ Examples:
 
 ```
 
-> Development tip
-> For development purposes using [nodemon](https://nodemon.io/) is useful. It reloads the application everytime something has changed on save time.
-> ```
-> nodemon src/server
-> ```
+**Development tip**
+
+For development purposes using [nodemon](https://nodemon.io/) is useful. It reloads the application everytime something has changed on save time.
+```
+nodemon src/server
+```
 
 
 ### 3. The validation API (Advanced)
