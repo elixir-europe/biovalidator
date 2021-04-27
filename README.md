@@ -90,7 +90,7 @@ There is a `validator-cli.js` script provided in the repository's root folder fo
 
 Just simply type `node ./validator-cli.js --help` to get the usage of this script:
 
-```js
+```
 node ./validator-cli.js --help
 
 Bio-validator CLI (Command Line Interface)
