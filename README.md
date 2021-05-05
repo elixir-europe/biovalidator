@@ -16,12 +16,12 @@ The validation is done using the [AJV](https://github.com/epoberezkin/ajv) libra
       - [Node.js / npm](#nodejs--npm)
       - [Project](#project)
     - [Running the tests](#running-the-tests)
-  - [Usage](#usage)
-    - [1. The web interface (Simple)](#1-the-web-interface-simple)
-    - [2. Executing with the provided CLI script](#2-executing-with-the-provided-cli-script)
-    - [3. The validation API (Advanced)](#3-the-validation-api-advanced)
+  - [Using Biovalidator as a server](#using-biovalidator-as-a-server)
+    - [The web interface](#the-web-interface)
+    - [The validation API](#the-validation-api)
       - [API Errors](#api-errors)
-  - [Advanced settings](#advanced-settings)
+  - [Using Biovalidator as a CLI (Command Line Interface)](#using-biovalidator-as-a-cli-command-line-interface)
+  - [Advanced server settings](#advanced-server-settings)
     - [Startup arguments](#startup-arguments)
     - [Custom keywords](#custom-keywords)
       - [graph_restriction](#graph_restriction)
@@ -35,8 +35,8 @@ The validation is done using the [AJV](https://github.com/epoberezkin/ajv) libra
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
-To be able to run this project you'll need to have [Node.js](https://nodejs.org/en/about/) and [npm](https://www.npmjs.com/) installed in your machine.
-npm is distributed with Node.js which means that when you download Node.js, you automatically get npm installed on your computer.
+To be able to run this project you'll need to have [Node.js](https://nodejs.org/en/about/) and [npm](https://www.npmjs.com/) installed on your machine.
+npm is distributed with Node.js which means that when you download Node.js, you automatically get npm installed on your computer. If you don't want to install these dependencies, you can sue our [docker container](#running-in-docker).
 
 ### Installing
 
@@ -67,11 +67,7 @@ npm install
 npm test
 ```
 
-## Usage
-
-The biovalidator, when deployed, can be used in three ways: using the web interface, the command line interface (CLI) or using the API.
-
-### 1. The web interface (Simple)
+## Using Biovalidator as a server
 
 Start the server by executing following command:
 
@@ -79,49 +75,17 @@ Start the server by executing following command:
 node src/server
 ```
 
-The web interface will available at [http://localhost:3020/](http://localhost:3020/)
+### The web interface
 
-Read more about our additional settings in the [Advanced settings](#advanced-settings) section.
-
-
-### 2. Executing with the provided CLI script
-
-There is a `validator-cli.js` script provided in the repository's root folder for the user if they would like to execute the validation from the command line without setting up a running server.
-
-Just simply type `node ./validator-cli.js --help` to get the usage of this script:
-
-```
-node ./validator-cli.js --help
-
-Bio-validator CLI (Command Line Interface)
-usage: node ./validator-cli.js [--schema=path/to/schema] [--json=path/to/json]
-
-Options:
-      --help     Show help                                             [boolean]
-      --version  Show version number                                   [boolean]
-  -s, --schema   path to the schema file                              [required]
-  -j, --json     path to the json file to validate                    [required]
-
-Examples:
-  node ./validator-cli.js                   Validates 'valid.json' with
-  --json=valid.json                         'test_schema.json'.
-  --schema=test_schema.json
-
-```
-
-**Development tip**
-
-For development purposes using [nodemon](https://nodemon.io/) is useful. It reloads the application everytime something has changed on save time.
-```
-nodemon src/server
-```
+The web interface will available at [http://localhost:3020/](http://localhost:3020/). This has a low level of difficulty but is not suited for batch validations.
 
 
-### 3. The validation API (Advanced)
-This validator exposes one single endpoint that will accept POST requests. When running on you local machine it will look like: **http://localhost:3020/validate**.
+### The validation API
+
+This validator exposes one single endpoint that will accept POST requests. When running on your local machine, the endpoint will be available at **http://localhost:3020/validate**.
 
 The endpoint will expect the body to have the following structure:
-```js
+```json
 {
   "schema": {},
   "object": {}
@@ -136,7 +100,7 @@ Content-Type: application/json
 
 **Example:**
 Sending a POST request with the following body:
-```js
+```json
 {
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -207,9 +171,43 @@ HTTP status code `400`
 }
 ```
 
-Read more about our additional settings in the [Advanced settings](#advanced-settings) section.
+Read more about our additional settings in the [Advanced settings](#advanced-settings-when-using-as-a-server) section.
 
-## Advanced settings
+
+## Using Biovalidator as a CLI (Command Line Interface)
+
+There is a `validator-cli.js` script provided in the repository's root folder for the user if they would like to execute the validation from the command line without setting up a running server.
+
+Just simply type `node ./validator-cli.js --help` to get the usage of this script:
+
+```
+node ./validator-cli.js --help
+
+Bio-validator CLI (Command Line Interface)
+usage: node ./validator-cli.js [--schema=path/to/schema] [--json=path/to/json]
+
+Options:
+      --help     Show help                                             [boolean]
+      --version  Show version number                                   [boolean]
+  -s, --schema   path to the schema file                              [required]
+  -j, --json     path to the json file to validate                    [required]
+
+Examples:
+  node ./validator-cli.js                   Validates 'valid.json' with
+  --json=valid.json                         'test_schema.json'.
+  --schema=test_schema.json
+
+```
+
+**Development tip**
+
+For development purposes using [nodemon](https://nodemon.io/) is useful. It reloads the application every time something has changed on save time.
+```
+nodemon src/server
+```
+
+
+## Advanced server settings
 
 ### Startup arguments
 
@@ -282,7 +280,7 @@ Schema:
 }
 ```
 JSON object:
-```js
+```json
 {
     "ontology": "UBERON:0000955"
 }
@@ -314,7 +312,7 @@ Schema:
 }
 ```
 JSON object:
-```js
+```json
 {
   "term": "http://purl.obolibrary.org/obo/PATO_0000383"
 }
@@ -342,7 +340,7 @@ Schema:
 }
 ```
 JSON object:
-```js
+```json
 {
   "url": "http://purl.obolibrary.org/obo/PATO_0000383"
 }
@@ -372,7 +370,7 @@ Schema:
 }
 ```
 JSON object:
-```js
+```json
 {
   "metagenomic source" : [ {
     "value" : "wastewater metagenome"
