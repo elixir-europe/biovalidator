@@ -42,13 +42,13 @@
                     custom keyword extensions that are relevant for life science data validation.
                 </p>
             </div>
+            <div class="mb-3 d-flex justify-content-center">
+                <button class="btn btn-outline-secondary mx-1 w-25" id="load">Load sample data</button>
+                <button class="btn btn-primary mx-1 w-25" type="submit" id="validate">Validate</button>
+            </div>
             <div class="row g-5">
                 <div class="col-lg-7">
-                    <form class="needs-validation">
-                        <div class="mb-3">
-                            <button class="btn btn-outline-secondary" id="load">Load sample data</button>
-                            <button class="btn btn-primary" type="submit" id="validate">Validate</button>
-                        </div>
+                    <form>
                         <div class="mb-3">
                             <label class="form-label" for="input">Schema:</label>
                             <textarea class="form-control" id="input" name="input"
@@ -71,10 +71,15 @@
                     </form>
                 </div>
                 <div class="col-lg-5">
-                    <h4>Validation results:</h4>
-                    <span id="failed" style="display: none;color : red;">INVALID</span>
-                    <span id="valid" style="display: none;color : green;">VALID</span>
-                    <div id="results"></div>
+                    <label class="form-label">Validation results:</label>
+                    <div class="card">
+                        <div class="card-body">
+                            <span id="failed" style="display: none;color : red;">INVALID</span>
+                            <span id="valid" style="display: none;color : green;">VALID</span>
+                            <div id="results"></div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </main>
@@ -170,22 +175,24 @@
             var instance;
             var input = document.getElementById("input");
             var input2 = document.getElementById("input2");
+            $("#results").empty();
+            $("#valid").hide();
+            input.classList.remove("is-invalid");
+            input2.classList.remove("is-invalid");
 
             try {
                 schema = JSON.parse($("#input").val());
             } catch (e) {
-                $("#valid").hide();
                 $("#failed").show();
-                $("#results").empty();
                 input.classList.add('is-invalid')
+                $('#results').append("<p>If provided, we were unable to parse the JSON in the input field.</p>");
             }
             try {
                 instance = JSON.parse($("#input2").val());
             } catch (e) {
-                $("#valid").hide();
                 $("#failed").show();
-                $("#results").empty();
                 input2.classList.add('is-invalid')
+                $('#results').append("<p>If provided, we were unable to parse the JSON in the input field.</p>");
             }
 
             if (schema && instance) {
