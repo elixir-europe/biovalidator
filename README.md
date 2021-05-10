@@ -7,36 +7,36 @@ This repository contains a deployable and/or executable [JSON Schema](http://jso
 The validation is done using the [AJV](https://github.com/epoberezkin/ajv) library version ^7.0.0 that supports the JSON Schema draft-06/07/2019-09.
 
 ## Contents
-- [Getting Started](README.md#getting-started)
 
-- [Prerequisites](README.md#prerequisites)
-
-- [Installing](README.md#installing)
-
-- [Running the Tests](README.md#running-the-tests)
-
-- [Executing](README.md#executing)
-
-- [Executing the validator by a command line](README.md#executing-with-the-provided-cli-script)
-
-- [Development](README.md#development)
-
-- [Validation API](README.md#validation-api)
-
-- [Usage](README.md#usage)
-
-- [API Errors](README.md#api-errors)
-
-- [Custom keywords](README.md#custom-keywords)
-
-- [License](README.md#license)
+- [JSON Schema Validator service](#json-schema-validator-service)
+  - [Contents](#contents)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installing](#installing)
+      - [Node.js / npm](#nodejs--npm)
+      - [Project](#project)
+    - [Running the tests](#running-the-tests)
+  - [Using Biovalidator as a server](#using-biovalidator-as-a-server)
+    - [The web interface](#the-web-interface)
+    - [The validation API](#the-validation-api)
+      - [API Errors](#api-errors)
+  - [Using Biovalidator as a CLI (Command Line Interface)](#using-biovalidator-as-a-cli-command-line-interface)
+  - [Advanced server settings](#advanced-server-settings)
+    - [Startup arguments](#startup-arguments)
+    - [Custom keywords](#custom-keywords)
+      - [graph_restriction](#graph_restriction)
+      - [isChildTermOf](#ischildtermof)
+      - [isValidTerm](#isvalidterm)
+      - [isValidTaxonomy](#isvalidtaxonomy)
+  - [Running in Docker](#running-in-docker)
+  - [License](#license)
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
-To be able to run this project you'll need to have [Node.js](https://nodejs.org/en/about/) and [npm](https://www.npmjs.com/) installed in your machine.
-npm is distributed with Node.js which means that when you download Node.js, you automatically get npm installed on your computer.
+To be able to run this project you'll need to have [Node.js](https://nodejs.org/en/about/) and [npm](https://www.npmjs.com/) installed on your machine.
+npm is distributed with Node.js which means that when you download Node.js, you automatically get npm installed on your computer. If you don't want to install these dependencies, you can sue our [docker container](#running-in-docker).
 
 ### Installing
 
@@ -62,75 +62,30 @@ cd bio-validator
 npm install
 ```
 
-### Running the Tests
+### Running the tests
 ```
 npm test
 ```
 
-### Executing
+## Using Biovalidator as a server
+
+Start the server by executing following command:
+
 ```
 node src/server
 ```
-The node server will run on port **3020** and will expose one endpoint: **/validate**.
 
-#### Startup arguments
+### The web interface
 
-- logPath
-
-If provided with a log path argument, the application will write the logs to a file on the specified directory with a 24h rotation. To provide the log path add a `logPath` property after the startup statement:
-```
-node src/server --logPath=/log/directory/path
-```
-
-- pidPath
-
-If provided with a pid file path argument, the application will write the pid into the specified file. If no pid file argument is provided, the application will still create a pid file on the default path: `./server.pid`.
-To provide the pid file path add a `pidPath` property after the startup statement:
-```
-node src/server --pidPath=/pid/file/path/server.pid
-```
-Note: This is the **file path** and not just the directory it will be written to.
-
-### Executing with the provided CLI script
-
-There is a `validator-cli.js` script is provided in the repository's root folder for the user if they would like to execute the validation from the command line without setting up a running server.
-
-Just simply type `node ./validator-cli.js --help` to get the usage of this script:
-
-```js
-node ./validator-cli.js --help
-
-Bio-validator CLI (Command Line Interface)
-usage: node ./validator-cli.js [--schema=path/to/schema] [--json=path/to/json]
-
-Options:
-      --help     Show help                                             [boolean]
-      --version  Show version number                                   [boolean]
-  -s, --schema   path to the schema file                              [required]
-  -j, --json     path to the json file to validate                    [required]
-
-Examples:
-  node ./validator-cli.js                   Validates 'valid.json' with
-  --json=valid.json                         'test_schema.json'.
-  --schema=test_schema.json
+The web interface will available at [http://localhost:3020/](http://localhost:3020/). This has a low level of difficulty but is not suited for batch validations.
 
 
-```
+### The validation API
 
+This validator exposes one single endpoint that will accept POST requests. When running on your local machine, the endpoint will be available at **http://localhost:3020/validate**.
 
-
-### Development
-For development purposes using [nodemon](https://nodemon.io/) is useful. It reloads the application everytime something has changed on save time.
-```
-nodemon src/server
-```
-
-## Validation API
-This validator exposes one single endpoint that will accept POST requests. When running on you local machine it will look like: **http://localhost:3020/validate**.
-
-### Usage
 The endpoint will expect the body to have the following structure:
-```js
+```json
 {
   "schema": {},
   "object": {}
@@ -145,7 +100,7 @@ Content-Type: application/json
 
 **Example:**
 Sending a POST request with the following body:
-```js
+```json
 {
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -206,7 +161,7 @@ HTTP status code `200`
 ```
 Where *errors* is an array of error messages for a given input identified by its path on *dataPath*. There may be one or more error objects within the response array. An empty array represents a valid validation result.
 
-### API Errors
+#### API Errors
 Sending malformed JSON or a body with either the schema or the submittable missing will result in an API error (the request will not reach the validation). API errors have the following structure:
 
 HTTP status code `400`
@@ -215,7 +170,64 @@ HTTP status code `400`
   "error": "Malformed JSON please check your request body."
 }
 ```
-## Custom keywords
+
+Read more about our additional settings in the [Advanced settings](#advanced-settings-when-using-as-a-server) section.
+
+
+## Using Biovalidator as a CLI (Command Line Interface)
+
+There is a `validator-cli.js` script provided in the repository's root folder for the user if they would like to execute the validation from the command line without setting up a running server.
+
+Just simply type `node ./validator-cli.js --help` to get the usage of this script:
+
+```
+node ./validator-cli.js --help
+
+Bio-validator CLI (Command Line Interface)
+usage: node ./validator-cli.js [--schema=path/to/schema] [--json=path/to/json]
+
+Options:
+      --help     Show help                                             [boolean]
+      --version  Show version number                                   [boolean]
+  -s, --schema   path to the schema file                              [required]
+  -j, --json     path to the json file to validate                    [required]
+
+Examples:
+  node ./validator-cli.js                   Validates 'valid.json' with
+  --json=valid.json                         'test_schema.json'.
+  --schema=test_schema.json
+
+```
+
+**Development tip**
+
+For development purposes using [nodemon](https://nodemon.io/) is useful. It reloads the application every time something has changed on save time.
+```
+nodemon src/server
+```
+
+
+## Advanced server settings
+
+### Startup arguments
+
+- logPath
+
+If provided with a log path argument, the application will write the logs to a file on the specified directory with a 24h rotation. To provide the log path add a `logPath` property after the startup statement:
+```
+node src/server --logPath=/log/directory/path
+```
+
+- pidPath
+
+If provided with a pid file path argument, the application will write the pid into the specified file. If no pid file argument is provided, the application will still create a pid file on the default path: `./server.pid`.
+To provide the pid file path add a `pidPath` property after the startup statement:
+```
+node src/server --pidPath=/pid/file/path/server.pid
+```
+Note: This is the **file path** and not just the directory it will be written to.
+
+### Custom keywords
 The AJV library supports the implementation of custom json schema keywords to address validation scenarios that go beyond what json schema can handle.
 
 Currently, in this repository four custom keywords are implemented: `graph_restriction`, `isChildTermOf`, `isValidTerm` and `isValidTaxonomy`.
@@ -237,8 +249,7 @@ const validator = new BioValidator([
 let validator = new BioValidator([CustomKeyword])
 ```
 
-### graph_restriction
-
+#### graph_restriction
 
 This custom keyword *evaluates if an ontology term is child of another*. This keyword is applied to a string (CURIE) and **passes validation if the term is a child of the term defined in the schema**.
 The keyword requires one or more **parent terms** *(classes)* and **ontology ids** *(ontologies)*, both of which should exist in [OLS - Ontology Lookup Service](https://www.ebi.ac.uk/ols).
@@ -247,7 +258,6 @@ This keyword works by doing an asynchronous call to the [OLS API](https://www.eb
 Being an async validation step, whenever used in a schema, the schema must have the flag: `"$async": true` in its object root.
 
 
-#### Usage
 Schema:
 ```js
 {
@@ -270,21 +280,20 @@ Schema:
 }
 ```
 JSON object:
-```js
+```json
 {
     "ontology": "UBERON:0000955"
 }
 ```
 
 
-### isChildTermOf
+#### isChildTermOf
 This custom keyword also *evaluates if an ontology term is child of another* and is a simplified version of the graph_restriction keyword. This keyword is applied to a string (url) and **passes validation if the term is a child of the term defined in the schema**.
 The keyword requires the **parent term** and the **ontology id**, both of which should exist in [OLS - Ontology Lookup Service](https://www.ebi.ac.uk/ols).
 
 This keyword works by doing an asynchronous call to the [OLS API](https://www.ebi.ac.uk/ols/api/) that will respond with the required information to know if a given term is child of another.
 Being an async validation step, whenever used in a schema, the schema must have the flag: `"$async": true` in its object root.
 
-#### Usage
 Schema:
 ```js
 {
@@ -303,19 +312,18 @@ Schema:
 }
 ```
 JSON object:
-```js
+```json
 {
   "term": "http://purl.obolibrary.org/obo/PATO_0000383"
 }
 ```
 
-### isValidTerm
+#### isValidTerm
 This custom keyword *evaluates if a given ontology term url exists in OLS* ([Ontology Lookup Service](https://www.ebi.ac.uk/ols)). It is applied to a string (url) and **passes validation if the term exists in OLS**. It can be aplied to any string defined in the schema.
 
 This keyword works by doing an asynchronous call to the [OLS API](https://www.ebi.ac.uk/ols/api/) that will respond with the required information to determine if the term exists in OLS or not.
 Being an async validation step, whenever used in a schema, the schema must have the flag: `"$async": true` in its object root.
 
-#### Usage
 Schema:
 ```js
 {
@@ -332,20 +340,19 @@ Schema:
 }
 ```
 JSON object:
-```js
+```json
 {
   "url": "http://purl.obolibrary.org/obo/PATO_0000383"
 }
 ```
 
-### isValidTaxonomy
+#### isValidTaxonomy
 
 This custom keyword evaluates if a given *taxonomy* exists in ENA's Taxonomy Browser. It is applied to a string (url) and **passes validation if the taxonomy exists in ENA**. It can be aplied to any string defined in the schema.
 
 This keyword works by doing an asynchronous call to the [ENA API](https://www.ebi.ac.uk/ena/taxonomy/rest/any-name/<REPLACE_ME_WITH_AXONOMY_TERM>) that will respond with the required information to determine if the term exists or not.
 Being an async validation step, whenever used in a schema, the schema must have the flag: `"$async": true` in its object root.
 
-#### Usage
 Schema:
 ```js
 {
@@ -363,7 +370,7 @@ Schema:
 }
 ```
 JSON object:
-```js
+```json
 {
   "metagenomic source" : [ {
     "value" : "wastewater metagenome"
