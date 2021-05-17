@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/EMBL-EBI-SUBS/json-schema-validator.svg?branch=master)](https://travis-ci.org/EMBL-EBI-SUBS/json-schema-validator) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/7fbabc981e294249a9a0967965418058)](https://www.codacy.com/app/fpenim/json-schema-validator?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=EMBL-EBI-SUBS/json-schema-validator&amp;utm_campaign=Badge_Grade)
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 
-This repository contains a deployable and/or executable [JSON Schema](http://json-schema.org/) validator service. This validator can runs as a standalone node server or just a command line application that receives validation requests and gives back it's results.
+This repository contains a deployable and/or executable [JSON Schema](http://json-schema.org/) validator service. This validator can run as a standalone node server or as a command line application that receives validation requests and gives back it's results.
 
 The validation is done using the [AJV](https://github.com/epoberezkin/ajv) library version ^7.0.0 that supports the JSON Schema draft-06/07/2019-09.
 
@@ -16,11 +16,11 @@ The validation is done using the [AJV](https://github.com/epoberezkin/ajv) libra
       - [Node.js / npm](#nodejs--npm)
       - [Project](#project)
     - [Running the tests](#running-the-tests)
-  - [Using Biovalidator as a server](#using-biovalidator-as-a-server)
+  - [Using biovalidator as a server](#using-biovalidator-as-a-server)
     - [The web interface](#the-web-interface)
     - [The validation API](#the-validation-api)
       - [API Errors](#api-errors)
-  - [Using Biovalidator as a CLI (Command Line Interface)](#using-biovalidator-as-a-cli-command-line-interface)
+  - [Using biovalidator as a CLI (Command Line Interface)](#using-biovalidator-as-a-cli-command-line-interface)
   - [Advanced server settings](#advanced-server-settings)
     - [Startup arguments](#startup-arguments)
     - [Custom keywords](#custom-keywords)
@@ -36,7 +36,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 To be able to run this project you'll need to have [Node.js](https://nodejs.org/en/about/) and [npm](https://www.npmjs.com/) installed on your machine.
-npm is distributed with Node.js which means that when you download Node.js, you automatically get npm installed on your computer. If you don't want to install these dependencies, you can sue our [docker container](#running-in-docker).
+npm is distributed with Node.js which means that when you download Node.js, you automatically get npm installed on your computer. If you don't want to install these dependencies, you can use our [docker container](#running-in-docker).
 
 ### Installing
 
@@ -67,7 +67,7 @@ npm install
 npm test
 ```
 
-## Using Biovalidator as a server
+## Using biovalidator as a server
 
 Start the server by executing following command:
 
@@ -171,14 +171,14 @@ HTTP status code `400`
 }
 ```
 
-Read more about our additional settings in the [Advanced settings](#advanced-settings-when-using-as-a-server) section.
+Read more about our additional server settings in the [Advanced settings](#advanced-settings-when-using-as-a-server) section.
 
 
-## Using Biovalidator as a CLI (Command Line Interface)
+## Using biovalidator as a CLI (Command Line Interface)
 
-There is a `validator-cli.js` script provided in the repository's root folder for the user if they would like to execute the validation from the command line without setting up a running server.
+There is a `validator-cli.js` script provided in the repository's root folder for the user if they would like to validate from the command line without setting up a running server.
 
-Just simply type `node ./validator-cli.js --help` to get the usage of this script:
+Simply type `node ./validator-cli.js --help` to get the usage of this script:
 
 ```
 node ./validator-cli.js --help
@@ -198,14 +198,6 @@ Examples:
   --schema=test_schema.json
 
 ```
-
-**Development tip**
-
-For development purposes using [nodemon](https://nodemon.io/) is useful. It reloads the application every time something has changed on save time.
-```
-nodemon src/server
-```
-
 
 ## Advanced server settings
 
@@ -319,7 +311,7 @@ JSON object:
 ```
 
 #### isValidTerm
-This custom keyword *evaluates if a given ontology term url exists in OLS* ([Ontology Lookup Service](https://www.ebi.ac.uk/ols)). It is applied to a string (url) and **passes validation if the term exists in OLS**. It can be aplied to any string defined in the schema.
+This custom keyword *evaluates if a given ontology term url exists in OLS* ([Ontology Lookup Service](https://www.ebi.ac.uk/ols)). It is applied to a string (url) and **passes validation if the term exists in OLS**. It can be applied to any string defined in the schema.
 
 This keyword works by doing an asynchronous call to the [OLS API](https://www.ebi.ac.uk/ols/api/) that will respond with the required information to determine if the term exists in OLS or not.
 Being an async validation step, whenever used in a schema, the schema must have the flag: `"$async": true` in its object root.
@@ -348,7 +340,7 @@ JSON object:
 
 #### isValidTaxonomy
 
-This custom keyword evaluates if a given *taxonomy* exists in ENA's Taxonomy Browser. It is applied to a string (url) and **passes validation if the taxonomy exists in ENA**. It can be aplied to any string defined in the schema.
+This custom keyword evaluates if a given *taxonomy* exists in ENA's Taxonomy Browser. It is applied to a string (url) and **passes validation if the taxonomy exists in ENA**. It can be applied to any string defined in the schema.
 
 This keyword works by doing an asynchronous call to the [ENA API](https://www.ebi.ac.uk/ena/taxonomy/rest/any-name/<REPLACE_ME_WITH_AXONOMY_TERM>) that will respond with the required information to determine if the term exists or not.
 Being an async validation step, whenever used in a schema, the schema must have the flag: `"$async": true` in its object root.
@@ -378,8 +370,15 @@ JSON object:
 }
 ```
 
+**Development tip**
+
+For development purposes using [nodemon](https://nodemon.io/) is useful. It reloads the application every time something has changed on save time.
+```
+nodemon src/server
+```
+
 ## Running in Docker
-Dockerized version of BioValidator is available in [quay.io](https://quay.io/repository/ebi-ait/biovalidator). 
+A Dockerized version of biovalidator is available on [quay.io](https://quay.io/repository/ebi-ait/biovalidator). 
 These images can be used to run the validator without cloning this repository. 
 
 Pull docker image from [quay.io](https://quay.io/repository/ebi-ait/biovalidator)
