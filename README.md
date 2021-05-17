@@ -57,8 +57,8 @@ npm -v
 #### Project
 Clone project and install dependencies:
 ```
-git clone https://github.com/elixir-europe/bio-validator.git
-cd bio-validator
+git clone https://github.com/elixir-europe/biovalidator.git
+cd biovalidator
 npm install
 ```
 
