@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "biosamples-minimal.json",
+  "additionalProperties": true,
+  "definitions": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "name",
+    "characteristics"
+  ],
+  "title": "sample",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "accession": {
+      "type": "string"
+    },
+    "characteristics": {
+      "type": "object",
+      "anyOf": [
+        {
+          "required": [
+            "organism"
+          ]
+        },
+        {
+          "required": [
+            "Organism"
+          ]
+        },
+        {
+          "required": [
+            "species"
+          ]
+        },
+        {
+          "required": [
+            "Species"
+          ]
+        }
+      ],
+      "properties": {
+        "organism": {
+          "type": "array",
+          "items": {
+            "properties": {
+              "text": {
+                "$ref": "#/definitions/nonEmptyString"
+              }
+            },
+            "required": [
+              "text"
+            ]
+          }
+        },
+        "Organism": {
+          "type": "array",
+          "items": {
+            "properties": {
+              "text": {
+                "$ref": "#/definitions/nonEmptyString"
+              }
+            },
+            "required": [
+              "text"
+            ]
+          }
+        },
+        "Species": {
+          "type": "array",
+          "items": {
+            "properties": {
+              "text": {
+                "$ref": "#/definitions/nonEmptyString"
+              }
+            },
+            "required": [
+              "text"
+            ]
+          }
+        },
+        "species": {
+          "type": "array",
+          "items": {
+            "properties": {
+              "text": {
+                "$ref": "#/definitions/nonEmptyString"
+              }
+            },
+            "required": [
+              "text"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "test_sample_1",
+  "characteristics": {
+    "sex": [
+      {
+        "text": "Female"
+      }
+    ]
+  }
+}
