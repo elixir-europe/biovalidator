@@ -2,12 +2,14 @@ const logger = require("./winston");
 const ValidationError = require("./model/validation-error");
 const AppError = require("./model/application-error");
 const BioValidator = require("./bio-validator");
+const GraphRestriction = require("./keywords/graph_restriction");
 const { isChildTermOf, isValidTerm, isValidTaxonomy } = require("./keywords");
 
 const validator = new BioValidator([
   new isChildTermOf(null, "https://www.ebi.ac.uk/ols/api/search?q="),
   new isValidTerm(null, "https://www.ebi.ac.uk/ols/api/search?q="),
-  new isValidTaxonomy(null)
+  new isValidTaxonomy(null),
+  new GraphRestriction(null, "https://www.ebi.ac.uk/ols/api")
 ]);
 
 function convertToValidationErrors(ajvErrorObjects) {
