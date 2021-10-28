@@ -1,7 +1,7 @@
 {
   "name": "biovalidator",
-  "version": "1.9.0",
-  "description": "A nodejs JSON schema validator service.",
+  "version": "1.9.1",
+  "description": "A nodejs JSON schema validator service. Extended from Ajv to include ontology validation.",
   "main": "src/server.js",
   "repository": "https://github.com/elixir-europe/biovalidator.git",
   "scripts": {
