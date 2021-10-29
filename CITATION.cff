@@ -39,5 +39,6 @@ authors:
   orcid: "https://orcid.org/0000-0001-6565-5145"
 title: "ELIXIR biovalidator for semantic validation of life science metadata"
 version: 1.9.1
+doi: 10.5281/zenodo.5608384
 date-released: 2021-10-28
 url: "https://github.com/elixir-europe/biovalidator"
