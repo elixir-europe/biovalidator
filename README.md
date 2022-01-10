@@ -41,7 +41,7 @@ npm is distributed with Node.js which means that when you download Node.js, you 
 ### Installing
 
 #### Node.js / npm
-- Get Node.js: https://nodejs.org/en/ (v8.11.1 LTS)
+- Get Node.js: https://nodejs.org/en/ (v10.19.1.0+)
 
 - If you use [Homebrew](https://brew.sh/) you can install node by doing:
 ```
