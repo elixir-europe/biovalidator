@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "test_schema_X",
+  "type": "object",
+  "required": ["sample_labels"],
+  "additionalProperties": false,
+  "properties": {
+    "sample_labels": {
+      "type": "array",
+      "minItems": 1,
+      "additionalProperties": false,
+      "items": {
+        "type": "object",
+        "required": ["label"],
+        "additionalProperties": false,
+        "properties": {
+          "label": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
