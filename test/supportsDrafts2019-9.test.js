@@ -2,10 +2,10 @@ const fs = require("fs");
 const BioValidator = require('../src/bio-validator');
 
 test("draft2019-9Recursive", () => {
-  let inputSchema = fs.readFileSync("examples/schemas/draft2019-9-recursive-schema.json");
+  let inputSchema = fs.readFileSync("examples/schemas/draft2019-9-support-schema.json");
   let jsonSchema = JSON.parse(inputSchema);
 
-  let inputObj = fs.readFileSync("examples/objects/draft2019-9-recursive.json");
+  let inputObj = fs.readFileSync("examples/objects/draft2019-9-support.json");
   let jsonObj = JSON.parse(inputObj);
 
 
