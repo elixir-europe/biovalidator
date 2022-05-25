@@ -25,6 +25,7 @@
     "ajv": "~7.2.1",
     "ajv-formats": "^1.5.1",
     "express": "^4.17.1",
+    "glob": "^8.0.3",
     "npid": "^0.4.0",
     "request": "^2.88.2",
     "request-promise": "^4.2.4",
