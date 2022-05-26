@@ -7,11 +7,15 @@ function getFiles(filePattern) {
         const dataFiles = glob.sync(filePattern, {cwd: process.cwd()})
         files = files.concat(dataFiles);
     } else {
-        files.push(filePattern);
+        if (fs.lstatSync(filePattern).isDirectory()) {
+            fs.readdirSync(filePattern).forEach(file => {
+                files.push(filePattern + "/" + file);
+            });
+        } else {
+            files.push(filePattern);
+        }
     }
 
-    console.log(files)
-    console.log("files length: " + files.length)
     return files;
 }
 
@@ -23,4 +27,4 @@ function readFile(filePath) {
     return jsonSchema;
 }
 
-module.exports = { getFiles, readFile }
+module.exports = {getFiles, readFile}

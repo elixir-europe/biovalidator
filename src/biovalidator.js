@@ -26,7 +26,7 @@ const customKeywordValidators = [
     new GraphRestriction(null, "https://www.ebi.ac.uk/ols/api")
 ];
 
-class BioValidator2 {
+class BioValidator {
     constructor(localSchemaPath) {
         this.validatorCache = {};
         this.cachedSchemas = {};
@@ -192,14 +192,16 @@ class BioValidator2 {
     }
 
     preCompileLocalSchemas(ajv) {
-        let schemaFiles = getFiles(this.preCompiledSchemaDirectory);
-        for (let file of schemaFiles) {
-            let schema = readFile(file);
-            // ajv.addSchema(schema, schema["$id"]);
-            const validate = ajv.getSchema(schema["$id"] || ajv.compile(schema));
-            this.cachedSchemas[schema["$id"]] = schema;
+        if (this.preCompiledSchemaDirectory) {
+            let schemaFiles = getFiles(this.preCompiledSchemaDirectory);
+            for (let file of schemaFiles) {
+                let schema = readFile(file);
+                // ajv.addSchema(schema, schema["$id"]);
+                const validate = ajv.getSchema(schema["$id"] || ajv.compile(schema));
+                this.cachedSchemas[schema["$id"]] = schema;
+            }
         }
     }
 }
 
-module.exports = BioValidator2;
+module.exports = BioValidator;

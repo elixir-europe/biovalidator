@@ -1,5 +1,5 @@
 const fs = require("fs");
-const BioValidator = require('../src/bio-validator');
+const BioValidator = require('../src/biovalidator');
 const IsValidTaxonomy = require('../src/keywords/isvalidtaxonomy');
 
 test("valid taxonomy expression should pass the validation", () => {
@@ -9,9 +9,7 @@ test("valid taxonomy expression should pass the validation", () => {
   let inputObj = fs.readFileSync("examples/objects/isValidTaxonomy.json", "utf-8");
   let jsonObj = JSON.parse(inputObj);
 
-  const schemaValidator = new BioValidator(
-      [new IsValidTaxonomy(null)]
-  );
+  const schemaValidator = new BioValidator();
 
   return schemaValidator.validate(jsonSchema, jsonObj).then( (data) => {
     console.log(data);
@@ -27,9 +25,7 @@ test("invalid taxonomy expresson should return an error", () => {
   let inputObj = fs.readFileSync("examples/objects/isInvalidTaxonomy.json", "utf-8");
   let jsonObj = JSON.parse(inputObj);
 
-  const schemaValidator = new BioValidator(
-    [new IsValidTaxonomy(null)]
-  )
+  const schemaValidator = new BioValidator()
   
   return schemaValidator.validate(jsonSchema, jsonObj).then( (data) => {
     console.log(data);

@@ -1,5 +1,5 @@
 const fs = require("fs");
-const BioValidator = require('../src/bio-validator');
+const BioValidator = require('../src/biovalidator');
 const IsChildTermOf = require('../src/keywords/ischildtermof');
 
 test("isChildTermOf", () => {
@@ -11,7 +11,7 @@ test("isChildTermOf", () => {
 
 
 
-  const validator = new BioValidator([new IsChildTermOf(null, "https://www.ebi.ac.uk/ols/api/search?q=")]);
+  const validator = new BioValidator();
 
   return validator.validate(jsonSchema, jsonObj).then((data) => {
     expect(data).toBeDefined();

@@ -1,8 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const logger = require("./winston");
-const runValidation = require("./validator");
 const AppError = require("./model/application-error");
+const BioValidator = require("./biovalidator")
 
 const argv = require("yargs").argv;
 const npid = require("npid");
@@ -11,6 +11,8 @@ const app = express();
 const router = express.Router()
 const port = process.env.PORT || 3020;
 const basePath = process.env.VALIDATOR_BASE_URL || '/';
+
+const biovalidator = new BioValidator();
 
 router.use(express.static('src/views'));
 
@@ -37,11 +39,11 @@ app.use(function(err, req, res, next) {
 router.post("/validate", (req, res) => {
   logger.log("debug", "Received POST request.");
 
-  var inputSchema = req.body.schema;
-  var inputObject = req.body.object;
+  let inputSchema = req.body.schema;
+  let inputObject = req.body.object;
   
   if (inputSchema && inputObject) {
-    runValidation(inputSchema, inputObject).then((output) => {
+    biovalidator.runValidation(inputSchema, inputObject).then((output) => {
       logger.log("silly", "Sent validation results.");
       res.status(200).send(output);
     }).catch((error) => {

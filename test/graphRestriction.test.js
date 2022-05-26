@@ -1,5 +1,5 @@
 const fs = require("fs");
-const BioValidator = require('../src/bio-validator');
+const BioValidator = require('../src/biovalidator');
 const GraphRestriction = require('../src/keywords/graph_restriction');
 
 
@@ -10,7 +10,7 @@ test(" -> graphRestriction 1 Schema", () => {
     let inputObj = fs.readFileSync("examples/objects/graphRestriction_pass.json");
     let jsonObj = JSON.parse(inputObj);
 
-    const validator = new BioValidator([new GraphRestriction(null, "https://www.ebi.ac.uk/ols/api")]);
+    const validator = new BioValidator();
 
     return validator.validate(jsonSchema, jsonObj).then((data) => {
         expect(data).toBeDefined();
@@ -26,7 +26,7 @@ test(" -> graphRestriction 2 Schema", () => {
     let jsonObj = JSON.parse(inputObj);
 
 
-    const validator = new BioValidator([new GraphRestriction(null, "https://www.ebi.ac.uk/ols/api")]);
+    const validator = new BioValidator();
 
     return validator.validate(jsonSchema, jsonObj).then((data) => {
         expect(data).toBeDefined();
@@ -41,7 +41,7 @@ test(" -> graphRestriction 3 Schema", () => {
     let jsonObj = JSON.parse(inputObj);
 
 
-    const validator = new BioValidator([new GraphRestriction(null, "https://www.ebi.ac.uk/ols/api")]);
+    const validator = new BioValidator();
 
     return validator.validate(jsonSchema, jsonObj).then((data) => {
         expect(data).toBeDefined();
