@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://www.ebi.ac.uk/ait/schema/duo",
+  "type": "object",
+  "properties": {
+    "term": {
+      "$ref": "https://www.ebi.ac.uk/ait/schema/ontology"
+    },
+    "modifier": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "term"
+  ]
+}

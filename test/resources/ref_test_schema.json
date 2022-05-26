@@ -6,9 +6,9 @@
     "name": {
       "type": "string"
     },
-    "ontology": {
-      "$ref": "https://www.ebi.ac.uk/ait/schema/ontology"
+    "duo": {
+      "$ref": "https://www.ebi.ac.uk/ait/schema/duo"
     }
   },
-  "required": ["name", "ontology"]
+  "required": ["name", "duo"]
 }

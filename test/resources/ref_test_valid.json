@@ -1,7 +1,11 @@
 {
-  "name": "human",
-  "ontology": {
-    "id": "NCBITaxon:9606",
-    "label": "Homo sapiens"
+  "name": "BioBank cohort study",
+  "duo": {
+    "term": {
+      "id": "DUO:0000022",
+      "label": "geographical restriction"
+    },
+    "modifier": "UK",
+    "description": "Only accessible for researchers based in UK"
   }
 }

@@ -30,7 +30,7 @@ class BioValidator {
     constructor(localSchemaPath) {
         this.validatorCache = {};
         this.cachedSchemas = {};
-        this.preCompiledSchemaDirectory = localSchemaPath;
+        this.localSchemaPath = localSchemaPath;
         this.ajvInstance = this.constructAjv();
     }
 
@@ -192,12 +192,11 @@ class BioValidator {
     }
 
     preCompileLocalSchemas(ajv) {
-        if (this.preCompiledSchemaDirectory) {
-            let schemaFiles = getFiles(this.preCompiledSchemaDirectory);
+        if (this.localSchemaPath) {
+            let schemaFiles = getFiles(this.localSchemaPath);
             for (let file of schemaFiles) {
                 let schema = readFile(file);
-                // ajv.addSchema(schema, schema["$id"]);
-                const validate = ajv.getSchema(schema["$id"] || ajv.compile(schema));
+                ajv.getSchema(schema["$id"] || ajv.compile(schema));
                 this.cachedSchemas[schema["$id"]] = schema;
             }
         }

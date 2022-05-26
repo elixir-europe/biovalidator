@@ -4,10 +4,10 @@ const {log_error, log_info } = require("./utils/logger");
 const BioValidator = require("./biovalidator");
 
 class BioValidatorCLI {
-    constructor(pathToSchema, pathToJson, schemaDirectory) {
+    constructor(pathToSchema, pathToJson, pathToRefSchema) {
         this.pathToSchema = pathToSchema
         this.pathToJson = pathToJson
-        this.schemaDirectory = schemaDirectory;
+        this.pathToRefSchema = pathToRefSchema;
     }
 
     read_schema(pathToSchema) {
@@ -33,7 +33,7 @@ class BioValidatorCLI {
     validate() {
         this.inputSchema = this.read_schema(this.pathToSchema)
         this.jsonToValidate = this.read_json(this.pathToJson)
-        let biovalidator = new BioValidator(this.schemaDirectory);
+        let biovalidator = new BioValidator(this.pathToRefSchema);
 
         if (this.inputSchema && this.jsonToValidate) {
             biovalidator.runValidation(this.inputSchema, this.jsonToValidate).then((output) => {
