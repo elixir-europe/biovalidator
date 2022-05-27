@@ -32,7 +32,7 @@ class BioValidator {
         this.validatorCache = {};
         this.cachedSchemas = {};
         this.localSchemaPath = localSchemaPath;
-        this.ajvInstance = this.constructAjv();
+        this.ajvInstance = this._getAjvInstance();
     }
 
     runValidation(inputSchema, inputObject) {
@@ -108,31 +108,6 @@ class BioValidator {
         return localErrors;
     }
 
-    getSchema(schemaUri) {
-        if (!this.cachedSchemas[schemaUri]) {
-            return new Promise((resolve, reject) => {
-                BioValidator.fetchSchema(schemaUri)
-                    .then(schema => {
-                        this.cachedSchemas[schemaUri] = schema;
-                        resolve(schema);
-                    })
-                    .catch(err => {
-                        reject(err);
-                    })
-            });
-        } else {
-            return Promise.resolve(this.cachedSchemas[schemaUri]);
-        }
-    }
-
-    static fetchSchema(schemaUrl) {
-        return request({
-            method: "GET",
-            url: schemaUrl,
-            json: true,
-        });
-    }
-
     getValidationFunction(inputSchema) {
         const schemaId = inputSchema['$id'];
 
@@ -147,27 +122,19 @@ class BioValidator {
         }
     }
 
-    constructAjv() {
-        const ajvInstance = new Ajv({allErrors: true, strict: false, loadSchema: this.resolveReferences()});
+    _getAjvInstance() {
+        const ajvInstance = new Ajv({allErrors: true, strict: false, loadSchema: this._resolveReferences()});
         const draft7MetaSchema = require("ajv/dist/refs/json-schema-draft-07.json")
         ajvInstance.addMetaSchema(draft7MetaSchema)
         addFormats(ajvInstance);
 
-        this.addCustomKeywordValidators(ajvInstance);
-        this.preCompileLocalSchemas(ajvInstance);
+        this._addCustomKeywordValidators(ajvInstance);
+        this._preCompileLocalSchemas(ajvInstance);
 
         return ajvInstance
     }
 
-    addCustomKeywordValidators(ajvInstance) {
-        customKeywordValidators.forEach(customKeywordValidator => {
-            ajvInstance = customKeywordValidator.configure(ajvInstance);
-        });
-
-        return ajvInstance;
-    }
-
-    resolveReferences() {
+    _resolveReferences() {
         const cachedSchemas = this.cachedSchemas;
 
         return (uri) => {
@@ -192,7 +159,15 @@ class BioValidator {
         };
     }
 
-    preCompileLocalSchemas(ajv) {
+    _addCustomKeywordValidators(ajvInstance) {
+        customKeywordValidators.forEach(customKeywordValidator => {
+            ajvInstance = customKeywordValidator.configure(ajvInstance);
+        });
+
+        return ajvInstance;
+    }
+
+    _preCompileLocalSchemas(ajv) {
         if (this.localSchemaPath) {
             let schemaFiles = getFiles(this.localSchemaPath);
             for (let file of schemaFiles) {
