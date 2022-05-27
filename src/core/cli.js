@@ -1,42 +1,23 @@
-const logger = require("./winston");
+const logger = require("../winston");
 const fs = require("fs");
-const {log_error, log_info } = require("./utils/logger");
-const BioValidator = require("./biovalidator-core");
+const {log_error, log_info } = require("../utils/logger");
+const BioValidator = require("../biovalidator-core");
+const {readJsonFile} = require("../utils/file_utils");
 
-class BioValidatorCLI {
+class BioValidatorCli {
     constructor(pathToSchema, pathToJson, pathToRefSchema) {
         this.pathToSchema = pathToSchema
         this.pathToJson = pathToJson
         this.pathToRefSchema = pathToRefSchema;
     }
 
-    read_schema(pathToSchema) {
-        if (fs.existsSync(pathToSchema)) {
-            let schemaStr = fs.readFileSync(pathToSchema, 'utf-8')
-            return JSON.parse(schemaStr)
-        } else {
-            log_error("File '" + pathToSchema + "' does not exist!");
-            process.exit(1);
-        }
-    }
-
-    read_json(pathToJson) {
-        if (fs.existsSync(pathToJson)) {
-            let jsonStr = fs.readFileSync(pathToJson, 'utf-8')
-            return JSON.parse(jsonStr)
-        } else {
-            log_error("File '" + pathToJson + "' does not exist!");
-            process.exit(1);
-        }
-    }
-
     validate() {
-        this.inputSchema = this.read_schema(this.pathToSchema)
-        this.jsonToValidate = this.read_json(this.pathToJson)
         let biovalidator = new BioValidator(this.pathToRefSchema);
+        this.schema = readJsonFile(this.pathToSchema);
+        this.data =  readJsonFile(this.pathToJson)
 
-        if (this.inputSchema && this.jsonToValidate) {
-            biovalidator.runValidation(this.inputSchema, this.jsonToValidate).then((output) => {
+        if (this.schema && this.data) {
+            biovalidator.runValidation(this.schema, this.data).then((output) => {
                 logger.log("silly", "Sent validation results.");
                 this.process_output(output);
             }).catch((error) => {
@@ -75,4 +56,4 @@ class BioValidatorCLI {
     }
 }
 
-module.exports = BioValidatorCLI;
+module.exports = BioValidatorCli;

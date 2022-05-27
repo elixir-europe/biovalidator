@@ -1,5 +1,5 @@
 const fs = require("fs");
-const BioValidator = require('../src/biovalidator');
+const BioValidator = require('../src/biovalidator-core');
 const GraphRestriction = require('../src/keywords/graph_restriction');
 
 

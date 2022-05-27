@@ -1,5 +1,5 @@
 const fs = require("fs");
-const BioValidator = require('../src/biovalidator');
+const BioValidator = require('../src/biovalidator-core');
 const IsChildTermOf = require('../src/keywords/ischildtermof');
 
 test("isChildTermOf", () => {

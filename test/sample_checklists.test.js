@@ -1,5 +1,5 @@
 const fs = require("fs");
-const BioValidator = require("../src/biovalidator")
+const BioValidator = require("../src/biovalidator-core")
 const biovalidator = new BioValidator();
 const checklistFolder = "test/resources/ena_samples/checklists/";
 const validObjectFolder = "test/resources/ena_samples/objects/valid/";

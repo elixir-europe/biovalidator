@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const logger = require("./winston");
 const AppError = require("./model/application-error");
-const BioValidator = require("./biovalidator")
+const BioValidator = require("./biovalidator-core")
 
 const argv = require("yargs").argv;
 const npid = require("npid");

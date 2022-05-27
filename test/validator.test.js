@@ -1,5 +1,5 @@
 const fs = require("fs");
-const BioValidator = require("../src/biovalidator")
+const BioValidator = require("../src/biovalidator-core")
 const biovalidator = new BioValidator();
 
 test("Empty Schema (empty object)", () => {
