@@ -24,7 +24,7 @@ The validation is done using the [AJV](https://github.com/epoberezkin/ajv) libra
   - [Advanced server settings](#advanced-server-settings)
     - [Startup arguments](#startup-arguments)
     - [Custom keywords](#custom-keywords)
-      - [graph_restriction](#graph_restriction)
+      - [graphRestriction](#graphRestriction)
       - [isChildTermOf](#ischildtermof)
       - [isValidTerm](#isvalidterm)
       - [isValidTaxonomy](#isvalidtaxonomy)
@@ -222,7 +222,7 @@ Note: This is the **file path** and not just the directory it will be written to
 ### Custom keywords
 The AJV library supports the implementation of custom json schema keywords to address validation scenarios that go beyond what json schema can handle.
 
-Currently, in this repository four custom keywords are implemented: `graph_restriction`, `isChildTermOf`, `isValidTerm` and `isValidTaxonomy`.
+Currently, in this repository four custom keywords are implemented: `graphRestriction`, `isChildTermOf`, `isValidTerm` and `isValidTaxonomy`.
 
 If the user would like to add a new custom keywords then they have to add it to the validator when it is being instantiated:
 
@@ -241,7 +241,7 @@ const validator = new BioValidator([
 let validator = new BioValidator([CustomKeyword])
 ```
 
-#### graph_restriction
+#### graphRestriction
 
 This custom keyword *evaluates if an ontology term is child of another*. This keyword is applied to a string (CURIE) and **passes validation if the term is a child of the term defined in the schema**.
 The keyword requires one or more **parent terms** *(classes)* and **ontology ids** *(ontologies)*, both of which should exist in [OLS - Ontology Lookup Service](https://www.ebi.ac.uk/ols).
@@ -260,7 +260,7 @@ Schema:
         "ontology": {
             "description": "A term from the ontology [UBERON](https://www.ebi.ac.uk/ols/ontologies/uberon) for an organ or a cellular bodily fluid such as blood or lymph.",
             "type": "string",
-            "graph_restriction":  {
+            "graphRestriction":  {
                 "ontologies" : ["obo:hcao", "obo:uberon"],
                 "classes": ["UBERON:0000062","UBERON:0000179"],
                 "relations": ["rdfs:subClassOf"],
@@ -280,7 +280,7 @@ JSON object:
 
 
 #### isChildTermOf
-This custom keyword also *evaluates if an ontology term is child of another* and is a simplified version of the graph_restriction keyword. This keyword is applied to a string (url) and **passes validation if the term is a child of the term defined in the schema**.
+This custom keyword also *evaluates if an ontology term is child of another* and is a simplified version of the graphRestriction keyword. This keyword is applied to a string (url) and **passes validation if the term is a child of the term defined in the schema**.
 The keyword requires the **parent term** and the **ontology id**, both of which should exist in [OLS - Ontology Lookup Service](https://www.ebi.ac.uk/ols).
 
 This keyword works by doing an asynchronous call to the [OLS API](https://www.ebi.ac.uk/ols/api/) that will respond with the required information to know if a given term is child of another.

@@ -26,7 +26,7 @@
     "ontology": {
       "description": "An optional ontology reference in format where prefix_ indicates which ontology",
       "type": "string",
-      "graph_restriction":  {
+      "graphRestriction":  {
         "ontologies" : ["obo:mondo", "obo:efo"],
         "classes": ["MONDO:0000001","PATO:0000461"],
         "relations": ["rdfs:subClassOf"],

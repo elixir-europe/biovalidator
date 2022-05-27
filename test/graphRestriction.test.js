@@ -1,6 +1,6 @@
 const fs = require("fs");
 const BioValidator = require('../src/biovalidator-core');
-const GraphRestriction = require('../src/keywords/graph_restriction');
+const GraphRestriction = require('../src/keywords/graphRestriction');
 
 
 test(" -> graphRestriction 1 Schema", () => {
