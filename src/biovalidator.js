@@ -184,6 +184,7 @@ class BioValidator {
                         cachedSchemas[uri] = loadedSchema;
                         resolve(loadedSchema);
                     }).catch(err => {
+                        console.log("Failed to retrieve remote schema: " + uri)
                         reject(err);
                     });
                 });

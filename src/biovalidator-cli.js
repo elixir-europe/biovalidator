@@ -7,7 +7,7 @@ class BioValidatorCLI {
     constructor(pathToSchema, pathToJson, pathToRefSchema) {
         this.pathToSchema = pathToSchema
         this.pathToJson = pathToJson
-        this.pathToRefSchema = pathToRefSchema;
+        this.biovalidator = new BioValidator(pathToRefSchema);
     }
 
     read_schema(pathToSchema) {
@@ -33,10 +33,9 @@ class BioValidatorCLI {
     validate() {
         this.inputSchema = this.read_schema(this.pathToSchema)
         this.jsonToValidate = this.read_json(this.pathToJson)
-        let biovalidator = new BioValidator(this.pathToRefSchema);
 
         if (this.inputSchema && this.jsonToValidate) {
-            biovalidator.runValidation(this.inputSchema, this.jsonToValidate).then((output) => {
+            this.biovalidator.runValidation(this.inputSchema, this.jsonToValidate).then((output) => {
                 logger.log("silly", "Sent validation results.");
                 this.process_output(output);
             }).catch((error) => {
