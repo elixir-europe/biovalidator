@@ -37,7 +37,7 @@ function readJsonFile(filePath) {
 function addFiles(filePattern, files) {
     if (glob.hasMagic(filePattern)) {
         const dataFiles = glob.sync(filePattern, {cwd: process.cwd()})
-        files = files.concat(dataFiles);
+        files.push(...dataFiles);
     } else {
         if (fs.lstatSync(filePattern).isDirectory()) {
             fs.readdirSync(filePattern).forEach(file => {

@@ -14,6 +14,7 @@ const {isChildTermOf, isValidTerm, isValidTaxonomy} = require("./keywords");
 const GraphRestriction = require("./keywords/graph_restriction");
 const ValidationError = require("./model/validation-error");
 const logger = require("./winston");
+const {log_error} = require("./utils/logger");
 
 const devMode = 0;
 console.debug = devMode ? console.debug : () => {
@@ -54,8 +55,8 @@ class BioValidator {
                 if (error.errors) {
                     reject(new AppError(error.errors));
                 } else {
-                    logger.log("error", "An error ocurred while running the validation. Error : " + JSON.stringify(error));
-                    reject(new AppError("An error ocurred while running the validation."));
+                    logger.log("error", "An error occurred while running the validation. Error : " + JSON.stringify(error));
+                    reject(new AppError("An error occurred while running the validation."));
                 }
             });
         });
@@ -147,7 +148,7 @@ class BioValidator {
     }
 
     constructAjv() {
-        const ajvInstance = new Ajv({allErrors: true, strict: false, loadSchema: this.generateLoadSchemaRefFn()});
+        const ajvInstance = new Ajv({allErrors: true, strict: false, loadSchema: this.resolveReferences()});
         const draft7MetaSchema = require("ajv/dist/refs/json-schema-draft-07.json")
         ajvInstance.addMetaSchema(draft7MetaSchema)
         addFormats(ajvInstance);
@@ -166,7 +167,7 @@ class BioValidator {
         return ajvInstance;
     }
 
-    generateLoadSchemaRefFn() {
+    resolveReferences() {
         const cachedSchemas = this.cachedSchemas;
 
         return (uri) => {
@@ -184,7 +185,7 @@ class BioValidator {
                         cachedSchemas[uri] = loadedSchema;
                         resolve(loadedSchema);
                     }).catch(err => {
-                        reject(err);
+                        logger.error("Failed to retrieve remote schema: " + uri + ", " + err.name + ": " + err.statusCode)
                     });
                 });
             }
