@@ -1,5 +1,5 @@
 const fs = require("fs");
-const BioValidator = require('../src/biovalidator-core');
+const BioValidator = require('../src/core/biovalidator-core');
 const IsValidTaxonomy = require('../src/keywords/isvalidtaxonomy');
 
 test("valid taxonomy expression should pass the validation", () => {

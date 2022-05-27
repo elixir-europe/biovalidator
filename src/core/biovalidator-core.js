@@ -1,24 +1,13 @@
-/**
- * Created by rolando on 08/08/2018.
- */
-
 const Promise = require('bluebird');
-const path = require("path");
-const fs = require('fs');
 const Ajv = require("ajv/dist/2019").default;
 const addFormats = require("ajv-formats");
 const request = require("request-promise");
-const AppError = require("./model/application-error");
-const {getFiles, readFile} = require("./utils/file_utils");
-const {isChildTermOf, isValidTerm, isValidTaxonomy} = require("./keywords");
-const GraphRestriction = require("./keywords/graphRestriction");
-const ValidationError = require("./model/validation-error");
-const logger = require("./winston");
-const {log_error} = require("./utils/logger");
-
-const devMode = 0;
-console.debug = devMode ? console.debug : () => {
-};
+const AppError = require("../model/application-error");
+const {getFiles, readFile} = require("../utils/file_utils");
+const {isChildTermOf, isValidTerm, isValidTaxonomy} = require("../keywords");
+const GraphRestriction = require("../keywords/graphRestriction");
+const ValidationError = require("../model/validation-error");
+const logger = require("../utils/winston");
 
 const customKeywordValidators = [
     new isChildTermOf(null, "https://www.ebi.ac.uk/ols/api/search?q="),

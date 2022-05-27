@@ -1,5 +1,5 @@
 const fs = require("fs");
-const BioValidator = require('../src/biovalidator-core');
+const BioValidator = require('../src/core/biovalidator-core');
 const IsValidTerm = require('../src/keywords/isvalidterm');
 
 test("isValidTerm", () => {

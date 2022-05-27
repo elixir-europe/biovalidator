@@ -1,7 +1,6 @@
-const logger = require("../winston");
-const fs = require("fs");
+const logger = require("../utils/winston");
 const {log_error, log_info } = require("../utils/logger");
-const BioValidator = require("../biovalidator-core");
+const BioValidator = require("./biovalidator-core");
 const {readJsonFile} = require("../utils/file_utils");
 
 class BioValidatorCli {
@@ -32,12 +31,11 @@ class BioValidatorCli {
 
     process_output(output) {
         if (output.length === 0) {
-            log_info("No validation errors reported.");
+            log_info("Validation passed successfully.");
         } else {
-            log_error("The validation process has found the following error(s):\n")
+            log_error("Validation failed with following error(s):\n")
             log_error(this.error_report(output));
         }
-        console.log("Validation finished.");
     }
 
     error_report(jsonErrors) {

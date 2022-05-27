@@ -1,8 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const logger = require("../winston");
+const logger = require("../utils/winston");
 const AppError = require("../model/application-error");
-const BioValidator = require("../biovalidator-core")
+const BioValidator = require("./biovalidator-core")
 const npid = require("npid");
 
 class BioValidatorServer {
@@ -68,33 +68,29 @@ class BioValidatorServer {
 
   _configureEndpoints() {
     this.router.post("/validate", (req, res) => {
-      logger.log("debug", "Received POST request.");
-
       let inputSchema = req.body.schema;
       let inputObject = req.body.object;
 
       if (inputSchema && inputObject) {
         this.biovalidator.runValidation(inputSchema, inputObject).then((output) => {
-          logger.log("silly", "Sent validation results.");
           res.status(200).send(output);
         }).catch((error) => {
-          console.error(error);
-          logger.log("error",error);
+          logger.error(error);
           res.status(500).send(error);
         });
       } else {
-        let appError = new AppError("Something is missing, both schema and object are required to execute validation.");
-        logger.log("info", appError.error);
+        let appError = new AppError("Invalid data. Please provide both 'schema' and 'object' in data.");
+        logger.info(appError.error);
         res.status(400).send(appError);
       }
     });
 
     this.router.get("/validate", (req, res) => {
-      logger.log("silly", "Received GET request.");
-
       res.send({
-        message: "This is the Bio Validator. Please POST to this endpoint the schema and object to validate structured as in bodyStructure. For more information and examples on how to use the validator see https://github.com/elixir-europe/bio-validator",
-        bodyStructure: {
+        message: "ELIXIR biovalidator: Please use POST method to validate data against schema. See  Example POST " +
+            "message structure 'example_post_body'. For more information and examples on how to use the validator " +
+            "see https://github.com/elixir-europe/biovalidator",
+        example_post_body: {
           schema: {},
           object: {}
         }
@@ -106,8 +102,8 @@ class BioValidatorServer {
 
   _startServer() {
     this.app.listen(this.port, () => {
-      logger.log("info", ` -- Started server on port ${this.port} --`);
-      logger.log("info", ` --> Log output: ${this.logPath}`);
+      logger.info(`-- Started server on port ${this.port} --`);
+      logger.info(`Writing logs to: ${this.logPath}`);
     });
 
     return this;
