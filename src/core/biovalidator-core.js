@@ -20,14 +20,14 @@ class BioValidator {
     constructor(localSchemaPath) {
         this.validatorCache = {};
         this.cachedSchemas = {};
-        this.localSchemaPath = localSchemaPath;
-        this.ajvInstance = this._getAjvInstance();
+        this.ajvInstance = this._getAjvInstance(localSchemaPath);
     }
 
-    runValidation(inputSchema, inputObject) {
+    // wrapper around _validate to process output
+    validate(inputSchema, inputObject) {
         logger.log("silly", "Running validation...");
         return new Promise((resolve, reject) => {
-            this.validate(inputSchema, inputObject)
+            this._validate(inputSchema, inputObject)
                 .then((validationResult) => {
                         if (validationResult.length === 0) {
                             resolve([]);
@@ -36,7 +36,6 @@ class BioValidator {
                             validationResult.forEach(validationError => {
                                 ajvErrors.push(validationError);
                             });
-
                             resolve(this.convertToValidationErrors(ajvErrors));
                         }
                     }
@@ -51,7 +50,7 @@ class BioValidator {
         });
     }
 
-    validate(inputSchema, inputObject) {
+    _validate(inputSchema, inputObject) {
         inputSchema["$async"] = true;
         return new Promise((resolve, reject) => {
             const compiledSchemaPromise = this.getValidationFunction(inputSchema);
@@ -111,36 +110,31 @@ class BioValidator {
         }
     }
 
-    _getAjvInstance() {
-        const ajvInstance = new Ajv({allErrors: true, strict: false, loadSchema: this._resolveReferences()});
+    _getAjvInstance(localSchemaPath) {
+        const ajvInstance = new Ajv({allErrors: true, strict: false, loadSchema: this._resolveReference()});
         const draft7MetaSchema = require("ajv/dist/refs/json-schema-draft-07.json")
         ajvInstance.addMetaSchema(draft7MetaSchema)
         addFormats(ajvInstance);
 
         this._addCustomKeywordValidators(ajvInstance);
-        this._preCompileLocalSchemas(ajvInstance);
+        this._preCompileLocalSchemas(ajvInstance, localSchemaPath);
 
         return ajvInstance
     }
 
-    _resolveReferences() {
-        const cachedSchemas = this.cachedSchemas;
-
+    _resolveReference() {
         return (uri) => {
-            if (cachedSchemas[uri]) {
-                return Promise.resolve(cachedSchemas[uri]);
+            if (this.cachedSchemas[uri]) {
+                return Promise.resolve(this.cachedSchemas[uri]);
             } else {
                 return new Promise((resolve, reject) => {
-                    request({
-                        method: "GET",
-                        url: uri,
-                        json: true
-                    }).then(resp => {
-                        const loadedSchema = resp;
-                        loadedSchema["$async"] = true;
-                        cachedSchemas[uri] = loadedSchema;
-                        resolve(loadedSchema);
-                    }).catch(err => {
+                    request({method: "GET", url: uri, json: true})
+                        .then(resp => {
+                            const loadedSchema = resp;
+                            loadedSchema["$async"] = true;
+                            this.cachedSchemas[uri] = loadedSchema;
+                            resolve(loadedSchema);
+                        }).catch(err => {
                         logger.error("Failed to retrieve remote schema: " + uri + ", " + err.name + ": " + err.statusCode)
                     });
                 });
@@ -156,9 +150,9 @@ class BioValidator {
         return ajvInstance;
     }
 
-    _preCompileLocalSchemas(ajv) {
-        if (this.localSchemaPath) {
-            let schemaFiles = getFiles(this.localSchemaPath);
+    _preCompileLocalSchemas(ajv, localSchemaPath) {
+        if (localSchemaPath) {
+            let schemaFiles = getFiles(localSchemaPath);
             for (let file of schemaFiles) {
                 let schema = readFile(file);
                 ajv.getSchema(schema["$id"] || ajv.compile(schema));

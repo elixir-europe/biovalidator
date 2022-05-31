@@ -24,7 +24,6 @@ let schema = argv["schema"]
 let data = argv["data"]
 let port = argv["port"]
 
-
 if (help) {
     _printHelp();
 } else if (data || schema) {

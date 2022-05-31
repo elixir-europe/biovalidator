@@ -3,7 +3,7 @@ const BioValidator = require("../src/core/biovalidator-core")
 const biovalidator = new BioValidator();
 
 test("Empty Schema (empty object)", () => {
-  return biovalidator.runValidation({}, {}).then( (data) => {
+  return biovalidator.validate({}, {}).then( (data) => {
     expect(data).toBeDefined();
     expect(data.length).toBe(0);
   });
@@ -16,7 +16,7 @@ test("Attributes Schema", () => {
   let inputObj = fs.readFileSync("examples/objects/attributes.json", "utf-8");
   let jsonObj = JSON.parse(inputObj);
 
-  return biovalidator.runValidation(jsonSchema, jsonObj).then( (data) => {
+  return biovalidator.validate(jsonSchema, jsonObj).then( (data) => {
     expect(data).toBeDefined();
     expect(data.length).toBe(1);
     expect(data[0].errors.length).toBe(1);
@@ -31,7 +31,7 @@ test("BioSamples Schema - FAANG \'organism\' sample", () => {
   let inputObj = fs.readFileSync("examples/objects/faang-organism-sample.json", "utf-8");
   let jsonObj = JSON.parse(inputObj);
 
-  return biovalidator.runValidation(jsonSchema, jsonObj).then( (data) => {
+  return biovalidator.validate(jsonSchema, jsonObj).then( (data) => {
     expect(data).toBeDefined();
     expect(data.length).toBe(0);
   });
@@ -44,7 +44,7 @@ test("Study Schema", () => {
   let inputObj = fs.readFileSync("examples/objects/study.json", "utf-8");
   let jsonObj = JSON.parse(inputObj);
 
-  return biovalidator.runValidation(jsonSchema, jsonObj).then( (data) => {
+  return biovalidator.validate(jsonSchema, jsonObj).then( (data) => {
     expect(data).toBeDefined();
     expect(data.length).toBe(2);
   });

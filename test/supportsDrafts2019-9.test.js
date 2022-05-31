@@ -12,7 +12,7 @@ test("draft2019-9Recursive", () => {
 
   const validator = new BioValidator();
 
-  return validator.validate(jsonSchema, jsonObj).then((data) => {
+  return validator._validate(jsonSchema, jsonObj).then((data) => {
     expect(data).toBeDefined();
     expect(data.length).toBe(0);
   });

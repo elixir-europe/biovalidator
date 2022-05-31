@@ -15,17 +15,17 @@ class BioValidatorServer {
   }
 
   withBaseUrl(baseUrl) {
-    this.baseUrl = baseUrl;
+    this.baseUrl = baseUrl || this.baseUrl;
     return this;
   }
 
   withLogDir(logDir) {
-    this.logPath = logDir;
+    this.logPath = logDir || this.logPath;
     return this;
   }
 
   withPid(pidPath) {
-    this.pidPath = pidPath;
+    this.pidPath = pidPath || this.pidPath;
     return this;
   }
 
@@ -72,7 +72,7 @@ class BioValidatorServer {
       let inputObject = req.body.object;
 
       if (inputSchema && inputObject) {
-        this.biovalidator.runValidation(inputSchema, inputObject).then((output) => {
+        this.biovalidator.validate(inputSchema, inputObject).then((output) => {
           res.status(200).send(output);
         }).catch((error) => {
           logger.error(error);

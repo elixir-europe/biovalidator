@@ -3,7 +3,7 @@ const BioValidator = require('../src/core/biovalidator-core');
 
 test("Empty Schema (empty object)", () => {
     const validator = new BioValidator();
-    return validator.validate({}, {}).then( (data) => {
+    return validator._validate({}, {}).then( (data) => {
         expect(data).toBeDefined();
         expect(data.length).toBe(0);
     });
@@ -18,7 +18,7 @@ test("Attributes Schema", () => {
 
     const validator = new BioValidator();
 
-    return validator.validate(jsonSchema, jsonObj).then((data) => {
+    return validator._validate(jsonSchema, jsonObj).then((data) => {
         expect(data).toBeDefined();
         expect(data.length).toBe(1);
         expect(data[0].message).toContain('should match format "uri"');
@@ -35,7 +35,7 @@ test("BioSamples Schema - FAANG \'organism\' sample", () => {
 
     const validator = new BioValidator();
 
-    return validator.validate(jsonSchema, jsonObj).then((data) => {
+    return validator._validate(jsonSchema, jsonObj).then((data) => {
         expect(data).toBeDefined();
         expect(data.length).toBe(0);
     });
@@ -49,7 +49,7 @@ test("Study Schema", () => {
     let jsonObj = JSON.parse(inputObj);
     const validator = new BioValidator();
 
-    return validator.validate(jsonSchema, jsonObj).then((data) => {
+    return validator._validate(jsonSchema, jsonObj).then((data) => {
         expect(data).toBeDefined();
         expect(data.length).toBe(2);
     });

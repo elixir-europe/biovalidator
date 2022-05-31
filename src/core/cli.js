@@ -2,21 +2,26 @@ const logger = require("../utils/winston");
 const {log_error, log_info } = require("../utils/logger");
 const BioValidator = require("./biovalidator-core");
 const {readJsonFile} = require("../utils/file_utils");
+const {exit} = require("yargs");
 
 class BioValidatorCli {
     constructor(pathToSchema, pathToJson, pathToRefSchema) {
         this.pathToSchema = pathToSchema
         this.pathToJson = pathToJson
-        this.pathToRefSchema = pathToRefSchema;
+        this.biovalidator = new BioValidator(pathToRefSchema);
     }
 
     validate() {
-        let biovalidator = new BioValidator(this.pathToRefSchema);
-        this.schema = readJsonFile(this.pathToSchema);
-        this.data =  readJsonFile(this.pathToJson)
+        try {
+            this.schema = readJsonFile(this.pathToSchema);
+            this.data =  readJsonFile(this.pathToJson)
+        } catch (err) {
+            logger.error("Both schema and data files are required for validation");
+            process.exit(1)
+        }
 
         if (this.schema && this.data) {
-            biovalidator.runValidation(this.schema, this.data).then((output) => {
+            this.biovalidator.validate(this.schema, this.data).then((output) => {
                 logger.log("silly", "Sent validation results.");
                 this.process_output(output);
             }).catch((error) => {

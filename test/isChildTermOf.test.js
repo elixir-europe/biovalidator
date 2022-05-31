@@ -13,7 +13,7 @@ test("isChildTermOf", () => {
 
   const validator = new BioValidator();
 
-  return validator.validate(jsonSchema, jsonObj).then((data) => {
+  return validator._validate(jsonSchema, jsonObj).then((data) => {
     expect(data).toBeDefined();
     expect(data.length).toBe(1);
     expect(data[0].message).toContain('Provided term is not child of');
