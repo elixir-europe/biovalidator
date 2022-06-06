@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const logger = require("../utils/winston");
+const {logger, configureLogPath} = require("../utils/winston");
 const AppError = require("../model/application-error");
 const BioValidator = require("./biovalidator-core")
 const npid = require("npid");
@@ -62,6 +62,7 @@ class BioValidatorServer {
     });
 
     this.app.use(this.baseUrl, this.router);
+    configureLogPath(this.logPath);
 
     return this;
   }
@@ -69,7 +70,7 @@ class BioValidatorServer {
   _configureEndpoints() {
     this.router.post("/validate", (req, res) => {
       let inputSchema = req.body.schema;
-      let inputObject = req.body.object;
+      let inputObject = req.body.data;
 
       if (inputSchema && inputObject) {
         this.biovalidator.validate(inputSchema, inputObject).then((output) => {
@@ -79,7 +80,7 @@ class BioValidatorServer {
           res.status(500).send(error);
         });
       } else {
-        let appError = new AppError("Invalid data. Please provide both 'schema' and 'object' in data.");
+        let appError = new AppError("Invalid data. Please provide both 'schema' and 'data' in request body.");
         logger.info(appError.error);
         res.status(400).send(appError);
       }
@@ -102,8 +103,12 @@ class BioValidatorServer {
 
   _startServer() {
     this.app.listen(this.port, () => {
-      logger.info(`-- Started server on port ${this.port} --`);
-      logger.info(`Writing logs to: ${this.logPath}`);
+      logger.info(`---------------------------------------------`);
+      logger.info(`------------ ELIXIR biovalidator ------------`);
+      logger.info(`---------------------------------------------`);
+      logger.info(`Started server on port ${this.port} with base URL ${this.baseUrl}`);
+      logger.info(`PID file is available at ${this.pidPath}`);
+      // logger.info(`Writing logs to: ${this.logPath}`);
     });
 
     return this;

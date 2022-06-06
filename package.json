@@ -1,11 +1,14 @@
 {
   "name": "biovalidator",
-  "version": "1.9.2",
-  "description": "A nodejs JSON schema validator service. Extended from Ajv to include ontology validation.",
-  "main": "src/server.js",
+  "version": "2.0.0",
+  "description": "A nodejs JSON schema validator, extended from Ajv to include ontology validation.",
+  "main": "src/biovalidator.js",
+  "bin": {
+    "ajv": "dist/biovalidator.js"
+  },
   "repository": "https://github.com/elixir-europe/biovalidator.git",
   "scripts": {
-    "start": "node src/server.js",
+    "start": "node src/biovalidator.js",
     "test": "jest",
     "test-watch": "nodemon --exec \"npm test\"",
     "travis-test": "jest test/validator.test.js"
@@ -39,6 +42,7 @@
     "nodemon": "^2.0.6",
     "ts-node": "^9.1.0",
     "typescript": "^4.1.2",
-    "utf-8-validate": "^5.0.3"
+    "utf-8-validate": "^5.0.3",
+    "rimraf": "^3.0.2"
   }
 }

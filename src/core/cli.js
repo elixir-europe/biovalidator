@@ -1,4 +1,4 @@
-const logger = require("../utils/winston");
+const {logger} = require("../utils/winston");
 const {log_error, log_info } = require("../utils/logger");
 const BioValidator = require("./biovalidator-core");
 const {readJsonFile} = require("../utils/file_utils");

@@ -7,15 +7,19 @@ const BioValidatorServer = require("./core/server");
 
 const argv = yargs(hideBin(process.argv))
     .usage(_getUsage())
-    // .demandOption(['schema', 'data'])
     .alias('s', 'schema')
     .alias('d', 'data')
     .alias('r', 'ref')
-    .describe('schema', 'path to the schema file')
-    .describe('data', 'path to the data file')
-    .describe('ref', 'path to referenced schema directory, file or glob pattern')
-    .example('node ./src/biovalidator.js --data=valid.json --schema=test_schema.json',
-        'Validates \'valid.json\' with \'test_schema.json\'.')
+    .alias('p', 'port')
+    .describe('schema', 'path to the schema file.')
+    .describe('data', 'path to the data file.')
+    .describe('ref', 'path to referenced schema directory/file/glob pattern.')
+    .describe('port', 'exposed port in server mode. Only valid in server mode.')
+    .describe('baseUrl', 'base URL for the server. Only valid in server mode.')
+    .describe('pidPath', 'PID file name and path. Only valid in server mode.')
+    .describe('logDir', 'path to the log directory.')
+    .example('node ./src/biovalidator.js --data=test_data.json --schema=test_schema.json',
+        'Runs in CLI mode to validate \'test_data.json\' with \'test_schema.json\'')
     .argv
 
 let help = argv["help"]
@@ -23,6 +27,9 @@ let schemaRef = argv["ref"]
 let schema = argv["schema"]
 let data = argv["data"]
 let port = argv["port"]
+let baseUrl = argv["baseUrl"]
+let pidPath = argv["pidPath"]
+let logDir = argv["logDir"]
 
 if (help) {
     _printHelp();
@@ -32,12 +39,17 @@ if (help) {
     }
     new BioValidatorCli(schema, data, schemaRef).validate();
 } else {
-    new BioValidatorServer(port, schemaRef).start();
+    new BioValidatorServer(port, schemaRef)
+        .withBaseUrl(baseUrl)
+        .withPid(pidPath)
+        .withLogDir(logDir)
+        .start();
 }
 
 function _getUsage() {
-    let helpText = "\nbiovalidator: JSON Schema validator with ontology extension\n";
-    helpText = helpText.concat("usage: node ./biovalidator.js [--schema=path/to/schema] [--data=path/to/json]")
+    let helpText = "\nELIXIR biovalidator: JSON Schema validator with ontology extension\n";
+    helpText = helpText.concat("usage: node ./src/biovalidator.js [--schema=path/to/schema.json] " +
+        "[--data=path/to/data.json] [--ref=path/to/ref/dir]")
     return helpText
 }
 

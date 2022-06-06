@@ -7,7 +7,7 @@ const {getFiles, readFile} = require("../utils/file_utils");
 const {isChildTermOf, isValidTerm, isValidTaxonomy} = require("../keywords");
 const GraphRestriction = require("../keywords/graphRestriction");
 const ValidationError = require("../model/validation-error");
-const logger = require("../utils/winston");
+const {logger} = require("../utils/winston");
 
 const customKeywordValidators = [
     new isChildTermOf(null, "https://www.ebi.ac.uk/ols/api/search?q="),
