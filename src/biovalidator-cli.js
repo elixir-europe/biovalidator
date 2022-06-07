@@ -1,12 +1,13 @@
-const runValidation = require("../validator");
-const logger = require("../winston");
+const logger = require("./winston");
 const fs = require("fs");
-const {log_error, log_info } = require("../utils/logger");
+const {log_error, log_info } = require("./utils/logger");
+const BioValidator = require("./biovalidator");
 
 class BioValidatorCLI {
-    constructor(pathToSchema, pathToJson) {
+    constructor(pathToSchema, pathToJson, pathToRefSchema) {
         this.pathToSchema = pathToSchema
         this.pathToJson = pathToJson
+        this.biovalidator = new BioValidator(pathToRefSchema);
     }
 
     read_schema(pathToSchema) {
@@ -32,8 +33,9 @@ class BioValidatorCLI {
     validate() {
         this.inputSchema = this.read_schema(this.pathToSchema)
         this.jsonToValidate = this.read_json(this.pathToJson)
+
         if (this.inputSchema && this.jsonToValidate) {
-            runValidation(this.inputSchema, this.jsonToValidate).then((output) => {
+            this.biovalidator.runValidation(this.inputSchema, this.jsonToValidate).then((output) => {
                 logger.log("silly", "Sent validation results.");
                 this.process_output(output);
             }).catch((error) => {
