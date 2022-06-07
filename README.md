@@ -13,18 +13,15 @@ The validation is done using the [AJV](https://github.com/epoberezkin/ajv) libra
 ## Contents
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
-  - [Installing](#installing)
+  - [Installation](#installation)
 - [Using biovalidator as a server](#using-biovalidator-as-a-server)
-  - [The web interface](#the-web-interface)
-  - [The validation API](#the-validation-api)
 - [Using biovalidator as a CLI command](#using-biovalidator-as-a-cli-command)
-- [Advanced server settings](#advanced-server-settings)
-  - [Startup arguments](#startup-arguments)
-  - [Extended keywords for ontology and taxonomy validation](#Extended keywords for ontology and taxonomy validation)
-    - [graphRestriction](#graphRestriction)
-    - [isChildTermOf](#ischildtermof)
-    - [isValidTerm](#isvalidterm)
-    - [isValidTaxonomy](#isvalidtaxonomy)
+- [Startup arguments](#startup-arguments)
+- [Extended keywords for ontology and taxonomy validation](#Extended keywords for ontology and taxonomy validation)
+  - [graphRestriction](#graphrestriction)
+  - [isChildTermOf](#ischildtermof)
+  - [isValidTerm](#isvalidterm)
+  - [isValidTaxonomy](#isvalidtaxonomy)
 - [Running in Docker](#running-in-docker)
 - [License](#license)
 
@@ -57,15 +54,12 @@ npm test
 
 ## Using biovalidator as a server
 
-By default, biovalidator will start as a server.
+By default, biovalidator will start as a server. Read [Startup arguments](#startup-arguments) section for more server options. 
 ```
 node src/biovalidator
 ```
 
-### The web interface
 Once the server is up and running it can be accessed in your browser at [http://localhost:3020/](http://localhost:3020/). 
-
-### The validation API
 The biovalidator also exposes an endpoint for validation: [http://localhost:3020/validate](http://localhost:3020/validate). 
 The `/validate` POST endpoint accepts JSON as data and has the following structure.
 ```json
@@ -77,7 +71,7 @@ The `/validate` POST endpoint accepts JSON as data and has the following structu
 - schema: JSON Schema to validate the data
 - data: data to be validated using given JSON Schema
 
-Make sure to add content-type header if there are any problems using the API
+Make sure to add content-type header if there are any problems using the API.
 ```
 Content-Type: application/json
 ```
@@ -144,8 +138,6 @@ HTTP status code `200`
 Where *errors* is an array of error messages for a given input identified by its path on *dataPath*. 
 There may be one or more error objects within the response array. An empty array represents a valid validation result.
 
-Read more about additional server settings in the [Advanced settings](#advanced-settings-when-using-as-a-server) section.
-
 ## Using biovalidator as a CLI command
 The biovalidator can also be run as a CLI application. If you provide `--schema` and `--data` as parameters to the application, it will execute in CLI mode. 
 To see all the available options, run `node ./src/biovalidator --help`
@@ -173,28 +165,43 @@ Examples:
   --schema=test_schema.json                 'test_schema.json'
 ```
 
-## Advanced server settings
-
-### Startup arguments
-
-- `logPath`: 
-If provided with a log path argument, the application will write the logs to a file on the specified directory with a 24h rotation. To provide the log path add a `logPath` property after the startup statement:
+## Startup arguments
+- `--ref`:
+If you have a set of local schemas that will be used as `$ref` in your validating schema, these can be passed to biovalidator using `--ref` argument.
+The `--ref` argument can be used in both server and CLI mode. `--ref` accepts file path, directory and glob patterns as values. 
 ```
-node src/server --logPath=/log/directory/path
+node src/biovalidator --ref=/path/to/reference/schema/dir/*.json
 ```
 
-- `pidPath`: 
-If provided with a pid file path argument, the application will write the pid into the specified file. If no pid file argument is provided, the application will still create a pid file on the default path: `./server.pid`.
-To provide the pid file path add a `pidPath` property after the startup statement:
+- `--port`:
+By default server will run on port 3020. To change the exposed port `--port` can be provided as an argument. Only works in server mode. 
 ```
-node src/server --pidPath=/pid/file/path/server.pid
+node src/biovalidator --port=8080
 ```
-Note: This is the **file path** and not just the directory it will be written to.
 
-### Extended keywords for ontology and taxonomy validation
+- `--baseUrl`:
+Base URL can be provided as an argument to change the URL of the server. Only works in server mode.
+```
+node src/biovalidator --baseUrl=/schema  # will serve the content under http://localhost:3020/schema
+```
+
+- `--pidPath`:
+  Path to the PID file. Application will run the PID to the given file. The default is `./server.pid`. Only works in server mode.
+  Also note that, this is the path to the file and not the directory it will be written to.
+```
+node src/biovalidator --pidPath=/pid/file/path/server.pid
+```
+
+- `--logPath`:
+Can be provided to specify the directory of the log files. Log files will be rotated every 24 hours. Only works in server mode.
+```
+node src/biovalidator --logPath=/log/directory/path
+```
+
+## Extended keywords for ontology and taxonomy validation
 The biovalidator support four extended keywords for ontology and taxonomy validation: `graphRestriction`, `isChildTermOf`, `isValidTerm` and `isValidTaxonomy`.
 
-#### graphRestriction
+### graphRestriction
 This custom keyword *evaluates if an ontology term is child of another*. This keyword is applied to a string (CURIE) and **passes validation if the term is a child of the term defined in the schema**.
 The keyword requires one or more **parent terms** *(classes)* and **ontology ids** *(ontologies)*, both of which should exist in [OLS - Ontology Lookup Service](https://www.ebi.ac.uk/ols).
 
@@ -229,7 +236,7 @@ Data:
 }
 ```
 
-#### isChildTermOf
+### isChildTermOf
 This custom keyword also *evaluates if an ontology term is child of another* and is a simplified version of the graphRestriction keyword. This keyword is applied to a string (url) and **passes validation if the term is a child of the term defined in the schema**.
 The keyword requires the **parent term** and the **ontology id**, both of which should exist in [OLS - Ontology Lookup Service](https://www.ebi.ac.uk/ols).
 
@@ -260,7 +267,7 @@ Data:
 }
 ```
 
-#### isValidTerm
+### isValidTerm
 This custom keyword *evaluates if a given ontology term url exists in OLS* ([Ontology Lookup Service](https://www.ebi.ac.uk/ols)). It is applied to a string (url) and **passes validation if the term exists in OLS**. It can be applied to any string defined in the schema.
 
 This keyword works by doing an asynchronous call to the [OLS API](https://www.ebi.ac.uk/ols/api/) that will respond with the required information to determine if the term exists in OLS or not.
@@ -287,7 +294,7 @@ Data:
 }
 ```
 
-#### isValidTaxonomy
+### isValidTaxonomy
 This custom keyword evaluates if a given *taxonomy* exists in ENA's Taxonomy Browser. It is applied to a string (url) and **passes validation if the taxonomy exists in ENA**. It can be applied to any string defined in the schema.
 
 This keyword works by doing an asynchronous call to the [ENA API](https://www.ebi.ac.uk/ena/taxonomy/rest/any-name/<REPLACE_ME_WITH_AXONOMY_TERM>) that will respond with the required information to determine if the term exists or not.
@@ -323,15 +330,15 @@ This image can be used to run the validator without cloning this repository.
 
 Pull docker image from [quay.io](https://quay.io/repository/ebi-ait/biovalidator)
 ```shell
-docker pull quay.io/ebi-ait/biovalidator:1.0.0
+docker pull quay.io/ebi-ait/biovalidator:2.0.0
 ```
 Run in server mode
 ```shell
-docker run -p 3020:3020 -d quay.io/ebi-ait/biovalidator:1.0.0 --server
+docker run -p 3020:3020 -d quay.io/ebi-ait/biovalidator:2.0.0
 ```
-Run in onetime mode
+Run in onetime CLI mode
 ```shell
-docker run quay.io/ebi-ait/biovalidator:1.0.0 --schema /path/to/schema.json --json /path/to/json.json
+docker run quay.io/ebi-ait/biovalidator:2.0.0 --schema /path/to/schema.json --data /path/to/data.json
 ```
 
 ## Development

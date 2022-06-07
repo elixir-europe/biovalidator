@@ -22,7 +22,7 @@
     "schema",
     "validator"
   ],
-  "author": "EMBL-EBI-AIT, fpenim, ke4, haseeb-gh",
+  "author": "EMBL-EBI-AIT, fpenim, ke4, haseeb-gh, theisuru",
   "license": "Apache-2.0",
   "dependencies": {
     "ajv": "~7.2.1",
@@ -42,7 +42,6 @@
     "nodemon": "^2.0.6",
     "ts-node": "^9.1.0",
     "typescript": "^4.1.2",
-    "utf-8-validate": "^5.0.3",
-    "rimraf": "^3.0.2"
+    "utf-8-validate": "^5.0.3"
   }
 }
