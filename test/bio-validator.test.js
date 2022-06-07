@@ -1,8 +1,8 @@
 const fs = require("fs");
-const BioValidator = require('../src/bio-validator');
+const BioValidator = require('../src/biovalidator');
 
 test("Empty Schema (empty object)", () => {
-    const validator = new BioValidator([]);
+    const validator = new BioValidator();
     return validator.validate({}, {}).then( (data) => {
         expect(data).toBeDefined();
         expect(data.length).toBe(0);
@@ -16,7 +16,7 @@ test("Attributes Schema", () => {
     let inputObj = fs.readFileSync("examples/objects/attributes.json");
     let jsonObj = JSON.parse(inputObj);
 
-    const validator = new BioValidator([]);
+    const validator = new BioValidator();
 
     return validator.validate(jsonSchema, jsonObj).then((data) => {
         expect(data).toBeDefined();
@@ -33,7 +33,7 @@ test("BioSamples Schema - FAANG \'organism\' sample", () => {
     let inputObj = fs.readFileSync("examples/objects/faang-organism-sample.json");
     let jsonObj = JSON.parse(inputObj);
 
-    const validator = new BioValidator([]);
+    const validator = new BioValidator();
 
     return validator.validate(jsonSchema, jsonObj).then((data) => {
         expect(data).toBeDefined();
@@ -47,7 +47,7 @@ test("Study Schema", () => {
 
     let inputObj = fs.readFileSync("examples/objects/study.json");
     let jsonObj = JSON.parse(inputObj);
-    const validator = new BioValidator([]);
+    const validator = new BioValidator();
 
     return validator.validate(jsonSchema, jsonObj).then((data) => {
         expect(data).toBeDefined();

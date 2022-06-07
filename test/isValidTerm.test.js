@@ -1,5 +1,5 @@
 const fs = require("fs");
-const BioValidator = require('../src/bio-validator');
+const BioValidator = require('../src/biovalidator');
 const IsValidTerm = require('../src/keywords/isvalidterm');
 
 test("isValidTerm", () => {
@@ -9,7 +9,7 @@ test("isValidTerm", () => {
   const inputObj = fs.readFileSync("examples/objects/isValidTerm.json");
   const jsonObj = JSON.parse(inputObj);
 
-  const validator = new BioValidator([new IsValidTerm(null, 'https://www.ebi.ac.uk/ols/api/search?q=')]);
+  const validator = new BioValidator();
 
   return validator.validate(jsonSchema, jsonObj).then((data) => {
     expect(data).toBeDefined();

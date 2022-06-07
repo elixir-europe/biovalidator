@@ -16,17 +16,20 @@ const argv = yargs(hideBin(process.argv))
     .demandOption(['schema', 'json'])
     .alias('s', 'schema')
     .alias('j', 'json')
+    .alias('r', 'ref')
     .describe('schema', 'path to the schema file')
     .describe('json', 'path to the json file to validate')
+    .describe('ref', 'path to referenced schema directory, file or glob pattern')
     .example('node ./validator-cli.js --json=valid.json --schema=test_schema.json',
         'Validates \'valid.json\' with \'test_schema.json\'.')
     .argv
 
-const BioValidatorCLI = require("./src/cli/bio-validator-cli");
+const BioValidatorCLI = require("./src/biovalidator-cli");
 const {log_error} = require("./src/utils/logger");
 
 let schema = argv["schema"]
 let json = argv["json"]
+let schemaRef = argv["ref"]
 let isParameterMissing = false;
 
 if (!schema || schema === "" || typeof schema === "boolean") {
@@ -41,6 +44,6 @@ if (!json || json === "" || typeof json === "boolean") {
 if (isParameterMissing || argv["help"]) {
     print_help()
 } else {
-    const bioValidator = new BioValidatorCLI(schema, json);
+    const bioValidator = new BioValidatorCLI(schema, json, schemaRef);
     bioValidator.validate()
 }

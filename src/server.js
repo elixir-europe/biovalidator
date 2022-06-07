@@ -1,16 +1,20 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const logger = require("./winston");
-const runValidation = require("./validator");
 const AppError = require("./model/application-error");
+const BioValidator = require("./biovalidator")
 
 const argv = require("yargs").argv;
 const npid = require("npid");
 
 const app = express();
+const router = express.Router()
 const port = process.env.PORT || 3020;
+const basePath = process.env.VALIDATOR_BASE_URL || '/';
 
-app.use(express.static('src/views'));
+const biovalidator = new BioValidator();
+
+router.use(express.static('src/views'));
 
 app.use(bodyParser.json());
 
@@ -32,14 +36,14 @@ app.use(function(err, req, res, next) {
   }
 });
 
-app.post("/validate", (req, res) => {
+router.post("/validate", (req, res) => {
   logger.log("debug", "Received POST request.");
 
-  var inputSchema = req.body.schema;
-  var inputObject = req.body.object;
+  let inputSchema = req.body.schema;
+  let inputObject = req.body.object;
   
   if (inputSchema && inputObject) {
-    runValidation(inputSchema, inputObject).then((output) => {
+    biovalidator.runValidation(inputSchema, inputObject).then((output) => {
       logger.log("silly", "Sent validation results.");
       res.status(200).send(output);
     }).catch((error) => {
@@ -54,7 +58,7 @@ app.post("/validate", (req, res) => {
   }
 });
 
-app.get("/validate", (req, res) => {
+router.get("/validate", (req, res) => {
   logger.log("silly", "Received GET request.");
 
   res.send({
@@ -65,6 +69,8 @@ app.get("/validate", (req, res) => {
     }
   });
 });
+
+app.use(basePath, router);
 
 app.listen(port, () => {
   logger.log("info", ` -- Started server on port ${port} --`);

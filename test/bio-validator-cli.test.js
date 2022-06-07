@@ -1,4 +1,4 @@
-const BioValidatorCLI = require("../src/cli/bio-validator-cli")
+const BioValidatorCLI = require("../src/biovalidator-cli")
 
 test("Using wrong parameters results with error", () => {
     const mockExit = jest.spyOn(process, 'exit').mockImplementation(() => {});
@@ -41,5 +41,17 @@ test( "Invalid JSON should result with validation error", () => {
 
     expect(errorOutput).toBeDefined();
     expect(errorOutput).toEqual(expectedErrorOutput)
+
+});
+
+test("Should be able to reference schemas from a directory", () => {
+    const mockExit = jest.spyOn(process, 'exit').mockImplementation(() => {});
+
+    const schema = "test/resources/ref_test_schema.json";
+    const data = "test/resources/ref_test_valid.json";
+    const ref = "test/resources/schema_dir/*";
+    const cli = new BioValidatorCLI(schema, data, ref);
+    cli.validate();
+
 
 });

@@ -1,0 +1,11 @@
+{
+  "name": "BioBank cohort study",
+  "duo": {
+    "term": {
+      "id": "DUO:0000022",
+      "label": "geographical restriction"
+    },
+    "modifier": "UK",
+    "description": "Only accessible for researchers based in UK"
+  }
+}
