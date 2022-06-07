@@ -1,6 +1,6 @@
 {
   "name": "biovalidator",
-  "version": "1.9.1",
+  "version": "1.9.2",
   "description": "A nodejs JSON schema validator service. Extended from Ajv to include ontology validation.",
   "main": "src/server.js",
   "repository": "https://github.com/elixir-europe/biovalidator.git",
@@ -19,7 +19,7 @@
     "schema",
     "validator"
   ],
-  "author": "EMBL-EBI-SUBS, fpenim, ke4, haseeb-gh",
+  "author": "EMBL-EBI-AIT, fpenim, ke4, haseeb-gh",
   "license": "Apache-2.0",
   "dependencies": {
     "ajv": "~7.2.1",

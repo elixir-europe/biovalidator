@@ -5,7 +5,7 @@
 const Promise = require('bluebird');
 const path = require("path");
 const fs = require('fs');
-const Ajv = require("ajv").default;
+const Ajv = require("ajv/dist/2019").default;
 const addFormats = require("ajv-formats");
 const request = require("request-promise");
 const AppError = require("./model/application-error");
@@ -106,6 +106,8 @@ class BioValidator {
 
     constructAjv(customKeywordValidators) {
         const ajvInstance = new Ajv({allErrors: true, strict:false, loadSchema: this.generateLoadSchemaRefFn()});
+        const draft7MetaSchema = require("ajv/dist/refs/json-schema-draft-07.json")
+        ajvInstance.addMetaSchema(draft7MetaSchema)
         addFormats(ajvInstance);
         BioValidator._addCustomKeywordValidators(ajvInstance, customKeywordValidators);
 
