@@ -8,6 +8,13 @@ Furthermore, the biovalidator is capable of running as a server or in CLI mode.
 
 The biovalidator currently supports JSON Schema draft-06/07/2019-09.
 
+## Major Changes in new version
+- `graph_restriction` renamed to `graphRestriction` to be consistent with other keywords
+- Merged `validator-cli.js` with `src/server.js`. Now one entry point to the application: `src/biovalidator.js`
+- Changes to arguments accepted at the startup
+  - `--json` renamed to `--data`
+  - Added `--ref`, `--port`, `--baseUrl`, `pidPath` 
+
 ## Contents
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
