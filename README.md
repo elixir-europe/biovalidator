@@ -6,9 +6,7 @@ ELIXIR biovalidator is a [JSON Schema](http://json-schema.org/) validator extend
 In addition to standard JSON Schema validation, the biovalidator covers many validation use cases related life sciences, including ontology validation and taxonomy validation. 
 Furthermore, the biovalidator is capable of running as a server or in CLI mode. 
 
-This repository contains a deployable and executable [JSON Schema](http://json-schema.org/) validator. This validator can run as a standalone node server or as a command line application that receives validation requests and gives back it's results.
-
-The validation is done using the [AJV](https://github.com/epoberezkin/ajv) library version ^7.0.0 that supports the JSON Schema draft-06/07/2019-09.
+The biovalidator currently supports JSON Schema draft-06/07/2019-09.
 
 ## Contents
 - [Getting Started](#getting-started)
@@ -17,7 +15,7 @@ The validation is done using the [AJV](https://github.com/epoberezkin/ajv) libra
 - [Using biovalidator as a server](#using-biovalidator-as-a-server)
 - [Using biovalidator as a CLI command](#using-biovalidator-as-a-cli-command)
 - [Startup arguments](#startup-arguments)
-- [Extended keywords for ontology and taxonomy validation](#Extended keywords for ontology and taxonomy validation)
+- [Extended keywords for ontology and taxonomy validation](#extended-keywords-for-ontology-and-taxonomy-validation)
   - [graphRestriction](#graphrestriction)
   - [isChildTermOf](#ischildtermof)
   - [isValidTerm](#isvalidterm)
@@ -30,8 +28,7 @@ The validation is done using the [AJV](https://github.com/epoberezkin/ajv) libra
 ### Prerequisites
 - [Node.js](https://nodejs.org/en/about/) - v10.19.1.0+
 - [npm](https://www.npmjs.com/) 
-
-If you don't want to install these dependencies, you can run biovalidator using docker. Follow [running in docker guide](#running-in-docker).
+You can also run the [biovalidator using docker](#running-in-docker) without installing node or npm. 
 
 ### Installation
 
