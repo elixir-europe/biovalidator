@@ -173,8 +173,10 @@ Examples:
 - `--ref`:
 If you have a set of local schemas that will be used as `$ref` in your validating schema, these can be passed to biovalidator using `--ref` argument.
 The `--ref` argument can be used in both server and CLI mode. `--ref` accepts file path, directory and glob patterns as values. 
+When parsing glob patterns, it is better to wrap with `'` to avoid parsing them by command line. 
 ```
 node src/biovalidator --ref=/path/to/reference/schema/dir/*.json
+node src/biovalidator --ref '/path/to/reference/schema/dir/*.json'
 ```
 
 - `--port`:
