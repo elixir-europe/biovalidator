@@ -1,6 +1,6 @@
 const Ajv = require("ajv").default;
 const request = require("request");
-const logger = require("../winston");
+const {logger} = require("../utils/winston");
 const CustomAjvError = require("../model/custom-ajv-error");
 
 const taxonomySearchUrl = "https://www.ebi.ac.uk/ena/taxonomy/rest/any-name";

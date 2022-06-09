@@ -35,11 +35,10 @@
     <div class="container ">
         <main>
             <div class="py-5 text-center">
-                <h1>Bio-validator Service</h1>
+                <h1>ELIXIR biovalidator</h1>
                 <p class="lead">
-                    This page allows you to validate JSON against a JSON schema using the
-                    Bio-validator. The validator is based on AJV and includes
-                    custom keyword extensions that are relevant for life science data validation.
+                    ElIXIR biovalidator is an extended JSON Schema validator supporting use cases related to life sciences.
+                    The biovalidator is based on popular JavaScript library AJV.
                 </p>
             </div>
             <div class="mb-3 d-flex justify-content-center">
@@ -91,11 +90,11 @@
 <script>
 
     function error_report(response) {
-        for (i = 0; i < response.length; i++) {
+        for (let i = 0; i < response.length; i++) {
             const dataPath = response[i].dataPath.substr(1);
             const errors = response[i].errors;
             let errorStr = "";
-            for (j = 0; j < errors.length; j++) {
+            for (let j = 0; j < errors.length; j++) {
                 if (errorStr.length === 0) {
                     errorStr = errorStr.concat("<ul>")
                 }
@@ -117,9 +116,8 @@
 
         $("#load").click(function (evt) {
             evt.preventDefault();
-            schema = {
+            let schema = {
                 "$schema": "http://json-schema.org/draft-07/schema#",
-
                 "type": "object",
                 "properties": {
                     "alias": {
@@ -146,7 +144,7 @@
                     "disease_id": {
                         "description": "The ontology id for the disease sample species.",
                         "type": "string",
-                        "graph_restriction": {
+                        "graphRestriction": {
                             "ontologies": ["obo:mondo", "obo:efo"],
                             "classes": ["MONDO:0000001", "PATO:0000461"],
                             "relations": ["rdfs:subClassOf"],
@@ -157,14 +155,14 @@
                 },
                 "required": ["alias", "taxonId"]
             };
-            object = {
+            let data = {
                 "alias": "MA456",
                 "taxonId": 9606,
                 "disease": "glioblastoma",
                 "disease_id": "MONDO:0018177"
             };
             $("#input").val(JSON.stringify(schema, null, 2));
-            $("#input2").val(JSON.stringify(object, null, 2));
+            $("#input2").val(JSON.stringify(data, null, 2));
         });
 
         $("#validate").click(function (event) {
@@ -185,20 +183,20 @@
             } catch (e) {
                 $("#failed").show();
                 input.classList.add('is-invalid')
-                $('#results').append("<p>If provided, we were unable to parse the JSON in the input field.</p>");
+                $('#results').append("<p>Unable to parse the JSON in the input fields.</p>");
             }
             try {
                 instance = JSON.parse($("#input2").val());
             } catch (e) {
                 $("#failed").show();
                 input2.classList.add('is-invalid')
-                $('#results').append("<p>If provided, we were unable to parse the JSON in the input field.</p>");
+                $('#results').append("<p>Unable to parse the JSON in the input fields.</p>");
             }
 
             if (schema && instance) {
                 var submit = {
                     "schema": schema,
-                    "object": instance
+                    "data": instance
                 };
 
                 $.ajax({

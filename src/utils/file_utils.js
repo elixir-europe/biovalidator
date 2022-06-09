@@ -1,5 +1,6 @@
 const fs = require('fs');
 const glob = require('glob');
+const {log_error} = require("./logger");
 
 function getFiles(filePattern) {
     let files = [];
@@ -22,6 +23,17 @@ function readFile(filePath) {
     return jsonSchema;
 }
 
+function readJsonFile(filePath) {
+    if (fs.existsSync(filePath)) {
+        let jsonStr = fs.readFileSync(filePath, 'utf-8')
+        return JSON.parse(jsonStr)
+    } else {
+        let error = "File '" + filePath + "' does not exist!";
+        log_error(error);
+        throw error;
+    }
+}
+
 function addFiles(filePattern, files) {
     if (glob.hasMagic(filePattern)) {
         const dataFiles = glob.sync(filePattern, {cwd: process.cwd()})
@@ -37,4 +49,4 @@ function addFiles(filePattern, files) {
     }
 }
 
-module.exports = {getFiles, readFile}
+module.exports = {getFiles, readFile, readJsonFile}

@@ -1,5 +1,5 @@
 const fs = require("fs");
-const BioValidator = require("../src/biovalidator")
+const BioValidator = require("../src/core/biovalidator-core")
 const biovalidator = new BioValidator();
 
 test(" -> isChildTermOf Schema", () => {
@@ -9,7 +9,7 @@ test(" -> isChildTermOf Schema", () => {
   let inputObj = fs.readFileSync("examples/objects/isChildTerm.json", "utf-8");
   let jsonObj = JSON.parse(inputObj);
 
-  return biovalidator.runValidation(jsonSchema, jsonObj).then( (data) => {
+  return biovalidator.validate(jsonSchema, jsonObj).then( (data) => {
     expect(data).toBeDefined();
     expect(data[0]).toBeDefined();
     expect(data[0].dataPath).toBe("/attributes/age/0/terms/0/url");
@@ -23,7 +23,7 @@ test("FAANG Schema - FAANG \'organism\' sample", () => {
   let inputObj = fs.readFileSync("examples/objects/faang-organism-sample.json", "utf-8");
   let jsonObj = JSON.parse(inputObj);
 
-  return biovalidator.runValidation(jsonSchema, jsonObj).then( (data) => {
+  return biovalidator.validate(jsonSchema, jsonObj).then( (data) => {
     expect(data).toBeDefined();
     expect(data.length).toBe(0);
   });
@@ -36,7 +36,7 @@ test("FAANG Schema - \'specimen\' sample", () => {
   let inputObj = fs.readFileSync("examples/objects/faang-specimen-sample.json", "utf-8");
   let jsonObj = JSON.parse(inputObj);
 
-  return biovalidator.runValidation(jsonSchema, jsonObj).then( (data) => {
+  return biovalidator.validate(jsonSchema, jsonObj).then( (data) => {
     expect(data).toBeDefined();
     expect(data.length).toBe(0);
   });
@@ -49,7 +49,7 @@ test("FAANG Schema - \'pool of specimens\' sample", () => {
   let inputObj = fs.readFileSync("examples/objects/faang-poolOfSpecimens-sample.json", "utf-8");
   let jsonObj = JSON.parse(inputObj);
 
-  return biovalidator.runValidation(jsonSchema, jsonObj).then( (data) => {
+  return biovalidator.validate(jsonSchema, jsonObj).then( (data) => {
     expect(data).toBeDefined();
     expect(data.length).toBe(0);
   });
@@ -62,7 +62,7 @@ test("FAANG Schema - \'cell specimen\' sample", () => {
   let inputObj = fs.readFileSync("examples/objects/faang-cellSpecimen-sample.json", "utf-8");
   let jsonObj = JSON.parse(inputObj);
 
-  return biovalidator.runValidation(jsonSchema, jsonObj).then( (data) => {
+  return biovalidator.validate(jsonSchema, jsonObj).then( (data) => {
     expect(data).toBeDefined();
     expect(data.length).toBe(0);
   });
@@ -75,7 +75,7 @@ test("FAANG Schema - \'cell culture\' sample", () => {
   let inputObj = fs.readFileSync("examples/objects/faang-cellCulture-sample.json", "utf-8");
   let jsonObj = JSON.parse(inputObj);
 
-  return biovalidator.runValidation(jsonSchema, jsonObj).then( (data) => {
+  return biovalidator.validate(jsonSchema, jsonObj).then( (data) => {
     expect(data).toBeDefined();
     expect(data.length).toBe(0);
   });
@@ -88,7 +88,7 @@ test("FAANG Schema - \'cell line\' sample", () => {
   let inputObj = fs.readFileSync("examples/objects/faang-cellLine-sample.json", "utf-8");
   let jsonObj = JSON.parse(inputObj);
 
-  return biovalidator.runValidation(jsonSchema, jsonObj).then( (data) => {
+  return biovalidator.validate(jsonSchema, jsonObj).then( (data) => {
     expect(data).toBeDefined();
     expect(data.length).toBe(0);
   });

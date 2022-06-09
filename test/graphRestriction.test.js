@@ -1,6 +1,6 @@
 const fs = require("fs");
-const BioValidator = require('../src/biovalidator');
-const GraphRestriction = require('../src/keywords/graph_restriction');
+const BioValidator = require('../src/core/biovalidator-core');
+const GraphRestriction = require('../src/keywords/graphRestriction');
 
 
 test(" -> graphRestriction 1 Schema", () => {
@@ -12,7 +12,7 @@ test(" -> graphRestriction 1 Schema", () => {
 
     const validator = new BioValidator();
 
-    return validator.validate(jsonSchema, jsonObj).then((data) => {
+    return validator._validate(jsonSchema, jsonObj).then((data) => {
         expect(data).toBeDefined();
     });
 
@@ -28,7 +28,7 @@ test(" -> graphRestriction 2 Schema", () => {
 
     const validator = new BioValidator();
 
-    return validator.validate(jsonSchema, jsonObj).then((data) => {
+    return validator._validate(jsonSchema, jsonObj).then((data) => {
         expect(data).toBeDefined();
     });
 });
@@ -43,7 +43,7 @@ test(" -> graphRestriction 3 Schema", () => {
 
     const validator = new BioValidator();
 
-    return validator.validate(jsonSchema, jsonObj).then((data) => {
+    return validator._validate(jsonSchema, jsonObj).then((data) => {
         expect(data).toBeDefined();
         expect(data.length).toBe(1);
         expect(data[0].message).toContain('Provided term is not child of');

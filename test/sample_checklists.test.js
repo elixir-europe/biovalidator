@@ -1,5 +1,5 @@
 const fs = require("fs");
-const BioValidator = require("../src/biovalidator")
+const BioValidator = require("../src/core/biovalidator-core")
 const biovalidator = new BioValidator();
 const checklistFolder = "test/resources/ena_samples/checklists/";
 const validObjectFolder = "test/resources/ena_samples/objects/valid/";
@@ -16,7 +16,7 @@ describe("Sample Checklist tests", () => {
         let inputObj = fs.readFileSync(validObjectFolder + samplePrefix + file); 
         let jsonObj = JSON.parse(inputObj);
 
-        biovalidator.runValidation(jsonSchema, jsonObj).then( (data) => {
+        biovalidator.validate(jsonSchema, jsonObj).then( (data) => {
           expect(data).toBeDefined();
           expect(data.length).toBe(0);
         });
@@ -74,7 +74,7 @@ describe("Sample Checklist tests", () => {
         let inputObj = fs.readFileSync(invalidObjectFolder + samplePrefix + file); 
         let jsonObj = JSON.parse(inputObj);
 
-        biovalidator.runValidation(jsonSchema, jsonObj).then( (data) => {
+        biovalidator.validate(jsonSchema, jsonObj).then( (data) => {
           expect(data).toBeDefined();
           if (missingPropertyMap.get(file) != null) {
             expect(data.length).toBe(1);

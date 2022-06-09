@@ -26,7 +26,7 @@
     "disease_id": {
       "description": "The ontology id for the disease sample species.",
       "type": "string",
-      "graph_restriction": {
+      "graphRestriction": {
         "ontologies": ["obo:mondo", "obo:efo"],
         "classes": ["MONDO:0000001", "PATO:0000461"],
         "relations": ["rdfs:subClassOf"],

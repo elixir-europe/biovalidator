@@ -1,4 +1,4 @@
-const BioValidatorCLI = require("../src/biovalidator-cli")
+const BioValidatorCLI = require("../src/core/cli")
 
 test("Using wrong parameters results with error", () => {
     const mockExit = jest.spyOn(process, 'exit').mockImplementation(() => {});

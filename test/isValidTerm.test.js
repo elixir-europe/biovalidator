@@ -1,5 +1,5 @@
 const fs = require("fs");
-const BioValidator = require('../src/biovalidator');
+const BioValidator = require('../src/core/biovalidator-core');
 const IsValidTerm = require('../src/keywords/isvalidterm');
 
 test("isValidTerm", () => {
@@ -11,7 +11,7 @@ test("isValidTerm", () => {
 
   const validator = new BioValidator();
 
-  return validator.validate(jsonSchema, jsonObj).then((data) => {
+  return validator._validate(jsonSchema, jsonObj).then((data) => {
     expect(data).toBeDefined();
     expect(data.length).toBe(1);
     expect(data[0].message).toContain('provided term does not exist in OLS');
