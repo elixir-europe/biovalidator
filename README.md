@@ -51,7 +51,7 @@ npm test
 
 ## Using biovalidator as a server
 
-By default, biovalidator will start as a server. Read [Startup arguments](#startup-arguments) section for more server options. 
+By default, biovalidator will start as a server. Read [startup arguments](#startup-arguments) section for more server options. 
 ```
 node src/biovalidator
 ```
@@ -196,7 +196,7 @@ node src/biovalidator --logPath=/log/directory/path
 ```
 
 ## Extended keywords for ontology and taxonomy validation
-The biovalidator support four extended keywords for ontology and taxonomy validation: `graphRestriction`, `isChildTermOf`, `isValidTerm` and `isValidTaxonomy`.
+The biovalidator supports four extended keywords for ontology and taxonomy validation: `graphRestriction`, `isChildTermOf`, `isValidTerm` and `isValidTaxonomy`.
 
 ### graphRestriction
 This custom keyword *evaluates if an ontology term is child of another*. This keyword is applied to a string (CURIE) and **passes validation if the term is a child of the term defined in the schema**.
