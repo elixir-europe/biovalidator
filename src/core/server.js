@@ -119,7 +119,8 @@ class BioValidatorServer {
     try {
       npid.create(this.pidPath).removeOnExit();
     } catch(err) {
-      logger.log("Failed to create PID file. ", err);
+      logger.error("Failed to create PID file. ", err);
+      logger.warn(`Please check if another instance of the server is running or else delete the PID file available at ${this.pidPath} before starting starting the server`)
       process.exit(1);
     }
 
