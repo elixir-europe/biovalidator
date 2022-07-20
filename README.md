@@ -147,7 +147,7 @@ By default, biovalidator will log to the console and `./log` directory. Log file
 You can change the default logging directory by specifying an environment variable `BIOVALIDATOR_LOG_DIR`. 
 Example in linux environment:
 ```shell
-export BIOVALIDATOR_LOG_DIR=new_log_dir
+export BIOVALIDATOR_LOG_DIR=./new_log_dir
 ```
 
 ## Using biovalidator as a CLI command
@@ -205,10 +205,12 @@ node src/biovalidator --baseUrl=/schema  # will serve the content under http://l
 node src/biovalidator --pidPath=/pid/file/path/server.pid
 ```
 
-- `--logPath`:
-Can be provided to specify the directory of the log files. Log files will be rotated every 24 hours. Only works in server mode.
+- `BIOVALIDATOR_LOG_DIR`:
+This should be added as an environment variable. Can be provided to specify the directory of the log files. 
+Log files will be rotated every 24 hours. Only works in server mode.
 ```
-node src/biovalidator --logPath=/log/directory/path
+export BIOVALIDATOR_LOG_DIR=./new_log_dir
+node src/biovalidator
 ```
 
 ## Extended keywords for ontology and taxonomy validation
