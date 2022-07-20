@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const {logger, configureLogPath} = require("../utils/winston");
+const {logger, getLogger} = require("../utils/winston");
 const AppError = require("../model/application-error");
 const BioValidator = require("./biovalidator-core")
 const npid = require("npid");
@@ -10,7 +10,7 @@ class BioValidatorServer {
     this.biovalidator = new BioValidator(localSchemaPath)
     this.port = port || process.env.BIOVALIDATOR_PORT || 3020;
     this.baseUrl = process.env.BIOVALIDATOR_BASE_URL || '/';
-    this.logPath = process.env.BIOVALIDATOR_LOG_DIR || './';
+    this.logPath = process.env.BIOVALIDATOR_LOG_DIR || 'logs';
     this.pidPath = process.env.BIOVALIDATOR_PID_PATH || './server.pid';
   }
 
@@ -19,10 +19,10 @@ class BioValidatorServer {
     return this;
   }
 
-  withLogDir(logDir) {
-    this.logPath = logDir || this.logPath;
-    return this;
-  }
+  // withLogDir(logDir) {
+  //   this.logPath = logDir || this.logPath;
+  //   return this;
+  // }
 
   withPid(pidPath) {
     this.pidPath = pidPath || this.pidPath;
@@ -37,6 +37,7 @@ class BioValidatorServer {
   }
 
   _configureServer() {
+    // this.logger = getLogger(this.logPath);
     this.app = express();
     this.router = express.Router();
     this.router.use(express.static('src/views'));
@@ -62,27 +63,27 @@ class BioValidatorServer {
     });
 
     this.app.use(this.baseUrl, this.router);
-    configureLogPath(this.logPath);
-
     return this;
   }
 
   _configureEndpoints() {
     this.router.post("/validate", (req, res) => {
+      let startTime = new Date().getTime();
       let inputSchema = req.body.schema;
       let inputObject = req.body.data;
 
       if (inputSchema && inputObject) {
         this.biovalidator.validate(inputSchema, inputObject).then((output) => {
           res.status(200).send(output);
+          logger.info("New validation request, processed successfully in " + (new Date().getTime() - startTime) + "ms.");
         }).catch((error) => {
-          logger.error(error);
           res.status(500).send(error);
+          logger.error("New validation request, server failed to process data: " + error);
         });
       } else {
-        let appError = new AppError("Invalid data. Please provide both 'schema' and 'data' in request body.");
-        logger.info(appError.error);
+        let appError = new AppError("Malformed data. Please provide both 'schema' and 'data' in request body.");
         res.status(400).send(appError);
+        logger.info("New validation request, " + appError.error);
       }
     });
 
@@ -93,7 +94,7 @@ class BioValidatorServer {
             "see https://github.com/elixir-europe/biovalidator",
         example_post_body: {
           schema: {},
-          object: {}
+          data: {}
         }
       });
     });
@@ -108,7 +109,7 @@ class BioValidatorServer {
       logger.info(`---------------------------------------------`);
       logger.info(`Started server on port ${this.port} with base URL ${this.baseUrl}`);
       logger.info(`PID file is available at ${this.pidPath}`);
-      // logger.info(`Writing logs to: ${this.logPath}`);
+      logger.info(`Writing logs to: ${this.logPath}`);
     });
 
     return this;

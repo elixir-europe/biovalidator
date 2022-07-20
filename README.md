@@ -142,6 +142,14 @@ HTTP status code `200`
 Where *errors* is an array of error messages for a given input identified by its path on *dataPath*. 
 There may be one or more error objects within the response array. An empty array represents a valid validation result.
 
+### Changing the logging directory
+By default, biovalidator will log to the console and `./log` directory. Log files are daily rotated. 
+You can change the default logging directory by specifying an environment variable `BIOVALIDATOR_LOG_DIR`. 
+Example in linux environment:
+```shell
+export BIOVALIDATOR_LOG_DIR=new_log_dir
+```
+
 ## Using biovalidator as a CLI command
 The biovalidator can also be run as a CLI application. If you provide `--schema` and `--data` as parameters to the application, it will execute in CLI mode. 
 To see all the available options, run `node ./src/biovalidator --help`
@@ -157,7 +165,6 @@ Options:
       --version  Show version number                                   [boolean]
       --baseUrl  base URL for the server. Only valid in server mode.
       --pidPath  PID file name and path. Only valid in server mode.
-      --logDir   path to the log directory.
   -s, --schema   path to the schema file.
   -d, --data     path to the data file.
   -r, --ref      path to referenced schema directory/file/glob pattern.

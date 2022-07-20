@@ -66,16 +66,16 @@ class BioValidator {
                         }
                     ).catch((err) => {
                     if (!(err instanceof Ajv.ValidationError)) {
-                        console.error("An error occurred while running the validation.");
+                        logger.error("An error occurred while running the validation.");
                         reject(new AppError("An error occurred while running the validation."));
                     } else {
-                        console.debug("debug", this.ajvInstance.errorsText(err.errors, {dataVar: inputObject.alias}));
+                        logger.debug("Validation failed with errors: " + this.ajvInstance.errorsText(err.errors, {dataVar: inputObject.alias}));
                         resolve(err.errors);
                     }
                 });
             }).catch((err) => {
-                console.error("async schema compiled encountered and error");
-                console.error(err.stack);
+                logger.error("async schema compiled encountered and error");
+                logger.error(err.stack);
                 reject(err);
             });
         });

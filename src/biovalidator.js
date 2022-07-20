@@ -17,7 +17,7 @@ const argv = yargs(hideBin(process.argv))
     .describe('port', 'exposed port in server mode. Only valid in server mode.')
     .describe('baseUrl', 'base URL for the server. Only valid in server mode.')
     .describe('pidPath', 'PID file name and path. Only valid in server mode.')
-    .describe('logDir', 'path to the log directory.')
+    // .describe('logDir', 'path to the log directory.')
     .example('node ./src/biovalidator.js --data=test_data.json --schema=test_schema.json',
         'Runs in CLI mode to validate \'test_data.json\' with \'test_schema.json\'')
     .argv
@@ -29,7 +29,7 @@ let data = argv["data"]
 let port = argv["port"]
 let baseUrl = argv["baseUrl"]
 let pidPath = argv["pidPath"]
-let logDir = argv["logDir"]
+// let logDir = argv["logDir"]
 
 if (help) {
     _printHelp();
@@ -42,7 +42,7 @@ if (help) {
     new BioValidatorServer(port, schemaRef)
         .withBaseUrl(baseUrl)
         .withPid(pidPath)
-        .withLogDir(logDir)
+        // .withLogDir(logDir)
         .start();
 }
 
