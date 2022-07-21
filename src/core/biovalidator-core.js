@@ -43,11 +43,21 @@ class BioValidator {
                 if (error.errors) {
                     reject(new AppError(error.errors));
                 } else {
-                    logger.log("error", "An error occurred while running the validation. Error : " + JSON.stringify(error));
-                    reject(new AppError("An error occurred while running the validation."));
+                    logger.error("An error occurred while running the validation: " + JSON.stringify(error));
+                    reject(error);
                 }
             });
         });
+    }
+
+    getCachedSchema() {
+        this.ajvInstance.getSchema("");
+    }
+
+    clearCachedSchema() {
+        this.ajvInstance.removeSchema();
+        this.validatorCache = {};
+        this.cachedSchemas = {};
     }
 
     _validate(inputSchema, inputObject) {
@@ -74,8 +84,6 @@ class BioValidator {
                     }
                 });
             }).catch((err) => {
-                logger.error("async schema compiled encountered and error");
-                logger.error(err.stack);
                 reject(err);
             });
         });
@@ -135,7 +143,8 @@ class BioValidator {
                             this.cachedSchemas[uri] = loadedSchema;
                             resolve(loadedSchema);
                         }).catch(err => {
-                        logger.error("Failed to retrieve remote schema: " + uri + ", " + err.name + ": " + err.statusCode)
+                        logger.error("Failed to retrieve remote schema: " + uri + ", " + JSON.stringify(err))
+                        reject(new AppError("Failed to resolve $ref: " + uri + ", status: " + err.statusCode));
                     });
                 });
             }

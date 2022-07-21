@@ -78,7 +78,7 @@ class BioValidatorServer {
           logger.info("New validation request, processed successfully in " + (new Date().getTime() - startTime) + "ms.");
         }).catch((error) => {
           res.status(500).send(error);
-          logger.error("New validation request, server failed to process data: " + error);
+          logger.error("New validation request, server failed to process data: " + JSON.stringify(error));
         });
       } else {
         let appError = new AppError("Malformed data. Please provide both 'schema' and 'data' in request body.");
@@ -99,6 +99,20 @@ class BioValidatorServer {
       });
     });
 
+    this.router.get("/cache", (req, res) => {
+      let cachedSchema = this.biovalidator.getCachedSchema(); // todo fill in the logic to get cached schema
+      res.send({
+        "message": "This endpoint is not implemented yet"
+      });
+    });
+
+    this.router.delete("/cache", (req, res) => {
+      this.biovalidator.clearCachedSchema();
+      res.send({
+        "message": "Cache cleared successfully"
+      });
+    });
+
     return this;
   }
 
@@ -109,7 +123,7 @@ class BioValidatorServer {
       logger.info(`---------------------------------------------`);
       logger.info(`Started server on port ${this.port} with base URL ${this.baseUrl}`);
       logger.info(`PID file is available at ${this.pidPath}`);
-      logger.info(`Writing logs to: ${this.logPath}`);
+      logger.info(`Writing logs to: ${this.logPath}/`);
     });
 
     return this;
