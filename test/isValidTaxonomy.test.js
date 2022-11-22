@@ -1,5 +1,5 @@
 const fs = require("fs");
-const BioValidator = require('../src/biovalidator');
+const BioValidator = require('../src/core/biovalidator-core');
 const IsValidTaxonomy = require('../src/keywords/isvalidtaxonomy');
 
 test("valid taxonomy expression should pass the validation", () => {
@@ -11,7 +11,7 @@ test("valid taxonomy expression should pass the validation", () => {
 
   const schemaValidator = new BioValidator();
 
-  return schemaValidator.validate(jsonSchema, jsonObj).then( (data) => {
+  return schemaValidator._validate(jsonSchema, jsonObj).then( (data) => {
     console.log(data);
     expect(data).toBeDefined();
     expect(data.length).toBe(0);
@@ -27,7 +27,7 @@ test("invalid taxonomy expresson should return an error", () => {
 
   const schemaValidator = new BioValidator()
   
-  return schemaValidator.validate(jsonSchema, jsonObj).then( (data) => {
+  return schemaValidator._validate(jsonSchema, jsonObj).then( (data) => {
     console.log(data);
     expect(data).toBeDefined();
     expect(data.length).toBe(1);

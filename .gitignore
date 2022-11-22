@@ -1,6 +1,9 @@
 node_modules/
 .idea/
 .DS_Store
-log/
+logs
+error_test
 *.iml
 server.pid
+*.log
+*-audit.json

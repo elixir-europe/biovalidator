@@ -5,7 +5,7 @@ const CustomAjvError = require("../model/custom-ajv-error");
 
 class GraphRestriction {
     constructor(keywordName, olsBaseUrl){
-        this.keywordName = keywordName ? keywordName : "graph_restriction";
+        this.keywordName = keywordName ? keywordName : "graphRestriction";
         this.olsBaseUrl = olsBaseUrl;
     }
 
@@ -59,7 +59,7 @@ class GraphRestriction {
         };
 
         const generateErrorObject = (message) => {
-            return new CustomAjvError("graph_restriction", message, {});
+            return new CustomAjvError("graphRestriction", message, {});
         };
 
         const findChildTerm = (schema, data) => {
@@ -114,7 +114,7 @@ class GraphRestriction {
                     }
                 }
                 else {
-                    errors.push(generateErrorObject("Missing required variable in schema graph_restriction, required properties are: parentTerm and ontologyId."));
+                    errors.push(generateErrorObject("Missing required variable in schema graphRestriction, required properties are: parentTerm and ontologyId."));
                     reject(ajv.ValidationError);
                 }
             });
