@@ -1,6 +1,6 @@
 {
   "name": "biovalidator",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A nodejs JSON schema validator, extended from Ajv to include ontology validation.",
   "main": "src/biovalidator.js",
   "bin": {
