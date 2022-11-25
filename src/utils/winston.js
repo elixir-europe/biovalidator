@@ -28,7 +28,7 @@ const dateFormat = printf((info) => {
 
 const transportsArray = [
   new winston.transports.Console(options.console),
-  new (winston.transports.DailyRotateFile)({
+  new winston.transports.DailyRotateFile({
     filename: 'biovalidator.log',
     dirname: logDir,
     datePattern: 'YYYY-MM-DD-HH'

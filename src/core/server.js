@@ -10,7 +10,7 @@ class BioValidatorServer {
     this.biovalidator = new BioValidator(localSchemaPath)
     this.port = port || process.env.BIOVALIDATOR_PORT || 3020;
     this.baseUrl = process.env.BIOVALIDATOR_BASE_URL || '/';
-    this.logPath = process.env.BIOVALIDATOR_LOG_DIR || 'logs';
+    this.logPath = process.env.BIOVALIDATOR_LOG_DIR || './logs';
     this.pidPath = process.env.BIOVALIDATOR_PID_PATH || './server.pid';
   }
 
@@ -134,7 +134,7 @@ class BioValidatorServer {
       npid.create(this.pidPath).removeOnExit();
     } catch(err) {
       logger.error("Failed to create PID file. ", err);
-      logger.warn(`Please check if another instance of the server is running or else delete the PID file available at ${this.pidPath} before starting starting the server`)
+      logger.warn(`Please check if another instance of the server is running or else delete the PID file available at ${this.pidPath} before starting the server`)
       process.exit(1);
     }
 

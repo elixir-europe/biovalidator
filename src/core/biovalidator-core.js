@@ -41,6 +41,7 @@ class BioValidator {
                     }
                 ).catch((error) => {
                 if (error.errors) {
+                    logger.error("failed to validate: " + JSON.stringify(error))
                     reject(new AppError(error.errors));
                 } else {
                     logger.error("An error occurred while running the validation: " + JSON.stringify(error));
@@ -60,8 +61,21 @@ class BioValidator {
         this.cachedSchemas = {};
     }
 
-    _validate(inputSchema, inputObject) {
+    // AJV requires $async keyword in schemas if they use any of async custom defined keywords.
+    // We populate all schemas/defs with $async as a workaround to avoid users manually entering $async in schemas.
+    _insertAsyncToSchemasAndDefs(inputSchema) {
         inputSchema["$async"] = true;
+        if (inputSchema.hasOwnProperty("definitions")) {
+            let defs = Object.keys(inputSchema.definitions);
+            for (let x = 0; x < defs.length; x++) {
+                inputSchema.definitions[defs[x]]["$async"] = true;
+            }
+        }
+    }
+
+    _validate(inputSchema, inputObject) {
+        this._insertAsyncToSchemasAndDefs(inputSchema);
+
         return new Promise((resolve, reject) => {
             const compiledSchemaPromise = this.getValidationFunction(inputSchema);
 
@@ -84,6 +98,7 @@ class BioValidator {
                     }
                 });
             }).catch((err) => {
+                logger.error("Failed to compile schema: " + err);
                 reject(err);
             });
         });
@@ -139,7 +154,7 @@ class BioValidator {
                     request({method: "GET", url: uri, json: true})
                         .then(resp => {
                             const loadedSchema = resp;
-                            loadedSchema["$async"] = true;
+                            this._insertAsyncToSchemasAndDefs(loadedSchema);
                             this.cachedSchemas[uri] = loadedSchema;
                             resolve(loadedSchema);
                         }).catch(err => {

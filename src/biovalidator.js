@@ -60,11 +60,11 @@ function _printHelp() {
 function _validateCliArgs() {
     let valid = true
     if (!schema || schema === "" || typeof schema === "boolean") {
-        log_error("missing --data. Please add data file path to run in CLI mode.");
+        log_error("missing --schema. Please add schema file path to run in CLI mode.");
         valid = false;
     }
     if (!data || data === "" || typeof data === "boolean") {
-        log_error("missing --schema. Please add schema file path to run in CLI mode.");
+        log_error("missing --data. Please add data file path to run in CLI mode.");
         valid = false;
     }
 
