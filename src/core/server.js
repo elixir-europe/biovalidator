@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const {logger, getLogger} = require("../utils/winston");
+const {logger, addLogDirectory} = require("../utils/winston");
 const AppError = require("../model/application-error");
 const BioValidator = require("./biovalidator-core")
 const npid = require("npid");
@@ -19,10 +19,10 @@ class BioValidatorServer {
     return this;
   }
 
-  // withLogDir(logDir) {
-  //   this.logPath = logDir || this.logPath;
-  //   return this;
-  // }
+  withLogDir(logDir) {
+    this.logPath = logDir || this.logPath;
+    return this;
+  }
 
   withPid(pidPath) {
     this.pidPath = pidPath || this.pidPath;
@@ -37,7 +37,8 @@ class BioValidatorServer {
   }
 
   _configureServer() {
-    // this.logger = getLogger(this.logPath);
+    addLogDirectory(this.logPath);
+
     this.app = express();
     this.router = express.Router();
     this.router.use(express.static('src/views'));
@@ -75,15 +76,15 @@ class BioValidatorServer {
       if (inputSchema && inputObject) {
         this.biovalidator.validate(inputSchema, inputObject).then((output) => {
           res.status(200).send(output);
-          logger.info("New validation request, processed successfully in " + (new Date().getTime() - startTime) + "ms.");
+          logger.info("New validation request: Processed successfully in " + (new Date().getTime() - startTime) + "ms.");
         }).catch((error) => {
           res.status(500).send(error);
-          logger.error("New validation request, server failed to process data: " + JSON.stringify(error));
+          logger.error("New validation request: Server failed to process data: " + JSON.stringify(error));
         });
       } else {
         let appError = new AppError("Malformed data. Please provide both 'schema' and 'data' in request body.");
         res.status(400).send(appError);
-        logger.info("New validation request, " + appError.error);
+        logger.info("New validation request: " + appError.error);
       }
     });
 

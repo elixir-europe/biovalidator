@@ -19,13 +19,12 @@ const customKeywordValidators = [
 class BioValidator {
     constructor(localSchemaPath) {
         this.validatorCache = {};
-        this.cachedSchemas = {};
+        this.referencedSchemaCache = {};
         this.ajvInstance = this._getAjvInstance(localSchemaPath);
     }
 
     // wrapper around _validate to process output
     validate(inputSchema, inputObject) {
-        logger.log("silly", "Running validation...");
         return new Promise((resolve, reject) => {
             this._validate(inputSchema, inputObject)
                 .then((validationResult) => {
@@ -41,7 +40,7 @@ class BioValidator {
                     }
                 ).catch((error) => {
                 if (error.errors) {
-                    logger.error("failed to validate: " + JSON.stringify(error))
+                    logger.error("An error occurred while running the validation: " + JSON.stringify(error))
                     reject(new AppError(error.errors));
                 } else {
                     logger.error("An error occurred while running the validation: " + JSON.stringify(error));
@@ -58,7 +57,7 @@ class BioValidator {
     clearCachedSchema() {
         this.ajvInstance.removeSchema();
         this.validatorCache = {};
-        this.cachedSchemas = {};
+        this.referencedSchemaCache = {};
     }
 
     // AJV requires $async keyword in schemas if they use any of async custom defined keywords.
@@ -90,10 +89,10 @@ class BioValidator {
                         }
                     ).catch((err) => {
                     if (!(err instanceof Ajv.ValidationError)) {
-                        logger.error("An error occurred while running the validation.");
-                        reject(new AppError("An error occurred while running the validation."));
+                        logger.error("An error occurred while running the validation. " + err);
+                        reject(new AppError("An error occurred while running the validation. " + err));
                     } else {
-                        logger.debug("Validation failed with errors: " + this.ajvInstance.errorsText(err.errors, {dataVar: inputObject.alias}));
+                        logger.info("Validation failed with errors: " + this.ajvInstance.errorsText(err.errors, {dataVar: inputObject.alias}));
                         resolve(err.errors);
                     }
                 });
@@ -123,10 +122,13 @@ class BioValidator {
         const schemaId = inputSchema['$id'];
 
         if (this.validatorCache[schemaId]) {
+            logger.info("Returning compiled schema from cache: " + schemaId);
             return Promise.resolve(this.validatorCache[schemaId]);
         } else {
+            logger.info("Compiling schema : " + schemaId);
             const compiledSchemaPromise = this.ajvInstance.compileAsync(inputSchema);
             if (schemaId) {
+                logger.info("Saving compiled schema in cache: " + schemaId);
                 this.validatorCache[schemaId] = compiledSchemaPromise;
             }
             return Promise.resolve(compiledSchemaPromise);
@@ -147,18 +149,20 @@ class BioValidator {
 
     _resolveReference() {
         return (uri) => {
-            if (this.cachedSchemas[uri]) {
-                return Promise.resolve(this.cachedSchemas[uri]);
+            if (this.referencedSchemaCache[uri]) {
+                logger.info("Returning referenced schema from cache: " + uri);
+                return Promise.resolve(this.referencedSchemaCache[uri]);
             } else {
                 return new Promise((resolve, reject) => {
                     request({method: "GET", url: uri, json: true})
                         .then(resp => {
+                            logger.info("Returning referenced schema from network : " + uri);
                             const loadedSchema = resp;
                             this._insertAsyncToSchemasAndDefs(loadedSchema);
-                            this.cachedSchemas[uri] = loadedSchema;
+                            this.referencedSchemaCache[uri] = loadedSchema;
                             resolve(loadedSchema);
                         }).catch(err => {
-                        logger.error("Failed to retrieve remote schema: " + uri + ", " + JSON.stringify(err))
+                        logger.error("Failed to retrieve referenced schema: " + uri + ", " + JSON.stringify(err))
                         reject(new AppError("Failed to resolve $ref: " + uri + ", status: " + err.statusCode));
                     });
                 });
@@ -171,16 +175,19 @@ class BioValidator {
             ajvInstance = customKeywordValidator.configure(ajvInstance);
         });
 
+        logger.info("Custom keywords successfully added. Number of custom keywords: " + customKeywordValidators.length)
         return ajvInstance;
     }
 
     _preCompileLocalSchemas(ajv, localSchemaPath) {
         if (localSchemaPath) {
+            logger.info("Compiling local schema from: " + localSchemaPath)
             let schemaFiles = getFiles(localSchemaPath);
             for (let file of schemaFiles) {
                 let schema = readFile(file);
-                ajv.getSchema(schema["$id"] || ajv.compile(schema));
-                this.cachedSchemas[schema["$id"]] = schema;
+                ajv.getSchema(schema["$id"] || ajv.compile(schema)); // add to AJV cache if not already present
+                this.referencedSchemaCache[schema["$id"]] = schema;
+                logger.info("Adding compiled local schema to cache: " + schema["$id"])
             }
         }
     }
