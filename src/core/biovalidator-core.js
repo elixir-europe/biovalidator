@@ -98,7 +98,7 @@ class BioValidator {
                 });
             }).catch((err) => {
                 logger.error("Failed to compile schema: " + err);
-                reject(err);
+                reject(new AppError("Failed to compile schema: " + err));
             });
         });
     }
@@ -122,13 +122,13 @@ class BioValidator {
         const schemaId = inputSchema['$id'];
 
         if (this.validatorCache[schemaId]) {
-            logger.info("Returning compiled schema from cache: " + schemaId);
+            logger.info("Returning compiled schema from cache, $schemaId: " + schemaId);
             return Promise.resolve(this.validatorCache[schemaId]);
         } else {
-            logger.info("Compiling schema : " + schemaId);
+            logger.info("Compiling new schema, $schemaId: " + schemaId);
             const compiledSchemaPromise = this.ajvInstance.compileAsync(inputSchema);
             if (schemaId) {
-                logger.info("Saving compiled schema in cache: " + schemaId);
+                logger.info("Saving compiled schema in cache, $schemaId: " + schemaId);
                 this.validatorCache[schemaId] = compiledSchemaPromise;
             }
             return Promise.resolve(compiledSchemaPromise);
