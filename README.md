@@ -107,7 +107,7 @@ Content-Type: application/json
     },  
     "required": ["alias", "taxonId" ]
   },
-  "object": {
+  "data": {
     "alias": "MA456",
     "taxonId": 9606
   }
@@ -205,11 +205,23 @@ node src/biovalidator --baseUrl=/schema  # will serve the content under http://l
 node src/biovalidator --pidPath=/pid/file/path/server.pid
 ```
 
-- `BIOVALIDATOR_LOG_DIR`:
+- `--logDir`
 This should be added as an environment variable. Can be provided to specify the directory of the log files. 
 Log files will be rotated every 24 hours. Only works in server mode.
 ```
+node src/biovalidator --logDir=/log/directory/path
+```
+
+### Most of the arguments can be provided as environment variables as well
+- BIOVALIDATOR_LOG_DIR
+- BIOVALIDATOR_PORT
+- BIOVALIDATOR_BASE_URL
+- BIOVALIDATOR_PID_PATH
+
+Example:
+```
 export BIOVALIDATOR_LOG_DIR=./new_log_dir
+export BIOVALIDATOR_PORT=3020
 node src/biovalidator
 ```
 

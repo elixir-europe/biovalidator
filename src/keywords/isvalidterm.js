@@ -39,31 +39,30 @@ class IsValidTerm {
                     const encodedTermUri = encodeURIComponent(termUri);
                     const url = this.olsSearchUrl + encodedTermUri + "&exact=true&groupField=true&queryFields=iri";
 
-                    logger.log("debug", `Looking for term [${termUri}] in OLS.`);
                     request(url, (error, Response, body) => {
                         let jsonBody = JSON.parse(body);
 
                         if (jsonBody.response.numFound === 1) {
-                            logger.log("debug", "Found 1 match!");
+                            logger.debug(`Returning resolved term from OLS: [${termUri}]`);
                             resolve(true);
                         } else if (jsonBody.response.numFound === 0) {
-                            logger.log("debug", "Could not find term in OLS.");
-                            errors.push(
-                                new CustomAjvError(
-                                    "isValidTerm", `provided term does not exist in OLS: [${termUri}]`,
-                                    {keyword: "isValidTerm"})
+                            logger.warn(`Failed to resolve term from OLS. Term not present: [${termUri}]`);
+                            errors.push(new CustomAjvError(
+                                "isValidTerm", `provided term does not exist in OLS: [${termUri}]`,
+                                {keyword: "isValidTerm"})
                             );
                             reject(new Ajv.ValidationError(errors));
                         } else {
-                            errors.push(
-                                new CustomAjvError(
-                                    "isValidTerm", "Something went wrong while validating term, try again.",
-                                    {keyword: "isValidTerm"})
+                            logger.error(`Failed to resolve term from OLS. Unknown error: [${termUri}]`);
+                            errors.push(new CustomAjvError(
+                                "isValidTerm", "Something went wrong while validating term, try again.",
+                                {keyword: "isValidTerm"})
                             );
                             reject(new Ajv.ValidationError(errors));
                         }
                     });
                 } else {
+                    logger.warn(`Trying to work with empty schema. Why are we here : [${schema}]`);
                     resolve(true);
                 }
             });
