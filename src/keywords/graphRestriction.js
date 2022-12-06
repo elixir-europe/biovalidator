@@ -2,6 +2,7 @@ const CurieExpansion = require("../utils/curie_expansion");
 const ajv = require("ajv").default;
 const request = require("request-promise");
 const CustomAjvError = require("../model/custom-ajv-error");
+const {logger} = require("../utils/winston");
 
 class GraphRestriction {
     constructor(keywordName, olsBaseUrl){
@@ -100,14 +101,18 @@ class GraphRestriction {
                                 let jsonBody = resp;
 
                                 if (jsonBody.response.numFound === 1) {
+                                    logger.debug(`Returning resolved term from OLS: [${parentTerm}]`);
                                 } else if (jsonBody.response.numFound === 0) {
+                                    logger.warn(`Failed to resolve term from OLS. Invalid relationship: [${ontologyId}]`);
                                     errors.push(generateErrorObject(`Provided term is not child of [${parentTerm}]`));
                                 } else {
+                                    logger.error(`Failed to resolve term from OLS. Unknown error: [${ontologyId}]`);
                                     errors.push(generateErrorObject("Something went wrong while validating term, try again."));
                                 }
                                 reject(new ajv.ValidationError(errors));
                             });
                         }).catch(err => {
+                            logger.error("Failed to resolve term from OLS. Unknown error: " + err);
                             errors.push(generateErrorObject(err));
                             reject(new ajv.ValidationError(errors));
                         });
