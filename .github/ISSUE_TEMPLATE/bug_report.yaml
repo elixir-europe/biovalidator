@@ -1,0 +1,77 @@
+name: Report a bug
+description: Form to report bugs.
+title: "[BUG]: "
+labels: ["bug"]
+assignees:
+  - theisuru
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This form serves as a template for **reporting Biovalidator bugs** (e.g. malfunctioning validation, empty logs...).
+  - type: input
+    id: bug-title
+    attributes:
+      label: Bug summary
+      description: Please provide a summary or title for the bug. 
+      placeholder: e.g. Validation crashes when compiling the schemas
+    validations:
+      required: true
+  - type: textarea
+    id: technical-details
+    attributes:
+      label: Technical details
+      description: If relevant, please specify the technical details of the environment in which Biovalidator was run
+      placeholder:  |
+          e.g. 
+              * Used GitHub branch: main
+              * Node version: v16.13.0
+              * npm version: 8.6.0
+              * Operating system: WSL2
+              ...
+    validations:
+      required: false
+  - type: textarea
+    id: to-reproduce
+    attributes:
+      label: To reproduce
+      description: Please explain in detail what led you to observe the bug to help us reproduce it while we try to fix it.
+      placeholder:  |
+          e.g.
+            Steps to reproduce:
+              1. Clone project and install dependencies:
+              ````
+              git clone https://github.com/elixir-europe/biovalidator.git
+              cd biovalidator
+              npm install
+              ````
+              2. Deploy the server:
+              ````
+              node src/biovalidator
+              ````
+              3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: observed-behaviour
+    attributes:
+      label: Observed behaviour
+      description: Please explain the behaviour you observed and considered a bug.
+      placeholder: e.g. When validating the document helloworld.json an error appeared specifying the schema could not be compiled.
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behaviour
+    attributes:
+      label: Expected behaviour
+      description: Please explain what you expected to happen if there was no bug.
+      placeholder: e.g. The schema should be compiled and the validation performed onto document helloworld.json
+    validations:
+      required: true
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Use this section to add any context that could aid in the fixing of the bug, including error messages, screenshots, used JSON schemas and documents...
+    validations:
+      required: false
