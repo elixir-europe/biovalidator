@@ -185,6 +185,7 @@ class BioValidator {
             let schemaFiles = getFiles(localSchemaPath);
             for (let file of schemaFiles) {
                 let schema = readFile(file);
+                this._insertAsyncToSchemasAndDefs(schema);
                 ajv.getSchema(schema["$id"] || ajv.compile(schema)); // add to AJV cache if not already present
                 this.referencedSchemaCache[schema["$id"]] = schema;
                 logger.info("Adding compiled local schema to cache: " + schema["$id"])
