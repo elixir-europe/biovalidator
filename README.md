@@ -232,6 +232,8 @@ The biovalidator supports four extended keywords for ontology and taxonomy valid
 This custom keyword *evaluates if an ontology term is child of another*. This keyword is applied to a string (CURIE) and **passes validation if the term is a child of the term defined in the schema**.
 The keyword requires one or more **parent terms** *(classes)* and **ontology ids** *(ontologies)*, both of which should exist in [OLS - Ontology Lookup Service](https://www.ebi.ac.uk/ols).
 
+* **ontologies** should be present in EBI OLS and are case-sensitive (most of the OLS ontologies are in lower case)
+
 This keyword works by doing an asynchronous call to the [OLS API](https://www.ebi.ac.uk/ols/api/) that will respond with the required information to know if a given term is child of another.
 Being an async validation step, whenever used in a schema, the schema must have the flag: `"$async": true` in its object root.
 
