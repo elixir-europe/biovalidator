@@ -87,6 +87,7 @@ class GraphRestriction {
                             let olsResponsePromise;
                             if(cachedOlsResponses[url]) {
                                 olsResponsePromise = Promise.resolve(cachedOlsResponses[url]);
+                                logger.debug("Returning cached response for OLS request: " + url)
                             }
                             else {
                                 olsResponsePromise = request({

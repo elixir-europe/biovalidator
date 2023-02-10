@@ -101,10 +101,8 @@ class BioValidatorServer {
     });
 
     this.router.get("/cache", (req, res) => {
-      let cachedSchema = this.biovalidator.getCachedSchema(); // todo fill in the logic to get cached schema
-      res.send({
-        "message": "This endpoint is not implemented yet"
-      });
+      let cachedSchema = this.biovalidator.getCachedSchema();
+      res.send(cachedSchema);
     });
 
     this.router.delete("/cache", (req, res) => {
@@ -118,7 +116,7 @@ class BioValidatorServer {
   }
 
   _startServer() {
-    this.app.listen(this.port, () => {
+    this.expressServer = this.app.listen(this.port, () => {
       logger.info(`---------------------------------------------`);
       logger.info(`------------ ELIXIR biovalidator ------------`);
       logger.info(`---------------------------------------------`);

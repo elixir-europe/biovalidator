@@ -51,7 +51,10 @@ class BioValidator {
     }
 
     getCachedSchema() {
-        this.ajvInstance.getSchema("");
+        return {
+            "cachedSchema": Object.keys(this.validatorCache),
+            "referencedSchema": Object.keys(this.referencedSchemaCache)
+        };
     }
 
     clearCachedSchema() {
