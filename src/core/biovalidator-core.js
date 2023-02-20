@@ -6,6 +6,7 @@ const AppError = require("../model/application-error");
 const {getFiles, readFile} = require("../utils/file_utils");
 const {isChildTermOf, isValidTerm, isValidTaxonomy} = require("../keywords");
 const GraphRestriction = require("../keywords/graphRestriction");
+const IsValidIdentifier = require("../keywords/isvalididentifier");
 const ValidationError = require("../model/validation-error");
 const {logger} = require("../utils/winston");
 
@@ -13,7 +14,8 @@ const customKeywordValidators = [
     new isChildTermOf(null, "https://www.ebi.ac.uk/ols/api/search?q="),
     new isValidTerm(null, "https://www.ebi.ac.uk/ols/api/search?q="),
     new isValidTaxonomy(null),
-    new GraphRestriction(null, "https://www.ebi.ac.uk/ols/api")
+    new GraphRestriction(null, "https://www.ebi.ac.uk/ols/api"),
+    new IsValidIdentifier()
 ];
 
 class BioValidator {
@@ -51,7 +53,10 @@ class BioValidator {
     }
 
     getCachedSchema() {
-        this.ajvInstance.getSchema("");
+        return {
+            "cachedSchema": Object.keys(this.validatorCache),
+            "referencedSchema": Object.keys(this.referencedSchemaCache)
+        };
     }
 
     clearCachedSchema() {
@@ -120,16 +125,16 @@ class BioValidator {
 
     getValidationFunction(inputSchema) {
         const schemaId = inputSchema['$id'];
-
         if (this.validatorCache[schemaId]) {
-            logger.info("Returning compiled schema from cache, $schemaId: " + schemaId);
+            logger.info("Returning compiled schema from cache, $id: " + schemaId);
             return Promise.resolve(this.validatorCache[schemaId]);
         } else {
-            logger.info("Compiling new schema, $schemaId: " + schemaId);
             const compiledSchemaPromise = this.ajvInstance.compileAsync(inputSchema);
             if (schemaId) {
-                logger.info("Saving compiled schema in cache, $schemaId: " + schemaId);
+                logger.info("Saving compiled schema in cache, $id: " + schemaId);
                 this.validatorCache[schemaId] = compiledSchemaPromise;
+            } else {
+                logger.warn("Compiling schema with empty schema $id. Schema will not be cached.");
             }
             return Promise.resolve(compiledSchemaPromise);
         }
@@ -175,7 +180,7 @@ class BioValidator {
             ajvInstance = customKeywordValidator.configure(ajvInstance);
         });
 
-        logger.info("Custom keywords successfully added. Number of custom keywords: " + customKeywordValidators.length)
+        logger.info("Custom keywords successfully added. Number of custom keywords: " + customKeywordValidators.length);
         return ajvInstance;
     }
 
@@ -185,6 +190,7 @@ class BioValidator {
             let schemaFiles = getFiles(localSchemaPath);
             for (let file of schemaFiles) {
                 let schema = readFile(file);
+                this._insertAsyncToSchemasAndDefs(schema);
                 ajv.getSchema(schema["$id"] || ajv.compile(schema)); // add to AJV cache if not already present
                 this.referencedSchemaCache[schema["$id"]] = schema;
                 logger.info("Adding compiled local schema to cache: " + schema["$id"])

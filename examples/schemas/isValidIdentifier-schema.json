@@ -1,0 +1,27 @@
+{
+  "$id": "http://subs/isValidIdentifier-schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Test schema for BioSample accession",
+  "$async": true,
+  "additionalProperties": false,
+  "required": [
+    "SampleId"
+  ],
+  "title": "disease_ontology",
+  "properties": {
+    "sampleName": {
+      "description": "The text for the term as the user provides it.",
+      "type": "string"
+    },
+    "SampleId": {
+      "description": "An optional ontology reference in format where prefix_ indicates which ontology",
+      "type": "string",
+      "isValidIdentifier": {
+        "prefixes": [
+          "biosample"
+        ]
+      }
+    }
+  },
+  "type": "object"
+}

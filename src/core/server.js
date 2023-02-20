@@ -4,6 +4,7 @@ const {logger, addLogDirectory} = require("../utils/winston");
 const AppError = require("../model/application-error");
 const BioValidator = require("./biovalidator-core")
 const npid = require("npid");
+const path = require("path");
 
 class BioValidatorServer {
   constructor(port, localSchemaPath) {
@@ -101,10 +102,8 @@ class BioValidatorServer {
     });
 
     this.router.get("/cache", (req, res) => {
-      let cachedSchema = this.biovalidator.getCachedSchema(); // todo fill in the logic to get cached schema
-      res.send({
-        "message": "This endpoint is not implemented yet"
-      });
+      let cachedSchema = this.biovalidator.getCachedSchema();
+      res.send(cachedSchema);
     });
 
     this.router.delete("/cache", (req, res) => {
@@ -118,13 +117,14 @@ class BioValidatorServer {
   }
 
   _startServer() {
-    this.app.listen(this.port, () => {
+    this.expressServer = this.app.listen(this.port, () => {
       logger.info(`---------------------------------------------`);
       logger.info(`------------ ELIXIR biovalidator ------------`);
       logger.info(`---------------------------------------------`);
       logger.info(`Started server on port ${this.port} with base URL ${this.baseUrl}`);
-      logger.info(`PID file is available at ${this.pidPath}`);
-      logger.info(`Writing logs to: ${this.logPath}/`);
+      logger.info(`Server available at http://localhost:${this.port + this.baseUrl}`);
+      logger.info(`PID file is available at ${path.resolve(this.pidPath)}`);
+      logger.info(`Writing logs to: ${path.resolve(this.logPath)}/`);
     });
 
     return this;
