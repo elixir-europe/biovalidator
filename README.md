@@ -14,6 +14,7 @@ The biovalidator currently supports JSON Schema draft-06/07/2019-09.
 - Changes to arguments accepted at the startup
   - `--json` renamed to `--data`
   - Added `--ref`, `--port`, `--baseUrl`, `pidPath` 
+- Support for new keyword `isValidIdentifier`. Validate accessions/IDs using identifiers.org API. 
 
 ## Contents
 - [Getting Started](#getting-started)
@@ -27,6 +28,7 @@ The biovalidator currently supports JSON Schema draft-06/07/2019-09.
   - [isChildTermOf](#ischildtermof)
   - [isValidTerm](#isvalidterm)
   - [isValidTaxonomy](#isvalidtaxonomy)
+  - [isValidIdentifier](#isvalididentifier)
 - [Running in Docker](#running-in-docker)
 - [License](#license)
 
