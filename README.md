@@ -353,6 +353,64 @@ Data:
 }
 ```
 
+### isValidIdentifier
+Evaluates if a given *identifier* has a correct format using identifiers.org resolution API. The keyword is applicable to the `string` data type. 
+
+The keyword will do an asynchronous call to the [identifier.org API](https://resolver.api.identifiers.org/) to resolve the URL for the given CURIE. 
+Being an async validation step, whenever used in a schema, the schema must have the flag: `"$async": true` in its object root.
+
+The keyword has two properties: `prefixes` and `prefix`. Only one of them is allowed in a block and `prefix` will take the priority in case both are provided. 
+- `prefix` define one namespace/prefix for the expected identifier/accession. In the data, field should only contain the ID/accession without the namespace. 
+- `prefixes` define a set of allowed namespaces/prefixes. In the data, field should contain a valid CURIE (namespace:id format)
+
+:warning: At the moment only the format of the identifier/accession is checked against the identifier.org. Therefore, this does not guarantee the existence of the data record.
+
+#### isValidIdentifier example 1
+Schema:
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$async": true,
+  "properties": {
+    "SampleId": {
+      "type": "string",
+      "isValidIdentifier": {
+        "prefix": "biosample"
+      }
+    }
+  }
+}
+```
+Data:
+```json
+{
+  "SampleId": "SAMEA2397676"
+}
+```
+
+#### isValidIdentifier example 2
+Schema:
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$async": true,
+  "properties": {
+    "resourceId": {
+      "type": "string",
+      "isValidIdentifier": {
+        "prefixes": ["biosample", "arrayexpress"]
+      }
+    }
+  }
+}
+```
+Data:
+```json
+{
+  "resourceId": "biosample:SAMEA2397676"
+}
+```
+
 ## Running in Docker
 A Dockerized version of biovalidator is available on [quay.io](https://quay.io/repository/ebi-ait/biovalidator). 
 This image can be used to run the validator without cloning this repository. 
