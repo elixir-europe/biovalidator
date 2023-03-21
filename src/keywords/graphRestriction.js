@@ -1,6 +1,6 @@
 const CurieExpansion = require("../utils/curie_expansion");
 const ajv = require("ajv").default;
-const request = require("request-promise");
+const axios = require('axios');
 const CustomAjvError = require("../model/custom-ajv-error");
 const {logger} = require("../utils/winston");
 
@@ -90,20 +90,18 @@ class GraphRestriction {
                                 logger.debug("Returning cached response for OLS request: " + url)
                             }
                             else {
-                                olsResponsePromise = request({
+                                olsResponsePromise = axios({
                                     method: "GET",
                                     url: url,
-                                    json: true
+                                    responseType: 'json'
                                 });
                             }
 
-                            olsResponsePromise.then((resp) => {
-                                cachedOlsResponses[url] = resp;
-                                let jsonBody = resp;
-
-                                if (jsonBody.response.numFound === 1) {
+                            olsResponsePromise.then((response) => {
+                                cachedOlsResponses[url] = response;
+                                if (response.status === 200 && response.data.response.numFound === 1) {
                                     logger.debug(`Returning resolved term from OLS: [${parentTerm}]`);
-                                } else if (jsonBody.response.numFound === 0) {
+                                } else if (response.status === 200 && response.data.response.numFound === 0) {
                                     logger.warn(`Failed to resolve term from OLS. Invalid relationship: [${ontologyId}]`);
                                     errors.push(generateErrorObject(`Provided term is not child of [${parentTerm}]`));
                                 } else {

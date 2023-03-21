@@ -1,7 +1,8 @@
 const Ajv = require("ajv").default;
-const request = require("request");
+const axios = require("axios");
 const {logger} = require("../utils/winston");
 const CustomAjvError = require("../model/custom-ajv-error");
+const {default: ajv} = require("ajv");
 
 const taxonomySearchUrl = "https://www.ebi.ac.uk/ena/taxonomy/rest/any-name";
 const NoResults = "No results.";
@@ -42,19 +43,14 @@ class IsValidTaxonomy {
                     const url = [taxonomySearchUrl, encodedTaxonomyUri].join("/");
 
                     logger.log("debug", `Looking for taxonomy [${taxonomyExpression}] with ENA taxonomy validator.`);
-                    request(url, (error, Response, body) => {
-                        logger.log("debug", `Raw response: ${body}`);
-                        if (body === NoResults) {
-                            generateNotExistsErrorMessage();
-                        } else {
-                            let jsonBody = JSON.parse(body);
 
-                            if (jsonBody) {
-                                let numFound = jsonBody.length;
+                    axios({method: "GET", url: url, responseType: 'json'})
+                        .then((response) => {
+                            if (response.status === 200 && response.data) {
+                                let numFound = response.data.length;
 
-                                if (numFound === 1 && jsonBody[0]["taxId"] && jsonBody[0]["submittable"] == "true") {
+                                if (numFound === 1 && response.data[0]["taxId"] && response.data[0]["submittable"] === "true") {
                                     logger.debug(`Returning resolved term from ENA taxonomy: [${taxonomyExpression}]`);
-                                    resolve(true);
                                 } else if (numFound === 0) {
                                     generateNotExistsErrorMessage()
                                 } else {
@@ -62,21 +58,33 @@ class IsValidTaxonomy {
                                         "isValidTaxonomy", `Failed to resolve taxonomy. Something went wrong while validating the given taxonomy expression [${taxonomyExpression}], try again.`,
                                         {keyword: "isValidTaxonomy"})
                                     );
-                                    reject(new Ajv.ValidationError(errors));
                                 }
                             } else {
                                 generateNotExistsErrorMessage();
                             }
-                        }
 
-                        function generateNotExistsErrorMessage() {
-                            logger.warn(`Failed to resolve taxonomy. Term not present: [${taxonomyExpression}]`);
+                            function generateNotExistsErrorMessage() {
+                                logger.warn(`Failed to resolve taxonomy. Term not present: [${taxonomyExpression}]`);
+                                errors.push(new CustomAjvError(
+                                    "isValidTaxonomy", `provided taxonomy expression does not exist: [${taxonomyExpression}]`, {keyword: "isValidTaxonomy"})
+                                );
+                            }
+
+                        })
+                        .catch((error) => {
+                            logger.error(`Failed to resolve taxonomy. [${error.response.data.errorMessage}]`);
                             errors.push(new CustomAjvError(
-                                "isValidTaxonomy", `provided taxonomy expression does not exist: [${taxonomyExpression}]`, {keyword: "isValidTaxonomy"})
+                                "isValidTaxonomy", "Something went wrong while validating term, try again." + error.response.data.errorMessage,
+                                {keyword: "isValidTaxonomy"})
                             );
-                            reject(new Ajv.ValidationError(errors));
-                        }
-                    });
+                        })
+                        .finally(() => {
+                            if (errors.length > 0) {
+                                reject(new ajv.ValidationError(errors));
+                            } else {
+                                resolve(true);
+                            }
+                        });
                 } else {
                     resolve(true);
                 }
