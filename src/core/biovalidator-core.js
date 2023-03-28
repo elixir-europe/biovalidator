@@ -1,7 +1,6 @@
-const Promise = require('bluebird');
 const Ajv = require("ajv/dist/2019").default;
 const addFormats = require("ajv-formats");
-const request = require("request-promise");
+const axios = require('axios');
 const AppError = require("../model/application-error");
 const {getFiles, readFile} = require("../utils/file_utils");
 const {isChildTermOf, isValidTerm, isValidTaxonomy} = require("../keywords");
@@ -159,10 +158,10 @@ class BioValidator {
                 return Promise.resolve(this.referencedSchemaCache[uri]);
             } else {
                 return new Promise((resolve, reject) => {
-                    request({method: "GET", url: uri, json: true})
+                    axios({method: "GET", url: uri, responseType: 'json'})
                         .then(resp => {
                             logger.info("Returning referenced schema from network : " + uri);
-                            const loadedSchema = resp;
+                            const loadedSchema = resp.data;
                             this._insertAsyncToSchemasAndDefs(loadedSchema);
                             this.referencedSchemaCache[uri] = loadedSchema;
                             resolve(loadedSchema);

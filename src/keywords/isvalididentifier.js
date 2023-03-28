@@ -1,5 +1,5 @@
 const ajv = require("ajv").default;
-const axios = require('axios')
+const axios = require('axios');
 const CustomAjvError = require("../model/custom-ajv-error");
 const {logger} = require("../utils/winston");
 const constants = require("../utils/constants");

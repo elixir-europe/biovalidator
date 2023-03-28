@@ -152,6 +152,13 @@ Example in linux environment:
 export BIOVALIDATOR_LOG_DIR=./new_log_dir
 ```
 
+### Interacting with biovalidator cache
+In server mode, biovalidator caches referenced schema to minimise network time for repeated schema lookups. 
+`/cache` `GET` and `DELETE` endpoints can be used to retrieve and clear cached schema. 
+Please note that these endpoints are not protected and anyone with access can use them. 
+- GET /cache
+- DELETE /cache
+
 ## Using biovalidator as a CLI command
 The biovalidator can also be run as a CLI application. If you provide `--schema` and `--data` as parameters to the application, it will execute in CLI mode. 
 To see all the available options, run `node ./src/biovalidator --help`
