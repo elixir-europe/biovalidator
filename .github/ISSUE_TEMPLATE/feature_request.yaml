@@ -1,0 +1,79 @@
+name: Feature request
+description: Form to request a new feature or enhancement to ELIXIR Biovalidator
+title: "[Feature request]: "
+labels: ["enhancement"]
+assignees:
+  - theisuru
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This form serves as a template for **feature requests** to be added to ELIXIR Biovalidator. It can be used to request, for example, a new custom keyword for asynchronous validation (similar to ``graphRestriction``).
+        Thank you for contributing to the improvement of ELIXIR Biovalidator!
+
+  - type: textarea
+    id: feature-summary
+    attributes:
+      label: Summary
+      description: Provide a summary of what the requested feature is. 
+      placeholder: e.g. Addition of information to Biovalidator's logs
+    validations:
+      required: true
+
+  - type: dropdown
+    id: related-field
+    attributes:
+      label: Related topic
+      description: What are the topic(s) that your requested feature is related to? You can select multiple topics if applicable.
+      multiple: true
+      options:
+        - Custom keywords
+        - Installation
+        - Server usage
+        - Command Line Interface (CLI) usage
+        - Tool's documentation
+        - Other
+    validations:
+      required: true
+ 
+  - type: textarea
+    id: request-motivation
+    attributes:
+      label: Request motivation
+      description: What is the motivation of your request. In other words, what would be the benefits to Biovalidator were your feature to be added. 
+      placeholder: e.g. The addition of the information ``...`` to the logs would greatly improve the traceability of validation requests...
+    validations:
+      required: true
+    
+  - type: textarea
+    id: use-cases
+    attributes:
+      label: Use cases
+      description: List examples of the use-cases for the requested feature. 
+      placeholder: |
+        e.g. 
+        - Monitoring the server requests...
+        - Traceability of errors during validation...
+        - Generation of statistics...
+        - ...
+    validations:
+      required: false
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Examples
+      description: List examples of how you envision the feature to work and its output. 
+      placeholder: |
+        e.g. Example 1: with an example request ``curl ...``, the logs would look like...
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Use this text area to add all additional context needed to create the new feature, including related issues and PRs,images, etc.
+      placeholder: e.g. This feature relates to issue "X", and here is a screenshot of...
+    validations:
+      required: false
