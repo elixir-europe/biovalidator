@@ -4,7 +4,7 @@
   "description": "A nodejs JSON schema validator, extended from Ajv to include ontology validation.",
   "main": "src/biovalidator.js",
   "bin": {
-    "biovalidator": "dist/biovalidator.js"
+    "biovalidator": "src/biovalidator.js"
   },
   "repository": "https://github.com/elixir-europe/biovalidator.git",
   "scripts": {
