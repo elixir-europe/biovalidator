@@ -1,0 +1,27 @@
+{
+  "$id": "BioSchema/plus/customSchema/for/DefinedTerm",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "description": "Use custom schema on top of BioSchema to validate BioSchema type",
+  "type": "object",
+  "$allOf": [
+    {
+      "$ref": "bioschemas/definedterm"
+    },
+    {
+      "description": "My custom schema for DefinedTerm",
+      "type": "object",
+      "properties": {
+        "termCode": {
+          "type": "string",
+          "isChildTermOf": {
+            "parentTerm": "http://purl.obolibrary.org/obo/CHMO_0000800",
+            "ontologyId": "chmo"
+          }
+        }
+      },
+      "required": [
+        "termCode"
+      ]
+    }
+  ]
+}

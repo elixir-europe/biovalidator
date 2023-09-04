@@ -1,0 +1,45 @@
+{
+  "$id": "bioschemas/definedterm",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "BioSchemas to validate BioSchema type",
+  "definitions": {
+    "definedtermset": {
+      "@type": "DefinedTermSet",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "identifier": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": []
+    }
+  },
+  "@type": "DefinedTerm",
+  "type": "object",
+  "properties": {
+    "url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "name": {
+      "type": "string"
+    },
+    "termCode": {
+      "type": "string"
+    },
+    "identifier": {
+      "type": "string"
+    },
+    "inDefinedTermSet": {
+      "$ref": "#/definitions/definedtermset"
+    }
+  },
+  "required": ["name"]
+}

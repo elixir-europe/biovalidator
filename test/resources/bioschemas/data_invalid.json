@@ -1,0 +1,14 @@
+{
+  "@type": "DefinedTerm",
+  "@id": "http://purl.obolibrary.org/obo/CHMO_0000230",
+  "termCode": "MONDO:0018177",
+  "identifier": "http://purl.obolibrary.org/obo/CHMO_0000230",
+  "url": "http://purl.obolibrary.org/obo/CHMO_0000230",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "@id": "http://purl.bioontology.org/ontology/CHMO",
+    "name": "Chemical Methods Ontology",
+    "identifier": "http://purl.bioontology.org/ontology/CHMO",
+    "url": "https://github.com/rsc-ontologies/rsc-cmo"
+  }
+}
