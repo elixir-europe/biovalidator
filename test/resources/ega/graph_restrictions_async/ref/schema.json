@@ -1,0 +1,22 @@
+{
+  "$id": "https://wwwdev.ebi.ac.uk/ait/biovalidator/test/graph_restriction_async/ref_schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Testing for error 'async keyword in sync schema'. issue#57. The error recurrently occurred with 'graphRestriction' keyword",
+  "$async": true,
+  "additionalProperties": false,
+  "required": [
+    "refGraphRestrictions",
+    "text"
+  ],
+  "title": "disease_ontology",
+  "properties": {
+    "text": {
+      "description": "The text for the term as the user provides it.",
+      "type": "string"
+    },
+    "refGraphRestrictions": {
+      "$ref": "https://wwwdev.ebi.ac.uk/ait/biovalidator/test/graph_restriction_async/schema"
+    }
+  },
+  "type": "object"
+}
