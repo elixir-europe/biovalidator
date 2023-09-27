@@ -33,7 +33,7 @@ class IsValidTaxonomy {
     }
 
     generateKeywordFunction() {
-        const findTaxonomy = (schema, data) => {
+        return (schema, data) => {
             return new Promise((resolve, reject) => {
                 if (schema) {
                     let errors = [];
@@ -91,8 +91,6 @@ class IsValidTaxonomy {
             });
 
         };
-
-        return findTaxonomy;
     }
 }
 

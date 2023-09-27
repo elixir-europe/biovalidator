@@ -30,7 +30,7 @@ class IsValidTerm {
     }
 
     generateKeywordFunction() {
-        const findTerm = (schema, data) => {
+        return (schema, data) => {
             return new Promise((resolve, reject) => {
                 if (schema) {
                     let errors = [];
@@ -77,8 +77,6 @@ class IsValidTerm {
                 }
             });
         };
-
-        return findTerm;
     }
 }
 

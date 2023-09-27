@@ -31,7 +31,7 @@ class IsChildTermOf {
     }
 
     generateKeywordFunction() {
-        const findChildTerm = (schema, data) => {
+        return (schema, data) => {
             return new Promise((resolve, reject) => {
                 const parentTerm = schema.parentTerm;
                 const ontologyId = schema.ontologyId;
@@ -88,8 +88,6 @@ class IsChildTermOf {
                 }
             });
         }
-
-        return findChildTerm;
     }
 }
 
