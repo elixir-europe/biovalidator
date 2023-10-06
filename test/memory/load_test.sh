@@ -11,7 +11,7 @@ function createTestRequestJsonFile() {
 }
 
 function loadTest() {
-  ab -p test.json -T application/json -c 10 -n 1000 http://localhost:3020/validate
+  ab -p test.json -T application/json -c 10 -n 1000 https://www.ebi.ac.uk/ait/biovalidator/validate
 }
 
 dataPath=../../examples/objects/test-schema-valid.json

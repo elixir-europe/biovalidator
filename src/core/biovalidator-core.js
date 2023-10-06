@@ -1,4 +1,6 @@
-const Ajv = require("ajv/dist/2019").default;
+const Ajv = require("ajv")
+const Ajv2019 = require("ajv/dist/2019").default;
+const Ajv2020 = require("ajv/dist/2020")
 const addFormats = require("ajv-formats");
 const axios = require('axios');
 const AppError = require("../model/application-error");
@@ -27,6 +29,11 @@ class BioValidator {
 
     // wrapper around _validate to process output
     validate(inputSchema, inputObject) {
+        if (inputSchema["$schema"] && inputSchema["$schema"].includes("2020-12")) {
+            let appError = new AppError("JSON Schema draft-2020-12 is not supported currently");
+            return new Promise((resolve, reject) => reject(appError));
+        }
+
         return new Promise((resolve, reject) => {
             this._validate(inputSchema, inputObject)
                 .then((validationResult) => {
@@ -102,8 +109,8 @@ class BioValidator {
                     }
                 });
             }).catch((err) => {
-                logger.error("Failed to compile schema: " + err);
-                reject(new AppError("Failed to compile schema: " + err));
+                logger.error("Failed to compile schema: " + JSON.stringify(err));
+                reject(new AppError("Failed to compile schema: " + JSON.stringify(err)));
             });
         });
     }
@@ -141,7 +148,8 @@ class BioValidator {
     }
 
     _getAjvInstance(localSchemaPath) {
-        const ajvInstance = new Ajv({allErrors: true, strict: false, loadSchema: this._resolveReference()});
+        const ajvInstance = new Ajv2019({allErrors: true, strict: false, loadSchema: this._resolveReference()});
+        // const ajvInstance = new Ajv2020({allErrors: true, strict: false, loadSchema: this._resolveReference()});
         const draft7MetaSchema = require("ajv/dist/refs/json-schema-draft-07.json")
         ajvInstance.addMetaSchema(draft7MetaSchema)
         addFormats(ajvInstance);

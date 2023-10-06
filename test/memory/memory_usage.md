@@ -1,17 +1,18 @@
+## Memory usage and testing
 
-
+To increase the heap memory used by the old_space, we can use following VM argument. The `--inspect` flag allows to inspect GC logs. 
 Start with 4GB of heap old_space
 ```shell
 export NODE_OPTIONS=--max_old_space_size=4096
 node --inspect src/biovalidator.js
 ```
 
-
+To start the heap profiler when starting the NodeJs application, use `--trace-gc` flag. 
 Heap Profiler + GC Traces
 ```shell
 node --inspect --trace-gc src/biovalidator.js
 ```
-
+Following code snippet shows how you can make a `curl` request to validator, or run load test using Apache Benchmark. 
 
 ## Testing memory usage
 ```shell
