@@ -10,10 +10,10 @@ const ValidationError = require("../model/validation-error");
 const {logger} = require("../utils/winston");
 
 const customKeywordValidators = [
-    new isChildTermOf(null, "https://www.ebi.ac.uk/ols/api/search?q="),
-    new isValidTerm(null, "https://www.ebi.ac.uk/ols/api/search?q="),
+    new isChildTermOf(null, "https://www.ebi.ac.uk/ols4/api/search?q="),
+    new isValidTerm(null, "https://www.ebi.ac.uk/ols4/api/search?q="),
     new isValidTaxonomy(null),
-    new GraphRestriction(null, "https://www.ebi.ac.uk/ols/api"),
+    new GraphRestriction(null, "https://www.ebi.ac.uk/ols4/api"),
     new IsValidIdentifier()
 ];
 

@@ -1,7 +1,7 @@
 const CurieExpansion = require("../src/utils/curie_expansion");
 
 test("Curie expansion with no errors", () => {
-    const curieExpansion = new CurieExpansion("https://www.ebi.ac.uk/ols/api/search?q=");
+    const curieExpansion = new CurieExpansion("https://www.ebi.ac.uk/ols4/api/search?q=");
     const curie = "EFO:0000399";
 
     const isCurie = CurieExpansion.isCurie(curie);
