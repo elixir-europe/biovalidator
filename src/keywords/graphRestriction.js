@@ -66,21 +66,22 @@ class GraphRestriction {
             return new Promise((resolve, reject) => {
                 let parentTerms = schema.classes;
                 const ontologyIds = schema.ontologies;
+                let queryFields = schema.queryFields ? schema.queryFields.join(",") : "obo_id";
                 let errors = [];
 
                 if (parentTerms && ontologyIds) {
-                    if (schema.include_self === true && parentTerms.includes(data)) {
+                    if (schema.includeSelf === true && parentTerms.includes(data)) {
                         resolve(data);
                     } else {
                         callCurieExpansion(parentTerms).then((iris) => {
-
                             const parentTerm = iris.join(",");
                             const ontologyId = ontologyIds.join(",").replace(/obo:/g, "");
 
                             const termUri = encodeURIComponent(data);
                             const url = olsSearchUrl + termUri
                                 + "&exact=true&groupField=true&allChildrenOf=" + encodeURIComponent(parentTerm)
-                                + "&ontology=" + ontologyId + "&queryFields=obo_id";
+                                // + "&ontology=" + ontologyId + "&queryFields=obo_id,label";
+                                + "&ontology=" + ontologyId + "&queryFields=" + queryFields;
 
                             let olsResponsePromise;
                             if (cachedOlsResponses.has(url)) {
@@ -105,6 +106,15 @@ class GraphRestriction {
                                     logger.error(`Failed to resolve term from OLS. Unknown error: [${ontologyId}]`);
                                     errors.push(generateErrorObject("Something went wrong while validating term, try again."));
                                 }
+                            }).catch(err => {
+                                logger.error("Failed to resolve term from OLS. Unknown error: " + err);
+                                errors.push(generateErrorObject(err));
+                            }).finally(function () {
+                                if (errors.length > 0) {
+                                    reject(new ajv.ValidationError(errors));
+                                } else {
+                                    resolve(true);
+                                }
                             });
                         }).catch(err => {
                             logger.error("Failed to resolve term from OLS. Unknown error: " + err);
@@ -112,8 +122,6 @@ class GraphRestriction {
                         }).finally(function () {
                             if (errors.length > 0) {
                                 reject(new ajv.ValidationError(errors));
-                            } else {
-                                resolve(true);
                             }
                         });
                     }

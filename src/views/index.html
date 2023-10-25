@@ -139,7 +139,13 @@
                     },
                     "disease": {
                         "description": "The disease for the sample species.",
-                        "type": "string"
+                        "type": "string",
+                        "graphRestriction": {
+                            "ontologies": ["obo:mondo", "obo:efo"],
+                            "classes": ["MONDO:0000001", "PATO:0000461"],
+                            "queryFields": ["obo_id", "label"],
+                            "includeSelf": true
+                        }
                     },
                     "disease_id": {
                         "description": "The ontology id for the disease sample species.",
@@ -147,9 +153,7 @@
                         "graphRestriction": {
                             "ontologies": ["obo:mondo", "obo:efo"],
                             "classes": ["MONDO:0000001", "PATO:0000461"],
-                            "relations": ["rdfs:subClassOf"],
-                            "direct": false,
-                            "include_self": true
+                            "includeSelf": true
                         }
                     }
                 },

@@ -8,6 +8,14 @@ Furthermore, the biovalidator is capable of running as a server or in CLI mode.
 
 The biovalidator currently supports JSON Schema draft-06/07/2019-09.
 
+## Major Changes
+- Remove unused `relations` keyword inside `graphRestrictions`
+- Remove unused `direct` keyword inside `graphRestrictions`
+- Rename `include_self` to `includeSelf` keyword inside `graphRestrictions` to be consistent with camel case naming convention
+- Add `queryFields` keyword inside `graphRestrictions` to query for either obo_id or label
+- Add caching library improve memory consumption and auto cache evictions
+- Fix a bug related to OLS API call in graphRestrictions
+
 ## Major Changes in new version
 - `graph_restriction` renamed to `graphRestriction` to be consistent with other keywords
 - Merged `validator-cli.js` with `src/server.js`. Now one entry point to the application: `src/biovalidator.js`
@@ -259,9 +267,7 @@ Schema:
             "graphRestriction":  {
                 "ontologies" : ["obo:hcao", "obo:uberon"],
                 "classes": ["UBERON:0000062","UBERON:0000179"],
-                "relations": ["rdfs:subClassOf"],
-                "direct": false,
-                "include_self": false
+                "includeSelf": false
             }
         }
     }
