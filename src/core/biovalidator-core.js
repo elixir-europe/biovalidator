@@ -22,9 +22,9 @@ const customKeywordValidators = [
 
 class BioValidator {
     constructor(localSchemaPath) {
-        this.ajvInstance = this._getAjvInstance(localSchemaPath);
         this.validatorCache = new NodeCache({stdTTl: 21600, checkperiod: 3600, useClones: false});
         this.referencedSchemaCache = new NodeCache({stdTTl: 21600, checkperiod: 3600, useClones: false});
+        this.ajvInstance = this._getAjvInstance(localSchemaPath);
     }
 
     // wrapper around _validate to process output

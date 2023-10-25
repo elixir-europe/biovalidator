@@ -13,7 +13,7 @@ describe("Sample Checklist tests", () => {
         let inputSchema = fs.readFileSync(checklistFolder + file);
         let jsonSchema = JSON.parse(inputSchema);
 
-        let inputObj = fs.readFileSync(validObjectFolder + samplePrefix + file); 
+        let inputObj = fs.readFileSync(validObjectFolder + samplePrefix + file);
         let jsonObj = JSON.parse(inputObj);
 
         biovalidator.validate(jsonSchema, jsonObj).then( (data) => {
@@ -71,7 +71,7 @@ describe("Sample Checklist tests", () => {
         let inputSchema = fs.readFileSync(checklistFolder + file);
         let jsonSchema = JSON.parse(inputSchema);
 
-        let inputObj = fs.readFileSync(invalidObjectFolder + samplePrefix + file); 
+        let inputObj = fs.readFileSync(invalidObjectFolder + samplePrefix + file);
         let jsonObj = JSON.parse(inputObj);
 
         biovalidator.validate(jsonSchema, jsonObj).then( (data) => {
@@ -79,7 +79,7 @@ describe("Sample Checklist tests", () => {
           if (missingPropertyMap.get(file) != null) {
             expect(data.length).toBe(1);
             expect(data[0].errors.length).toBe(1);
-            expect(data[0].errors).toContain('should have required property \'' + missingPropertyMap.get(file) + '\'');
+            expect(data[0].errors).toContain('must have required property \'' + missingPropertyMap.get(file) + '\'');
           } else {
             expect(data.length).toBe(0);
           }

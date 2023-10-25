@@ -21,21 +21,21 @@ test( "Invalid JSON should result with validation error", () => {
         {
             "dataPath": ".alias",
             "errors": [
-                "should have required property 'alias'"
+                "must have required property 'alias'"
             ]
         },
         {
             "dataPath": ".taxonId",
             "errors": [
-                "should have required property 'taxonId'"
+                "must have required property 'taxonId'"
             ]
         }
     ]
 
     const expectedErrorOutput = ".alias\n" +
-        "\tshould have required property 'alias'\n" +
+        "\tmust have required property 'alias'\n" +
         ".taxonId\n" +
-        "\tshould have required property 'taxonId'\n";
+        "\tmust have required property 'taxonId'\n";
 
     let errorOutput = cli.error_report(jsonErrors);
 

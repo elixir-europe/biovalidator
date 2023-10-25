@@ -20,7 +20,7 @@ test("Attributes Schema", () => {
     expect(data).toBeDefined();
     expect(data.length).toBe(1);
     expect(data[0].errors.length).toBe(1);
-    expect(data[0].errors).toContain('should match format "uri"');
+    expect(data[0].errors).toContain('must match format "uri"');
   });
 });
 

@@ -1,9 +1,9 @@
 class ValidationError {
   constructor(errorObject) {
     if(errorObject.params.missingProperty) {
-      this.dataPath = errorObject.instancePath + "." + errorObject.params.missingProperty;
+      this.dataPath = errorObject.instancePath + "/" + errorObject.params.missingProperty;
     } else {
-      this.dataPath = errorObject.instancePath.replaceAll("/", ".");
+      this.dataPath = errorObject.instancePath;
     }
 
     if(errorObject.params.allowedValues) { // enum case
