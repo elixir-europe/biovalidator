@@ -1,6 +1,6 @@
 {
   "name": "biovalidator",
-  "version": "2.1.1",
+  "version": "2.2.1",
   "description": "A nodejs JSON schema validator, extended from Ajv to include ontology validation.",
   "main": "src/biovalidator.js",
   "bin": {
@@ -25,11 +25,12 @@
   "author": "EMBL-EBI-AIT, fpenim, ke4, haseeb-gh, theisuru",
   "license": "Apache-2.0",
   "dependencies": {
-    "ajv": "~7.2.1",
-    "ajv-formats": "^1.5.1",
+    "ajv": "8.12.0",
+    "ajv-formats": "2.1.1",
     "axios": "^1.3.2",
     "express": "^4.17.1",
     "glob": "^8.0.3",
+    "node-cache": "^5.1.2",
     "npid": "^0.4.0",
     "winston": "^3.2.1",
     "winston-daily-rotate-file": "^3.10.0",

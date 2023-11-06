@@ -29,9 +29,7 @@
       "graphRestriction": {
         "ontologies": ["obo:mondo", "obo:efo"],
         "classes": ["MONDO:0000001", "PATO:0000461"],
-        "relations": ["rdfs:subClassOf"],
-        "direct": false,
-        "include_self": true
+        "includeSelf": true
       }
     }
   },

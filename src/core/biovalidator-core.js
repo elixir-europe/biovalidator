@@ -1,4 +1,6 @@
-const Ajv = require("ajv/dist/2019").default;
+const Ajv = require("ajv")
+const Ajv2019 = require("ajv/dist/2019").default;
+const Ajv2020 = require("ajv/dist/2020")
 const addFormats = require("ajv-formats");
 const axios = require('axios');
 const AppError = require("../model/application-error");
@@ -8,24 +10,31 @@ const GraphRestriction = require("../keywords/graphRestriction");
 const IsValidIdentifier = require("../keywords/isvalididentifier");
 const ValidationError = require("../model/validation-error");
 const {logger} = require("../utils/winston");
+const NodeCache = require("node-cache");
+const constants = require("../utils/constants");
 
 const customKeywordValidators = [
-    new isChildTermOf(null, "https://www.ebi.ac.uk/ols/api/search?q="),
-    new isValidTerm(null, "https://www.ebi.ac.uk/ols/api/search?q="),
+    new isChildTermOf(null, constants.OLS_SEARCH_URL),
+    new isValidTerm(null, constants.OLS_SEARCH_URL),
     new isValidTaxonomy(null),
-    new GraphRestriction(null, "https://www.ebi.ac.uk/ols/api"),
+    new GraphRestriction(null, constants.OLS_SEARCH_URL),
     new IsValidIdentifier()
 ];
 
 class BioValidator {
     constructor(localSchemaPath) {
-        this.validatorCache = {};
-        this.referencedSchemaCache = {};
+        this.validatorCache = new NodeCache({stdTTl: 21600, checkperiod: 3600, useClones: false});
+        this.referencedSchemaCache = new NodeCache({stdTTl: 21600, checkperiod: 3600, useClones: false});
         this.ajvInstance = this._getAjvInstance(localSchemaPath);
     }
 
     // wrapper around _validate to process output
     validate(inputSchema, inputObject) {
+        if (inputSchema["$schema"] && inputSchema["$schema"].includes("2020-12")) {
+            let appError = new AppError("JSON Schema draft-2020-12 is not supported currently");
+            return new Promise((resolve, reject) => reject(appError));
+        }
+
         return new Promise((resolve, reject) => {
             this._validate(inputSchema, inputObject)
                 .then((validationResult) => {
@@ -53,15 +62,15 @@ class BioValidator {
 
     getCachedSchema() {
         return {
-            "cachedSchema": Object.keys(this.validatorCache),
-            "referencedSchema": Object.keys(this.referencedSchemaCache)
+            "cachedSchema": this.validatorCache.keys(),
+            "referencedSchema": this.referencedSchemaCache.keys()
         };
     }
 
     clearCachedSchema() {
         this.ajvInstance.removeSchema();
-        this.validatorCache = {};
-        this.referencedSchemaCache = {};
+        this.validatorCache.flushAll();
+        this.referencedSchemaCache.flushAll();
     }
 
     // AJV requires $async keyword in schemas if they use any of async custom defined keywords.
@@ -101,8 +110,8 @@ class BioValidator {
                     }
                 });
             }).catch((err) => {
-                logger.error("Failed to compile schema: " + err);
-                reject(new AppError("Failed to compile schema: " + err));
+                logger.error("Failed to compile schema: " + JSON.stringify(err));
+                reject(new AppError("Failed to compile schema: " + JSON.stringify(err)));
             });
         });
     }
@@ -124,14 +133,14 @@ class BioValidator {
 
     getValidationFunction(inputSchema) {
         const schemaId = inputSchema['$id'];
-        if (this.validatorCache[schemaId]) {
+        if (this.validatorCache.has(schemaId)) {
             logger.info("Returning compiled schema from cache, $id: " + schemaId);
-            return Promise.resolve(this.validatorCache[schemaId]);
+            return Promise.resolve(this.validatorCache.get(schemaId));
         } else {
             const compiledSchemaPromise = this.ajvInstance.compileAsync(inputSchema);
             if (schemaId) {
                 logger.info("Saving compiled schema in cache, $id: " + schemaId);
-                this.validatorCache[schemaId] = compiledSchemaPromise;
+                this.validatorCache.set(schemaId, compiledSchemaPromise);
             } else {
                 logger.warn("Compiling schema with empty schema $id. Schema will not be cached.");
             }
@@ -140,7 +149,8 @@ class BioValidator {
     }
 
     _getAjvInstance(localSchemaPath) {
-        const ajvInstance = new Ajv({allErrors: true, strict: false, loadSchema: this._resolveReference()});
+        const ajvInstance = new Ajv2019({allErrors: true, strict: false, loadSchema: this._resolveReference()});
+        // const ajvInstance = new Ajv2020({allErrors: true, strict: false, loadSchema: this._resolveReference()});
         const draft7MetaSchema = require("ajv/dist/refs/json-schema-draft-07.json")
         ajvInstance.addMetaSchema(draft7MetaSchema)
         addFormats(ajvInstance);
@@ -153,9 +163,9 @@ class BioValidator {
 
     _resolveReference() {
         return (uri) => {
-            if (this.referencedSchemaCache[uri]) {
+            if (this.referencedSchemaCache.has(uri)) {
                 logger.info("Returning referenced schema from cache: " + uri);
-                return Promise.resolve(this.referencedSchemaCache[uri]);
+                return Promise.resolve(this.referencedSchemaCache.get(uri));
             } else {
                 return new Promise((resolve, reject) => {
                     axios({method: "GET", url: uri, responseType: 'json'})
@@ -163,7 +173,7 @@ class BioValidator {
                             logger.info("Returning referenced schema from network : " + uri);
                             const loadedSchema = resp.data;
                             this._insertAsyncToSchemasAndDefs(loadedSchema);
-                            this.referencedSchemaCache[uri] = loadedSchema;
+                            this.referencedSchemaCache.set(uri, loadedSchema);
                             resolve(loadedSchema);
                         }).catch(err => {
                         logger.error("Failed to retrieve referenced schema: " + uri + ", " + JSON.stringify(err))
@@ -191,7 +201,7 @@ class BioValidator {
                 let schema = readFile(file);
                 this._insertAsyncToSchemasAndDefs(schema);
                 ajv.getSchema(schema["$id"] || ajv.compile(schema)); // add to AJV cache if not already present
-                this.referencedSchemaCache[schema["$id"]] = schema;
+                this.referencedSchemaCache.set(schema["$id"], schema);
                 logger.info("Adding compiled local schema to cache: " + schema["$id"])
             }
         }

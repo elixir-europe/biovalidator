@@ -30,7 +30,7 @@ class IsValidTerm {
     }
 
     generateKeywordFunction() {
-        const findTerm = (schema, data) => {
+        return (schema, data) => {
             return new Promise((resolve, reject) => {
                 if (schema) {
                     let errors = [];
@@ -41,7 +41,7 @@ class IsValidTerm {
 
                     axios({method: "GET", url: url, responseType: 'json'})
                         .then((response) => {
-                            if (response.status === 200 && response.data.response.numFound === 1) {
+                            if (response.status === 200 && response.data.response.numFound >= 1) {
                                 logger.debug(`Returning resolved term from OLS: [${termUri}]`);
                             } else if (response.status === 200 && response.data.response.numFound === 0) {
                                 logger.warn(`Failed to resolve term from OLS. Term not present: [${termUri}]`);
@@ -77,8 +77,6 @@ class IsValidTerm {
                 }
             });
         };
-
-        return findTerm;
     }
 }
 

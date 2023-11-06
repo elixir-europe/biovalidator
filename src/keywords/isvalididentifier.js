@@ -3,6 +3,7 @@ const axios = require('axios');
 const CustomAjvError = require("../model/custom-ajv-error");
 const {logger} = require("../utils/winston");
 const constants = require("../utils/constants");
+const NodeCache = require("node-cache");
 
 class IsValidIdentifier {
     constructor() {
@@ -21,7 +22,7 @@ class IsValidIdentifier {
     }
 
     validationFunction() {
-        const cachedIdentifiers = {};
+        const cachedIdentifiers = new NodeCache({stdTTl: 21600, checkperiod: 3600, useClones: false});;
 
         const generateErrorObject = (message) => {
             return new CustomAjvError(this.keywordName, message, {});
@@ -43,8 +44,8 @@ class IsValidIdentifier {
                 }
 
                 let responsePromise;
-                if (cachedIdentifiers[identifier]) {
-                    responsePromise = Promise.resolve(cachedIdentifiers[identifier]);
+                if (cachedIdentifiers.has(identifier)) {
+                    responsePromise = Promise.resolve(cachedIdentifiers.get(identifier));
                     logger.debug("Returning cached response for identifiers.org request: " + identifier)
                 } else {
                     responsePromise = axios({
@@ -55,7 +56,7 @@ class IsValidIdentifier {
                 }
 
                 responsePromise.then((response) => {
-                    cachedIdentifiers[identifier] = response;
+                    cachedIdentifiers.set(identifier, response);
                     if (response.status === 200 && response.data.payload.resolvedResources.length > 0) {
                         const resolvedUrl = response.data.payload.resolvedResources[0].compactIdentifierResolvedUrl;
                         logger.debug(`Returning resolved term: ${identifier} -> ${resolvedUrl}`);
