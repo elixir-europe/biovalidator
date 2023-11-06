@@ -8,21 +8,22 @@ Furthermore, the biovalidator is capable of running as a server or in CLI mode.
 
 The biovalidator currently supports JSON Schema draft-06/07/2019-09.
 
-## Major Changes
-- Remove unused `relations` keyword inside `graphRestrictions`
-- Remove unused `direct` keyword inside `graphRestrictions`
-- Rename `include_self` to `includeSelf` keyword inside `graphRestrictions` to be consistent with camel case naming convention
-- Add `queryFields` keyword inside `graphRestrictions` to query for either obo_id or label
-- Add caching library improve memory consumption and auto cache evictions
-- Fix a bug related to OLS API call in graphRestrictions
-
-## Major Changes in new version
-- `graph_restriction` renamed to `graphRestriction` to be consistent with other keywords
+## Breaking changes in recent releases
+- graphRestrictions
+  - `graph_restriction` renamed to `graphRestriction` to be consistent with other keywords
+  - Remove unused `relations` keyword inside `graphRestrictions`
+  - Remove unused `direct` keyword inside `graphRestrictions`
+  - Rename `include_self` to `includeSelf` keyword inside `graphRestrictions` to be consistent with camel case naming convention
 - Merged `validator-cli.js` with `src/server.js`. Now one entry point to the application: `src/biovalidator.js`
 - Changes to arguments accepted at the startup
   - `--json` renamed to `--data`
-  - Added `--ref`, `--port`, `--baseUrl`, `pidPath` 
+  - Added `--ref`, `--port`, `--baseUrl`, `pidPath`
+
+## Notable features in recent releases
 - Support for new keyword `isValidIdentifier`. Validate accessions/IDs using identifiers.org API. 
+- Add `queryFields` keyword inside `graphRestrictions` to query for either obo_id or label
+- Add caching library improve memory consumption and auto cache evictions
+- Fix a bug related to OLS API call in graphRestrictions
 
 ## Contents
 - [Getting Started](#getting-started)

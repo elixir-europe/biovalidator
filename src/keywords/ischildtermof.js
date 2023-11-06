@@ -46,7 +46,7 @@ class IsChildTermOf {
                     logger.log("debug", `Evaluating isChildTermOf, query url: [${url}]`);
                     axios({method: "GET", url: url, responseType: 'json'})
                         .then((response) => {
-                            if (response.status === 200 && response.data.response.numFound === 1) {
+                            if (response.status === 200 && response.data.response.numFound >= 1) {
                                 logger.debug(`Returning resolved relationship from OLS: [${parentTerm}] -> [${ontologyId}]`);
                             } else if (response.status === 200 && response.data.response.numFound === 0) {
                                 logger.warn(`Failed to resolve relationship from OLS. [${parentTerm}] is not a child of [${parentTerm}]`);

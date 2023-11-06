@@ -11,12 +11,13 @@ const IsValidIdentifier = require("../keywords/isvalididentifier");
 const ValidationError = require("../model/validation-error");
 const {logger} = require("../utils/winston");
 const NodeCache = require("node-cache");
+const constants = require("../utils/constants");
 
 const customKeywordValidators = [
-    new isChildTermOf(null, "https://www.ebi.ac.uk/ols/api/search?q="),
-    new isValidTerm(null, "https://www.ebi.ac.uk/ols/api/search?q="),
+    new isChildTermOf(null, constants.OLS_SEARCH_URL),
+    new isValidTerm(null, constants.OLS_SEARCH_URL),
     new isValidTaxonomy(null),
-    new GraphRestriction(null, "https://www.ebi.ac.uk/ols/api"),
+    new GraphRestriction(null, constants.OLS_SEARCH_URL),
     new IsValidIdentifier()
 ];
 

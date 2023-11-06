@@ -6,9 +6,9 @@ const {logger} = require("../utils/winston");
 const NodeCache = require("node-cache");
 
 class GraphRestriction {
-    constructor(keywordName, olsBaseUrl) {
+    constructor(keywordName, olsSearchUrl) {
         this.keywordName = keywordName ? keywordName : "graphRestriction";
-        this.olsBaseUrl = olsBaseUrl;
+        this.olsSearchUrl = olsSearchUrl;
     }
 
     /**
@@ -42,9 +42,8 @@ class GraphRestriction {
     }
 
     generateKeywordFunction() {
-        const olsSearchUrl = `${this.olsBaseUrl}/search?q=`;
         const cachedOlsResponses = new NodeCache({stdTTl: 21600, checkperiod: 3600, useClones: false});
-        const curieExpansion = new CurieExpansion(olsSearchUrl);
+        const curieExpansion = new CurieExpansion(this.olsSearchUrl);
 
         const callCurieExpansion = (terms) => {
             let expanded = terms.map((t) => {
@@ -78,7 +77,7 @@ class GraphRestriction {
                             const ontologyId = ontologyIds.join(",").replace(/obo:/g, "");
 
                             const termUri = encodeURIComponent(data);
-                            const url = olsSearchUrl + termUri
+                            const url = this.olsSearchUrl + termUri
                                 + "&exact=true&groupField=true&allChildrenOf=" + encodeURIComponent(parentTerm)
                                 // + "&ontology=" + ontologyId + "&queryFields=obo_id,label";
                                 + "&ontology=" + ontologyId + "&queryFields=" + queryFields;
@@ -97,7 +96,7 @@ class GraphRestriction {
 
                             olsResponsePromise.then((response) => {
                                 cachedOlsResponses.set(url, response);
-                                if (response.status === 200 && response.data.response.numFound === 1) {
+                                if (response.status === 200 && response.data.response.numFound >= 1) {
                                     logger.debug(`Returning resolved term from OLS: [${parentTerm}]`);
                                 } else if (response.status === 200 && response.data.response.numFound === 0) {
                                     logger.warn(`Failed to resolve term from OLS. Invalid relationship: [${ontologyId}]`);
