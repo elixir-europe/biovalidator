@@ -434,15 +434,15 @@ This image can be used to run the validator without cloning this repository.
 
 Pull docker image from [quay.io](https://quay.io/repository/ebi-ait/biovalidator)
 ```shell
-docker pull quay.io/ebi-ait/biovalidator:2.2.1
+docker pull quay.io/ebi-ait/biovalidator:2.2.2
 ```
 Run in server mode
 ```shell
-docker run -p 3020:3020 -d quay.io/ebi-ait/biovalidator:2.2.1
+docker run -p 3020:3020 -d quay.io/ebi-ait/biovalidator:2.2.2
 ```
 Run in onetime CLI mode
 ```shell
-docker run quay.io/ebi-ait/biovalidator:2.0.0 --schema /path/to/schema.json --data /path/to/data.json
+docker run quay.io/ebi-ait/biovalidator:2.2.2 --schema /path/to/schema.json --data /path/to/data.json
 ```
 
 ## Development

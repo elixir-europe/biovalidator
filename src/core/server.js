@@ -44,7 +44,7 @@ class BioValidatorServer {
     this.router = express.Router();
     this.router.use(express.static('src/views'));
 
-    this.app.use(bodyParser.json());
+    this.app.use(express.json({limit:'1mb'}));
 
     this.app.use(function(req, res, next) {
       res.header("Access-Control-Allow-Origin", "*");
