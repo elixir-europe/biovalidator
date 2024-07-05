@@ -10,13 +10,13 @@ stages:
   - build
   - deploy
 
-build_docker_image: 
+build_docker_image:
   image: docker:latest
   services:
     - docker:dind
   stage: build
   script:
-    - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
+    - echo "$CI_DEPLOY_PASSWORD" | docker login $CI_REGISTRY -u $CI_DEPLOY_USER --password-stdin
     - echo $DOCKER_IMAGE_NAME
     - docker build -t $DOCKER_IMAGE_NAME .
     - docker push $DOCKER_IMAGE_NAME
@@ -27,10 +27,10 @@ deploy:
   stage: deploy
   image: dtzar/helm-kubectl:3.11.0
   script:
-    - kubectl config use-context dev
+    - kubectl create namespace $KUBECTL_NAMESPACE || true
     - kubectl config set-context --current --namespace=${KUBECTL_NAMESPACE}
-    - kubectl -n $NAMESPACE delete secret $DOCKER_PULL_SECRET || true
-    - kubectl -n $NAMESPACE create secret docker-registry $DOCKER_PULL_SECRET --docker-server=$CI_REGISTRY --docker-username=$CI_DEPLOY_USER --docker-password=$CI_DEPLOY_PASSWORD
+    - kubectl delete secret $DOCKER_PULL_SECRET || true
+    - kubectl create secret docker-registry $DOCKER_PULL_SECRET --docker-server=$CI_REGISTRY --docker-username=$CI_DEPLOY_USER --docker-password=$CI_DEPLOY_PASSWORD
     - kubectl apply -f deployment.yaml
     - kubectl rollout restart deployments biovalidator
   when: manual
