@@ -14,10 +14,12 @@ spec:
       labels:
         app: biovalidator
     spec:
+      imagePullSecrets:
+        - name: $DOCKER_PULL_SECRET
       containers:
-        - image: quay.io/ebi-ait/biovalidator:2.2.2
+        - name: biovalidator
+          image: $DOCKER_IMAGE_NAME
           imagePullPolicy: Always
-          name: json-schema-validator
           ports:
             - containerPort: 3020
 
