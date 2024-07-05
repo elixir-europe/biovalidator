@@ -1,7 +1,10 @@
 variables:
   DOCKER_DRIVER: overlay2
   DOCKER_TLS_CERTDIR: ""
-  TEMP_TAG: "1.0.1"
+  DOCKER_TAG: $CI_COMMIT_REF_SLUG-$CI_COMMIT_SHORT_SHA
+  DOCKER_IMAGE_NAME: $CI_REGISTRY_IMAGE:$DOCKER_TAG
+  DOCKER_PULL_SECRET: gitlab-docker-secret
+  DOCKER_AUTH_CONFIG: $DOCKER_CONFIG_JSON
 
 stages:
   - build
@@ -14,22 +17,19 @@ build_docker_image:
   stage: build
   script:
     - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
-    - docker build -t $CI_REGISTRY_IMAGE:$TEMP_TAG .
-    - docker push $CI_REGISTRY_IMAGE:$TEMP_TAG
+    - docker build -t $DOCKER_IMAGE_NAME .
+    - docker push $DOCKER_IMAGE_NAME
   after_script:
     - docker logout ${CI_REGISTRY}
 
-hx-production:
+deploy:
   stage: deploy
+  image: dtzar/helm-kubectl:3.11.0
   script:
-     - sed -i s#%DOCKER_IMAGE%#$CI_REGISTRY_IMAGE\:$CI_COMMIT_TAG#g k8s-deployment.yaml
-     - export KUBECONFIG=/home/gitlab-runner/.kube/hx-wp-webadmin-01-team-admin &&  kubectl apply -f k8s-deployment.yaml
-  only:
-    - disable
-hh-production:
-  stage: deploy
-  script:
-     - sed -i s#%DOCKER_IMAGE%#$CI_REGISTRY_IMAGE\:$CI_COMMIT_TAG#g k8s-deployment.yaml
-     - export KUBECONFIG=/home/gitlab-runner/.kube/hh-wp-webadmin-01-team-admin &&  kubectl apply -f k8s-deployment.yaml
-  only:
-    - disable
+    - kubectl config use-context dev
+    - kubectl config set-context --current --namespace=${KUBECTL_NAMESPACE}
+    - kubectl -n $NAMESPACE delete secret $DOCKER_PULL_SECRET || true
+    - kubectl -n $NAMESPACE create secret docker-registry $DOCKER_PULL_SECRET --docker-server=$CI_REGISTRY --docker-username=$CI_DEPLOY_USER --docker-password=$CI_DEPLOY_PASSWORD
+    - kubectl apply -f deployment.yaml
+    - kubectl rollout restart deployments biovalidator
+  when: manual
