@@ -17,6 +17,7 @@ build_docker_image:
   stage: build
   script:
     - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
+    - echo $DOCKER_IMAGE_NAME
     - docker build -t $DOCKER_IMAGE_NAME .
     - docker push $DOCKER_IMAGE_NAME
   after_script:
