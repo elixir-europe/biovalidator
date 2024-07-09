@@ -31,6 +31,7 @@ deploy:
     - kubectl config set-context --current --namespace=${KUBECTL_NAMESPACE}
     - kubectl delete secret $DOCKER_PULL_SECRET || true
     - kubectl create secret docker-registry $DOCKER_PULL_SECRET --docker-server=$CI_REGISTRY --docker-username=$CI_DEPLOY_USER --docker-password=$CI_DEPLOY_PASSWORD
-    - kubectl apply -f deployment.yaml
+    - envsubst < .deployment.yml > kubernetes.yml
+    - kubectl apply -f kubernetes.yaml
     - kubectl rollout restart deployments biovalidator
   when: manual
