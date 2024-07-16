@@ -40,6 +40,8 @@ deploy_prod:
   extends: kube_deploy_script
 
 kube_deploy_script:
+  stage: deploy
+  image: dtzar/helm-kubectl
   script:
     - kubectl create namespace $NAMESPACE || true
     - kubectl config set-context --current --namespace=${NAMESPACE}
