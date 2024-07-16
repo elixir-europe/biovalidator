@@ -23,7 +23,7 @@ build_docker_image:
   after_script:
     - docker logout ${CI_REGISTRY}
 
-deploy:
+deploy_prod:
   stage: deploy
   image: dtzar/helm-kubectl:3.11.0
   script:
@@ -34,4 +34,7 @@ deploy:
     - envsubst < deployment.yaml > kubernetes.yaml
     - kubectl apply -f kubernetes.yaml
     - kubectl rollout restart deployments biovalidator
+  environment:
+    name: production
+    url: https://www.ebi.ac.uk/biovalidator
   when: manual
