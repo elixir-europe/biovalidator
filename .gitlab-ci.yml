@@ -23,18 +23,28 @@ build_docker_image:
   after_script:
     - docker logout ${CI_REGISTRY}
 
+deploy_dev:
+  variables:
+    NAMESPACE: biovalidator-dev
+  environment:
+    name: dev
+    url: https://wwwdev.ebi.ac.uk/ait/biovalidator
+  extends: kube_deploy_script
+
 deploy_prod:
-  stage: deploy
-  image: dtzar/helm-kubectl:3.11.0
+  variables:
+    NAMESPACE: biovalidator-ns
+  environment:
+    name: production
+    url: https://www.ebi.ac.uk/biovalidator
+  extends: kube_deploy_script
+
+kube_deploy_script:
   script:
-    - kubectl create namespace $KUBECTL_NAMESPACE || true
-    - kubectl config set-context --current --namespace=${KUBECTL_NAMESPACE}
+    - kubectl create namespace $NAMESPACE || true
+    - kubectl config set-context --current --namespace=${NAMESPACE}
     - kubectl delete secret $DOCKER_PULL_SECRET || true
     - kubectl create secret docker-registry $DOCKER_PULL_SECRET --docker-server=$CI_REGISTRY --docker-username=$CI_DEPLOY_USER --docker-password=$CI_DEPLOY_PASSWORD
     - envsubst < deployment.yaml > kubernetes.yaml
     - kubectl apply -f kubernetes.yaml
     - kubectl rollout restart deployments biovalidator
-  environment:
-    name: production
-    url: https://www.ebi.ac.uk/biovalidator
-  when: manual
