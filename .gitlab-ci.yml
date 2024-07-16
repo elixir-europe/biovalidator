@@ -29,7 +29,8 @@ deploy_dev:
   environment:
     name: dev
     url: https://wwwdev.ebi.ac.uk/ait/biovalidator
-  extends: kube_deploy_script
+  when: manual
+  extends: .kube_deploy_script
 
 deploy_prod:
   variables:
@@ -37,9 +38,10 @@ deploy_prod:
   environment:
     name: production
     url: https://www.ebi.ac.uk/biovalidator
-  extends: kube_deploy_script
+  when: manual
+  extends: .kube_deploy_script
 
-kube_deploy_script:
+.kube_deploy_script:
   stage: deploy
   image: dtzar/helm-kubectl
   script:
