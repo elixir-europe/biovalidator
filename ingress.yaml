@@ -6,7 +6,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: validator.com
+    - host: https://wwwdev.ebi.ac.uk
       http:
         paths:
           - path: /ait/biovalidator
