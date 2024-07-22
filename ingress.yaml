@@ -1,15 +1,14 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: validator-ingress
+  name: biovalidator-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
-  ingressClassName: nginx
   rules:
     - http:
         paths:
-          - path: /ait/biovalidator
+          - path: /ait/biovalidator(/|$)(.*)
             pathType: Prefix
             backend:
               service:
