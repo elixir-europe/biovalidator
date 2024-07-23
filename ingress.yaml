@@ -2,6 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: biovalidator-ingress
+  namespace: biovalidator-dev
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
@@ -13,6 +14,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: biovalidator-service
+                name: biovalidator
                 port:
-                  number: 3020
+                  number: 8080
