@@ -3,6 +3,8 @@ kind: Ingress
 metadata:
   name: biovalidator-ingress
   namespace: biovalidator-dev
+  labels:
+    app: biovalidator
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
