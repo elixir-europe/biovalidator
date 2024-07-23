@@ -11,6 +11,4 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-EXPOSE 3020
-
 ENTRYPOINT ["/start.sh"]
