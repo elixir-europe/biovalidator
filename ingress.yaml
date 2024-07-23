@@ -18,4 +18,4 @@ spec:
               service:
                 name: biovalidator
                 port:
-                  number: 3020
+                  number: 8080

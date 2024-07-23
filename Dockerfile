@@ -11,4 +11,6 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-ENTRYPOINT ["/start.sh"]
+EXPOSE 8080
+
+ENTRYPOINT ["/start.sh --port 80"]
