@@ -36,7 +36,7 @@ deploy_dev:
 deploy_prod:
   variables:
     NAMESPACE: biovalidator-ns
-    HOST: ebi.ac.uk
+    HOST: www.ebi.ac.uk
   environment:
     name: production
     url: https://www.ebi.ac.uk/ait/biovalidator
