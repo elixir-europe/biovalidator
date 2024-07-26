@@ -53,5 +53,7 @@ deploy_prod:
     - kubectl create secret docker-registry $DOCKER_PULL_SECRET --docker-server=$CI_REGISTRY --docker-username=$CI_DEPLOY_USER --docker-password=$CI_DEPLOY_PASSWORD
     - envsubst < deployment.yaml > kubernetes.yaml
     - kubectl apply -f kubernetes.yaml
-    - envsubst < ingress.yaml | kubectl apply -f -
+    - envsubst < ingress_template.yaml > ingress.yaml
+    - cat ingress.yaml
+    - kubectl apply -f ingress.yaml
     - kubectl rollout restart deployments biovalidator

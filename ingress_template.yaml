@@ -11,7 +11,7 @@ spec:
   ingressClassName: nginx
   rules:
     - host: ${HOST}
-    - http:
+      http:
         paths:
           - path: /ait/biovalidator(/|$)(.*)
             pathType: Prefix
