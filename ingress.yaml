@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: biovalidator-ingress
-  namespace: biovalidator-dev
+  namespace: ${NAMESPACE}
   labels:
     app: biovalidator-service
   annotations:
@@ -10,6 +10,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
+    - host: ${HOST}
     - http:
         paths:
           - path: /ait/biovalidator(/|$)(.*)
