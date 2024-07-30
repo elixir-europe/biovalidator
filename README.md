@@ -44,18 +44,27 @@ The biovalidator currently supports JSON Schema draft-06/07/2019-09.
 ## Getting Started
 
 ### Prerequisites
-- [Node.js](https://nodejs.org/en/about/) - v10.19.1.0+
+- [Node.js](https://nodejs.org/en/about/) - v18+
 - [npm](https://www.npmjs.com/) 
 You can also run the [biovalidator using docker](#running-in-docker) without installing node or npm. 
 
 ### Installation
 
-- Install Node.js: https://nodejs.org/en/ (v10.19.1.0+)
+- Install Node.js: https://nodejs.org/en/ (v18+)
+  - if you are using nvm, run
+```bash
+nvm install 18
+nvm use 18
+```
+
 - Check node and npm version
 ```shell
 node -v
 npm -v
 ```
+
+- If you are using an IDE, set it to use this node version.
+
 - Clone project and install dependencies:
 ```
 git clone https://github.com/elixir-europe/biovalidator.git

@@ -1,21 +1,21 @@
 {
   "attributes": {
-    "sex": [
+    "organ": [
       {
-        "value": "female",
+        "value": "lungs",
         "terms": [
           {
-            "url": "http://purl.obolibrary.org/obo/PATO_0000383"
+            "url": "http://purl.obolibrary.org/obo/UBERON_0000170"
           }
         ]
       }
     ],
-    "breed": [
+    "organism": [
       {
-        "value": "Spanish Churra",
+        "value": "Eukaryota",
         "terms": [
           {
-            "url": "http://purl.obolibrary.org/obo/LBO_0000704"
+            "url": "http://purl.obolibrary.org/obo/NCBITaxon_2759"
           }
         ]
       }
