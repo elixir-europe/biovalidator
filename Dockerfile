@@ -4,11 +4,11 @@ FROM node:18-buster
 WORKDIR /usr/src/app
 
 COPY package*.json ./
-COPY ./start.sh /
 
 RUN npm install
 
-# Bundle app source
+COPY ./start.sh /
 COPY . .
+RUN npm run test
 
 ENTRYPOINT ["/start.sh"]

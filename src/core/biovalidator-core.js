@@ -2,6 +2,7 @@ const Ajv = require("ajv")
 const Ajv2019 = require("ajv/dist/2019").default;
 const Ajv2020 = require("ajv/dist/2020")
 const addFormats = require("ajv-formats");
+const ajvErrorsPlugin = require("ajv-errors");
 const axios = require('axios');
 const AppError = require("../model/application-error");
 const {getFiles, readFile} = require("../utils/file_utils");
@@ -154,6 +155,7 @@ class BioValidator {
         const draft7MetaSchema = require("ajv/dist/refs/json-schema-draft-07.json")
         ajvInstance.addMetaSchema(draft7MetaSchema)
         addFormats(ajvInstance);
+        ajvErrorsPlugin(ajvInstance);
 
         this._addCustomKeywordValidators(ajvInstance);
         this._preCompileLocalSchemas(ajvInstance, localSchemaPath);
