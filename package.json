@@ -14,7 +14,7 @@
     "travis-test": "jest test/validator.test.js"
   },
   "engines": {
-    "node": ">=10.19.1"
+    "node": ">=18.16.0"
   },
   "keywords": [
     "nodejs",
@@ -27,6 +27,7 @@
   "dependencies": {
     "ajv": "8.12.0",
     "ajv-formats": "2.1.1",
+    "ajv-errors": "^3.0.0",
     "axios": "^1.3.2",
     "express": "^4.17.1",
     "glob": "^8.0.3",
