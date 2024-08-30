@@ -154,6 +154,7 @@ class BioValidator {
         const draft7MetaSchema = require("ajv/dist/refs/json-schema-draft-07.json")
         ajvInstance.addMetaSchema(draft7MetaSchema)
         addFormats(ajvInstance);
+        require("ajv-errors")(ajvInstance)
 
         this._addCustomKeywordValidators(ajvInstance);
         this._preCompileLocalSchemas(ajvInstance, localSchemaPath);
