@@ -1,34 +1,59 @@
 variables:
   DOCKER_DRIVER: overlay2
   DOCKER_TLS_CERTDIR: ""
+  DOCKER_TAG: $CI_COMMIT_REF_SLUG-$CI_COMMIT_SHORT_SHA
+  DOCKER_IMAGE_NAME: $CI_REGISTRY_IMAGE:$DOCKER_TAG
+  DOCKER_PULL_SECRET: docker-registry-secret
+  DOCKER_AUTH_CONFIG: $DOCKER_CONFIG_JSON
 
 stages:
   - build
   - deploy
 
-build_docker_image: 
+build_docker_image:
   image: docker:latest
   services:
     - docker:dind
   stage: build
   script:
-    - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
-    - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG .
-    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG
+    - echo "$CI_DEPLOY_PASSWORD" | docker login $CI_REGISTRY -u $CI_DEPLOY_USER --password-stdin
+    - echo $DOCKER_IMAGE_NAME
+    - docker build -t $DOCKER_IMAGE_NAME .
+    - docker push $DOCKER_IMAGE_NAME
   after_script:
     - docker logout ${CI_REGISTRY}
 
-hx-production:
+deploy_dev:
+  variables:
+    NAMESPACE: biovalidator-dev
+    HOST: wwwdev.ebi.ac.uk
+  environment:
+    name: dev
+    url: https://wwwdev.ebi.ac.uk/ait/biovalidator
+  when: manual
+  extends: .kube_deploy_script
+
+deploy_prod:
+  variables:
+    NAMESPACE: biovalidator-ns
+    HOST: www.ebi.ac.uk
+  environment:
+    name: production
+    url: https://www.ebi.ac.uk/ait/biovalidator
+  when: manual
+  extends: .kube_deploy_script
+
+.kube_deploy_script:
   stage: deploy
+  image: dtzar/helm-kubectl
   script:
-     - sed -i s#%DOCKER_IMAGE%#$CI_REGISTRY_IMAGE\:$CI_COMMIT_TAG#g k8s-deployment.yaml
-     - export KUBECONFIG=/home/gitlab-runner/.kube/hx-wp-webadmin-01-team-admin &&  kubectl apply -f k8s-deployment.yaml
-  only:
-    - disable
-hh-production:
-  stage: deploy
-  script:
-     - sed -i s#%DOCKER_IMAGE%#$CI_REGISTRY_IMAGE\:$CI_COMMIT_TAG#g k8s-deployment.yaml
-     - export KUBECONFIG=/home/gitlab-runner/.kube/hh-wp-webadmin-01-team-admin &&  kubectl apply -f k8s-deployment.yaml
-  only:
-    - disable
+    - kubectl create namespace $NAMESPACE || true
+    - kubectl config set-context --current --namespace=${NAMESPACE}
+    - kubectl delete secret $DOCKER_PULL_SECRET || true
+    - kubectl create secret docker-registry $DOCKER_PULL_SECRET --docker-server=$CI_REGISTRY --docker-username=$CI_DEPLOY_USER --docker-password=$CI_DEPLOY_PASSWORD
+    - envsubst < deployment.yaml > kubernetes.yaml
+    - kubectl apply -f kubernetes.yaml
+    - envsubst < ingress_template.yaml > ingress.yaml
+    - cat ingress.yaml
+    - kubectl apply -f ingress.yaml
+    - kubectl rollout restart deployments biovalidator
