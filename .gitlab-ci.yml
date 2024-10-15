@@ -25,10 +25,20 @@ build_docker_image:
 
 deploy_dev:
   variables:
+    NAMESPACE: biovalidator-test
+    HOST: wwwint.ebi.ac.uk
+  environment:
+    name: dev
+    url: https://wwwint.ebi.ac.uk/ait/biovalidator
+  when: manual
+  extends: .kube_deploy_script
+
+deploy_test:
+  variables:
     NAMESPACE: biovalidator-dev
     HOST: wwwdev.ebi.ac.uk
   environment:
-    name: dev
+    name: test
     url: https://wwwdev.ebi.ac.uk/ait/biovalidator
   when: manual
   extends: .kube_deploy_script
