@@ -40,6 +40,9 @@ deploy_test:
   environment:
     name: test
     url: https://wwwdev.ebi.ac.uk/biosamples/biovalidator
+  only:
+    - main
+    - dev
   when: manual
   extends: .kube_deploy_script
 
@@ -48,20 +51,24 @@ deploy_prod:
     NAMESPACE: biosamples-prod
     HOST: www.ebi.ac.uk
   environment:
-    name: production
+    name: prod
     url: https://www.ebi.ac.uk/biosamples/biovalidator
+  only:
+    - main
   when: manual
   extends: .kube_deploy_script
 
-deploy_prod_ait:
-  variables:
-    NAMESPACE: ait-prod
-    HOST: www.ebi.ac.uk
-  environment:
-    name: production-ait
-    url: https://www.ebi.ac.uk/ait/biovalidator
-  when: manual
-  extends: .kube_deploy_script
+# todo discuss: do we need AIT biovalidator to share with others?
+# todo discuss: what are the options to make biosamples internal only: remove ingress and make service=ClusterIP?
+#deploy_prod_ait:
+#  variables:
+#    NAMESPACE: ait-prod
+#    HOST: www.ebi.ac.uk
+#  environment:
+#    name: prod-ait
+#    url: https://www.ebi.ac.uk/ait/biovalidator
+#  when: manual
+#  extends: .kube_deploy_script
 
 .kube_deploy_script:
   stage: deploy
