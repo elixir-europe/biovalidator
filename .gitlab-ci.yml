@@ -25,30 +25,40 @@ build_docker_image:
 
 deploy_dev:
   variables:
-    NAMESPACE: biovalidator-test
+    NAMESPACE: biosamples-dev
     HOST: wwwint.ebi.ac.uk
   environment:
     name: dev
-    url: https://wwwint.ebi.ac.uk/ait/biovalidator
+    url: https://wwwint.ebi.ac.uk/biosamples/biovalidator
   when: manual
   extends: .kube_deploy_script
 
 deploy_test:
   variables:
-    NAMESPACE: biovalidator-dev
+    NAMESPACE: biosamples-dev
     HOST: wwwdev.ebi.ac.uk
   environment:
     name: test
-    url: https://wwwdev.ebi.ac.uk/ait/biovalidator
+    url: https://wwwdev.ebi.ac.uk/biosamples/biovalidator
   when: manual
   extends: .kube_deploy_script
 
 deploy_prod:
   variables:
-    NAMESPACE: biovalidator-ns
+    NAMESPACE: biosamples-prod
     HOST: www.ebi.ac.uk
   environment:
     name: production
+    url: https://www.ebi.ac.uk/biosamples/biovalidator
+  when: manual
+  extends: .kube_deploy_script
+
+deploy_prod_ait:
+  variables:
+    NAMESPACE: ait-prod
+    HOST: www.ebi.ac.uk
+  environment:
+    name: production-ait
     url: https://www.ebi.ac.uk/ait/biovalidator
   when: manual
   extends: .kube_deploy_script
