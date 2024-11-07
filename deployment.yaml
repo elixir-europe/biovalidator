@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: biovalidator
+  name: biovalidator
+spec:
+  replicas: 2
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: biovalidator
+  template:
+    metadata:
+      labels:
+        app: biovalidator
+    spec:
+      imagePullSecrets:
+        - name: $DOCKER_PULL_SECRET
+      containers:
+        - name: biovalidator
+          image: $DOCKER_IMAGE_NAME
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3020
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: biovalidator-service
+spec:
+  type: NodePort
+  selector:
+    app: biovalidator
+  ports:
+    - protocol: TCP
+      port: 3020
+      targetPort: 3020
