@@ -24,7 +24,7 @@ spec:
           ports:
             - containerPort: 3020
           args:
-            - -baseUrl=/biosamples/biovalidator
+            - "-baseUrl=/biosamples/biovalidator"
 
 ---
 apiVersion: v1
