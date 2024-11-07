@@ -23,6 +23,8 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 3020
+          args:
+            - -baseUrl=/biosamples/biovalidator
 
 ---
 apiVersion: v1

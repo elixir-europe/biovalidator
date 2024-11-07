@@ -11,4 +11,4 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-ENTRYPOINT ["/start.sh"]
+ENTRYPOINT ["./src/biovalidator"]

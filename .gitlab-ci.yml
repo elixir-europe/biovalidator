@@ -55,6 +55,7 @@ deploy_prod:
     name: prod
     url: https://www.ebi.ac.uk/biosamples/biovalidator
   only:
+    - dev
     - main
   when: manual
   extends: .kube_deploy_script
