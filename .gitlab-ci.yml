@@ -35,7 +35,7 @@ deploy_dev:
 
 deploy_test:
   variables:
-    NAMESPACE: biosamples-dev
+    NAMESPACE: biosamples-test
     HOST: wwwdev.ebi.ac.uk
   environment:
     name: test
