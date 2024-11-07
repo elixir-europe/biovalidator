@@ -16,6 +16,7 @@ build_docker_image:
     - docker:dind
   stage: build
   script:
+    - unset DOCKER_HOST
     - echo "$CI_DEPLOY_PASSWORD" | docker login $CI_REGISTRY -u $CI_DEPLOY_USER --password-stdin
     - echo $DOCKER_IMAGE_NAME
     - docker build -t $DOCKER_IMAGE_NAME .
