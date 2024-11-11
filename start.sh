@@ -35,5 +35,5 @@ while [ $# -gt 0 ]; do
   shift
 done
 
-node src/biovalidator --baseUrl /biosamples/biovalidator $params
+node src/biovalidator $params
 
