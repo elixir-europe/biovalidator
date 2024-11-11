@@ -20,6 +20,10 @@ while [ $# -gt 0 ]; do
       params="$params  --port  $2"
       shift
       ;;
+    --baseUrl)
+      params="$params  --baseUrl  $2"
+      shift
+      ;;
     *)
       printf "*********************************************************************************\n"
       printf "* Error, invalid arguments. Valid arguments are \n"
@@ -31,5 +35,5 @@ while [ $# -gt 0 ]; do
   shift
 done
 
-node src/biovalidator $params
+node src/biovalidator --baseUrl /biosamples/biovalidator $params
 
