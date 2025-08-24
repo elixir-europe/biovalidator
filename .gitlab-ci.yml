@@ -60,6 +60,17 @@ deploy_prod_primary:
   when: manual
   extends: .kube_deploy_script
 
+deploy_prod_ait_biovalidator:
+  variables:
+    HOST: www.ebi.ac.uk
+    CONTEXT_PATH: /ait/biovalidator
+    K8S_NAMESPACE: ait_biovalidator_prod
+  environment:
+    name: primary_hl_ait_prod
+    url: https://www.ebi.ac.uk/ait/biovalidator
+  when: manual
+  extends: .kube_deploy_script
+
 deploy_prod_fallback:
     variables:
       HOST: www.ebi.ac.uk

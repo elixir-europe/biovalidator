@@ -25,7 +25,7 @@ spec:
             - containerPort: 3020
           args:
             - "--baseUrl"
-            - "/biosamples/biovalidator"
+            - $CONTEXT_PATH
           env:
             - name: HTTP_PROXY
               value: $HTTP_PROXY
